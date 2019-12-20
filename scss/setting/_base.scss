@@ -1,0 +1,663 @@
+/* reset & set
+-------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    font-style: inherit;
+    border: 0;
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+    letter-spacing: 0.1em;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a img:hover, a:hover {
+    opacity: 0.8;
+}
+
+li img {
+    display: block;
+}
+
+a img {
+    border-style: none;
+}
+
+img {
+    vertical-align: bottom;
+    width: 100%;
+}
+
+//フォームリセット
+
+input,
+label,
+select,
+button,
+submit,
+textarea {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    background: none;
+    line-height: 1;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="button"] {
+    border-radius: 0;
+    -webkit-box-sizing: content-box;
+    -webkit-appearance: button;
+    appearance: button;
+    border: none;
+    box-sizing: border-box;
+    background: none;
+
+    &::-webkit-search-decoration {
+        display: none;
+    }
+
+    &::focus {
+        outline-offset: -2px;
+    }
+}
+
+select {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+    outline: 0;
+}
+
+/* Make webkit render the search input like a normal text field */
+input[type=search] {
+    -webkit-appearance: textfield;
+}
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+    display: none;
+}
+
+/* Turn off scroll bars in IE unless needed */
+textarea {
+    overflow: auto;
+}
+
+@font-face {
+    font-family: 'DINPro Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local("DINPro Medium"), url("../fonts/DINPro-Medium tr.woff") format("woff");
+}
+
+/*クリアフィックス*/
+.cf:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+html {
+    font-size: 120%;
+}
+
+body {
+    line-height: 1.5;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+
+    //min-width: 1100px;
+}
+
+section {
+    width: 100%;
+}
+
+/*
+インナー領域
+--------------------------*/
+
+.section__inner, .content, .header__inner {
+    width: 1150px;
+    margin: auto;
+}
+
+.sp {
+    display: none;
+}
+
+.sp-display {
+    display: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    html {
+        font-size: 13.33333vw;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .pc-display {
+        display: none !important;
+    }
+
+    .sp {
+        display: block;
+    }
+
+    .sp-dis {
+        display: block !important;
+    }
+
+    section {
+        margin-bottom: 30px;
+    }
+}
+
+/*
+見出しスタイル
+------------------------------*/
+
+/*水色背景の見出し*/
+.band {
+    background-color: $blue04;
+    text-align: center;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+h2, h3, h4 {
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.num__wrap {
+    .num__tit {
+        font-family: 'DINPro Medium';
+        position: relative;
+        font-size: 3.8rem;
+        padding-bottom: 8px;
+        text-align: center;
+        margin-bottom: 5px;
+        color: $num;
+        line-height: 1.0;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 1px;
+            background-color: #454545;
+        }
+    }
+
+    span {
+        display: block;
+        text-align: center;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #454545;
+    }
+}
+
+@media (max-width: 767px) {
+    h2 {
+        font-size: 2.0rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/*矢印　くの字*/
+
+.arrow::after {
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: 15px;
+    width: 15px;
+    height: 15px;
+    border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
+    transform: rotate(45deg) translateX(-50%);
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    background-color: #bed6e4;
+    height: 53px;
+    line-height: 53px;
+    text-align: center;
+    width: 170px;
+    color: #000;
+    font-size: 14px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.sm {
+    font-size: .6rem;
+    letter-spacing: 1px;
+    display: block;
+    opacity: .8;
+}
+
+/*下層ページ基本カラー*/
+
+body.page {
+    color: #454545;
+}
+
+/*パンくずリスト*/
+
+.path {
+    text-align: center;
+    margin-bottom: 90px;
+
+    li {
+        display: inline-block;
+        margin: 0 0.5%;
+
+        a {
+            font-size: .78rem;
+            font-family: $gosic;
+        }
+
+        &:nth-of-type(1) a {
+            color: #686868;
+        }
+    }
+}
+
+/*三角形*/
+
+.triangle {
+    position: absolute;
+    top: 1px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 15px 23px 15px;
+    border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+}
+
+/*サムネイル*/
+
+.tl {
+    text-align: left !important;
+}
+
+.tr {
+    text-align: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.trx {
+    transform: translateX(-50%);
+}
+
+.try {
+    transform: translateY(-50%);
+}
+
+.ls1 {
+    letter-spacing: 1px;
+}
+
+.ls2 {
+    letter-spacing: 2px;
+}
+
+.fw600 {
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {}
+
+@media (max-width: 767px) {}
+
+@media (min-width: 768px) {
+    .rl {
+        writing-mode: vertical-rl;
+    }
+}
+
+.f-ryu {
+    font-family: a-otf-ryumin-pr6n, serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2.1rem;
+    letter-spacing: 2px;
+}
+
+.fw600 {
+    font-weight: 600;
+}
+
+.cw {
+    color: #fff;
+}
+
+.gosic {
+    font-family: $gosic;
+}
+
+.jc-cent {
+    justify-content: center !important;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fw {
+    flex-wrap: wrap;
+}
+
+.ff-row-reverse {
+    flex-flow: row-reverse;
+}
+
+.box-size {
+    box-sizing: border-box;
+}
+
+.vt {
+    vertical-align: top !important;
+}
+
+.al-cent {
+    align-items: center !important;
+}
+
+.al-top {
+    align-items: flex-start !important;
+}
+
+.al-bottom {
+    align-items: flex-end !important;
+}
+
+.ju-st {
+    justify-content: flex-start !important;
+}
+
+/*swiper*/
+
+@media (max-width: 767px) {
+    .swiper-wrapper.sp-bnr {
+        height: 100%;
+    }
+}
+
+.swiper-wrapper {
+    height: auto;
+}
+
+.swiper-button-prev {
+    background: url("../img/common/arrow_02.svg") no-repeat 50% 50% / 20px;
+}
+
+.swiper-button-next {
+    background: url("../img/common/arrow_01.svg") no-repeat 50% 50% / 20px;
+}
+
+.area-bgs {
+    background: no-repeat 50% 50%/cover;
+}
+
+.in-view {
+    opacity: 0;
+    transform: translate(0, 60px);
+    transition: ease 1.5s;
+}
+
+.fade-in {
+    opacity: 1.0;
+    transform: translate(0, 0);
+}
+
+/*qa 症例*/
+
+.slide-p2 {
+    position: static;
+}
+
+.slide-p2 .swiper-slide {
+    height: 390px;
+}
+
+.prev2, .next2 {
+    top: 58%;
+}
+
+.prev2 {
+    left: 0px;
+}
+
+.next2 {
+    right: 0px;
+}
+
+.swiper-container-horizontal .swiper-pagination {
+    bottom: -40px;
+}
+
+.swiper-pagination-bullet {
+    border-radius: 0;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {}
+
+@media (max-width: 767px) {
+    .swiper-button-prev, .swiper-button-next {
+        background-size: 16px;
+    }
+
+    .slide-p2 .swiper-slide {
+        height: 63vw;
+    }
+
+    .swiper3 .swiper-slide {
+        height: auto;
+    }
+
+    .prev2, .next2 {
+        top: 58%;
+    }
+
+    .prev2 {
+        left: -35px;
+    }
+
+    .next2 {
+        right: -35px;
+    }
+
+    .swiper3 .prev2, .swiper3 .next2 {
+        top: 63%;
+    }
+
+    .swiper3 .prev2 {
+        left: -20px;
+    }
+
+    .swiper3 .next2 {
+        right: -20px;
+    }
+
+    .swiper-container-horizontal .swiper-pagination {
+        bottom: -30px;
+    }
+
+    .swiper3.swiper-container-horizontal .swiper-pagination {
+        bottom: -20px;
+    }
+
+    .swiper-pagination-bullet {
+        border-radius: 0;
+    }
+
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {}
+}
+
+/*施術の感想スライド設定*/
+
+.kuchikomi-slide {
+    position: relative;
+}
+
+.slide-p2.swiper4 .swiper-slide {
+    height: 388px;
+}
+
+.swiper4 .prev2, .swiper4 .next2 {
+    top: 50%;
+}
+
+.swiper4 .prev2 {
+    left: -65px;
+}
+
+.swiper4 .next2 {
+    right: -65px;
+}
+
+@media (min-width: 768px) {
+    .swiper4 .swiper-pagination {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .swiper4 .prev2, .swiper4 .next2 {
+        display: none !important;
+    }
+}
+
+/*PAGE TOP SCROll*/
+
+.page-top {
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+    width: 12px;
+    z-index: 9000;
+    display: none;
+}
+
+.bounce {
+    animation: bounce linear 1.6s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    15% {
+        transform: translate(0px, -25px);
+    }
+
+    30% {
+        transform: translate(0px, 0px);
+    }
+
+    45% {
+        transform: translate(0px, -15px);
+    }
+
+    60% {
+        transform: translate(0px, 0px);
+    }
+
+    75% {
+        transform: translate(0px, -5px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@media (max-width: 767px) {
+    .page-top {
+        bottom: 12%;
+        right: 3.75%;
+        width: 7px;
+    }
+}

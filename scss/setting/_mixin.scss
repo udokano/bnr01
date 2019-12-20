@@ -1,0 +1,68 @@
+@mixin box-center {
+    margin: 0 auto;
+}
+
+@mixin img-fit {
+    width: 100%;
+    height: auto;
+}
+
+@mixin trxy {
+    transform: translate(-50%, -50%);
+}
+
+@mixin try {
+    transform: translateY(-50%);
+}
+
+@mixin trx {
+    transform: translateX(-50%);
+}
+
+@mixin table-style {
+    display: table-cell;
+    font-size: 1.2rem;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 10px 0;
+    color: #777777;
+}
+
+@mixin s-h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+@mixin tm-line-h2 {
+    border-top: 1px solid #686868;
+    text-align: center;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #686868;
+    padding: 15px 0;
+    margin-bottom: 35px;
+    font-family: $gosic;
+}
+
+@mixin s-p {
+    line-height: 2.1;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+@mixin box {
+    @include box-center;
+
+    width: $w;
+}
+
+@mixin pd {
+    padding: 60px 0;
+}
+
+@mixin spd {
+    padding: 30px 0;
+}

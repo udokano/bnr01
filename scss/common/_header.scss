@@ -1,0 +1,27 @@
+#site__header {
+    background-color: #454545;
+    padding: 20px 0;
+
+    .header__inner {
+        .header__logo {
+            width: 140px;
+        }
+    }
+
+    .header__nav {
+        ul {
+            li {
+                margin: 0 .6rem;
+
+                a {
+                    color: #fff;
+                    font-size: .5rem;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

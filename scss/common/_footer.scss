@@ -1,0 +1,18 @@
+#site__footer {
+    background-color: #454545;
+    padding: .8rem 0;
+
+    .footer__nav {
+        text-align: center;
+
+        li {
+            display: inline-block;
+            font-size: .6rem;
+            margin: 0 .4rem;
+
+            a {
+                color: #fff;
+            }
+        }
+    }
+}

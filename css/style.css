@@ -1,0 +1,1490 @@
+@charset "UTF-8";
+/* CSS Document */
+/* reset & set
+-------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  letter-spacing: 0.1em;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a img:hover, a:hover {
+  opacity: 0.8;
+}
+
+li img {
+  display: block;
+}
+
+a img {
+  border-style: none;
+}
+
+img {
+  vertical-align: bottom;
+  width: 100%;
+}
+
+input,
+label,
+select,
+button,
+submit,
+textarea {
+  -webkit-box-sizing: border-box;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  font: inherit;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="button"] {
+  -moz-appearance: button;
+  -webkit-appearance: button;
+  -webkit-box-sizing: content-box;
+  -webkit-box-sizing: border-box;
+  appearance: button;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+
+input[type="submit"]::focus,
+input[type="button"]::focus {
+  outline-offset: -2px;
+}
+
+select {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+}
+
+/* Make webkit render the search input like a normal text field */
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+  display: none;
+}
+
+/* Turn off scroll bars in IE unless needed */
+textarea {
+  overflow: auto;
+}
+
+@font-face {
+  font-family: 'DINPro Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local("DINPro Medium"), url("../fonts/DINPro-Medium tr.woff") format("woff");
+}
+
+/*クリアフィックス*/
+.cf:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+html {
+  font-size: 120%;
+}
+
+body {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+  line-height: 1.5;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+section {
+  width: 100%;
+}
+
+/*
+インナー領域
+--------------------------*/
+.section__inner, .content, .header__inner {
+  margin: auto;
+  width: 1150px;
+}
+
+.sp {
+  display: none;
+}
+
+.sp-display {
+  display: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    position: relative;
+    width: 100%;
+  }
+  html {
+    font-size: 13.33333vw;
+  }
+  .pc {
+    display: none;
+  }
+  .pc-display {
+    display: none !important;
+  }
+  .sp {
+    display: block;
+  }
+  .sp-dis {
+    display: block !important;
+  }
+  section {
+    margin-bottom: 30px;
+  }
+}
+
+/*
+見出しスタイル
+------------------------------*/
+/*水色背景の見出し*/
+.band {
+  background-color: #08abff;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 10px 0;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+.num__wrap .num__tit {
+  color: #7a959f;
+  font-family: 'DINPro Medium';
+  font-size: 3.8rem;
+  line-height: 1.0;
+  margin-bottom: 5px;
+  padding-bottom: 8px;
+  position: relative;
+  text-align: center;
+}
+
+.num__wrap .num__tit::after {
+  -webkit-transform: translateX(-50%);
+  background-color: #454545;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 120px;
+}
+
+.num__wrap span {
+  color: #454545;
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 2.0rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/*矢印　くの字*/
+.arrow::after {
+  -webkit-transform: rotate(45deg) translateX(-50%);
+  border-bottom: 1px solid #6594ac;
+  border-top: 1px solid #6594ac;
+  bottom: 15px;
+  content: "";
+  height: 15px;
+  position: absolute;
+  right: 50%;
+  transform: rotate(45deg) translateX(-50%);
+  width: 15px;
+}
+
+.btn {
+  background-color: #bed6e4;
+  border-radius: 6px;
+  color: #000;
+  display: inline-block;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+  font-size: 14px;
+  height: 53px;
+  letter-spacing: 1px;
+  line-height: 53px;
+  position: relative;
+  text-align: center;
+  width: 170px;
+}
+
+.btn:hover {
+  opacity: .8;
+}
+
+.sm {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: 1px;
+  opacity: .8;
+}
+
+/*下層ページ基本カラー*/
+body.page {
+  color: #454545;
+}
+
+/*パンくずリスト*/
+.path {
+  margin-bottom: 90px;
+  text-align: center;
+}
+
+.path li {
+  display: inline-block;
+  margin: 0 0.5%;
+}
+
+.path li a {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+  font-size: .78rem;
+}
+
+.path li:nth-of-type(1) a {
+  color: #686868;
+}
+
+/*三角形*/
+.triangle {
+  border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+  border-style: solid;
+  border-width: 0 15px 23px 15px;
+  height: 0;
+  left: 30px;
+  position: absolute;
+  top: 1px;
+  width: 0;
+}
+
+/*サムネイル*/
+.tl {
+  text-align: left !important;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tc {
+  text-align: center;
+}
+
+.trx {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.try {
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.ls1 {
+  letter-spacing: 1px;
+}
+
+.ls2 {
+  letter-spacing: 2px;
+}
+
+.fw600 {
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .rl {
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+  }
+}
+
+.f-ryu {
+  font-family: a-otf-ryumin-pr6n, serif;
+  font-size: 2.1rem;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.fw600 {
+  font-weight: 600;
+}
+
+.cw {
+  color: #fff;
+}
+
+.gosic {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+
+.jc-cent {
+  -ms-flex-pack: center !important;
+  -webkit-box-pack: center !important;
+  justify-content: center !important;
+}
+
+.flex {
+  -ms-flex-pack: justify;
+  -webkit-box-pack: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fw {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.ff-row-reverse {
+  -ms-flex-flow: row-reverse;
+  -webkit-box-direction: reverse;
+  -webkit-box-orient: horizontal;
+  flex-flow: row-reverse;
+}
+
+.box-size {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.vt {
+  vertical-align: top !important;
+}
+
+.al-cent {
+  -ms-flex-align: center !important;
+  -webkit-box-align: center !important;
+  align-items: center !important;
+}
+
+.al-top {
+  -ms-flex-align: start !important;
+  -webkit-box-align: start !important;
+  align-items: flex-start !important;
+}
+
+.al-bottom {
+  -ms-flex-align: end !important;
+  -webkit-box-align: end !important;
+  align-items: flex-end !important;
+}
+
+.ju-st {
+  -ms-flex-pack: start !important;
+  -webkit-box-pack: start !important;
+  justify-content: flex-start !important;
+}
+
+/*swiper*/
+@media (max-width: 767px) {
+  .swiper-wrapper.sp-bnr {
+    height: 100%;
+  }
+}
+
+.swiper-wrapper {
+  height: auto;
+}
+
+.swiper-button-prev {
+  background: url("../img/common/arrow_02.svg") no-repeat 50% 50%/20px;
+}
+
+.swiper-button-next {
+  background: url("../img/common/arrow_01.svg") no-repeat 50% 50%/20px;
+}
+
+.area-bgs {
+  background: no-repeat 50% 50%/cover;
+}
+
+.in-view {
+  -webkit-transform: translate(0, 60px);
+  -webkit-transition: ease 1.5s;
+  opacity: 0;
+  transform: translate(0, 60px);
+  transition: ease 1.5s;
+}
+
+.fade-in {
+  -webkit-transform: translate(0, 0);
+  opacity: 1.0;
+  transform: translate(0, 0);
+}
+
+/*qa 症例*/
+.slide-p2 {
+  position: static;
+}
+
+.slide-p2 .swiper-slide {
+  height: 390px;
+}
+
+.prev2, .next2 {
+  top: 58%;
+}
+
+.prev2 {
+  left: 0px;
+}
+
+.next2 {
+  right: 0px;
+}
+
+.swiper-container-horizontal .swiper-pagination {
+  bottom: -40px;
+}
+
+.swiper-pagination-bullet {
+  border-radius: 0;
+}
+
+@media (max-width: 767px) {
+  .swiper-button-prev, .swiper-button-next {
+    background-size: 16px;
+  }
+  .slide-p2 .swiper-slide {
+    height: 63vw;
+  }
+  .swiper3 .swiper-slide {
+    height: auto;
+  }
+  .prev2, .next2 {
+    top: 58%;
+  }
+  .prev2 {
+    left: -35px;
+  }
+  .next2 {
+    right: -35px;
+  }
+  .swiper3 .prev2, .swiper3 .next2 {
+    top: 63%;
+  }
+  .swiper3 .prev2 {
+    left: -20px;
+  }
+  .swiper3 .next2 {
+    right: -20px;
+  }
+  .swiper-container-horizontal .swiper-pagination {
+    bottom: -30px;
+  }
+  .swiper3.swiper-container-horizontal .swiper-pagination {
+    bottom: -20px;
+  }
+  .swiper-pagination-bullet {
+    border-radius: 0;
+  }
+}
+
+/*施術の感想スライド設定*/
+.kuchikomi-slide {
+  position: relative;
+}
+
+.slide-p2.swiper4 .swiper-slide {
+  height: 388px;
+}
+
+.swiper4 .prev2, .swiper4 .next2 {
+  top: 50%;
+}
+
+.swiper4 .prev2 {
+  left: -65px;
+}
+
+.swiper4 .next2 {
+  right: -65px;
+}
+
+@media (min-width: 768px) {
+  .swiper4 .swiper-pagination {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .swiper4 .prev2, .swiper4 .next2 {
+    display: none !important;
+  }
+}
+
+/*PAGE TOP SCROll*/
+.page-top {
+  bottom: 3%;
+  display: none;
+  position: fixed;
+  right: 2%;
+  width: 12px;
+  z-index: 9000;
+}
+
+.bounce {
+  -webkit-animation: bounce linear 1.6s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  animation: bounce linear 1.6s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  15% {
+    -webkit-transform: translate(0px, -25px);
+    transform: translate(0px, -25px);
+  }
+  30% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  45% {
+    -webkit-transform: translate(0px, -15px);
+    transform: translate(0px, -15px);
+  }
+  60% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  75% {
+    -webkit-transform: translate(0px, -5px);
+    transform: translate(0px, -5px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  15% {
+    -webkit-transform: translate(0px, -25px);
+    transform: translate(0px, -25px);
+  }
+  30% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  45% {
+    -webkit-transform: translate(0px, -15px);
+    transform: translate(0px, -15px);
+  }
+  60% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  75% {
+    -webkit-transform: translate(0px, -5px);
+    transform: translate(0px, -5px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+}
+
+@media (max-width: 767px) {
+  .page-top {
+    bottom: 12%;
+    right: 3.75%;
+    width: 7px;
+  }
+}
+
+#site__footer {
+  background-color: #454545;
+  padding: .8rem 0;
+}
+
+#site__footer .footer__nav {
+  text-align: center;
+}
+
+#site__footer .footer__nav li {
+  display: inline-block;
+  font-size: .6rem;
+  margin: 0 .4rem;
+}
+
+#site__footer .footer__nav li a {
+  color: #fff;
+}
+
+#site__header {
+  background-color: #454545;
+  padding: 20px 0;
+}
+
+#site__header .header__inner .header__logo {
+  width: 140px;
+}
+
+#site__header .header__nav ul li {
+  margin: 0 .6rem;
+}
+
+#site__header .header__nav ul li a {
+  color: #fff;
+  font-size: .5rem;
+}
+
+#site__header .header__nav ul li:last-child {
+  margin-right: 0;
+}
+
+/*
+
+　基本
+
+
+*/
+.infinite__banner__area {
+  margin: 2.2rem 0 3.8rem;
+}
+
+.infinite__banner__area .section__inner h2 {
+  color: #ffa200;
+  font-size: 1.4rem;
+  margin-bottom: 2.2rem;
+  text-align: center;
+}
+
+.infinite__banner__area .section__inner .banners {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.infinite__banner__area .section__inner .banners li {
+  width: 30%;
+}
+
+/*
+基本
+-----------------*/
+input {
+  background-color: #f8f8f8;
+  padding: 8px;
+}
+
+select {
+  background-color: #f8f8f8;
+  margin-bottom: 35px;
+}
+
+span.wpcf7-list-item {
+  margin-bottom: 35px !important;
+}
+
+input[type="submit"] {
+  background-color: #ff9023;
+  color: #fff;
+  padding: 1.2em;
+}
+
+input[type="text"] {
+  border-radius: 3px;
+  padding: .6rem;
+}
+
+textarea {
+  background-color: #fff;
+  border: 1px solid #67b2ec;
+  border-radius: 11px;
+  height: 221px;
+  margin-bottom: 1.2rem;
+  padding: 1.2em;
+  width: 100%;
+}
+
+.note {
+  color: #ff0005;
+  line-height: 1.85;
+  text-align: center;
+}
+
+/*ラベル名が自動的に出力されるのを非表示*/
+.iopt_label {
+  display: none !important;
+}
+
+::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+::-moz-placeholder {
+  color: #ccc;
+}
+
+:-ms-input-placeholder {
+  color: #ccc;
+}
+
+::-ms-input-placeholder {
+  color: #ccc;
+}
+
+::placeholder {
+  color: #ccc;
+}
+
+/*エラーメッセージ*/
+.error_message {
+  color: red;
+}
+
+/*初めは非表示*/
+.hidden {
+  background-color: #fff !important;
+  border-color: #6594ac !important;
+  display: none;
+  margin: auto;
+  width: 77%;
+}
+
+/*フォームエリア記載
+-------------------------*/
+.purchase__form {
+  background-color: #f0faff;
+  background-image: -webkit-repeating-linear-gradient(top, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px), -webkit-repeating-linear-gradient(left, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px);
+  background-image: repeating-linear-gradient(to bottom, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px), repeating-linear-gradient(to right, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px);
+}
+
+.purchase__form .form__inner dl {
+  background-color: #e3f7ff;
+  padding: 2.5rem 3.6rem;
+  /*サイズ選択*/
+}
+
+.purchase__form .form__inner dl dt {
+  margin-bottom: 25px;
+}
+
+.purchase__form .form__inner dl:nth-of-type(even) {
+  background-color: #fff;
+  border: none;
+}
+
+.purchase__form .form__inner dl .select__zone {
+  text-align: center;
+  /*クリックしたときのスタイル*/
+}
+
+.purchase__form .form__inner dl .select__zone label {
+  background-color: #fff;
+  border: 1px solid #6594ac;
+  color: #6594ac;
+  display: inline-block;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 35px 10px 35px 190px;
+  position: relative;
+  text-align: left;
+  width: 38%;
+  /*サムネイル画像振り分け*/
+}
+
+.purchase__form .form__inner dl .select__zone label input {
+  display: none;
+}
+
+.purchase__form .form__inner dl .select__zone label::after, .purchase__form .form__inner dl .select__zone label::before {
+  -webkit-transform: translateY(-50%);
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.purchase__form .form__inner dl .select__zone label::after {
+  background-color: #fff;
+  border: 1px #6594ac solid;
+  border-radius: 3px;
+  height: 21px;
+  left: 22px;
+  width: 21px;
+}
+
+.purchase__form .form__inner dl .select__zone label::before {
+  -webkit-transform: translateY(-50%) rotate(-52deg);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.07);
+  border-left: 3px solid rgba(0, 0, 0, 0.07);
+  height: 7px;
+  left: 25px;
+  transform: translateY(-50%) rotate(-52deg);
+  width: 14px;
+  z-index: 1000;
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6), .purchase__form .form__inner dl .select__zone label:nth-of-type(7) {
+  background: #fff no-repeat 24% 50% / 20% auto;
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(2) {
+  background-image: url(../img/icons/radio_icon01.jpg);
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(3) {
+  background-image: url(../img/icons/radio_icon02.jpg);
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(4) {
+  background-image: url(../img/icons/radio_icon03.png);
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(5) {
+  background-image: url(../img/icons/radio_icon04.jpg);
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(6) {
+  background-image: url(../img/icons/radio_icon05.jpg);
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(7) {
+  background-image: url(../img/icons/radio_icon06.jpg);
+}
+
+.purchase__form .form__inner dl .select__zone label.checked {
+  border: 4px solid #ffa200;
+}
+
+.purchase__form .form__inner dl .select__zone label.checked::before {
+  border-color: #ffa200;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone {
+  -ms-flex-pack: distribute;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  width: 90%;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label {
+  background-color: #ffa200;
+  border-radius: 37px;
+  color: #fff;
+  height: 74px;
+  line-height: 74px;
+  margin: 0 1.5rem 1.8rem;
+  padding: 0 30px 0 120px;
+  position: relative;
+  width: 26%;
+  /*サムネイル画像振り分け*/
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label input {
+  display: none;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label::after, .purchase__form .form__inner .select__btns .select__btn__zone label::before {
+  -webkit-transform: translateY(-50%);
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label::after {
+  background-color: #fff;
+  border: 1px #6594ac solid;
+  border-radius: 3px;
+  height: 21px;
+  left: 34px;
+  width: 21px;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label::before {
+  -webkit-transform: translateY(-50%) rotate(-52deg);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.07);
+  border-left: 3px solid rgba(0, 0, 0, 0.07);
+  height: 7px;
+  left: 37px;
+  transform: translateY(-50%) rotate(-52deg);
+  width: 14px;
+  z-index: 1000;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(7) {
+  background: #ffa200 no-repeat 32% 50%/26px auto;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(2) {
+  background-image: url(../img/icons/option_icon01.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(3) {
+  background-image: url(../img/icons/option_icon02.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(4) {
+  background-image: url(../img/icons/option_icon03.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(5) {
+  background-image: url(../img/icons/option_icon01.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(6) {
+  background-image: url(../img/icons/option_icon02.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(7) {
+  background-image: url(../img/icons/option_icon03.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone label.checked::before {
+  border-color: red;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.public__btn {
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.public__btn label {
+  height: 74px;
+  line-height: 74px;
+  padding: 0 30px 0 74px;
+  width: 20%;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(7) {
+  background-image: none;
+}
+
+.purchase__form .form__inner .info__customer {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.purchase__form .form__inner .info__customer .text__area {
+  margin: 0 .3rem 1.7rem;
+  width: 45%;
+}
+
+.purchase__form .form__inner .info__customer .text__area span {
+  display: block;
+  margin-bottom: .4rem;
+}
+
+.purchase__form .form__inner .info__customer .text__area input {
+  background-color: #fff;
+  width: 100%;
+}
+
+.purchase__form .form__inner .info__customer .text__area:last-child {
+  margin-right: 54%;
+}
+
+/**
+テーブルスタイル
+-------------------------------**/
+.output__table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.output__table tr th, .output__table tr td {
+  padding: .9rem 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 20%;
+}
+
+.output__table tr th.last {
+  border-right: none;
+}
+
+.output__table thead {
+  background-color: #949494;
+}
+
+.output__table thead tr th {
+  border-right: 1px solid #fff;
+  color: #fff;
+}
+
+.output__table thead tr th.last {
+  background-color: #5b738e;
+}
+
+.output__table tbody {
+  background-color: #e3f7ff;
+}
+
+.output__table tbody tr td {
+  border-right: 1px solid #fff;
+}
+
+/*カートへ入れるボタン*/
+.cart__in {
+  margin: 0 auto 2.2rem;
+  width: 422px;
+}
+
+.cart__in .cart__btn__cont {
+  display: inline-block;
+  position: relative;
+}
+
+.cart__in .cart__btn__cont input {
+  background-color: #2b9dd7;
+  border-radius: 12px;
+  display: block;
+  font-size: 1.2rem;
+  height: 88px;
+  line-height: 88px;
+  padding: 0;
+  padding-left: 57px;
+  width: 422px;
+}
+
+.cart__in .cart__btn__cont::after {
+  -webkit-transform: translateY(-50%);
+  background: url(../img/icons/cart_icon.png) no-repeat 20% 50%/34px 35px;
+  content: "";
+  height: 35px;
+  left: 45px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+}
+
+/*利用規約*/
+.term {
+  background-color: #ededed;
+  height: 320px;
+  overflow-y: scroll;
+  padding: 1.6rem;
+  width: 100%;
+}
+
+.term h3 {
+  color: #ffa200;
+  font-size: 1.2rem;
+  margin-bottom: .8rem;
+}
+
+.term h3 p {
+  font-size: .94rem;
+}
+
+/*CF7フォームスタイル
+----------------------------*/
+.wpcf7 p {
+  margin-bottom: 1.5rem;
+}
+
+.wpcf7 p.sub-tit {
+  color: #6594ac;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  padding: 5px 35px;
+}
+
+.wpcf7 dl {
+  margin-bottom: 2.5rem;
+}
+
+.wpcf7 dl dt {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.9rem;
+  padding: 12px 35px;
+}
+
+.wpcf7 dl dd {
+  background: #fff;
+  padding: 35px;
+}
+
+.wpcf7 dl dd.bnr__serect {
+  background-color: #fff;
+}
+
+.wpcf7 dl dd.bnr__serect .radio-row {
+  -ms-flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.wpcf7 dl dd.bnr__serect span.radio-col {
+  display: block;
+  width: 47%;
+}
+
+.wpcf7 dl dd.bnr__serect .thumb {
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.wpcf7 dl#f-size dt .modal__trigger-cont {
+  width: 47%;
+}
+
+.wpcf7 dl#f-size dt .modal__trigger-cont .thumb {
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.wpcf7 dl#f-size dd {
+  background: none;
+  padding: 0;
+}
+
+.wpcf7 dl.sp__size {
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.wpcf7 dl.sp__size dt {
+  font-size: 1.0rem;
+}
+
+/*
+テーブルスタイル
+----------------------------*/
+.value__list {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.value__list th, .value__list td {
+  border: #fff solid 1px;
+  color: #000;
+  padding: 15px 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.value__list thead {
+  background-color: #fff8ee;
+}
+
+.value__list tbody {
+  background-color: #bed6e4;
+}
+
+.value__list tbody tr td {
+  font-size: 1.2rem;
+}
+
+/*
+ボタンスタイル
+----------------------------*/
+.send__wrap {
+  margin: 35px 0;
+}
+
+.send__wrap a {
+  display: block;
+  height: 53px;
+  line-height: 53px;
+  margin: auto;
+  width: 240px;
+}
+
+.send__wrap #send-in {
+  background-color: #ff9023;
+  border: 1px solid #fff;
+  color: #fff;
+  display: block;
+  margin: auto;
+  width: 240px;
+}
+
+a.wpcf7-form-control {
+  background-color: orangered;
+  color: #fff;
+  display: block;
+  height: 53px;
+  line-height: 53px;
+  margin: 0 auto 15px;
+  text-align: center;
+  width: 240px;
+}
+
+#f-num {
+  display: none;
+}
+
+/* #size__secrct02 {
+    display: none;
+} */
+/* #total {
+    position: fixed;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+    text-align: center;
+    font-size: 3.6rem;
+    color: red;
+    letter-spacing: 2px;
+
+    .checkbox-col label, .radio-col label, .cf7-calculated-name {
+        font-size: 3.6rem;
+    }
+} */
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9000;
+}
+
+.modal .modal__inner {
+  -webkit-transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 540px;
+  left: 50%;
+  padding: 45px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 540px;
+  z-index: 9999;
+}
+
+.modal .modal__inner h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.modal .modal__bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 9300;
+}
+
+/*===================
+一時的に合計料金下固定
+=====================================*/
+.fix__bottom {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.fix__bottom .value__list {
+  margin: auto;
+  width: 800px;
+}
+
+/*
+カートページスタイル
+-------------------------------*/
+.customer_form {
+  width: 100%;
+}
+
+.key__visual {
+  background: url(../img/top/key_visual_bg.jpg) no-repeat 50% 50%/auto 100%;
+  height: 800px;
+  padding: 80px 0;
+  width: 100%;
+}
+
+.key__visual .content h1 {
+  margin: 15px auto 35px;
+  width: 70%;
+}
+
+.key__visual .content ul {
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.key__visual .content ul li {
+  -ms-flex-flow: column;
+  -ms-flex-pack: center;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  background-color: #fff;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: column;
+  height: 238px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+  width: 238px;
+}
+
+.key__visual .content ul li em {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.key__visual .content ul li i {
+  display: block;
+  margin: 0 auto;
+  width: 22%;
+}
+
+.key__visual .content ul li:nth-of-type(1) {
+  background-color: #f3fffc;
+}
+
+.key__visual .content ul li:nth-of-type(1) em {
+  color: #ff5c5c;
+}
+
+.key__visual .content ul li:nth-of-type(2) {
+  background-color: #eff9ff;
+  margin: 0 25px;
+}
+
+.key__visual .content ul li:nth-of-type(2) em {
+  color: #35b118;
+}
+
+.key__visual .content ul li:nth-of-type(3) {
+  background-color: #fffef4;
+}
+
+.key__visual .content ul li:nth-of-type(3) em {
+  color: #08abff;
+}
+
+.key__visual .content ul li:nth-of-type(3) i {
+  width: 62%;
+}
+
+.key__visual .content .read__text {
+  color: #08374f;
+  font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "Yu Mincho Light", "YuMincho", "Yu Mincho", "游明朝体", "serif";
+  font-size: .92rem;
+  line-height: 1.9;
+  text-align: center;
+}

@@ -1,0 +1,83 @@
+.key__visual {
+    background: url(../img/top/key_visual_bg.jpg) no-repeat 50% (50% / auto) 100%;
+    width: 100%;
+    height: 800px;
+    padding: 80px 0;
+
+    .content {
+        h1 {
+            width: 70%;
+            margin: 15px auto 35px;
+        }
+
+        ul {
+            justify-content: center;
+            margin-bottom: 35px;
+
+            li {
+                background-color: #fff;
+                width: 238px;
+                height: 238px;
+                position: relative;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                padding: 20px;
+
+                em {
+                    font-weight: 600;
+                    font-size: 1.02rem;
+                    line-height: 1.4;
+                    display: block;
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+
+                i {
+                    display: block;
+                    width: 22%;
+                    margin: 0 auto;
+                }
+
+                &:nth-of-type(1) {
+                    background-color: #f3fffc;
+
+                    em {
+                        color: $red;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    background-color: #eff9ff;
+                    margin: 0 25px;
+
+                    em {
+                        color: $green;
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    background-color: #fffef4;
+
+                    em {
+                        color: $blue04;
+                    }
+
+                    i {
+                        width: 62%;
+                    }
+                }
+            }
+        }
+
+        .read__text {
+            text-align: center;
+            line-height: 1.9;
+            font-size: .92rem;
+            font-family: $min;
+            color: $blue02;
+        }
+    }
+}

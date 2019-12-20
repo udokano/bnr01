@@ -1,0 +1,27 @@
+/*
+
+　基本
+
+
+*/
+.infinite__banner__area {
+    margin: 2.2rem 0 3.8rem;
+
+    .section__inner {
+        h2 {
+            text-align: center;
+            color: $yellow;
+            font-size: 1.4rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .banners {
+            width: 100%;
+            flex-wrap: wrap;
+
+            li {
+                width: 30%;
+            }
+        }
+    }
+}
