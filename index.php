@@ -37,8 +37,6 @@
         <?php usces_singleitem_error_message($post->ID, usces_the_itemSku('return')); ?>
       </div>
 
-
-
     <div class="form__entry"> 　
       <h1 class="band">ご注文はこちらから</h1>
       <dl>
@@ -56,7 +54,7 @@
         </dl>
          <dl class="hidden" id="special__size">
             <dt>特殊サイズ希望の場合はこちら</dt>
-            <dd><?php echo usces_the_itemOption("特殊サイズ横");?><span>×</span><?php echo usces_the_itemOption("特殊サイズ縦");?></dd>
+            <dd><?php echo usces_the_itemOption("特殊サイズおおよその横サイズ");?><span>×</span><?php echo usces_the_itemOption("特殊サイズおおよその縦サイズ");?></dd>
         </dl>
       </dl>
 
