@@ -22,17 +22,23 @@
 <section class="purchase__form">
 <div class="section__inner form__inner">
 
+
+
 <form action="<?php echo USCES_CART_URL ?>" method="post">
   <div id="form__parts" class="narrowcolumn" role="main"> 　　　　　
     <?php if (have_posts()) : ?>
     　
-    <?php query_posts('category_slug=itemreco'); ?>
+    <?php $text_field = get_field('test', "usces-cart"); ?>
+<?php echo $text_field; ?>
     　　
     <?php while (have_posts()) : the_post(); usces_the_item("bnr"); ?>
     <?php usces_have_skus();?>
       <div class="error_message">
         <?php usces_singleitem_error_message($post->ID, usces_the_itemSku('return')); ?>
       </div>
+
+
+
     <div class="form__entry"> 　
       <h1 class="band">ご注文はこちらから</h1>
       <dl>
