@@ -6,8 +6,8 @@
       <li> <em>最短当日納品</em> <i><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_icon01.png" alt="アイコン"></i> </li>
       <li> <em>面倒な<br>
         見積もりいらず</em> <i><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_icon02.png" alt="アイコン"></i> </li>
-      <li> <em>多種多様なサイズが<br>
-        制作可能</em> <i><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_icon03.png" alt="アイコン"></i> </li>
+      <li> <em class="pc-display">多種多様なサイズが<br>
+        制作可能</em><em class="sp-display">特殊サイズが<br>制作可能</em> <i><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_icon03.png" alt="アイコン"></i> </li>
     </ul>
 
     <p class="read__text">
@@ -28,8 +28,6 @@
   <div id="form__parts" class="narrowcolumn" role="main"> 　　　　　
     <?php if (have_posts()) : ?>
     　
-    <?php $text_field = get_field('test', "usces-cart"); ?>
-<?php echo $text_field; ?>
     　　
     <?php while (have_posts()) : the_post(); usces_the_item("bnr"); ?>
     <?php usces_have_skus();?>
@@ -48,13 +46,24 @@
          </dt>
         <dd class="select__zone" id="size__select"> <?php echo usces_the_itemOption("サイズ選択");?> </dd>
 
-         <dl class="hidden" id="control__num">
-            <dt>管理番号を入力してください</dt>
+         <dl class="hidden control__num" id="control__num">
+            <dt class="tc">管理番号を入力してください</dt>
             <dd><?php echo usces_the_itemOption("管理番号");?></dd>
         </dl>
-         <dl class="hidden" id="special__size">
+         <dl class="hidden special__size" id="special__size">
             <dt>特殊サイズ希望の場合はこちら</dt>
-            <dd><?php echo usces_the_itemOption("特殊サイズおおよその横サイズ");?><span>×</span><?php echo usces_the_itemOption("特殊サイズおおよその縦サイズ");?></dd>
+            <dd class="">
+              <div class="special__size-box flex al-cent">
+                  <?php echo usces_the_itemOption("特殊サイズおおよその横サイズ");?><span>×</span><?php echo usces_the_itemOption("特殊サイズおおよその縦サイズ");?>
+              </div><!-- ./special__size-box -->
+
+               <div class="special__size-box mb0">
+                 <p>詳細サイズを入力してください</p>
+                 <div class="size__box-text flex al-cent">
+                      <?php echo usces_the_itemOption("特殊サイズ詳細の横サイズ");?><span>×</span><?php echo usces_the_itemOption("特殊サイズ詳細の縦サイズ");?>
+                 </div><!-- ./size__box-text -->
+              </div><!-- ./special__size-box -->
+            </dd>
         </dl>
       </dl>
 
@@ -98,7 +107,8 @@
                 <span>実績として公開</span>
             </div><!-- ./num__wrap -->
         </dt>
-        <dd class="select__btn__zone public__btn flex" id="publish"><?php echo usces_the_itemOption("実績として公開");?></dd>
+        <dd class="select__btn__zone public__btn flex" id="publish"><?php echo usces_the_itemOption("実績として公開");?>
+      <p class="note">※当サイトでご紹介させて頂ければ００円お値引きさせて頂きます。</p></dd>
       </dl>
       <dl class="">
         <dt>

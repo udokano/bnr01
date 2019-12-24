@@ -25,3 +25,27 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    .infinite__banner__area {
+        margin: 2.2rem 0 3.8rem;
+
+        .section__inner {
+            h2 {
+                text-align: center;
+                font-size: 1.4rem;
+                margin-bottom: 2.2rem;
+            }
+
+            .banners {
+                width: 100%;
+                justify-content: space-between;
+
+                li {
+                    width: 48%;
+                    margin-bottom: .8rem;
+                }
+            }
+        }
+    }
+}

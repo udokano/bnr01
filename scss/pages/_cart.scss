@@ -2,7 +2,38 @@
 カートページスタイル
 -------------------------------*/
 
-
 .customer_form {
-    width:100%;
+    width: 100%;
+}
+
+.usccart_navi {
+    .ucart {
+        li {
+            font-size: .9rem;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    #cart_table {
+        box-sizing: border-box;
+        font-size: .39rem;
+
+        .item {
+            width: 40% !important;
+        }
+
+        tr {
+            th, td {
+                width: 8% !important;
+                padding: 0;
+                text-align: left !important;
+                white-space: normal !important;
+            }
+        }
+
+        thead {
+            tr {}
+        }
+    }
 }

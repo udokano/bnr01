@@ -44,7 +44,7 @@ get_header();
 						<tr>
 							<th scope="row" class="num">No.</th>
 							<!-- <th class="thumbnail"> </th> -->
-							<th><?php _e('item name', 'usces'); ?></th>
+							<th class="item"><?php _e('item name', 'usces'); ?></th>
 							<th class="quantity"><?php _e('Unit price', 'usces'); ?></th>
 
 							<th class="subtotal"><?php _e('Amount', 'usces'); ?><?php usces_guid_tax(); ?></th>
@@ -57,8 +57,8 @@ get_header();
 						</tbody>
 						<tfoot>
 						<tr>
-							<th colspan="5" scope="row" class="aright"><?php _e('total items', 'usces'); ?><?php usces_guid_tax(); ?></th>
-							<th class="aright"><?php usces_crform(usces_total_price('return'), true, false); ?></th>
+							<th colspan="4" scope="row" class="aright"><?php _e('total items', 'usces'); ?><?php usces_guid_tax(); ?></th>
+							<th class="aright" colspan="2"><?php usces_crform(usces_total_price('return'), true, false); ?></th>
 						<!-- 	<th colspan="2">&nbsp;</th> -->
 						</tr>
 						</tfoot>
