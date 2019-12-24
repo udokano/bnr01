@@ -168,14 +168,23 @@ section {
     display: none !important;
 }
 
+/*
+SP領域
+--------------------------*/
+
 @media only screen and (max-width: 768px) {
     .wrapper {
+        //overflow: hidden;
         position: relative;
         width: 100%;
     }
 
     html {
-        font-size: 13.33333vw;
+        font-size: 4.33333vw;
+    }
+
+    .section__inner, .content, .header__inner {
+        width: 90%;
     }
 
     .pc {
@@ -190,7 +199,7 @@ section {
         display: block;
     }
 
-    .sp-dis {
+    .sp-display {
         display: block !important;
     }
 
@@ -232,9 +241,9 @@ h3 {
         font-family: 'DINPro Medium';
         position: relative;
         font-size: 3.8rem;
-        padding-bottom: 8px;
+        padding-bottom: 5px;
         text-align: center;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         color: $num;
         line-height: 1.0;
 
@@ -245,7 +254,7 @@ h3 {
             bottom: 0;
             transform: translateX(-50%);
             width: 120px;
-            height: 1px;
+            height: 0.8px;
             background-color: #454545;
         }
     }
@@ -349,8 +358,6 @@ body.page {
     border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
 }
 
-/*サムネイル*/
-
 .tl {
     text-align: left !important;
 }
@@ -401,10 +408,6 @@ body.page {
     letter-spacing: 2px;
 }
 
-.fw600 {
-    font-weight: 600;
-}
-
 .cw {
     color: #fff;
 }
@@ -452,6 +455,10 @@ body.page {
 
 .ju-st {
     justify-content: flex-start !important;
+}
+
+.mb0 {
+    margin-bottom: 0 !important;
 }
 
 /*swiper*/
@@ -607,17 +614,6 @@ body.page {
     }
 }
 
-/*PAGE TOP SCROll*/
-
-.page-top {
-    position: fixed;
-    bottom: 3%;
-    right: 2%;
-    width: 12px;
-    z-index: 9000;
-    display: none;
-}
-
 .bounce {
     animation: bounce linear 1.6s;
     animation-iteration-count: infinite;
@@ -651,13 +647,5 @@ body.page {
 
     100% {
         transform: translate(0px, 0px);
-    }
-}
-
-@media (max-width: 767px) {
-    .page-top {
-        bottom: 12%;
-        right: 3.75%;
-        width: 7px;
     }
 }

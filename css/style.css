@@ -171,13 +171,19 @@ section {
   display: none !important;
 }
 
+/*
+SP領域
+--------------------------*/
 @media only screen and (max-width: 768px) {
   .wrapper {
     position: relative;
     width: 100%;
   }
   html {
-    font-size: 13.33333vw;
+    font-size: 4.33333vw;
+  }
+  .section__inner, .content, .header__inner {
+    width: 90%;
   }
   .pc {
     display: none;
@@ -188,7 +194,7 @@ section {
   .sp {
     display: block;
   }
-  .sp-dis {
+  .sp-display {
     display: block !important;
   }
   section {
@@ -228,8 +234,8 @@ h3 {
   font-family: 'DINPro Medium';
   font-size: 3.8rem;
   line-height: 1.0;
-  margin-bottom: 5px;
-  padding-bottom: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
   position: relative;
   text-align: center;
 }
@@ -239,7 +245,7 @@ h3 {
   background-color: #454545;
   bottom: 0;
   content: "";
-  height: 1px;
+  height: 0.8px;
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
@@ -340,7 +346,6 @@ body.page {
   width: 0;
 }
 
-/*サムネイル*/
 .tl {
   text-align: left !important;
 }
@@ -389,10 +394,6 @@ body.page {
   font-style: normal;
   font-weight: 300;
   letter-spacing: 2px;
-}
-
-.fw600 {
-  font-weight: 600;
 }
 
 .cw {
@@ -461,6 +462,10 @@ body.page {
   -ms-flex-pack: start !important;
   -webkit-box-pack: start !important;
   justify-content: flex-start !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
 }
 
 /*swiper*/
@@ -601,16 +606,6 @@ body.page {
   }
 }
 
-/*PAGE TOP SCROll*/
-.page-top {
-  bottom: 3%;
-  display: none;
-  position: fixed;
-  right: 2%;
-  width: 12px;
-  z-index: 9000;
-}
-
 .bounce {
   -webkit-animation: bounce linear 1.6s;
   -webkit-animation-iteration-count: infinite;
@@ -682,14 +677,6 @@ body.page {
   }
 }
 
-@media (max-width: 767px) {
-  .page-top {
-    bottom: 12%;
-    right: 3.75%;
-    width: 7px;
-  }
-}
-
 #site__footer {
   background-color: #454545;
   padding: .8rem 0;
@@ -731,6 +718,28 @@ body.page {
   margin-right: 0;
 }
 
+@media (max-width: 767px) {
+  #site__header {
+    padding: 10px 0;
+  }
+  #site__header .header__inner .header__logo {
+    width: 100px;
+  }
+  #site__header .header__nav {
+    display: none;
+  }
+  #site__header .header__nav ul li {
+    margin: 0 .6rem;
+  }
+  #site__header .header__nav ul li a {
+    color: #fff;
+    font-size: .5rem;
+  }
+  #site__header .header__nav ul li:last-child {
+    margin-right: 0;
+  }
+}
+
 /*
 
 　基本
@@ -758,17 +767,40 @@ body.page {
   width: 30%;
 }
 
+@media (max-width: 767px) {
+  .infinite__banner__area {
+    margin: 2.2rem 0 3.8rem;
+  }
+  .infinite__banner__area .section__inner h2 {
+    font-size: 1.4rem;
+    margin-bottom: 2.2rem;
+    text-align: center;
+  }
+  .infinite__banner__area .section__inner .banners {
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .infinite__banner__area .section__inner .banners li {
+    margin-bottom: .8rem;
+    width: 48%;
+  }
+}
+
 /*
 基本
 -----------------*/
 input {
   background-color: #f8f8f8;
+  font-size: .88rem;
   padding: 8px;
 }
 
 select {
   background-color: #f8f8f8;
-  margin-bottom: 35px;
+  font-size: .58rem;
+  height: 53px;
 }
 
 span.wpcf7-list-item {
@@ -862,6 +894,10 @@ textarea {
 .purchase__form .form__inner dl:nth-of-type(even) {
   background-color: #fff;
   border: none;
+}
+
+.purchase__form .form__inner dl label {
+  font-size: .88rem;
 }
 
 .purchase__form .form__inner dl .select__zone {
@@ -958,7 +994,7 @@ textarea {
   flex-wrap: wrap;
   justify-content: space-around;
   margin: auto;
-  width: 90%;
+  width: 80%;
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone label {
@@ -967,10 +1003,10 @@ textarea {
   color: #fff;
   height: 74px;
   line-height: 74px;
-  margin: 0 1.5rem 1.8rem;
-  padding: 0 30px 0 120px;
+  margin: 0 .5rem 1.8rem;
+  padding: 0 30px 0 112px;
   position: relative;
-  width: 26%;
+  width: 30%;
   /*サムネイル画像振り分け*/
 }
 
@@ -988,7 +1024,7 @@ textarea {
 
 .purchase__form .form__inner .select__btns .select__btn__zone label::after {
   background-color: #fff;
-  border: 1px #6594ac solid;
+  border: 2px #e09935 solid;
   border-radius: 3px;
   height: 21px;
   left: 34px;
@@ -999,15 +1035,15 @@ textarea {
   -webkit-transform: translateY(-50%) rotate(-52deg);
   border-bottom: 3px solid rgba(0, 0, 0, 0.07);
   border-left: 3px solid rgba(0, 0, 0, 0.07);
-  height: 7px;
-  left: 37px;
+  height: 6px;
+  left: 39px;
   transform: translateY(-50%) rotate(-52deg);
-  width: 14px;
+  width: 13px;
   z-index: 1000;
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(7) {
-  background: #ffa200 no-repeat 32% 50%/26px auto;
+  background: #ffa200 no-repeat 34% 50%/22px auto;
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(2) {
@@ -1045,24 +1081,48 @@ textarea {
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label {
+  font-size: 1.1rem;
   height: 74px;
   line-height: 74px;
-  padding: 0 30px 0 74px;
-  width: 20%;
+  padding: 0 30px 0 86px;
+  width: 27%;
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(7) {
   background-image: none;
 }
 
+.purchase__form .form__inner .control__num input {
+  width: 100%;
+}
+
+.purchase__form .form__inner .special__size dt {
+  text-align: center;
+}
+
+.purchase__form .form__inner .special__size dd .special__size-box {
+  margin-bottom: 1.75rem;
+}
+
+.purchase__form .form__inner .special__size dd .special__size-box p {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.purchase__form .form__inner .special__size dd .special__size-box input, .purchase__form .form__inner .special__size dd .special__size-box select {
+  width: 47.5%;
+}
+
 .purchase__form .form__inner .info__customer {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin: auto;
+  width: 76%;
 }
 
 .purchase__form .form__inner .info__customer .text__area {
   margin: 0 .3rem 1.7rem;
-  width: 45%;
+  width: 48%;
 }
 
 .purchase__form .form__inner .info__customer .text__area span {
@@ -1076,7 +1136,115 @@ textarea {
 }
 
 .purchase__form .form__inner .info__customer .text__area:last-child {
-  margin-right: 54%;
+  margin-right: 51%;
+}
+
+@media (max-width: 767px) {
+  .purchase__form .form__inner dl {
+    padding: 2.0rem .5rem;
+    /*サイズ選択*/
+  }
+  .purchase__form .form__inner dl dt {
+    margin-bottom: 25px;
+  }
+  .purchase__form .form__inner dl label {
+    font-size: .88rem;
+  }
+  .purchase__form .form__inner dl .select__zone {
+    text-align: center;
+    width: 100%;
+  }
+  .purchase__form .form__inner dl .select__zone label {
+    font-size: .9rem;
+    margin-bottom: 20px;
+    padding-left: 9.4rem;
+    width: 100%;
+  }
+  .purchase__form .form__inner dl .select__zone label::after {
+    background-color: #fff;
+    border: 1px #6594ac solid;
+    border-radius: 3px;
+    height: 21px;
+    left: 22px;
+    width: 21px;
+  }
+  .purchase__form .form__inner dl .select__zone label::before {
+    -webkit-transform: translateY(-50%) rotate(-52deg);
+    height: 7px;
+    left: 25px;
+    transform: translateY(-50%) rotate(-52deg);
+    width: 14px;
+  }
+  .purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6), .purchase__form .form__inner dl .select__zone label:nth-of-type(7) {
+    background-position: 24% 50%;
+    background-size: 4.5rem;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone {
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone label {
+    height: 62px;
+    line-height: 62px;
+    margin: 0 0 1.2rem;
+    padding: 0;
+    padding-left: 4.8rem;
+    width: 49%;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone label::after {
+    height: 21px;
+    left: 14px;
+    width: 21px;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone label::before {
+    height: 6px;
+    left: 20px;
+    width: 13px;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone label:nth-of-type(7) {
+    background-position: 35% 50%;
+    background-size: 1.35rem;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone.public__btn {
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label {
+    height: 62px;
+    line-height: 62px;
+    padding: 0;
+    padding-left: 3.4rem;
+    width: 48%;
+  }
+  .purchase__form .form__inner .control__num input {
+    width: 100%;
+  }
+  .purchase__form .form__inner .special__size dt {
+    text-align: center;
+  }
+  .purchase__form .form__inner .special__size dd .special__size-box {
+    margin-bottom: 1.75rem;
+  }
+  .purchase__form .form__inner .special__size dd .special__size-box p {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  .purchase__form .form__inner .special__size dd .special__size-box input, .purchase__form .form__inner .special__size dd .special__size-box select {
+    width: 47.5%;
+  }
+  .purchase__form .form__inner .info__customer {
+    width: 80%;
+  }
+  .purchase__form .form__inner .info__customer .text__area {
+    margin: 0 .3rem 1.7rem;
+    width: 100%;
+  }
+  .purchase__form .form__inner .info__customer .text__area:last-child {
+    margin: 0;
+  }
 }
 
 /**
@@ -1084,6 +1252,7 @@ textarea {
 -------------------------------**/
 .output__table {
   border-collapse: collapse;
+  margin-bottom: 3.5rem;
   width: 100%;
 }
 
@@ -1154,6 +1323,28 @@ textarea {
   width: 34px;
 }
 
+@media (max-width: 767px) {
+  .cart__in {
+    width: 250px;
+  }
+  .cart__in .cart__btn__cont input {
+    border-radius: 12px;
+    display: block;
+    font-size: 1.08rem;
+    height: 68px;
+    line-height: 68px;
+    padding-left: 2.2rem;
+    width: 250px;
+  }
+  .cart__in .cart__btn__cont::after {
+    background-position: 28% 50%;
+    background-size: 1.3rem;
+    height: 25px;
+    left: 26px;
+    width: 24px;
+  }
+}
+
 /*利用規約*/
 .term {
   background-color: #ededed;
@@ -1170,7 +1361,7 @@ textarea {
 }
 
 .term h3 p {
-  font-size: .94rem;
+  font-size: .8rem;
 }
 
 /*CF7フォームスタイル
@@ -1398,6 +1589,27 @@ a.wpcf7-form-control {
   width: 100%;
 }
 
+.usccart_navi .ucart li {
+  font-size: .9rem;
+}
+
+@media (max-width: 767px) {
+  #cart_table {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: .39rem;
+  }
+  #cart_table .item {
+    width: 40% !important;
+  }
+  #cart_table tr th, #cart_table tr td {
+    padding: 0;
+    text-align: left !important;
+    white-space: normal !important;
+    width: 8% !important;
+  }
+}
+
 .key__visual {
   background: url(../img/top/key_visual_bg.jpg) no-repeat 50% 50%/auto 100%;
   height: 800px;
@@ -1487,4 +1699,43 @@ a.wpcf7-form-control {
   font-size: .92rem;
   line-height: 1.9;
   text-align: center;
+}
+
+@media (max-width: 767px) {
+  .key__visual {
+    height: 400px;
+    padding: 15px 0;
+  }
+  .key__visual .content h1 {
+    margin: 5px auto 35px;
+    width: 86%;
+  }
+  .key__visual .content ul {
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 35px;
+  }
+  .key__visual .content ul li {
+    height: 105px;
+    padding: 0;
+    width: 105px;
+  }
+  .key__visual .content ul li em {
+    font-size: .58rem;
+    margin-bottom: 15px;
+  }
+  .key__visual .content ul li i {
+    width: 22%;
+  }
+  .key__visual .content ul li:nth-of-type(2) {
+    margin: 0;
+  }
+  .key__visual .content ul li:nth-of-type(3) i {
+    width: 62%;
+  }
+  .key__visual .content .read__text {
+    font-size: .78rem;
+    line-height: 1.72;
+  }
 }

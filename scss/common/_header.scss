@@ -25,3 +25,34 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    #site__header {
+        padding: 10px 0;
+
+        .header__inner {
+            .header__logo {
+                width: 100px;
+            }
+        }
+
+        .header__nav {
+            display: none;
+
+            ul {
+                li {
+                    margin: 0 .6rem;
+
+                    a {
+                        color: #fff;
+                        font-size: .5rem;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

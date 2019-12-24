@@ -5,11 +5,13 @@
 input {
     background-color: #f8f8f8;
     padding: 8px;
+    font-size: .88rem;
 }
 
 select {
     background-color: #f8f8f8;
-    margin-bottom: 35px;
+    height: 53px;
+    font-size: .58rem;
 }
 
 span.wpcf7-list-item {
@@ -87,6 +89,10 @@ textarea {
             }
 
             dd {}
+
+            label {
+                font-size: .88rem;
+            }
 
             /*サイズ選択*/
             .select__zone {
@@ -181,19 +187,19 @@ textarea {
             .select__btn__zone {
                 justify-content: space-around;
                 flex-wrap: wrap;
-                width: 90%;
+                width: 80%;
                 margin: auto;
 
                 label {
-                    width: 26%;
+                    width: 30%;
                     background-color: $yellow;
                     border-radius: 37px;
                     color: #fff;
                     height: 74px;
                     line-height: 74px;
                     position: relative;
-                    margin: 0 1.5rem 1.8rem;
-                    padding: 0 30px 0 120px;
+                    margin: 0 .5rem 1.8rem;
+                    padding: 0 30px 0 112px;
 
                     input {
                         display: none;
@@ -208,7 +214,7 @@ textarea {
 
                     &::after {
                         left: 34px;
-                        border: 1px $blue solid;
+                        border: 2px #e09935 solid;
                         width: 21px;
                         height: 21px;
                         border-radius: 3px;
@@ -216,17 +222,17 @@ textarea {
                     }
 
                     &::before {
-                        left: 37px;
+                        left: 39px;
                         border-left: 3px solid rgba($color: #000, $alpha: 0.07);
                         border-bottom: 3px solid rgba($color: #000, $alpha: 0.07);
                         transform: translateY(-50%) rotate(-52deg);
                         z-index: 1000;
-                        width: 14px;
-                        height: 7px;
+                        width: 13px;
+                        height: 6px;
                     }
 
                     &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
-                        background: $yellow no-repeat 32% 50% / 26px auto;
+                        background: $yellow no-repeat 34% 50% / 22px auto;
                     }
 
                     /*サムネイル画像振り分け*/
@@ -268,10 +274,11 @@ textarea {
                 justify-content: center;
 
                 label {
-                    width: 20%;
+                    width: 27%;
                     height: 74px;
                     line-height: 74px;
-                    padding: 0 30px 0 74px;
+                    padding: 0 30px 0 86px;
+                    font-size: 1.1rem;
 
                     &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
                         background-image: none;
@@ -280,12 +287,41 @@ textarea {
             }
         }
 
+        .control__num {
+            input {
+                width: 100%;
+            }
+        }
+
+        .special__size {
+            dt {
+                text-align: center;
+            }
+
+            dd {
+                .special__size-box {
+                    margin-bottom: 1.75rem;
+
+                    p {
+                        margin-bottom: 25px;
+                        text-align: center;
+                    }
+
+                    input, select {
+                        width: 47.5%;
+                    }
+                }
+            }
+        }
+
         .info__customer {
             flex-wrap: wrap;
+            width: 76%;
+            margin: auto;
 
             .text__area {
                 margin: 0 .3rem 1.7rem;
-                width: 45%;
+                width: 48%;
 
                 span {
                     display: block;
@@ -298,7 +334,152 @@ textarea {
                 }
 
                 &:last-child {
-                    margin-right: 54%;
+                    margin-right: 51%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .purchase__form {
+        .form__inner {
+            dl {
+                padding: 2.0rem .5rem;
+
+                dt {
+                    margin-bottom: 25px;
+                }
+
+                &:nth-of-type(even) {}
+
+                dd {}
+
+                label {
+                    font-size: .88rem;
+                }
+
+                /*サイズ選択*/
+                .select__zone {
+                    text-align: center;
+                    width: 100%;
+
+                    label {
+                        width: 100%;
+                        padding-left: 9.4rem;
+                        margin-bottom: 20px;
+                        font-size: .9rem;
+
+                        &::after, &::before {}
+
+                        &::after {
+                            left: 22px;
+                            border: 1px $blue solid;
+                            width: 21px;
+                            height: 21px;
+                            border-radius: 3px;
+                            background-color: #fff;
+                        }
+
+                        &::before {
+                            left: 25px;
+                            transform: translateY(-50%) rotate(-52deg);
+                            width: 14px;
+                            height: 7px;
+                        }
+
+                        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                            background-position: 24% 50%;
+                            background-size: 4.5rem;
+                        }
+                    }
+                }
+            }
+
+            .select__btns {
+                .select__btn__zone {
+                    justify-content: space-between;
+                    width: 100%;
+
+                    label {
+                        width: 49%;
+                        margin: 0 0 1.2rem;
+                        padding: 0;
+                        padding-left: 4.8rem;
+                        height: 62px;
+                        line-height: 62px;
+
+                        &::after {
+                            left: 14px;
+                            width: 21px;
+                            height: 21px;
+                        }
+
+                        &::before {
+                            left: 20px;
+                            width: 13px;
+                            height: 6px;
+                        }
+
+                        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                            background-size: 1.35rem;
+                            background-position: 35% 50%;
+                        }
+                    }
+                }
+            }
+
+            .select__btns {
+                .select__btn__zone.public__btn {
+                    justify-content: space-between;
+
+                    label {
+                        width: 48%;
+                        height: 62px;
+                        line-height: 62px;
+                        padding: 0;
+                        padding-left: 3.4rem;
+                    }
+                }
+            }
+
+            .control__num {
+                input {
+                    width: 100%;
+                }
+            }
+
+            .special__size {
+                dt {
+                    text-align: center;
+                }
+
+                dd {
+                    .special__size-box {
+                        margin-bottom: 1.75rem;
+
+                        p {
+                            margin-bottom: 25px;
+                            text-align: center;
+                        }
+
+                        input, select {
+                            width: 47.5%;
+                        }
+                    }
+                }
+            }
+
+            .info__customer {
+                width: 80%;
+
+                .text__area {
+                    margin: 0 .3rem 1.7rem;
+                    width: 100%;
+
+                    &:last-child {
+                        margin: 0;
+                    }
                 }
             }
         }
@@ -312,6 +493,7 @@ textarea {
 .output__table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 3.5rem;
 
     tr {
         th, td {
@@ -387,6 +569,32 @@ textarea {
     }
 }
 
+@media (max-width: 767px) {
+    .cart__in {
+        width: 250px;
+
+        .cart__btn__cont {
+            input {
+                width: 250px;
+                display: block;
+                height: 68px;
+                line-height: 68px;
+                border-radius: 12px;
+                font-size: 1.08rem;
+                padding-left: 2.2rem;
+            }
+
+            &::after {
+                background-position: 28% 50%;
+                background-size: 1.3rem;
+                height: 25px;
+                width: 24px;
+                left: 26px;
+            }
+        }
+    }
+}
+
 /*利用規約*/
 
 .term {
@@ -402,7 +610,7 @@ textarea {
         margin-bottom: .8rem;
 
         p {
-            font-size: .94rem;
+            font-size: .8rem;
         }
     }
 }

@@ -81,3 +81,54 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    .key__visual {
+        height: 400px;
+        padding: 15px 0;
+
+        .content {
+            h1 {
+                width: 86%;
+                margin: 5px auto 35px;
+            }
+
+            ul {
+                justify-content: space-between;
+                margin-bottom: 35px;
+
+                li {
+                    width: 105px;
+                    height: 105px;
+                    padding: 0;
+
+                    em {
+                        font-size: .58rem;
+                        margin-bottom: 15px;
+                    }
+
+                    i {
+                        width: 22%;
+                    }
+
+                    &:nth-of-type(1) {}
+
+                    &:nth-of-type(2) {
+                        margin: 0;
+                    }
+
+                    &:nth-of-type(3) {
+                        i {
+                            width: 62%;
+                        }
+                    }
+                }
+            }
+
+            .read__text {
+                line-height: 1.72;
+                font-size: .78rem;
+            }
+        }
+    }
+}
