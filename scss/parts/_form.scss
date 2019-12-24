@@ -318,13 +318,28 @@ textarea {
             h3 {}
 
             .term__text__box {
+                font-size: .74rem;
+
+                span {
+                    margin-right: 1.0rem;
+                }
+
                 dl {
                     background: none;
                     padding: 0;
+                    margin-bottom: 2.5rem;
 
                     dt {}
 
                     dd {}
+                }
+
+                ul {
+                    margin-bottom: 2.5rem;
+
+                    li {
+                        margin-bottom: .9rem;
+                    }
                 }
             }
         }

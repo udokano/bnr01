@@ -5,7 +5,7 @@
     <li><a href="<?php echo home_url('/');?>">制作依頼</a></li>
     <li><a href="<?php echo home_url('/');?>">お問い合わせ</a></li>
     <li><a href="<?php echo home_url('/');?>">よくある質問</a></li>
-    <li><a href="<?php echo home_url('/');?>">プライバシーポリシー</a></li>
+    <li><a href="<?php echo home_url('/');?>privacy">プライバシーポリシー</a></li>
     <li><a href="https://www.u-d.jp/" target="_blank">会社概要</a></li>
      <li><a href="https://www.u-d.jp/" target="_blank"">特定商取引法に基づく表記</a></li>
 
