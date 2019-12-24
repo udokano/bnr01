@@ -1,0 +1,30 @@
+/*
+プライバシーポリシー
+----------------------------*/
+.privacy {
+    .section__inner {
+        padding: 2.8rem 0 0;
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 2.3rem;
+        }
+
+        p {
+            font-size: .62rem;
+            margin-bottom: 2.5rem;
+        }
+
+        dl {
+            margin-bottom: 1.3rem;
+            font-size: .8rem;
+            background-color: #f8f8f8;
+            padding: 1.5rem 1.8rem;
+
+            dt {
+                margin-bottom: .8rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

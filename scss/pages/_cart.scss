@@ -15,6 +15,20 @@
 }
 
 @media (max-width: 767px) {
+    .cart__area {
+        .section__inner {
+            width: 96%;
+        }
+    }
+
+    .usccart_navi {
+        .ucart {
+            li {
+                font-size: .7rem;
+            }
+        }
+    }
+
     #cart_table {
         box-sizing: border-box;
         font-size: .39rem;
@@ -25,10 +39,23 @@
 
         tr {
             th, td {
-                width: 8% !important;
+                width: 10% !important;
                 padding: 0;
                 text-align: left !important;
                 white-space: normal !important;
+            }
+
+            .num {
+                width: 2% !important;
+            }
+
+            .action {
+                text-align: center !important;
+
+                input[type="submit"] {
+                    font-size: .5rem;
+                    padding: 2px;
+                }
             }
         }
 

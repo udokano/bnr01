@@ -21,7 +21,14 @@
                     <a href="<?php echo home_url('/');?>"><img src="<?php echo get_template_directory_uri(); ?>/img/common/site_logo.png" alt="バナー屋さん"></a>
                 </div><!-- ./header__logo -->
 
-                 <nav class="header__nav">
+
+                <div class="menu-trigger" id="js-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                 <nav class="header__nav" id="js-nav">
 
                         <ul class="flex">
                             <li><a href="<?php echo home_url('/');?>">サービス</a></li>
