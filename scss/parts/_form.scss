@@ -314,6 +314,21 @@ textarea {
             }
         }
 
+        .term {
+            h3 {}
+
+            .term__text__box {
+                dl {
+                    background: none;
+                    padding: 0;
+
+                    dt {}
+
+                    dd {}
+                }
+            }
+        }
+
         .info__customer {
             flex-wrap: wrap;
             width: 76%;
