@@ -7,7 +7,7 @@
 </title>
 <meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.1">
 
 <?php wp_head(); ?>

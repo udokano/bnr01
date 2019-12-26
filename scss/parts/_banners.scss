@@ -19,6 +19,13 @@
             width: 100%;
             flex-wrap: wrap;
 
+            .jscroll-inner {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
             li {
                 width: 30%;
             }

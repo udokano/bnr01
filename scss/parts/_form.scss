@@ -101,15 +101,15 @@ textarea {
                 label {
                     display: inline-block;
                     text-align: left;
-                    width: 38%;
+                    width: 42%;
                     position: relative;
                     background-color: #fff;
                     border: 1px solid $blue;
-                    padding: 35px 10px 35px 190px;
+                    padding: 35px 10px 35px 163px;
                     margin-bottom: 20px;
                     color: $blue;
-                    font-size: .9rem;
                     font-weight: 600;
+                    font-size: .7rem;
 
                     input {
                         display: none;
@@ -142,7 +142,7 @@ textarea {
                     }
 
                     &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
-                        background: #fff no-repeat 24% 50% / 20% auto;
+                        background: #fff no-repeat 19% 50% / 20% auto;
                     }
 
                     /*サムネイル画像振り分け*/
@@ -179,6 +179,23 @@ textarea {
                     &::before {
                         border-color: $yellow;
                     }
+                }
+            }
+        }
+
+        .size__select.select__zone {
+            label {
+                /*サムネイル画像振り分け*/
+                &:nth-of-type(2) {
+                    background-image: url(../img/icons/s_icon.png);
+                }
+
+                &:nth-of-type(3) {
+                    background-image: url(../img/icons/m_icon.png);
+                }
+
+                &:nth-of-type(4) {
+                    background-image: url(../img/icons/l_icon.png);
                 }
             }
         }
@@ -264,6 +281,45 @@ textarea {
                 label.checked {
                     &::before {
                         border-color: red;
+                    }
+                }
+            }
+        }
+
+        .select__btns {
+            .select__btn__zone.limit {
+                justify-content: center;
+
+                label {
+                    &:nth-of-type(2) {
+                        background-image: url(../img/icons/option_icon01.png);
+                    }
+
+                    &:nth-of-type(3) {
+                        background-image: url(../img/icons/option_icon01.png);
+                    }
+
+                    &:nth-of-type(4) {
+                        background-image: url(../img/icons/option_icon01.png);
+                    }
+                }
+            }
+        }
+
+        .select__btns {
+            .select__btn__zone.select__data {
+                justify-content: center;
+
+                label {
+                    width: 41.5%;
+                    height: 74px;
+                    line-height: 74px;
+                    padding: 0 30px 0 86px;
+                    font-size: .78rem;
+                    margin: 0  .98rem 1.8rem;
+
+                    &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                        background-image: none;
                     }
                 }
             }
@@ -469,6 +525,38 @@ textarea {
                         line-height: 62px;
                         padding: 0;
                         padding-left: 3.4rem;
+                    }
+                }
+            }
+
+            .select__btns {
+                .select__btn__zone.limit {
+                    justify-content: space-around;
+
+                    label {
+                        margin: 0 0 .8rem;
+                        background-size: 1.0rem;
+                        background-position: 31.5% 50%;
+                        padding-left: 4.1rem;
+                    }
+                }
+            }
+
+            .select__btns {
+                .select__btn__zone.select__data {
+                    justify-content: center;
+
+                    label {
+                        width: 90%;
+                        height: 62px;
+                        line-height: 62px;
+                        padding: 0 30px 0 70px;
+                        font-size: .78rem;
+                        margin: 0  .98rem 1.8rem;
+
+                        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                            background-image: none;
+                        }
                     }
                 }
             }

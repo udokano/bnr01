@@ -1,9 +1,5 @@
 <?php
-/**
- * <meta content="charset=UTF-8">
- * @package Welcart
- * @subpackage Welcart Default Theme
- */
+
 get_header();
 ?>
 
@@ -14,12 +10,12 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-		<h1 class="cart_page_title"><?php _e('Your order has not been completed', 'usces'); ?></h1>
+		<h1 class="cart_page_title tc"><?php _e('Your order has not been completed', 'usces'); ?></h1>
 		<div class="entry">
 
 			<div id="error-page">
 
-				<div class="post">
+				<div class="post tc">
 
 				<?php uesces_get_error_settlement(); ?>
 
@@ -35,6 +31,6 @@ get_header();
 </div><!-- end of catbox -->
 </div><!-- end of content -->
 
-<?php get_sidebar( 'cartmember' ); ?>
+
 
 <?php get_footer(); ?>

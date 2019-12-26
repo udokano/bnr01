@@ -84,23 +84,24 @@
 
 @media (max-width: 767px) {
     .key__visual {
-        height: 400px;
+        height: 100vw;
         padding: 15px 0;
 
         .content {
             h1 {
                 width: 86%;
-                margin: 5px auto 35px;
+                margin: .4rem auto 1.0rem;
             }
 
             ul {
                 justify-content: space-between;
-                margin-bottom: 35px;
+                margin-bottom: 1.1rem;
 
                 li {
                     width: 105px;
                     height: 105px;
                     padding: 0;
+                    background-color: #fffef4 !important;
 
                     em {
                         font-size: .58rem;
@@ -126,7 +127,7 @@
             }
 
             .read__text {
-                line-height: 1.72;
+                line-height: 1.65;
                 font-size: .78rem;
             }
         }

@@ -22,7 +22,10 @@
 <!-- 無限スクロール -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/top.js"></script>
+
 <?php wp_footer(); ?>
 </body>
 </html>

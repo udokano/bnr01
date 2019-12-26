@@ -12,6 +12,16 @@ add_theme_support('post-thumbnails', array( 'post' ));
 add_image_size('thumb300', 300, 220, true);
 add_image_size('thum', 600, 450, true);
 
+/*メニューに制作実績管理追加*/
+
+function add_page_to_admin_menu()
+{
+    add_menu_page('制作実績', '制作実績', 'edit_posts', 'post.php?post=102&action=edit', '', 'dashicons-format-gallery
+', 3);
+}
+add_action('admin_menu', 'add_page_to_admin_menu');
+
+
 
 //カートの表をカスタマイズ
 
