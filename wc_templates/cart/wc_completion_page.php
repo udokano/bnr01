@@ -17,7 +17,7 @@ get_header();
 		<div class="entry">
 
 			<div id="cart_completion">
-			<h1><?php _e('It has been sent succesfully.', 'usces'); ?></h1>
+			<h1 class="tc"><?php _e('It has been sent succesfully.', 'usces'); ?></h1>
 				<div class="header_explanation">
 				<p><?php _e('Thank you for shopping.', 'usces'); ?><br /><?php _e("If you have any questions, please contact us by 'Contact'.", 'usces'); ?></p>
 				<?php do_action('usces_action_cartcompletion_page_header', $usces_entries, $usces_carts); ?>

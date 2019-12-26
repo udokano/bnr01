@@ -12,7 +12,7 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-	<h1 class="cart_page_title"><?php _e('Customer Information', 'usces'); ?></h1>
+	<h1 class="cart_page_title tc"><?php _e('Customer Information', 'usces'); ?></h1>
 		<div class="entry">
 
 			<div id="customer-info">
@@ -21,7 +21,7 @@ get_header();
 					<ol class="ucart">
 					<li class="ucart usccart"><?php _e('1.Cart', 'usces'); ?></li>
 					<li class="ucart usccustomer usccart_customer"><?php _e('2.Customer Info', 'usces'); ?></li>
-					<li class="ucart uscdelivery"><?php _e('3.Deli. & Pay.', 'usces'); ?></li>
+					<li class="ucart uscdelivery">支払い方法</li>
 					<li class="ucart uscconfirm"><?php _e('4.Confirm', 'usces'); ?></li>
 					</ol>
 				</div>

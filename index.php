@@ -48,15 +48,12 @@
           <dd><?php echo usces_the_itemOption("管理番号");?></dd>
         </dl>
         <dl class="hidden special__size" id="special__size">
-          <dt>特殊サイズ希望の場合はこちら</dt>
+          <dt>サイズを選択してください</dt>
           <dd class="">
-            <div class="special__size-box flex al-cent"> <?php echo usces_the_itemOption("特殊サイズおおよその横サイズ");?><span>×</span><?php echo usces_the_itemOption("特殊サイズおおよその縦サイズ");?> </div>
-            <!-- ./special__size-box -->
 
-            <div class="special__size-box mb0">
-              <p>詳細サイズを入力してください</p>
-              <div class="size__box-text flex al-cent"> <?php echo usces_the_itemOption("特殊サイズ詳細の横サイズ");?><span>×</span><?php echo usces_the_itemOption("特殊サイズ詳細の縦サイズ");?> </div>
-              <!-- ./size__box-text -->
+            <div class="special__size-box">
+
+              <?php echo usces_the_itemOption("特殊サイズ");?>
             </div>
             <!-- ./special__size-box -->
           </dd>

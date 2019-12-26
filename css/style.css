@@ -867,6 +867,20 @@ body.page {
   width: 30%;
 }
 
+.infinite__banner__area .section__inner .banners li .bnr__img {
+  margin-bottom: .9rem;
+}
+
+.infinite__banner__area .section__inner .banners li button {
+  background-color: #ffa200;
+  border-radius: 6px;
+  color: #fff;
+  display: block;
+  margin: 0 auto 1.2rem;
+  padding: .75rem 0;
+  width: 58%;
+}
+
 @media (max-width: 767px) {
   .infinite__banner__area {
     margin: 2.2rem 0 3.8rem;
@@ -885,6 +899,64 @@ body.page {
   .infinite__banner__area .section__inner .banners li {
     margin-bottom: .8rem;
     width: 48%;
+  }
+  .infinite__banner__area .section__inner .banners li button {
+    width: 100%;
+  }
+}
+
+/*-
+モーダル
+-----------------------------------*/
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9000;
+}
+
+.modal .modal__inner {
+  -webkit-transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 540px;
+  left: 50%;
+  padding: 45px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 540px;
+  z-index: 9999;
+}
+
+.modal .modal__inner h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.modal .modal__bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 9300;
+}
+
+@media (max-width: 767px) {
+  .modal .modal__inner {
+    height: 65%;
+    padding: 1.5rem;
+    width: 90%;
+  }
+  .modal .modal__inner h3 {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -970,7 +1042,13 @@ textarea {
   border-color: #6594ac !important;
   display: none;
   margin: auto;
-  width: 77%;
+  width: 84.5%;
+}
+
+@media (max-width: 767px) {
+  .hidden {
+    width: 100%;
+  }
 }
 
 /*フォームエリア記載
@@ -1258,12 +1336,11 @@ textarea {
 }
 
 .purchase__form .form__inner .special__size dd .special__size-box p {
-  margin-bottom: 25px;
-  text-align: center;
+  margin-bottom: .8rem;
 }
 
-.purchase__form .form__inner .special__size dd .special__size-box input, .purchase__form .form__inner .special__size dd .special__size-box select {
-  width: 47.5%;
+.purchase__form .form__inner .special__size dd .special__size-box select {
+  width: 100%;
 }
 
 .purchase__form .form__inner .term .term__text__box {
@@ -1431,10 +1508,6 @@ textarea {
   }
   .purchase__form .form__inner .special__size dd .special__size-box p {
     margin-bottom: 25px;
-    text-align: center;
-  }
-  .purchase__form .form__inner .special__size dd .special__size-box input, .purchase__form .form__inner .special__size dd .special__size-box select {
-    width: 47.5%;
   }
   .purchase__form .form__inner .info__customer {
     width: 80%;
@@ -1487,6 +1560,44 @@ textarea {
 
 .output__table tbody tr td {
   border-right: 1px solid #fff;
+}
+
+@media (max-width: 767px) {
+  .output__table {
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+  }
+  .output__table tr {
+    display: block;
+  }
+  .output__table tr th, .output__table tr td {
+    display: block;
+    font-size: .7rem;
+    height: 3.7rem;
+    padding: 1.4rem 0 0.7rem !important;
+    width: auto;
+  }
+  .output__table thead {
+    float: left;
+    width: auto;
+    width: 40%;
+  }
+  .output__table thead tr th {
+    border: none;
+    border-bottom: 1px solid #fff;
+  }
+  .output__table tbody {
+    float: left;
+    width: 60%;
+  }
+  .output__table tbody tr {
+    width: 100%;
+  }
+  .output__table tbody tr td {
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+  }
 }
 
 /*カートへ入れるボタン*/
@@ -1728,61 +1839,6 @@ a.wpcf7-form-control {
         font-size: 3.6rem;
     }
 } */
-.modal {
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9000;
-}
-
-.modal .modal__inner {
-  -webkit-transform: translate(-50%, -50%);
-  background-color: #fff;
-  height: 540px;
-  left: 50%;
-  padding: 45px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 540px;
-  z-index: 9999;
-}
-
-.modal .modal__inner h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-.modal .modal__bg {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  z-index: 9300;
-}
-
-/*===================
-一時的に合計料金下固定
-=====================================*/
-.fix__bottom {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
-
-.fix__bottom .value__list {
-  margin: auto;
-  width: 800px;
-}
-
 /*
 カートページスタイル
 -------------------------------*/
@@ -1800,6 +1856,14 @@ a.wpcf7-form-control {
   }
   .usccart_navi .ucart li {
     font-size: .7rem;
+  }
+  #customer-info .customer_form input {
+    width: 100% !important;
+  }
+  #customer-info th, #customer-info td {
+    padding: 12px 0 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
   }
   #cart_table {
     -webkit-box-sizing: border-box;

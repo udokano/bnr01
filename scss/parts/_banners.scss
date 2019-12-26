@@ -28,6 +28,20 @@
 
             li {
                 width: 30%;
+
+                .bnr__img {
+                    margin-bottom: .9rem;
+                }
+
+                button {
+                    background-color: $yellow;
+                    width: 58%;
+                    margin: 0 auto 1.2rem;
+                    color: #fff;
+                    padding: .75rem 0;
+                    display: block;
+                    border-radius: 6px;
+                }
             }
         }
     }
@@ -51,7 +65,69 @@
                 li {
                     width: 48%;
                     margin-bottom: .8rem;
+
+                    button {
+                        width: 100%;
+                    }
                 }
+            }
+        }
+    }
+}
+
+/*-
+モーダル
+-----------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 9000;
+
+    .modal__inner {
+        width: 540px;
+        height: 540px;
+        position: absolute;
+        padding: 45px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        z-index: 9999;
+
+        h3 {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    .modal__bg {
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        height: 100vh;
+        position: fixed;
+        overflow: hidden;
+        width: 100%;
+        z-index: 9300;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal {
+        .modal__inner {
+            width: 90%;
+            height: 65%;
+            padding: 1.5rem;
+
+            h3 {
+                font-size: 1.2rem;
+                margin-bottom: 2.5rem;
             }
         }
     }

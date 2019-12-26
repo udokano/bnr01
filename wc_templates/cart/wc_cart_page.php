@@ -15,7 +15,7 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-	<h1 class="cart_page_title"><?php _e('In the cart', 'usces'); ?></h1>
+	<h1 class="cart_page_title tc"><?php _e('In the cart', 'usces'); ?></h1>
 		<div class="entry">
 
 			<div id="inside-cart">

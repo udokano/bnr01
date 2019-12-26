@@ -29,6 +29,16 @@
         }
     }
 
+    #customer-info .customer_form input {
+        width: 100% !important;
+    }
+
+    #customer-info th, #customer-info td {
+        padding: 12px 0 !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+
     #cart_table {
         box-sizing: border-box;
         font-size: .39rem;
