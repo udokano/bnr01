@@ -1,5 +1,5 @@
 //テキストボックスクラス追加ナンバリング
-$(".iopt_text").each(function (i) {
+$("#info__customer  .iopt_text").each(function (i) {
     $(this).attr('class', 'text' + (i + 1));
     $(this).addClass("texts");
 
@@ -17,7 +17,16 @@ $("#size__select > .iopt_radio").each(function (i) {
 $(".iopt_radio_label").each(function (i) {
     $(this).attr('class', 'label' + (i + 1));
     $(this).addClass("labels");
+});
 
+//テキストボックスにID付与
+$("#instruction .iopt_textarea").each(function (i) {
+    $(this).attr('id', 'textarea' + (i + 1));
+});
+
+//管理番号
+$("#control__num .iopt_text").each(function (i) {
+    $(this).attr('class', 'text__input' + (i + 1));
 });
 
 /*ラベルにID振り分け*/
@@ -130,6 +139,21 @@ tippy('#publish > #label__type__e2', {
     maxWidth: '100%',
     interactive: true
 });
+
+
+/*
+プレースポルダー追加
+---------------------------------------*/
+
+$("#control__num > dd > .text__input1").attr('placeholder', '例：00000000000000');
+
+$("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力');
+
+$("#info__customer .text1").attr('placeholder', '未入力でも注文可能です');
+
+$("#info__customer .text2").attr('placeholder', 'バナーヤスオ');
+
+$("#info__customer .text3").attr('placeholder', '未入力でも注文可能です');
 
 
 $(function () {
@@ -263,7 +287,7 @@ $(function () {
         var pos = $("#size__select").offset().top;
         $("#control__num").css("display", "block");
         $("html,body").animate({ scrollTop: pos }, 'fast');
-        $(".text1").val(value);
+        $("#control__num > dd > .text__input1").val(value);
         return false;
 
     });

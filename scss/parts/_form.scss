@@ -11,6 +11,7 @@ input {
 select {
     background-color: #f8f8f8;
     height: 53px;
+    padding: 8px;
     font-size: .58rem;
 }
 
@@ -370,6 +371,7 @@ textarea {
 
                     select {
                         width: 100%;
+                        font-size: 1.0rem;
                     }
                 }
             }
@@ -736,7 +738,7 @@ textarea {
 
 @media (max-width: 767px) {
     .cart__in {
-        width: 250px;
+        width: 310px;
 
         .cart__btn__cont {
             input {

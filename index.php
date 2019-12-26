@@ -90,7 +90,7 @@
           <!-- ./num__wrap -->
         </dt>
         <dd>
-          <div class="text"> <?php echo usces_the_itemOption("デザイン指示");?>
+          <div class="text" id="instruction"> <?php echo usces_the_itemOption("デザイン指示");?>
             <p class="note">※写真原稿をお持ちでない方はシチュエーションなどを記載ください</p>
           </div>
         </dd>
@@ -128,7 +128,7 @@
             <span>お客様情報</span> </div>
           <!-- ./num__wrap -->
         </dt>
-        <dd class="info__customer flex">
+        <dd class="info__customer flex" id="info__customer">
           <div class="text__area"><span>会社名</span><?php echo usces_the_itemOption("会社名");?></div>
           <div class="text__area"><span>お名前</span><?php echo usces_the_itemOption("お名前");?></div>
           <div class="text__area"><span>メールアドレス</span><?php echo usces_the_itemOption("メールアドレス");?></div>

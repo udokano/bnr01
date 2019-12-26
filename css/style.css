@@ -973,6 +973,7 @@ select {
   background-color: #f8f8f8;
   font-size: .58rem;
   height: 53px;
+  padding: 8px;
 }
 
 span.wpcf7-list-item {
@@ -1340,6 +1341,7 @@ textarea {
 }
 
 .purchase__form .form__inner .special__size dd .special__size-box select {
+  font-size: 1.0rem;
   width: 100%;
 }
 
@@ -1637,7 +1639,7 @@ textarea {
 
 @media (max-width: 767px) {
   .cart__in {
-    width: 250px;
+    width: 310px;
   }
   .cart__in .cart__btn__cont input {
     border-radius: 12px;

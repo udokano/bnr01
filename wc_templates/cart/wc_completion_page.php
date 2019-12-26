@@ -19,7 +19,7 @@ get_header();
 			<div id="cart_completion">
 			<h1 class="tc"><?php _e('It has been sent succesfully.', 'usces'); ?></h1>
 				<div class="header_explanation">
-				<p><?php _e('Thank you for shopping.', 'usces'); ?><br /><?php _e("If you have any questions, please contact us by 'Contact'.", 'usces'); ?></p>
+				<p class="tc"><?php _e('Thank you for shopping.', 'usces'); ?><br /><?php _e("If you have any questions, please contact us by 'Contact'.", 'usces'); ?></p>
 				<?php do_action('usces_action_cartcompletion_page_header', $usces_entries, $usces_carts); ?>
 				</div><!-- header_explanation -->
 
@@ -31,7 +31,7 @@ get_header();
 				<?php do_action('usces_action_cartcompletion_page_footer', $usces_entries, $usces_carts); ?>
 				</div><!-- footer_explanation -->
 
-				<div class="send"><a href="<?php echo home_url(); ?>" class="back_to_top_button"><?php _e('Back to the top page.', 'usces'); ?></a></div>
+				<div class="send tc"><a href="<?php echo home_url(); ?>" class="back_to_top_button"><?php _e('Back to the top page.', 'usces'); ?></a></div>
 			<?php echo apply_filters('usces_filter_conversion_tracking', null, $usces_entries, $usces_carts); ?>
 
 			</div><!-- end of cart_completion -->
