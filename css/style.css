@@ -851,6 +851,18 @@ body.page {
   width: 100%;
 }
 
+.infinite__banner__area .section__inner .banners .jscroll-inner {
+  -ms-flex-pack: justify;
+  -ms-flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .infinite__banner__area .section__inner .banners li {
   width: 30%;
 }
@@ -998,13 +1010,13 @@ textarea {
   border: 1px solid #6594ac;
   color: #6594ac;
   display: inline-block;
-  font-size: .9rem;
+  font-size: .7rem;
   font-weight: 600;
   margin-bottom: 20px;
-  padding: 35px 10px 35px 190px;
+  padding: 35px 10px 35px 163px;
   position: relative;
   text-align: left;
-  width: 38%;
+  width: 42%;
   /*サムネイル画像振り分け*/
 }
 
@@ -1041,7 +1053,7 @@ textarea {
 }
 
 .purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6), .purchase__form .form__inner dl .select__zone label:nth-of-type(7) {
-  background: #fff no-repeat 24% 50% / 20% auto;
+  background: #fff no-repeat 19% 50% / 20% auto;
 }
 
 .purchase__form .form__inner dl .select__zone label:nth-of-type(2) {
@@ -1074,6 +1086,22 @@ textarea {
 
 .purchase__form .form__inner dl .select__zone label.checked::before {
   border-color: #ffa200;
+}
+
+.purchase__form .form__inner .size__select.select__zone label {
+  /*サムネイル画像振り分け*/
+}
+
+.purchase__form .form__inner .size__select.select__zone label:nth-of-type(2) {
+  background-image: url(../img/icons/s_icon.png);
+}
+
+.purchase__form .form__inner .size__select.select__zone label:nth-of-type(3) {
+  background-image: url(../img/icons/m_icon.png);
+}
+
+.purchase__form .form__inner .size__select.select__zone label:nth-of-type(4) {
+  background-image: url(../img/icons/l_icon.png);
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone {
@@ -1160,6 +1188,43 @@ textarea {
 
 .purchase__form .form__inner .select__btns .select__btn__zone label.checked::before {
   border-color: red;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.limit {
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.limit label:nth-of-type(2) {
+  background-image: url(../img/icons/option_icon01.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.limit label:nth-of-type(3) {
+  background-image: url(../img/icons/option_icon01.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.limit label:nth-of-type(4) {
+  background-image: url(../img/icons/option_icon01.png);
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.select__data {
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.select__data label {
+  font-size: .78rem;
+  height: 74px;
+  line-height: 74px;
+  margin: 0  .98rem 1.8rem;
+  padding: 0 30px 0 86px;
+  width: 41.5%;
+}
+
+.purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(7) {
+  background-image: none;
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone.public__btn {
@@ -1328,6 +1393,32 @@ textarea {
     padding: 0;
     padding-left: 3.4rem;
     width: 48%;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone.limit {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone.limit label {
+    background-position: 31.5% 50%;
+    background-size: 1.0rem;
+    margin: 0 0 .8rem;
+    padding-left: 4.1rem;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone.select__data {
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone.select__data label {
+    font-size: .78rem;
+    height: 62px;
+    line-height: 62px;
+    margin: 0  .98rem 1.8rem;
+    padding: 0 30px 0 70px;
+    width: 90%;
+  }
+  .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone.select__data label:nth-of-type(7) {
+    background-image: none;
   }
   .purchase__form .form__inner .control__num input {
     width: 100%;
@@ -1829,20 +1920,21 @@ a.wpcf7-form-control {
 
 @media (max-width: 767px) {
   .key__visual {
-    height: 400px;
+    height: 100vw;
     padding: 15px 0;
   }
   .key__visual .content h1 {
-    margin: 5px auto 35px;
+    margin: .4rem auto 1.0rem;
     width: 86%;
   }
   .key__visual .content ul {
     -ms-flex-pack: justify;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    margin-bottom: 35px;
+    margin-bottom: 1.1rem;
   }
   .key__visual .content ul li {
+    background-color: #fffef4 !important;
     height: 105px;
     padding: 0;
     width: 105px;
@@ -1862,7 +1954,7 @@ a.wpcf7-form-control {
   }
   .key__visual .content .read__text {
     font-size: .78rem;
-    line-height: 1.72;
+    line-height: 1.65;
   }
 }
 

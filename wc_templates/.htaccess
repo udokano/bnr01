@@ -1,0 +1,8 @@
+
+AuthUserFile "/home/medorder/u-d.jp/htpasswd/dp/.htpasswd"
+AuthName "Member Site"
+AuthType BASIC
+require valid-user
+
+
+AddHandler fcgid-script .html
