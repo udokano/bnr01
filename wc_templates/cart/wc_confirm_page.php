@@ -18,11 +18,11 @@ get_header();
 
 <div class="post" id="wc_<?php usces_page_name(); ?>">
 
-<h1 class="cart_page_title"><?php _e('Confirmation', 'usces'); ?></h1>
+<h1 class="cart_page_title tc"><?php _e('Confirmation', 'usces'); ?></h1>
 <div class="entry">
 
 <div id="info-confirm">
-	<div class="confiem_notice">
+	<div class="confiem_notice tc">
 	<?php _e('Please do not change product addition and amount of it with the other window with displaying this page.', 'usces'); ?>
 	</div>
 
@@ -39,9 +39,9 @@ get_header();
 <?php do_action('usces_action_confirm_page_header'); ?>
 	</div><!-- end of header_explanation -->
 
-	<div class="error_message"><?php usces_error_message(); ?></div>
+	<div class="error_message tc"><?php usces_error_message(); ?></div>
 	<div id="cart">
-		<div class="currency_code"><?php _e('Currency', 'usces'); ?> : <?php usces_crcode(); ?></div>
+		<div class="currency_code tc"><?php _e('Currency', 'usces'); ?> : <?php usces_crcode(); ?></div>
 		<table cellspacing="0" id="cart_table">
 			<thead>
 			<tr>
@@ -179,5 +179,6 @@ get_header();
 
 </div><!-- end of content -->
 </div><!-- ./ section__inner -->
+</section>
 
 <?php get_footer(); ?>

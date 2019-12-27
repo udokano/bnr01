@@ -8,10 +8,27 @@
 
 .usccart_navi {
     .ucart {
+        margin: 0;
+        padding: .6rem 0;
+
         li {
             font-size: .9rem;
         }
+
+        li.usccart_cart, li.usccart_delivery, li.usccart_customer {
+            background: none;
+            background-color: $yellow;
+        }
+
+        li.usccart_confirm {
+            background: none;
+            background-color: $red;
+        }
     }
+}
+
+#cart th, #cart td {
+    border-bottom-width: 2px !important;
 }
 
 @media (max-width: 767px) {

@@ -171,6 +171,10 @@ section {
   display: none !important;
 }
 
+body.page .section__inner {
+  padding: 2.5rem 0;
+}
+
 /*
 SPボックススタイル
 --------------------------*/
@@ -309,11 +313,17 @@ h3 {
   opacity: .8;
 }
 
-/*下層ページ基本カラー*/
-body.page {
-  color: #454545;
+.in-view {
+  -webkit-transition: ease 1.5s .3s;
+  opacity: 0;
+  transition: ease 1.5s .3s;
 }
 
+.fade-in {
+  opacity: 1.0;
+}
+
+/*下層ページ基本カラー*/
 /*パンくずリスト*/
 .path {
   margin-bottom: 90px;
@@ -489,20 +499,6 @@ body.page {
 
 .area-bgs {
   background: no-repeat 50% 50%/cover;
-}
-
-.in-view {
-  -webkit-transform: translate(0, 60px);
-  -webkit-transition: ease 1.5s;
-  opacity: 0;
-  transform: translate(0, 60px);
-  transition: ease 1.5s;
-}
-
-.fade-in {
-  -webkit-transform: translate(0, 0);
-  opacity: 1.0;
-  transform: translate(0, 0);
 }
 
 /*qa 症例*/
@@ -851,19 +847,8 @@ body.page {
   width: 100%;
 }
 
-.infinite__banner__area .section__inner .banners .jscroll-inner {
-  -ms-flex-pack: justify;
-  -ms-flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .infinite__banner__area .section__inner .banners li {
+  margin-bottom: 2.4rem;
   width: 30%;
 }
 
@@ -1032,7 +1017,30 @@ textarea {
   color: #ccc;
 }
 
-/*エラーメッセージ*/
+#instruction textarea {
+  position: relative;
+}
+
+#instruction textarea::-webkit-input-placeholder {
+  text-align: center;
+}
+
+#instruction textarea::-moz-placeholder {
+  text-align: center;
+}
+
+#instruction textarea:-ms-input-placeholder {
+  text-align: center;
+}
+
+#instruction textarea::-ms-input-placeholder {
+  text-align: center;
+}
+
+#instruction textarea::placeholder {
+  text-align: center;
+}
+
 .error_message {
   color: red;
 }
@@ -1848,8 +1856,27 @@ a.wpcf7-form-control {
   width: 100%;
 }
 
+.usccart_navi .ucart {
+  margin: 0;
+  padding: .6rem 0;
+}
+
 .usccart_navi .ucart li {
   font-size: .9rem;
+}
+
+.usccart_navi .ucart li.usccart_cart, .usccart_navi .ucart li.usccart_delivery, .usccart_navi .ucart li.usccart_customer {
+  background: none;
+  background-color: #ffa200;
+}
+
+.usccart_navi .ucart li.usccart_confirm {
+  background: none;
+  background-color: #ff5c5c;
+}
+
+#cart th, #cart td {
+  border-bottom-width: 2px !important;
 }
 
 @media (max-width: 767px) {

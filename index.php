@@ -50,11 +50,7 @@
         <dl class="hidden special__size" id="special__size">
           <dt>サイズを選択してください</dt>
           <dd class="">
-
-            <div class="special__size-box">
-
-              <?php echo usces_the_itemOption("特殊サイズ");?>
-            </div>
+            <div class="special__size-box"> <?php echo usces_the_itemOption("特殊サイズ");?> </div>
             <!-- ./special__size-box -->
           </dd>
         </dl>
@@ -144,7 +140,7 @@
           <table class="output__table">
             <thead>
               <tr>
-                <th>サイズ</th>
+                <th>サイズ用途</th>
                 <th>納期</th>
                 <th>実績として公開</th>
                 <th class="last">カート内の合計金額</th>
@@ -155,12 +151,12 @@
                 <td id="output__type"></td>
                 <td id="output__option"></td>
                 <td id="output__publish"></td>
-                <td class="last" id="output__price">¥<?php echo usces_totalprice_in_cart();?></td>
+                <td class="last" id="output__price"><span>¥</span><?php echo usces_totalprice_in_cart();?></td>
               </tr>
             </tbody>
           </table>
 
-           <!-- <p>商品単位<?php echo usces_the_itemPriceCr();?></p>
+          <!-- <p>商品単位<?php echo usces_the_itemPriceCr();?></p>
           <p>カート内の合計金額¥<?php echo usces_totalprice_in_cart(); ?></p> -->
 
           <div class="cart__in">
@@ -192,9 +188,9 @@
     <h2>制作実績</h2>
     <ul class="banners flex" id="infinite__banners">
       <?php while (have_rows('bnr__list', 102)) : the_row(); ?>
-      <li class="js-modal-open banner__item"> <img src="<?php the_sub_field('bnr__img', 102);?>" >
+      <li class="js-modal-open banner__item in-view"> <img src="<?php the_sub_field('bnr__img', 102);?>" >
         <div class="bnr__modal__box modal js-modal">
-          <div class="modal__bg js-modal-close">×</div>
+          <div class="modal__bg js-modal-close"></div>
           <div class="modal__inner">
             <div class="bnr__img"> <img src="<?php the_sub_field('bnr__img', 102);?>" > </div>
             <button value="<?php the_sub_field('number', 102);?>" class="tc js-modal-close">このテイストで注文する</button>
@@ -202,6 +198,32 @@
         </div>
       </li>
       <?php endwhile; ?>
+
+      <?php while (have_rows('bnr__list', 102)) : the_row(); ?>
+      <li class="js-modal-open banner__item in-view"> <img src="<?php the_sub_field('bnr__img', 102);?>" >
+        <div class="bnr__modal__box modal js-modal">
+          <div class="modal__bg js-modal-close"></div>
+          <div class="modal__inner">
+            <div class="bnr__img"> <img src="<?php the_sub_field('bnr__img', 102);?>" > </div>
+            <button value="<?php the_sub_field('number', 102);?>" class="tc js-modal-close">このテイストで注文する</button>
+          </div>
+        </div>
+      </li>
+      <?php endwhile; ?>
+
+      <?php while (have_rows('bnr__list', 102)) : the_row(); ?>
+      <li class="js-modal-open banner__item in-view"> <img src="<?php the_sub_field('bnr__img', 102);?>" >
+        <div class="bnr__modal__box modal js-modal">
+          <div class="modal__bg js-modal-close"></div>
+          <div class="modal__inner">
+            <div class="bnr__img"> <img src="<?php the_sub_field('bnr__img', 102);?>" > </div>
+            <button value="<?php the_sub_field('number', 102);?>" class="tc js-modal-close">このテイストで注文する</button>
+          </div>
+        </div>
+      </li>
+      <?php endwhile; ?>
+
+
     </ul>
   </div>
 </section>

@@ -147,7 +147,7 @@ tippy('#publish > #label__type__e2', {
 
 $("#control__num > dd > .text__input1").attr('placeholder', '例：00000000000000');
 
-$("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力');
+$("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置');
 
 $("#info__customer .text1").attr('placeholder', '未入力でも注文可能です');
 
@@ -200,7 +200,6 @@ $(function () {
     //バナータイプのラベルテキスト取得からTABLEへ出力
     $("#size__select > label").change(function () {
 
-
         var size01 = $(this).text();
 
         var size01out = $("#output__type");
@@ -226,7 +225,6 @@ $(function () {
     //オプション選択のラベルテキスト取得TABLEへ出力
 
     $('#publish label').change(function () {
-
 
         var label01 = $(this).text();
 
@@ -285,7 +283,18 @@ $(function () {
     btn.on("click", function () {
         var value = $(this).val();
         var pos = $("#size__select").offset().top;
+        $('#special__size').css("display", "none");
+        //管理番号をチェック
+        $('#label__type__a6 > .iopt_radio').prop('checked', 'true');
+
+        //他のチェックスタイリングを外す
+        $("#size__select > .labels").removeClass("checked");
+        $("#size__select > .label5").addClass("checked");
+        var label5 = $("#size__select > .label5").text();
+        $("#output__type").text(label5);
         $("#control__num").css("display", "block");
+
+        //スクロールする
         $("html,body").animate({ scrollTop: pos }, 'fast');
         $("#control__num > dd > .text__input1").val(value);
         return false;
@@ -296,6 +305,8 @@ $(function () {
 
 //無限スクロール表示設定
 
-$(function () {
-    $('#infinite__banners').jscroll();
+//スクロールコンテンツ表示
+
+$('.in-view').on('inview', function (event, isInView, visiblePartX, visiblePartY) {
+    $(this).stop().addClass('fade-in');
 });

@@ -3,6 +3,10 @@ get_header();
 ?>
 
 <?php usces_delivery_info_script(); ?>
+
+<section class="cart__area">
+
+<div class="section__inner">
 <div id="content" class="two-column">
 <div class="catbox">
 
@@ -103,6 +107,7 @@ get_header();
 </div><!-- end of catbox -->
 </div><!-- end of content -->
 
-
+</div><!-- ./ section__inner -->
+</section>
 
 <?php get_footer(); ?>

@@ -55,7 +55,16 @@ textarea {
     color: #ccc;
 }
 
-/*エラーメッセージ*/
+#instruction {
+    textarea {
+        position: relative;
+    }
+
+    textarea::placeholder {
+        text-align: center;
+    }
+}
+
 .error_message {
     color: red;
 }
