@@ -156,6 +156,11 @@ $("#info__customer .text2").attr('placeholder', 'バナーヤスオ');
 $("#info__customer .text3").attr('placeholder', '未入力でも注文可能です');
 
 
+/*
+ラジオボタンクリック,スタイリングorイベント
+------------------------------------------*/
+
+
 $(function () {
 
     $(".select__zone label").change(function () {
@@ -194,6 +199,9 @@ $(function () {
     });
 });
 
+/*
+選択したオプションを確認の表にアウトプット
+-----------------------------------*/
 
 $(function () {
 
@@ -206,7 +214,6 @@ $(function () {
 
         size01out.text(size01);
     });
-
 
     //特注バナーサイズの横サイズと縦サイズのVALUE取得TABLEへ出力
 
