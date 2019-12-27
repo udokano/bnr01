@@ -1,3 +1,11 @@
+/*
+
+トップページのスクリプトスタイル記述
+
+*/
+
+
+
 //テキストボックスクラス追加ナンバリング
 $("#info__customer  .iopt_text").each(function (i) {
     $(this).attr('class', 'text' + (i + 1));
