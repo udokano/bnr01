@@ -211,10 +211,11 @@ SPボックススタイル
 ------------------------------*/
 /*水色背景の見出し*/
 .band {
-  background-color: #08abff;
+  background-color: #67b2ec;
   color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.27rem;
+  font-weight: 500;
+  letter-spacing: .14em;
   padding: 10px 0;
   text-align: center;
 }
@@ -233,10 +234,14 @@ h3 {
   letter-spacing: 2px;
 }
 
+.num__wrap {
+  margin-bottom: 1.94rem;
+}
+
 .num__wrap .num__tit {
   color: #7a959f;
   font-family: 'DINPro Medium';
-  font-size: 3.8rem;
+  font-size: 3.98rem;
   line-height: 1.0;
   margin-bottom: 10px;
   padding-bottom: 5px;
@@ -253,7 +258,7 @@ h3 {
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
-  width: 120px;
+  width: 148px;
 }
 
 .num__wrap span {
@@ -1099,7 +1104,7 @@ textarea {
   display: inline-block;
   font-size: .7rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin: 0 .8rem 1.6rem;
   padding: 35px 10px 35px 163px;
   position: relative;
   text-align: left;
@@ -1314,18 +1319,12 @@ textarea {
   background-image: none;
 }
 
-.purchase__form .form__inner .select__btns .select__btn__zone.public__btn {
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-}
-
 .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label {
   font-size: 1.1rem;
   height: 74px;
   line-height: 74px;
   padding: 0 30px 0 86px;
-  width: 27%;
+  width: 31%;
 }
 
 .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(2), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(3), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(4), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(5), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(6), .purchase__form .form__inner .select__btns .select__btn__zone.public__btn label:nth-of-type(7) {
@@ -1418,7 +1417,7 @@ textarea {
   }
   .purchase__form .form__inner dl .select__zone label {
     font-size: .9rem;
-    margin-bottom: 20px;
+    margin: 0 auto 1.2rem;
     padding-left: 9.4rem;
     width: 100%;
   }
@@ -1486,10 +1485,11 @@ textarea {
     justify-content: space-around;
   }
   .purchase__form .form__inner .select__btns .select__btn__zone.limit label {
-    background-position: 31.5% 50%;
-    background-size: 1.0rem;
+    background-position: 26% 50%;
+    background-size: 1.12rem;
     margin: 0 0 .8rem;
-    padding-left: 4.1rem;
+    padding-left: 5.0rem;
+    width: 66%;
   }
   .purchase__form .form__inner .select__btns .select__btn__zone.select__data {
     -ms-flex-pack: center;
@@ -1612,7 +1612,7 @@ textarea {
 
 /*カートへ入れるボタン*/
 .cart__in {
-  margin: 0 auto 2.2rem;
+  margin: 0 auto 3.5rem;
   width: 422px;
 }
 
@@ -1649,6 +1649,10 @@ textarea {
   .cart__in {
     width: 310px;
   }
+  .cart__in .cart__btn__cont {
+    display: block;
+    margin: auto;
+  }
   .cart__in .cart__btn__cont input {
     border-radius: 12px;
     display: block;
@@ -1656,7 +1660,7 @@ textarea {
     height: 68px;
     line-height: 68px;
     padding-left: 2.2rem;
-    width: 250px;
+    width: 310px;
   }
   .cart__in .cart__btn__cont::after {
     background-position: 28% 50%;
@@ -1856,6 +1860,14 @@ a.wpcf7-form-control {
   width: 100%;
 }
 
+.cart__area input {
+  padding: .32rem !important;
+}
+
+.cart__area table tr th, .cart__area table tr td {
+  padding: .6rem !important;
+}
+
 .usccart_navi .ucart {
   margin: 0;
   padding: .6rem 0;
@@ -1879,6 +1891,23 @@ a.wpcf7-form-control {
   border-bottom-width: 2px !important;
 }
 
+.send {
+  /*戻る系のボタン色変更*/
+}
+
+.send input {
+  color: #fff;
+  padding: 1.2rem 1.1rem !important;
+}
+
+.send input.back_cart_button, .send input.back_to_delivery_button {
+  background-color: #666 !important;
+}
+
+.continue_shopping_button {
+  background-color: #666 !important;
+}
+
 @media (max-width: 767px) {
   .cart__area .section__inner {
     width: 96%;
@@ -1890,7 +1919,7 @@ a.wpcf7-form-control {
     width: 100% !important;
   }
   #customer-info th, #customer-info td {
-    padding: 12px 0 !important;
+    padding: 12px 10px !important;
     text-align: center !important;
     vertical-align: middle !important;
   }
@@ -1921,7 +1950,7 @@ a.wpcf7-form-control {
 }
 
 .key__visual {
-  background: url(../img/top/key_visual_bg.jpg) no-repeat 50% 50%/auto 100%;
+  background: url(../img/top/key_visual_bg.jpg) no-repeat 50% 100%/auto 100%;
   height: 800px;
   padding: 80px 0;
   width: 100%;

@@ -6,11 +6,40 @@
 //サムネイル画像有効
 add_theme_support('post-thumbnails', array( 'post' ));
 
-
-
 //投稿サムネイルサイズ指定
 add_image_size('thumb300', 300, 220, true);
 add_image_size('thum', 600, 450, true);
+
+
+
+add_action('wp_enqueue_scripts', 'myScript');
+function myScript()
+{
+    wp_enqueue_script('jquery');
+
+    wp_enqueue_style(
+        'validationEngine.jquery.css',
+        get_template_directory_uri() . '/css/validationEngine.jquery.css',
+        array(),
+        '1.0',
+        'all'
+    );
+    wp_enqueue_script(
+        'jquery.validationEngine.js',
+        get_template_directory_uri() . '/js/jquery.validationEngine.min.js',
+        array('jquery'),
+        '2.6.2',
+        true
+    );
+    wp_enqueue_script(
+        'jquery.validationEngine-ja.js',
+        get_template_directory_uri() . '/js/jquery.validationEngine-ja.js',
+        array('jquery'),
+        '2.0',
+        true
+    );
+}
+
 
 /*メニューに制作実績管理追加*/
 

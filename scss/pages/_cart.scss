@@ -6,6 +6,20 @@
     width: 100%;
 }
 
+.cart__area {
+    input {
+        padding: .32rem !important;
+    }
+
+    table {
+        tr {
+            th, td {
+                padding: .6rem !important;
+            }
+        }
+    }
+}
+
 .usccart_navi {
     .ucart {
         margin: 0;
@@ -31,6 +45,22 @@
     border-bottom-width: 2px !important;
 }
 
+.send {
+    input {
+        padding: 1.2rem 1.1rem !important;
+        color: #fff;
+    }
+
+    /*戻る系のボタン色変更*/
+    input.back_cart_button, input.back_to_delivery_button {
+        background-color: #666 !important;
+    }
+}
+
+.continue_shopping_button {
+    background-color: #666 !important;
+}
+
 @media (max-width: 767px) {
     .cart__area {
         .section__inner {
@@ -51,7 +81,7 @@
     }
 
     #customer-info th, #customer-info td {
-        padding: 12px 0 !important;
+        padding: 12px 10px !important;
         text-align: center !important;
         vertical-align: middle !important;
     }

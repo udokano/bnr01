@@ -122,7 +122,7 @@ textarea {
                     background-color: #fff;
                     border: 1px solid $blue;
                     padding: 35px 10px 35px 163px;
-                    margin-bottom: 20px;
+                    margin: 0 .8rem 1.6rem;
                     color: $blue;
                     font-weight: 600;
                     font-size: .7rem;
@@ -343,10 +343,8 @@ textarea {
 
         .select__btns {
             .select__btn__zone.public__btn {
-                justify-content: center;
-
                 label {
-                    width: 27%;
+                    width: 31%;
                     height: 74px;
                     line-height: 74px;
                     padding: 0 30px 0 86px;
@@ -469,7 +467,7 @@ textarea {
                     label {
                         width: 100%;
                         padding-left: 9.4rem;
-                        margin-bottom: 20px;
+                        margin: 0 auto 1.2rem;
                         font-size: .9rem;
 
                         &::after, &::before {}
@@ -551,9 +549,10 @@ textarea {
 
                     label {
                         margin: 0 0 .8rem;
-                        background-size: 1.0rem;
-                        background-position: 31.5% 50%;
-                        padding-left: 4.1rem;
+                        background-size: 1.12rem;
+                        background-position: 26% 50%;
+                        padding-left: 5.0rem;
+                        width: 66%;
                     }
                 }
             }
@@ -714,7 +713,7 @@ textarea {
 
 .cart__in {
     width: 422px;
-    margin: 0 auto 2.2rem;
+    margin: 0 auto 3.5rem;
 
     .cart__btn__cont {
         display: inline-block;
@@ -750,8 +749,11 @@ textarea {
         width: 310px;
 
         .cart__btn__cont {
+            margin: auto;
+            display: block;
+
             input {
-                width: 250px;
+                width: 310px;
                 display: block;
                 height: 68px;
                 line-height: 68px;

@@ -7,10 +7,24 @@
 </title>
 <meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2">
 
 <?php wp_head(); ?>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.3">
+<?php if (is_home() || is_front_page()) : ?>
+  <script type="text/javascript">
+jQuery(function(){
+    jQuery("form").validationEngine();
+    jQuery(".back_cart_button, .back_to_customer_button").click(function(){
+        jQuery("form").validationEngine('hideAll');
+        jQuery("form").validationEngine('detach');
+        return true;
+     });
+});
+</script>
+<?php else: ?>
+  <!-- //それ以外のページで表示するものをココに -->
+<?php endif; ?>
 </head>
 <body <?php body_class(); ?> id="front__page">
 <div class="wrapper">

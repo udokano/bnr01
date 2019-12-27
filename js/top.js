@@ -182,6 +182,7 @@ $(function () {
         if (!$('[value="%E7%89%B9%E6%AE%8A%E3%82%B5%E3%82%A4%E3%82%BA%E3%83%90%E3%83%8A%E3%83%BC"],[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
             $('#control__num').css("display", "none");
             $('#special__size').css("display", "none");
+            $(".text__input1").val("");
         }
 
         //リサイズ依頼を選択
@@ -194,17 +195,34 @@ $(function () {
         if ($('[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
             $('#control__num').css("display", "none");
             $('#special__size').css("display", "block");
+            $(".text__input1").val("");
         }
 
     });
+});
 
-    $(".select__btn__zone label").change(function () {
+$("#limit.select__btn__zone label").change(function () {
 
-        //選択したボックスにスタイリング
-        $(".select__btn__zone label").not(this).removeClass("checked");
+    //選択したボックスにスタイリング
+    $("#limit.select__btn__zone label").not(this).removeClass("checked");
 
-        $(this).addClass("checked");
-    });
+    $(this).addClass("checked");
+});
+
+$("#data.select__btn__zone label").change(function () {
+
+    //選択したボックスにスタイリング
+    $("#data.select__btn__zone label").not(this).removeClass("checked");
+
+    $(this).addClass("checked");
+});
+
+$("#publish.select__btn__zone label").change(function () {
+
+    //選択したボックスにスタイリング
+    $("#publish.select__btn__zone label").not(this).removeClass("checked");
+
+    $(this).addClass("checked");
 });
 
 /*

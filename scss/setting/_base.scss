@@ -220,12 +220,13 @@ SPボックススタイル
 
 /*水色背景の見出し*/
 .band {
-    background-color: $blue04;
+    background-color: $blue05;
     text-align: center;
     color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.27rem;
+    font-weight: 500;
     padding: 10px 0;
+    letter-spacing: .14em;
 }
 
 h2, h3, h4 {
@@ -243,10 +244,12 @@ h3 {
 }
 
 .num__wrap {
+    margin-bottom: 1.94rem;
+
     .num__tit {
         font-family: 'DINPro Medium';
         position: relative;
-        font-size: 3.8rem;
+        font-size: 3.98rem;
         padding-bottom: 5px;
         text-align: center;
         margin-bottom: 10px;
@@ -259,7 +262,7 @@ h3 {
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
-            width: 120px;
+            width: 148px;
             height: 1px;
             background-color: #454545;
         }
