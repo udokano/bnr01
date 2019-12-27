@@ -3,6 +3,10 @@ get_header();
 ?>
 
 <?php usces_delivery_info_script(); ?>
+
+<section class="cart__area">
+
+<div class="section__inner">
 <div id="content" class="two-column">
 <div class="catbox">
 
@@ -10,7 +14,7 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-		<h1 class="cart_page_title"><?php _e('Shipping / Payment options', 'usces'); ?></h1>
+		<h1 class="cart_page_title tc"><?php _e('Shipping / Payment options', 'usces'); ?></h1>
 		<div class="entry">
 
 			<div id="delivery-info">
@@ -103,6 +107,7 @@ get_header();
 </div><!-- end of catbox -->
 </div><!-- end of content -->
 
-
+</div><!-- ./ section__inner -->
+</section>
 
 <?php get_footer(); ?>

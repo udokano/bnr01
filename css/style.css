@@ -171,6 +171,10 @@ section {
   display: none !important;
 }
 
+body.page .section__inner {
+  padding: 2.5rem 0;
+}
+
 /*
 SPボックススタイル
 --------------------------*/
@@ -309,11 +313,17 @@ h3 {
   opacity: .8;
 }
 
-/*下層ページ基本カラー*/
-body.page {
-  color: #454545;
+.in-view {
+  -webkit-transition: ease 1.5s .3s;
+  opacity: 0;
+  transition: ease 1.5s .3s;
 }
 
+.fade-in {
+  opacity: 1.0;
+}
+
+/*下層ページ基本カラー*/
 /*パンくずリスト*/
 .path {
   margin-bottom: 90px;
@@ -489,20 +499,6 @@ body.page {
 
 .area-bgs {
   background: no-repeat 50% 50%/cover;
-}
-
-.in-view {
-  -webkit-transform: translate(0, 60px);
-  -webkit-transition: ease 1.5s;
-  opacity: 0;
-  transform: translate(0, 60px);
-  transition: ease 1.5s;
-}
-
-.fade-in {
-  -webkit-transform: translate(0, 0);
-  opacity: 1.0;
-  transform: translate(0, 0);
 }
 
 /*qa 症例*/
@@ -851,20 +847,23 @@ body.page {
   width: 100%;
 }
 
-.infinite__banner__area .section__inner .banners .jscroll-inner {
-  -ms-flex-pack: justify;
-  -ms-flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
+.infinite__banner__area .section__inner .banners li {
+  margin-bottom: 2.4rem;
+  width: 30%;
 }
 
-.infinite__banner__area .section__inner .banners li {
-  width: 30%;
+.infinite__banner__area .section__inner .banners li .bnr__img {
+  margin-bottom: .9rem;
+}
+
+.infinite__banner__area .section__inner .banners li button {
+  background-color: #ffa200;
+  border-radius: 6px;
+  color: #fff;
+  display: block;
+  margin: 0 auto 1.2rem;
+  padding: .75rem 0;
+  width: 58%;
 }
 
 @media (max-width: 767px) {
@@ -886,6 +885,64 @@ body.page {
     margin-bottom: .8rem;
     width: 48%;
   }
+  .infinite__banner__area .section__inner .banners li button {
+    width: 100%;
+  }
+}
+
+/*-
+モーダル
+-----------------------------------*/
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9000;
+}
+
+.modal .modal__inner {
+  -webkit-transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 540px;
+  left: 50%;
+  padding: 45px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 540px;
+  z-index: 9999;
+}
+
+.modal .modal__inner h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.modal .modal__bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 9300;
+}
+
+@media (max-width: 767px) {
+  .modal .modal__inner {
+    height: 65%;
+    padding: 1.5rem;
+    width: 90%;
+  }
+  .modal .modal__inner h3 {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 /*
@@ -901,6 +958,7 @@ select {
   background-color: #f8f8f8;
   font-size: .58rem;
   height: 53px;
+  padding: 8px;
 }
 
 span.wpcf7-list-item {
@@ -959,7 +1017,30 @@ textarea {
   color: #ccc;
 }
 
-/*エラーメッセージ*/
+#instruction textarea {
+  position: relative;
+}
+
+#instruction textarea::-webkit-input-placeholder {
+  text-align: center;
+}
+
+#instruction textarea::-moz-placeholder {
+  text-align: center;
+}
+
+#instruction textarea:-ms-input-placeholder {
+  text-align: center;
+}
+
+#instruction textarea::-ms-input-placeholder {
+  text-align: center;
+}
+
+#instruction textarea::placeholder {
+  text-align: center;
+}
+
 .error_message {
   color: red;
 }
@@ -970,7 +1051,13 @@ textarea {
   border-color: #6594ac !important;
   display: none;
   margin: auto;
-  width: 77%;
+  width: 84.5%;
+}
+
+@media (max-width: 767px) {
+  .hidden {
+    width: 100%;
+  }
 }
 
 /*フォームエリア記載
@@ -1258,12 +1345,12 @@ textarea {
 }
 
 .purchase__form .form__inner .special__size dd .special__size-box p {
-  margin-bottom: 25px;
-  text-align: center;
+  margin-bottom: .8rem;
 }
 
-.purchase__form .form__inner .special__size dd .special__size-box input, .purchase__form .form__inner .special__size dd .special__size-box select {
-  width: 47.5%;
+.purchase__form .form__inner .special__size dd .special__size-box select {
+  font-size: 1.0rem;
+  width: 100%;
 }
 
 .purchase__form .form__inner .term .term__text__box {
@@ -1431,10 +1518,6 @@ textarea {
   }
   .purchase__form .form__inner .special__size dd .special__size-box p {
     margin-bottom: 25px;
-    text-align: center;
-  }
-  .purchase__form .form__inner .special__size dd .special__size-box input, .purchase__form .form__inner .special__size dd .special__size-box select {
-    width: 47.5%;
   }
   .purchase__form .form__inner .info__customer {
     width: 80%;
@@ -1489,6 +1572,44 @@ textarea {
   border-right: 1px solid #fff;
 }
 
+@media (max-width: 767px) {
+  .output__table {
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+  }
+  .output__table tr {
+    display: block;
+  }
+  .output__table tr th, .output__table tr td {
+    display: block;
+    font-size: .7rem;
+    height: 3.7rem;
+    padding: 1.4rem 0 0.7rem !important;
+    width: auto;
+  }
+  .output__table thead {
+    float: left;
+    width: auto;
+    width: 40%;
+  }
+  .output__table thead tr th {
+    border: none;
+    border-bottom: 1px solid #fff;
+  }
+  .output__table tbody {
+    float: left;
+    width: 60%;
+  }
+  .output__table tbody tr {
+    width: 100%;
+  }
+  .output__table tbody tr td {
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+  }
+}
+
 /*カートへ入れるボタン*/
 .cart__in {
   margin: 0 auto 2.2rem;
@@ -1526,7 +1647,7 @@ textarea {
 
 @media (max-width: 767px) {
   .cart__in {
-    width: 250px;
+    width: 310px;
   }
   .cart__in .cart__btn__cont input {
     border-radius: 12px;
@@ -1728,61 +1849,6 @@ a.wpcf7-form-control {
         font-size: 3.6rem;
     }
 } */
-.modal {
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9000;
-}
-
-.modal .modal__inner {
-  -webkit-transform: translate(-50%, -50%);
-  background-color: #fff;
-  height: 540px;
-  left: 50%;
-  padding: 45px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 540px;
-  z-index: 9999;
-}
-
-.modal .modal__inner h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-.modal .modal__bg {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  z-index: 9300;
-}
-
-/*===================
-一時的に合計料金下固定
-=====================================*/
-.fix__bottom {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
-
-.fix__bottom .value__list {
-  margin: auto;
-  width: 800px;
-}
-
 /*
 カートページスタイル
 -------------------------------*/
@@ -1790,8 +1856,27 @@ a.wpcf7-form-control {
   width: 100%;
 }
 
+.usccart_navi .ucart {
+  margin: 0;
+  padding: .6rem 0;
+}
+
 .usccart_navi .ucart li {
   font-size: .9rem;
+}
+
+.usccart_navi .ucart li.usccart_cart, .usccart_navi .ucart li.usccart_delivery, .usccart_navi .ucart li.usccart_customer {
+  background: none;
+  background-color: #ffa200;
+}
+
+.usccart_navi .ucart li.usccart_confirm {
+  background: none;
+  background-color: #ff5c5c;
+}
+
+#cart th, #cart td {
+  border-bottom-width: 2px !important;
 }
 
 @media (max-width: 767px) {
@@ -1800,6 +1885,14 @@ a.wpcf7-form-control {
   }
   .usccart_navi .ucart li {
     font-size: .7rem;
+  }
+  #customer-info .customer_form input {
+    width: 100% !important;
+  }
+  #customer-info th, #customer-info td {
+    padding: 12px 0 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
   }
   #cart_table {
     -webkit-box-sizing: border-box;

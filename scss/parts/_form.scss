@@ -11,6 +11,7 @@ input {
 select {
     background-color: #f8f8f8;
     height: 53px;
+    padding: 8px;
     font-size: .58rem;
 }
 
@@ -54,7 +55,16 @@ textarea {
     color: #ccc;
 }
 
-/*エラーメッセージ*/
+#instruction {
+    textarea {
+        position: relative;
+    }
+
+    textarea::placeholder {
+        text-align: center;
+    }
+}
+
 .error_message {
     color: red;
 }
@@ -64,8 +74,14 @@ textarea {
     display: none;
     background-color: #fff !important;
     border-color: $blue !important;
-    width: 77%;
+    width: 84.5%;
     margin: auto;
+}
+
+@media (max-width: 767px) {
+    .hidden {
+        width: 100%;
+    }
 }
 
 /*フォームエリア記載
@@ -359,12 +375,12 @@ textarea {
                     margin-bottom: 1.75rem;
 
                     p {
-                        margin-bottom: 25px;
-                        text-align: center;
+                        margin-bottom: .8rem;
                     }
 
-                    input, select {
-                        width: 47.5%;
+                    select {
+                        width: 100%;
+                        font-size: 1.0rem;
                     }
                 }
             }
@@ -578,11 +594,6 @@ textarea {
 
                         p {
                             margin-bottom: 25px;
-                            text-align: center;
-                        }
-
-                        input, select {
-                            width: 47.5%;
                         }
                     }
                 }
@@ -652,6 +663,53 @@ textarea {
     }
 }
 
+@media (max-width: 767px) {
+    .output__table {
+        margin-bottom: 3.5rem;
+        overflow: hidden;
+
+        tr {
+            display: block;
+
+            th, td {
+                display: block;
+                width: auto;
+                height: 3.7rem;
+                font-size: .7rem;
+                padding: 1.4rem 0 0.7rem !important;
+            }
+        }
+
+        thead {
+            float: left;
+            width: auto;
+            width: 40%;
+
+            tr {
+                th {
+                    border: none;
+                    border-bottom: 1px solid #fff;
+                }
+            }
+        }
+
+        tbody {
+            float: left;
+            width: 60%;
+
+            tr {
+                width: 100%;
+
+                td {
+                    border: none;
+                    border-bottom: 1px solid #fff;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 /*カートへ入れるボタン*/
 
 .cart__in {
@@ -689,7 +747,7 @@ textarea {
 
 @media (max-width: 767px) {
     .cart__in {
-        width: 250px;
+        width: 310px;
 
         .cart__btn__cont {
             input {
@@ -903,58 +961,3 @@ a.wpcf7-form-control {
         font-size: 3.6rem;
     }
 } */
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba($color: #000000, $alpha: 0.5);
-    z-index: 9000;
-
-    .modal__inner {
-        width: 540px;
-        height: 540px;
-        position: absolute;
-        padding: 45px;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        z-index: 9999;
-
-        h3 {
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 2.5rem;
-        }
-    }
-
-    .modal__bg {
-        background-color: rgba($color: #000000, $alpha: 0.5);
-        height: 100vh;
-        position: fixed;
-        overflow: hidden;
-        width: 100%;
-        z-index: 9300;
-    }
-}
-
-/*===================
-一時的に合計料金下固定
-=====================================*/
-
-.fix__bottom {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-
-    .value__list {
-        width: 800px;
-        margin: auto;
-    }
-}

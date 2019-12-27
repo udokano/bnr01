@@ -168,6 +168,12 @@ section {
     display: none !important;
 }
 
+body.page {
+    .section__inner {
+        padding: 2.5rem 0;
+    }
+}
+
 /*
 SPボックススタイル
 --------------------------*/
@@ -318,11 +324,16 @@ h3 {
     opacity: .8;
 }
 
-/*下層ページ基本カラー*/
-
-body.page {
-    color: #454545;
+.in-view {
+    opacity: 0;
+    transition: ease 1.5s .3s;
 }
+
+.fade-in {
+    opacity: 1.0;
+}
+
+/*下層ページ基本カラー*/
 
 /*パンくずリスト*/
 
@@ -479,17 +490,6 @@ body.page {
 
 .area-bgs {
     background: no-repeat 50% 50%/cover;
-}
-
-.in-view {
-    opacity: 0;
-    transform: translate(0, 60px);
-    transition: ease 1.5s;
-}
-
-.fade-in {
-    opacity: 1.0;
-    transform: translate(0, 0);
 }
 
 /*qa 症例*/

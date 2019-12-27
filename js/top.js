@@ -1,5 +1,13 @@
+/*
+
+トップページのスクリプトスタイル記述
+
+*/
+
+
+
 //テキストボックスクラス追加ナンバリング
-$(".iopt_text").each(function (i) {
+$("#info__customer  .iopt_text").each(function (i) {
     $(this).attr('class', 'text' + (i + 1));
     $(this).addClass("texts");
 
@@ -7,7 +15,7 @@ $(".iopt_text").each(function (i) {
 
 
 //ラジオボタンクラス追加ナンバリング
-$(".iopt_radio").each(function (i) {
+$("#size__select > .iopt_radio").each(function (i) {
     $(this).attr('class', 'radio' + (i + 1));
     $(this).addClass("radios");
 
@@ -17,14 +25,44 @@ $(".iopt_radio").each(function (i) {
 $(".iopt_radio_label").each(function (i) {
     $(this).attr('class', 'label' + (i + 1));
     $(this).addClass("labels");
-
 });
 
-//ラベルにID振り分け
-$("label").each(function (i) {
-    $(this).attr('id', 'label' + (i + 1));
+//テキストボックスにID付与
+$("#instruction .iopt_textarea").each(function (i) {
+    $(this).attr('id', 'textarea' + (i + 1));
 });
 
+//管理番号
+$("#control__num .iopt_text").each(function (i) {
+    $(this).attr('class', 'text__input' + (i + 1));
+});
+
+/*ラベルにID振り分け*/
+
+//サイズ選択エリア
+$("#size__select > label").each(function (i) {
+    $(this).attr('id', 'label__type__a' + (i + 1));
+});
+
+//バナー形式エリア
+$("#format > label").each(function (i) {
+    $(this).attr('id', 'label__type__b' + (i + 1));
+});
+
+//納期選択エリア
+$("#limit > label").each(function (i) {
+    $(this).attr('id', 'label__type__c' + (i + 1));
+});
+
+//データ納品エリア
+$("#data > label").each(function (i) {
+    $(this).attr('id', 'label__type__d' + (i + 1));
+});
+
+//公開エリア
+$("#publish > label").each(function (i) {
+    $(this).attr('id', 'label__type__e' + (i + 1));
+});
 
 /*
 ツールチップ
@@ -33,72 +71,102 @@ $("label").each(function (i) {
 /*バナーサイズs*/
 
 //Sサイズ選択
-tippy('#size__select > #label2', {
+tippy('#size__select > #label__type__a2', {
     content: '長辺と短編の合計が600px未満　3600円',
+    maxWidth: '100%',
     interactive: true
 });
 
 //Mサイズ選択
-tippy('#size__select > #label3', {
+tippy('#size__select > #label__type__a3', {
     content: '長辺と短編の合計が601px～1000px　5700円',
+    maxWidth: '100%',
     interactive: true
 });
 
 //Lサイズ選択
-tippy('#size__select > #label4', {
+tippy('#size__select > #label__type__a4', {
     content: '長辺と短編の合計が1001px～1500px　8600円',
+    maxWidth: '100%',
     interactive: true
 });
 
 //SNS用ヘッダー/ブログ用ヘッダー
-tippy('#size__select > #label5', {
+tippy('#size__select > #label__type__a5', {
     content: '11500円',
+    maxWidth: '100%',
     interactive: true
 });
 
 //リサイズ依頼
-tippy('#size__select > #label6', {
+tippy('#size__select > #label__type__a6', {
     content: '上記価格の50%OFFの金額',
+    maxWidth: '100%',
     interactive: true
 });
 
 //その他
-tippy('#size__select > #label7', {
+tippy('#size__select > #label__type__a7', {
     content: '特殊サイズのバナーです。サイズをご指定ください',
+    maxWidth: '100%',
     interactive: true
 });
 
 /*バナー形式*/
-//その他
-tippy('#format > #label15', {
+//リッチバナー
+tippy('#format > #label__type__b3', {
     content: '+2000円',
     interactive: true
 });
 
 /*納期選択*/
-tippy('#limit > #label17', {
+tippy('#limit > #label__type__c2', {
     content: '+2000円',
+    maxWidth: '100%',
     interactive: true
 });
 
-tippy('#limit > #label18', {
+tippy('#limit > #label__type__c3', {
     content: '+1000円',
+    maxWidth: '100%',
     interactive: true
 });
 
 /*データ選択*/
 
-tippy('#data > #label23', {
+tippy('#data > #label__type__d3', {
     content: '+1500円',
+    maxWidth: '100%',
     interactive: true
 });
 
 /*実績として公開*/
 
-tippy('#publish > #label25', {
+tippy('#publish > #label__type__e2', {
     content: '-500円',
+    maxWidth: '100%',
     interactive: true
 });
+
+
+/*
+プレースポルダー追加
+---------------------------------------*/
+
+$("#control__num > dd > .text__input1").attr('placeholder', '例：00000000000000');
+
+$("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置');
+
+$("#info__customer .text1").attr('placeholder', '未入力でも注文可能です');
+
+$("#info__customer .text2").attr('placeholder', 'バナーヤスオ');
+
+$("#info__customer .text3").attr('placeholder', '未入力でも注文可能です');
+
+
+/*
+ラジオボタンクリック,スタイリングorイベント
+------------------------------------------*/
 
 
 $(function () {
@@ -139,12 +207,14 @@ $(function () {
     });
 });
 
+/*
+選択したオプションを確認の表にアウトプット
+-----------------------------------*/
 
 $(function () {
 
     //バナータイプのラベルテキスト取得からTABLEへ出力
     $("#size__select > label").change(function () {
-
 
         var size01 = $(this).text();
 
@@ -152,7 +222,6 @@ $(function () {
 
         size01out.text(size01);
     });
-
 
     //特注バナーサイズの横サイズと縦サイズのVALUE取得TABLEへ出力
 
@@ -171,7 +240,6 @@ $(function () {
     //オプション選択のラベルテキスト取得TABLEへ出力
 
     $('#publish label').change(function () {
-
 
         var label01 = $(this).text();
 
@@ -230,9 +298,20 @@ $(function () {
     btn.on("click", function () {
         var value = $(this).val();
         var pos = $("#size__select").offset().top;
+        $('#special__size').css("display", "none");
+        //管理番号をチェック
+        $('#label__type__a6 > .iopt_radio').prop('checked', 'true');
+
+        //他のチェックスタイリングを外す
+        $("#size__select > .labels").removeClass("checked");
+        $("#size__select > .label5").addClass("checked");
+        var label5 = $("#size__select > .label5").text();
+        $("#output__type").text(label5);
         $("#control__num").css("display", "block");
+
+        //スクロールする
         $("html,body").animate({ scrollTop: pos }, 'fast');
-        $(".text1").val(value);
+        $("#control__num > dd > .text__input1").val(value);
         return false;
 
     });
@@ -241,6 +320,8 @@ $(function () {
 
 //無限スクロール表示設定
 
-$(function () {
-    $('#infinite__banners').jscroll();
+//スクロールコンテンツ表示
+
+$('.in-view').on('inview', function (event, isInView, visiblePartX, visiblePartY) {
+    $(this).stop().addClass('fade-in');
 });

@@ -1,4 +1,7 @@
-// JavaScript Document
+// 共用スクリプトスタイル記述
+
+
+
 $(function () {
 
 
@@ -16,14 +19,6 @@ $(function () {
     $(this).toggleClass("active");
     $("#js-nav").toggleClass("active");
   });
-
-
-  //スクロールコンテンツ表示
-
-  $('.in-view').on('inview', function (event, isInView, visiblePartX, visiblePartY) {
-    $(this).stop().addClass('fade-in');
-  });
-
 
   //スライダー
 
