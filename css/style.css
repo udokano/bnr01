@@ -1056,11 +1056,13 @@ textarea {
   border-color: #6594ac !important;
   display: none;
   margin: auto;
-  width: 84.5%;
+  padding: 2.5rem 3.6rem;
+  width: 87.5%;
 }
 
 @media (max-width: 767px) {
   .hidden {
+    padding: 2.0rem .5rem;
     width: 100%;
   }
 }
@@ -1331,7 +1333,11 @@ textarea {
   background-image: none;
 }
 
-.purchase__form .form__inner .control__num input {
+.purchase__form .form__inner .hidden p {
+  margin-bottom: 1.7rem;
+}
+
+.purchase__form .form__inner .hidden input, .purchase__form .form__inner .hidden select {
   width: 100%;
 }
 
@@ -1865,7 +1871,7 @@ a.wpcf7-form-control {
 }
 
 .cart__area table tr th, .cart__area table tr td {
-  padding: .6rem !important;
+  padding: .6rem;
 }
 
 .usccart_navi .ucart {
@@ -1889,6 +1895,10 @@ a.wpcf7-form-control {
 
 #cart th, #cart td {
   border-bottom-width: 2px !important;
+}
+
+#cart .action {
+  width: auto;
 }
 
 .send {
@@ -1929,13 +1939,16 @@ a.wpcf7-form-control {
     font-size: .39rem;
   }
   #cart_table .item {
-    width: 40% !important;
+    width: 26% !important;
   }
   #cart_table tr th, #cart_table tr td {
     padding: 0;
     text-align: left !important;
     white-space: normal !important;
     width: 10% !important;
+  }
+  #cart_table tr th {
+    text-align: center !important;
   }
   #cart_table tr .num {
     width: 2% !important;

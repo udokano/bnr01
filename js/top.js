@@ -153,7 +153,7 @@ tippy('#publish > #label__type__e2', {
 プレースポルダー追加
 ---------------------------------------*/
 
-$("#control__num > dd > .text__input1").attr('placeholder', '例：00000000000000');
+$("#control__num > div > .text__input1").attr('placeholder', '例：00000000000000');
 
 $("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置');
 
@@ -329,7 +329,7 @@ $(function () {
 
         //スクロールする
         $("html,body").animate({ scrollTop: pos }, 'fast');
-        $("#control__num > dd > .text__input1").val(value);
+        $("#control__num > div > .text__input1").val(value);
         return false;
 
     });

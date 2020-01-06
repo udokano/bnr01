@@ -74,13 +74,15 @@ textarea {
     display: none;
     background-color: #fff !important;
     border-color: $blue !important;
-    width: 84.5%;
+    width: 87.5%;
     margin: auto;
+    padding: 2.5rem 3.6rem;
 }
 
 @media (max-width: 767px) {
     .hidden {
         width: 100%;
+        padding: 2.0rem .5rem;
     }
 }
 
@@ -357,8 +359,12 @@ textarea {
             }
         }
 
-        .control__num {
-            input {
+        .hidden {
+            p {
+                margin-bottom: 1.7rem;
+            }
+
+            input, select {
                 width: 100%;
             }
         }

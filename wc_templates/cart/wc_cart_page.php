@@ -48,8 +48,8 @@ get_header();
 							<th class="quantity"><?php _e('Unit price', 'usces'); ?></th>
 
 							<th class="subtotal"><?php _e('Amount', 'usces'); ?><?php usces_guid_tax(); ?></th>
-							<th class="stock"><?php _e('stock status', 'usces'); ?></th>
-							<th class="action">&nbsp;</th>
+						<!-- 	<th class="stock"><?php _e('stock status', 'usces'); ?></th> -->
+							<th class="action" colspan="2">&nbsp;</th>
 						</tr>
 						</thead>
 						<tbody>

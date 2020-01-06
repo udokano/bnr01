@@ -14,7 +14,7 @@
     table {
         tr {
             th, td {
-                padding: .6rem !important;
+                padding: .6rem;
             }
         }
     }
@@ -43,6 +43,10 @@
 
 #cart th, #cart td {
     border-bottom-width: 2px !important;
+}
+
+#cart .action {
+    width: auto;
 }
 
 .send {
@@ -91,7 +95,7 @@
         font-size: .39rem;
 
         .item {
-            width: 40% !important;
+            width: 26% !important;
         }
 
         tr {
@@ -100,6 +104,10 @@
                 padding: 0;
                 text-align: left !important;
                 white-space: normal !important;
+            }
+
+            th {
+                text-align: center !important;
             }
 
             .num {

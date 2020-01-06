@@ -12,35 +12,6 @@ add_image_size('thum', 600, 450, true);
 
 
 
-add_action('wp_enqueue_scripts', 'myScript');
-function myScript()
-{
-    wp_enqueue_script('jquery');
-
-    wp_enqueue_style(
-        'validationEngine.jquery.css',
-        get_template_directory_uri() . '/css/validationEngine.jquery.css',
-        array(),
-        '1.0',
-        'all'
-    );
-    wp_enqueue_script(
-        'jquery.validationEngine.js',
-        get_template_directory_uri() . '/js/jquery.validationEngine.min.js',
-        array('jquery'),
-        '2.6.2',
-        true
-    );
-    wp_enqueue_script(
-        'jquery.validationEngine-ja.js',
-        get_template_directory_uri() . '/js/jquery.validationEngine-ja.js',
-        array('jquery'),
-        '2.0',
-        true
-    );
-}
-
-
 /*メニューに制作実績管理追加*/
 
 function add_page_to_admin_menu()
@@ -62,6 +33,9 @@ function correct_cart_rows($html)
 
     $html = preg_replace('/<td class="quantity">(.*)<\/td>/', '', $html);
 
+    $html = preg_replace('/<td class="stock">(.*)<\/td>/', '', $html);
+
+
     return $html;
 }
 add_filter('usces_filter_cart_rows', 'correct_cart_rows', 10, 1);
@@ -76,6 +50,9 @@ function usces_filter_apply_addressform($html)
     $html = preg_replace('/<td class="quantity">(.*)<\/td>/', '', $html);
 
     $html = preg_replace('/<td class="action">(.*)<\/td>/', '', $html);
+
+    $html = preg_replace('/<td class="stock">(.*)<\/td>/', '', $html);
+
 
     return $html;
 }
