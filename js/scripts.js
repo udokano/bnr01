@@ -1,8 +1,6 @@
 // 共用スクリプトスタイル記述
 
-
-
-$(function () {
+jQuery(function ($) {
 
 
 

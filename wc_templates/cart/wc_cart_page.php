@@ -3,6 +3,7 @@ get_header();
 ?>
 
 
+
 <section class="cart__area">
 
 <div class="section__inner">
@@ -48,8 +49,8 @@ get_header();
 							<th class="quantity"><?php _e('Unit price', 'usces'); ?></th>
 
 							<th class="subtotal"><?php _e('Amount', 'usces'); ?><?php usces_guid_tax(); ?></th>
-							<th class="stock"><?php _e('stock status', 'usces'); ?></th>
-							<th class="action">&nbsp;</th>
+						<!-- 	<th class="stock"><?php _e('stock status', 'usces'); ?></th> -->
+							<th class="action" colspan="2">&nbsp;</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -63,7 +64,7 @@ get_header();
 						</tr>
 						</tfoot>
 					</table>
-					<div class="currency_code"><?php _e('Currency', 'usces'); ?> : <?php usces_crcode(); ?></div>
+
 					<?php if ($usces_gp) : ?>
 					<img src="<?php bloginfo('template_directory'); ?>/images/gp.gif" alt="<?php _e('Business package discount', 'usces'); ?>" /><br /><?php _e('The price with this mark applys to Business pack discount.', 'usces'); ?>
 					<?php endif; ?>

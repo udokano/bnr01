@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>
 <?php bloginfo('name'); ?>
 </title>
@@ -9,22 +10,33 @@
 <meta name="format-detection" content="telephone=no">
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.3">
-<?php if (is_home() || is_front_page()) : ?>
-  <script type="text/javascript">
-jQuery(function(){
-    jQuery("form").validationEngine();
-    jQuery(".back_cart_button, .back_to_customer_button").click(function(){
-        jQuery("form").validationEngine('hideAll');
-        jQuery("form").validationEngine('detach');
-        return true;
-     });
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.4">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
+ -->
+<script type="text/javascript">
+//不要なラベルを削除
+jQuery(document).ready(function(){
+    $(".iopt_label").remove();
 });
 </script>
-<?php else: ?>
-  <!-- //それ以外のページで表示するものをココに -->
-<?php endif; ?>
+
+
+<script>
+jQuery(document).ready(function(){
+jQuery("#size__select > input[name*='%E3%82%B5%E3%82%A4%E3%82%BA%E6%8C%87%E5%AE%9A']").addClass("validate[required]");
+jQuery("#format > input").addClass("validate[required]");
+jQuery("#limit > input").addClass("validate[required]");
+jQuery("#data > input").addClass("validate[required]");
+jQuery("#publish > input").addClass("validate[required]");
+jQuery("#form").validationEngine('attach', {
+    　promptPosition:"topLeft"
+  　});
+});
+</script>
+
+
+
 </head>
 <body <?php body_class(); ?> id="front__page">
 <div class="wrapper">
@@ -45,6 +57,7 @@ jQuery(function(){
                  <nav class="header__nav" id="js-nav">
 
                         <ul class="flex">
+                            <li><a href="<?php echo home_url('/');?>usces-cart">カートを見る</a></li>
                             <li><a href="<?php echo home_url('/');?>">サービス</a></li>
                             <li><a href="<?php echo home_url('/');?>">納品までの流れ</a></li>
                             <li><a href="<?php echo home_url('/');?>">料金</a></li>

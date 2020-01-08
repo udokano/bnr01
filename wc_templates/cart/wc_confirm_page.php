@@ -1,11 +1,8 @@
 <?php
-/**
- * <meta content="charset=UTF-8">
- * @package Welcart
- * @subpackage Welcart Default Theme
- */
+
 get_header();
 ?>
+
 
 <section class="cart__area">
 
@@ -41,7 +38,6 @@ get_header();
 
 	<div class="error_message tc"><?php usces_error_message(); ?></div>
 	<div id="cart">
-		<div class="currency_code tc"><?php _e('Currency', 'usces'); ?> : <?php usces_crcode(); ?></div>
 		<table cellspacing="0" id="cart_table">
 			<thead>
 			<tr>

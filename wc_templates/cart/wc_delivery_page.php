@@ -34,24 +34,10 @@ get_header();
 
 				<div class="error_message"><?php usces_error_message(); ?></div>
 				<form action="<?php usces_url('cart'); ?>" method="post">
-				<table class="customer_form" style="height: 0; display: none;">
-					<tr style="height: 0; display: none;">
-						<th rowspan="2" scope="row"><?php _e('shipping address', 'usces'); ?></th>
-						<td><input name="delivery[delivery_flag]" type="radio" id="delivery_flag1" onclick="document.getElementById('delivery_table').style.display = 'none';" value="0"<?php if ($usces_entries['delivery']['delivery_flag'] == 0) {
-    echo ' checked';
-} ?> onKeyDown="if (event.keyCode == 13) {return false;}" /> <label for="delivery_flag1"><?php _e('same as customer information', 'usces'); ?></label></td>
-					</tr>
-					<tr style="height: 0; display: none;">
-						<td><input name="delivery[delivery_flag]" id="delivery_flag2" onclick="document.getElementById('delivery_table').style.display = 'table'" type="radio" value="1"<?php if ($usces_entries['delivery']['delivery_flag'] == 1) {
-    echo ' checked';
-} ?> onKeyDown="if (event.keyCode == 13) {return false;}" /> <label for="delivery_flag2"><?php _e('Chose another shipping address.', 'usces'); ?></label></td>
-					</tr>
-				</table>
+
 				<?php do_action('usces_action_delivery_flag'); ?>
 
-				<table class="customer_form" id="delivery_table">
-			<?php echo uesces_addressform('delivery', $usces_entries); ?>
-				</table>
+
 				<table class="customer_form" id="time">
 					<tr style="height: 0; display: none;">
 						<th scope="row"><?php _e('shipping option', 'usces'); ?></th>

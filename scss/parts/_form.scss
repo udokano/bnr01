@@ -74,13 +74,15 @@ textarea {
     display: none;
     background-color: #fff !important;
     border-color: $blue !important;
-    width: 84.5%;
+    width: 87.5%;
     margin: auto;
+    padding: 2.5rem 3.6rem;
 }
 
 @media (max-width: 767px) {
     .hidden {
         width: 100%;
+        padding: 2.0rem .5rem;
     }
 }
 
@@ -104,15 +106,36 @@ textarea {
                 border: none;
             }
 
-            dd {}
+            dd {
+                position: relative;
+            }
 
             label {
                 font-size: .88rem;
+
+                /*各バナーの補足文の設定*/
+
+                .sub__text {
+                    white-space: nowrap;
+                    display: inline-block;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 10px;
+                    transform: translateX(-50%);
+                    font-size: .72rem;
+                    color: #454545;
+                    font-weight: 100;
+                }
             }
 
-            /*サイズ選択*/
+            /*サイズ用途選択スタイル記述(四角ボタン)*/
             .select__zone {
                 text-align: center;
+
+                input[type="radio"] {
+                    opacity: 0;
+                    position: absolute;
+                }
 
                 label {
                     display: inline-block;
@@ -121,15 +144,11 @@ textarea {
                     position: relative;
                     background-color: #fff;
                     border: 1px solid $blue;
-                    padding: 35px 10px 35px 163px;
+                    padding: 35px 10px 54px 163px;
                     margin: 0 .8rem 1.6rem;
                     color: $blue;
                     font-weight: 600;
-                    font-size: .7rem;
-
-                    input {
-                        display: none;
-                    }
+                    font-size: .88rem;
 
                     &::after, &::before {
                         content: "";
@@ -157,40 +176,52 @@ textarea {
                         height: 7px;
                     }
 
-                    &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
-                        background: #fff no-repeat 19% 50% / 20% auto;
+                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
+                        background: #fff no-repeat 19% 36% / 20% auto;
                     }
 
                     /*サムネイル画像振り分け*/
-                    &:nth-of-type(2) {
+                    &:nth-of-type(1) {
                         background-image: url(../img/icons/radio_icon01.jpg);
                     }
 
-                    &:nth-of-type(3) {
+                    &:nth-of-type(2) {
                         background-image: url(../img/icons/radio_icon02.jpg);
                     }
 
-                    &:nth-of-type(4) {
+                    &:nth-of-type(3) {
                         background-image: url(../img/icons/radio_icon03.png);
                     }
 
-                    &:nth-of-type(5) {
+                    &:nth-of-type(4) {
                         background-image: url(../img/icons/radio_icon04.jpg);
                     }
 
-                    &:nth-of-type(6) {
+                    &:nth-of-type(5) {
                         background-image: url(../img/icons/radio_icon05.jpg);
                     }
 
-                    &:nth-of-type(7) {
+                    &:nth-of-type(6) {
                         background-image: url(../img/icons/radio_icon06.jpg);
                     }
                 }
 
                 /*クリックしたときのスタイル*/
 
+                input[type="radio"]:checked + label {
+                    border: none;
+                    outline: 4px solid $yellow;
+                    outline-offset: -2px;
+
+                    &::before {
+                        border-color: $yellow;
+                    }
+                }
+
                 label.checked {
-                    border: 4px solid $yellow;
+                    border: none;
+                    outline: 4px solid $yellow;
+                    outline-offset: -2px;
 
                     &::before {
                         border-color: $yellow;
@@ -202,20 +233,26 @@ textarea {
         .size__select.select__zone {
             label {
                 /*サムネイル画像振り分け*/
-                &:nth-of-type(2) {
+                &:nth-of-type(1) {
                     background-image: url(../img/icons/s_icon.png);
                 }
 
-                &:nth-of-type(3) {
+                &:nth-of-type(2) {
                     background-image: url(../img/icons/m_icon.png);
                 }
 
-                &:nth-of-type(4) {
+                &:nth-of-type(3) {
                     background-image: url(../img/icons/l_icon.png);
                 }
             }
         }
 
+        input[type="radio"] {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        /* ボタンタイプスタイル記述(黄色いボタン) */
         .select__btns {
             .select__btn__zone {
                 justify-content: space-around;
@@ -225,18 +262,13 @@ textarea {
 
                 label {
                     width: 30%;
-                    background-color: $yellow;
                     border-radius: 37px;
                     color: #fff;
-                    height: 74px;
-                    line-height: 74px;
+                    height: 78px;
+                    line-height: 78px;
                     position: relative;
                     margin: 0 .5rem 1.8rem;
                     padding: 0 30px 0 112px;
-
-                    input {
-                        display: none;
-                    }
 
                     &::after, &::before {
                         content: "";
@@ -247,7 +279,7 @@ textarea {
 
                     &::after {
                         left: 34px;
-                        border: 2px #e09935 solid;
+                        border: 2px #f8f8f8 solid;
                         width: 21px;
                         height: 21px;
                         border-radius: 3px;
@@ -264,39 +296,62 @@ textarea {
                         height: 6px;
                     }
 
-                    &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
-                        background: $yellow no-repeat 34% 50% / 22px auto;
+                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
+                        background: #454545 no-repeat 34% 50% / 22px auto;
                     }
 
                     /*サムネイル画像振り分け*/
-                    &:nth-of-type(2) {
+                    &:nth-of-type(1) {
                         background-image: url(../img/icons/option_icon01.png);
+                    }
+
+                    &:nth-of-type(2) {
+                        background-image: url(../img/icons/option_icon02.png);
                     }
 
                     &:nth-of-type(3) {
-                        background-image: url(../img/icons/option_icon02.png);
+                        background-image: url(../img/icons/option_icon03.png);
                     }
 
                     &:nth-of-type(4) {
-                        background-image: url(../img/icons/option_icon03.png);
-                    }
-
-                    &:nth-of-type(5) {
                         background-image: url(../img/icons/option_icon01.png);
                     }
 
-                    &:nth-of-type(6) {
+                    &:nth-of-type(5) {
                         background-image: url(../img/icons/option_icon02.png);
                     }
 
-                    &:nth-of-type(7) {
+                    &:nth-of-type(6) {
                         background-image: url(../img/icons/option_icon03.png);
+                    }
+
+                    .sub__text {
+                        bottom: -24px;
+                        color: #fff;
+                    }
+                }
+
+                input[type="radio"]:checked + label {
+                    background-color: $yellow;
+
+                    &::before {
+                        border-color: red;
+                    }
+
+                    &::after {
+                        border-color: $yellow;
                     }
                 }
 
                 label.checked {
+                    background-color: $yellow;
+
                     &::before {
                         border-color: red;
+                    }
+
+                    &::after {
+                        border-color: $yellow;
                     }
                 }
             }
@@ -307,15 +362,15 @@ textarea {
                 justify-content: center;
 
                 label {
+                    &:nth-of-type(1) {
+                        background-image: url(../img/icons/option_icon01.png);
+                    }
+
                     &:nth-of-type(2) {
                         background-image: url(../img/icons/option_icon01.png);
                     }
 
                     &:nth-of-type(3) {
-                        background-image: url(../img/icons/option_icon01.png);
-                    }
-
-                    &:nth-of-type(4) {
                         background-image: url(../img/icons/option_icon01.png);
                     }
                 }
@@ -334,7 +389,7 @@ textarea {
                     font-size: .78rem;
                     margin: 0  .98rem 1.8rem;
 
-                    &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
                         background-image: none;
                     }
                 }
@@ -350,15 +405,19 @@ textarea {
                     padding: 0 30px 0 86px;
                     font-size: 1.1rem;
 
-                    &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
                         background-image: none;
                     }
                 }
             }
         }
 
-        .control__num {
-            input {
+        .hidden {
+            p {
+                margin-bottom: 1.7rem;
+            }
+
+            input, select {
                 width: 100%;
             }
         }
@@ -379,36 +438,6 @@ textarea {
                     select {
                         width: 100%;
                         font-size: 1.0rem;
-                    }
-                }
-            }
-        }
-
-        .term {
-            h3 {}
-
-            .term__text__box {
-                font-size: .74rem;
-
-                span {
-                    margin-right: 1.0rem;
-                }
-
-                dl {
-                    background: none;
-                    padding: 0;
-                    margin-bottom: 2.5rem;
-
-                    dt {}
-
-                    dd {}
-                }
-
-                ul {
-                    margin-bottom: 2.5rem;
-
-                    li {
-                        margin-bottom: .9rem;
                     }
                 }
             }
@@ -436,6 +465,38 @@ textarea {
                 &:last-child {
                     margin-right: 51%;
                 }
+            }
+        }
+    }
+}
+
+.term {
+    h3 {
+        text-align: center;
+    }
+
+    .term__text__box {
+        font-size: .74rem;
+
+        span {
+            margin-right: 1.0rem;
+        }
+
+        dl {
+            background: none;
+            padding: 0;
+            margin-bottom: 2.5rem;
+
+            dt {}
+
+            dd {}
+        }
+
+        ul {
+            margin-bottom: 2.5rem;
+
+            li {
+                margin-bottom: .9rem;
             }
         }
     }
@@ -488,8 +549,8 @@ textarea {
                             height: 7px;
                         }
 
-                        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
-                            background-position: 24% 50%;
+                        &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
+                            background-position: 24% 38%;
                             background-size: 4.5rem;
                         }
                     }
@@ -506,8 +567,8 @@ textarea {
                         margin: 0 0 1.2rem;
                         padding: 0;
                         padding-left: 4.8rem;
-                        height: 62px;
-                        line-height: 62px;
+                        height: 68px;
+                        line-height: 68px;
 
                         &::after {
                             left: 14px;
@@ -521,9 +582,14 @@ textarea {
                             height: 6px;
                         }
 
-                        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                        &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
                             background-size: 1.35rem;
                             background-position: 35% 50%;
+                        }
+
+                        .sub__text {
+                            bottom: -22px;
+                            font-size: .67rem;
                         }
                     }
                 }
@@ -535,8 +601,6 @@ textarea {
 
                     label {
                         width: 48%;
-                        height: 62px;
-                        line-height: 62px;
                         padding: 0;
                         padding-left: 3.4rem;
                     }
@@ -563,13 +627,11 @@ textarea {
 
                     label {
                         width: 90%;
-                        height: 62px;
-                        line-height: 62px;
                         padding: 0 30px 0 70px;
                         font-size: .78rem;
                         margin: 0  .98rem 1.8rem;
 
-                        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
+                        &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
                             background-image: none;
                         }
                     }
@@ -652,7 +714,7 @@ textarea {
     }
 
     tbody {
-        background-color: $blue03;
+        background-color: #FFF;
 
         tr {
             td {
