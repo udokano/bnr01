@@ -3,6 +3,7 @@ get_header();
 ?>
 
 
+
 <section class="cart__area">
 
 <div class="section__inner">
@@ -63,7 +64,7 @@ get_header();
 						</tr>
 						</tfoot>
 					</table>
-					<div class="currency_code"><?php _e('Currency', 'usces'); ?> : <?php usces_crcode(); ?></div>
+
 					<?php if ($usces_gp) : ?>
 					<img src="<?php bloginfo('template_directory'); ?>/images/gp.gif" alt="<?php _e('Business package discount', 'usces'); ?>" /><br /><?php _e('The price with this mark applys to Business pack discount.', 'usces'); ?>
 					<?php endif; ?>

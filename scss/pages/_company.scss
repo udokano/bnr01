@@ -1,0 +1,66 @@
+/*
+会社概要
+----------------------------*/
+.company {
+    .section__inner {
+        width: 100%;
+        padding: 2.8rem 0 0;
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 2.3rem;
+        }
+
+        p {
+            font-size: .62rem;
+            margin-bottom: 2.5rem;
+        }
+
+        dl {
+            width: 800px;
+            margin: 0 auto;
+            font-size: .7rem;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            border-bottom: 1px solid #f8f8f8;
+
+            dt {
+                font-weight: 600;
+                width: 40%;
+            }
+
+            dd {
+                width: 58%;
+            }
+        }
+
+        .map {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .company {
+        .section__inner {
+            width: 100%;
+
+            dl {
+                width: 90%;
+
+                dt {
+                    width: 35%;
+                    margin-right: .7rem;
+                }
+
+                dd {
+                    width: 60%;
+                }
+            }
+
+            .map {
+                width: 100%;
+            }
+        }
+    }
+}

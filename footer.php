@@ -1,31 +1,23 @@
 <footer id="site__footer">
-
-<ul class="footer__nav">
-    <li><a href="<?php echo home_url('/');?>">注文履歴</a></li>
+  <ul class="footer__nav">
+    <li><a href="<?php echo home_url('/');?>usces-cart">カートを見る</a></li>
     <li><a href="<?php echo home_url('/');?>">制作依頼</a></li>
     <li><a href="<?php echo home_url('/');?>">お問い合わせ</a></li>
     <li><a href="<?php echo home_url('/');?>">よくある質問</a></li>
     <li><a href="<?php echo home_url('/');?>privacy">プライバシーポリシー</a></li>
-    <li><a href="https://www.u-d.jp/" target="_blank">会社概要</a></li>
-     <li><a href="https://www.u-d.jp/" target="_blank">特定商取引法に基づく表記</a></li>
-
-</ul>
-
-
+    <li><a href="<?php echo home_url('/');?>company">会社概要</a></li>
+    <li><a href="<?php echo home_url('/');?>company#company__info">特定商取引法に基づく表記</a></li>
+  </ul>
 </footer>
+</div>
+<!--  ./wrapper -->
 
-</div><!--  ./wrapper -->
-<!-- なぜかフォームリピートのJSファイルが読み込まれないため直接読み込み -->
-<script src="<?php echo home_url('/');?>wp-content/plugins/cf7-fields-repeater-2.1.0/js/front.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- 無限スクロール -->
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
-<script src="https://unpkg.com/popper.js@1"></script>
-<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/top.js?"></script>
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/price.js"></script> -->
-
 <?php wp_footer(); ?>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+
 </body>
 </html>

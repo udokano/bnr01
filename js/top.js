@@ -1,167 +1,135 @@
-/*
+/*=============================
 
 トップページのスクリプトスタイル記述
 
-*/
+===============================*/
 
+$(window).on('load', function () {
+
+    //LABEL要素にfor追加ナンバリング
+    jQuery("label").each(function (i) {
+        jQuery(this).attr('for', 'banner' + (i + 1));
+
+    });
+
+    //ラジオボックスID追加ナンバリング
+    jQuery("input[type='radio']").each(function (i) {
+        jQuery(this).attr('id', 'banner' + (i + 1));
+
+    });
+});
+
+
+
+
+/*
+スタイリングおよびJSのトリガーにするためのクラス、ID付与
+----------------------------------------------*/
 
 
 //テキストボックスクラス追加ナンバリング
-$("#info__customer  .iopt_text").each(function (i) {
-    $(this).attr('class', 'text' + (i + 1));
-    $(this).addClass("texts");
+jQuery("#info__customer  .iopt_text").each(function (i) {
+    jQuery(this).attr('class', 'text' + (i + 1));
+    jQuery(this).addClass("texts");
 
 });
-
 
 //ラジオボタンクラス追加ナンバリング
-$("#size__select > .iopt_radio").each(function (i) {
-    $(this).attr('class', 'radio' + (i + 1));
-    $(this).addClass("radios");
+jQuery("#size__select > .iopt_radio").each(function (i) {
+    jQuery(this).attr('class', 'radio' + (i + 1));
+    jQuery(this).addClass("radios");
 
 });
 
+
+
 //ラベルクラス追加ナンバリング
-$(".iopt_radio_label").each(function (i) {
-    $(this).attr('class', 'label' + (i + 1));
-    $(this).addClass("labels");
+jQuery(".iopt_radio_label").each(function (i) {
+    jQuery(this).attr('class', 'label' + (i + 1));
+    jQuery(this).addClass("labels");
 });
 
 //テキストボックスにID付与
-$("#instruction .iopt_textarea").each(function (i) {
-    $(this).attr('id', 'textarea' + (i + 1));
+jQuery("#instruction .iopt_textarea").each(function (i) {
+    jQuery(this).attr('id', 'textarea' + (i + 1));
 });
 
 //管理番号
-$("#control__num .iopt_text").each(function (i) {
-    $(this).attr('class', 'text__input' + (i + 1));
+jQuery("#control__num .iopt_text").each(function (i) {
+    jQuery(this).attr('class', 'text__input' + (i + 1));
 });
 
 /*ラベルにID振り分け*/
 
 //サイズ選択エリア
-$("#size__select > label").each(function (i) {
-    $(this).attr('id', 'label__type__a' + (i + 1));
+jQuery("#size__select > label").each(function (i) {
+    jQuery(this).attr('id', 'label__type__a' + (i + 1));
 });
 
 //バナー形式エリア
-$("#format > label").each(function (i) {
-    $(this).attr('id', 'label__type__b' + (i + 1));
+jQuery("#format > label").each(function (i) {
+    jQuery(this).attr('id', 'label__type__b' + (i + 1));
 });
 
 //納期選択エリア
-$("#limit > label").each(function (i) {
-    $(this).attr('id', 'label__type__c' + (i + 1));
+jQuery("#limit > label").each(function (i) {
+    jQuery(this).attr('id', 'label__type__c' + (i + 1));
 });
 
 //データ納品エリア
-$("#data > label").each(function (i) {
-    $(this).attr('id', 'label__type__d' + (i + 1));
+jQuery("#data > label").each(function (i) {
+    jQuery(this).attr('id', 'label__type__d' + (i + 1));
 });
 
 //公開エリア
-$("#publish > label").each(function (i) {
-    $(this).attr('id', 'label__type__e' + (i + 1));
+jQuery("#publish > label").each(function (i) {
+    jQuery(this).attr('id', 'label__type__e' + (i + 1));
 });
+
+
 
 /*
-ツールチップ
+注釈文追加
 ------------------------------------------*/
 
-/*バナーサイズs*/
+jQuery("#label__type__a2").append('<span class="sub__text">長辺と短編の合計が600px未満　3600円</span>');
 
-//Sサイズ選択
-tippy('#size__select > #label__type__a2', {
-    content: '長辺と短編の合計が600px未満　3600円',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__a3").append('<span class="sub__text">長辺と短編の合計が601px～1000px　5700円</span>');
 
-//Mサイズ選択
-tippy('#size__select > #label__type__a3', {
-    content: '長辺と短編の合計が601px～1000px　5700円',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__a4").append('<span class="sub__text">長辺と短編の合計が1001px～1500px　8600円</span>');
 
-//Lサイズ選択
-tippy('#size__select > #label__type__a4', {
-    content: '長辺と短編の合計が1001px～1500px　8600円',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__a5").append('<span class="sub__text">11500円</span>');
 
-//SNS用ヘッダー/ブログ用ヘッダー
-tippy('#size__select > #label__type__a5', {
-    content: '11500円',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__a6").append('<span class="sub__text">上記価格の50%OFFの金額</span>');
 
-//リサイズ依頼
-tippy('#size__select > #label__type__a6', {
-    content: '上記価格の50%OFFの金額',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__a7").append('<span class="sub__text">特殊サイズのバナーです。サイズをご指定ください</span>');
 
-//その他
-tippy('#size__select > #label__type__a7', {
-    content: '特殊サイズのバナーです。サイズをご指定ください',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__b2").append('<span class="sub__text">料金変動無し</span>');
 
-/*バナー形式*/
-//リッチバナー
-tippy('#format > #label__type__b3', {
-    content: '+2000円',
-    interactive: true
-});
+jQuery("#label__type__b3").append('<span class="sub__text">＋2000円</span>');
 
-/*納期選択*/
-tippy('#limit > #label__type__c2', {
-    content: '+2000円',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__c2").append('<span class="sub__text">＋2000円</span>');
 
-tippy('#limit > #label__type__c3', {
-    content: '+1000円',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__c3").append('<span class="sub__text">＋1000円</span>');
 
-/*データ選択*/
+jQuery("#label__type__d3").append('<span class="sub__text">＋1500円</span>');
 
-tippy('#data > #label__type__d3', {
-    content: '+1500円',
-    maxWidth: '100%',
-    interactive: true
-});
-
-/*実績として公開*/
-
-tippy('#publish > #label__type__e2', {
-    content: '-500円',
-    maxWidth: '100%',
-    interactive: true
-});
+jQuery("#label__type__e2").append('<span class="sub__text">-500円</span>');
 
 
 /*
 プレースポルダー追加
 ---------------------------------------*/
 
-$("#control__num > div > .text__input1").attr('placeholder', '例：00000000000000');
+jQuery("#control__num > div > .text__input1").attr('placeholder', '例：00000000000000');
 
-$("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置');
+jQuery("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置');
 
-$("#info__customer .text1").attr('placeholder', '未入力でも注文可能です');
+jQuery("#info__customer .text1").attr('placeholder', '未入力でも注文可能です');
 
-$("#info__customer .text2").attr('placeholder', 'バナーヤスオ');
+jQuery("#info__customer .text2").attr('placeholder', 'バナーヤスオ');
 
-$("#info__customer .text3").attr('placeholder', '未入力でも注文可能です');
+jQuery("#info__customer .text3").attr('placeholder', '未入力でも注文可能です');
 
 
 /*
@@ -169,167 +137,182 @@ $("#info__customer .text3").attr('placeholder', '未入力でも注文可能で�
 ------------------------------------------*/
 
 
-$(function () {
+jQuery(function () {
 
-    $(".select__zone label").change(function () {
+    jQuery("#size__select > input").change(function () {
 
         //選択したボックスにスタイリング
-        $(".select__zone label").not(this).removeClass("checked");
-
-        $(this).addClass("checked");
+        /* jQuery("#size__select label").not(this).removeClass("checked");
+        jQuery(this).addClass("checked"); */
 
         //リサイズ依頼、特殊サイズ以外を選択
-        if (!$('[value="%E7%89%B9%E6%AE%8A%E3%82%B5%E3%82%A4%E3%82%BA%E3%83%90%E3%83%8A%E3%83%BC"],[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
-            $('#control__num').css("display", "none");
-            $('#special__size').css("display", "none");
-            $(".text__input1").val("");
+        if (!jQuery('[value="%E7%89%B9%E6%AE%8A%E3%82%B5%E3%82%A4%E3%82%BA%E3%83%90%E3%83%8A%E3%83%BC"],[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
+            jQuery('#control__num').css("display", "none");
+            jQuery('#special__size').css("display", "none");
+            jQuery(".text__input1").val("");
         }
 
         //リサイズ依頼を選択
-        if ($('[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
-            $('#special__size').css("display", "none");
-            $('#control__num').css("display", "block");
+        if (jQuery('[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
+            jQuery('#special__size').css("display", "none");
+            jQuery('#control__num').css("display", "block");
         }
 
         //特殊サイズを選択
-        if ($('[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
-            $('#control__num').css("display", "none");
-            $('#special__size').css("display", "block");
-            $(".text__input1").val("");
+        if (jQuery('[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
+            jQuery('#control__num').css("display", "none");
+            jQuery('#special__size').css("display", "block");
+            jQuery(".text__input1").val("");
         }
 
     });
+
+
 });
 
-$("#limit.select__btn__zone label").change(function () {
-
-    //選択したボックスにスタイリング
-    $("#limit.select__btn__zone label").not(this).removeClass("checked");
-
-    $(this).addClass("checked");
-});
-
-$("#data.select__btn__zone label").change(function () {
-
-    //選択したボックスにスタイリング
-    $("#data.select__btn__zone label").not(this).removeClass("checked");
-
-    $(this).addClass("checked");
-});
-
-$("#publish.select__btn__zone label").change(function () {
-
-    //選択したボックスにスタイリング
-    $("#publish.select__btn__zone label").not(this).removeClass("checked");
-
-    $(this).addClass("checked");
-});
 
 /*
 選択したオプションを確認の表にアウトプット
 -----------------------------------*/
 
-$(function () {
+jQuery(function () {
 
     //バナータイプのラベルテキスト取得からTABLEへ出力
-    $("#size__select > label").change(function () {
 
-        var size01 = $(this).text();
+    /* バナーサイズ選択 */
+    jQuery("#size__select > input").change(function () {
+        var size01out = jQuery("#output__type");
+        //Sサイズを選択
+        if (jQuery('[value="S%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("Sサイズ");
+        }
 
-        var size01out = $("#output__type");
+        //Mサイズを選択
+        if (jQuery('[value="M%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("Mサイズ");
+        }
+        //Lサイズを選択
+        if (jQuery('[value="L%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("Lサイズ");
+        }
 
-        size01out.text(size01);
+        //SNS用・ブログ用ヘッダーを選択
+        if (jQuery('[value="SNS%E7%94%A8%E3%83%BB%E3%83%96%E3%83%AD%E3%82%B0%E7%94%A8%E3%83%98%E3%83%83%E3%83%80%E3%83%BC"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("SNS用・ブログ用ヘッダー");
+        }
+        //リサイズ依頼を選択
+        if (jQuery('[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("リサイズ依頼");
+        }
+
+        //特殊サイズを選択
+        if (jQuery('[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("特殊サイズ");
+        }
     });
 
-    //特注バナーサイズの横サイズと縦サイズのVALUE取得TABLEへ出力
+
+    //納期のラベルテキスト取得TABLEへ出力
+    jQuery('#limit > input').change(function () {
+        var size01out = jQuery("#output__option");
 
 
-    /* $('.text2,.text3').change(function () {
+        //1営業日を選択
+        if (jQuery('[value="1%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("1営業日");
+        }
 
-        var rowsize01 = $('.text2').val();
+        //2営業日を選択
+        if (jQuery('[value="2%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("2営業日");
+        }
+        //3営業日を選択
+        if (jQuery('[value="3%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("3営業日");
+        }
 
-        var colsize01 = $('.text3').val();
-
-        var size01out = $("#output__type");
-
-        size01out.text(rowsize01 + "*" + colsize01);
-    }); */
-
-    //オプション選択のラベルテキスト取得TABLEへ出力
-
-    $('#publish label').change(function () {
-
-        var label01 = $(this).text();
-
-        var size01out = $("#output__publish");
-
-        size01out.text(label01);
     });
 
-    //オプション選択のラベルテキスト取得TABLEへ出力
+    //公開可否の選択のラベルテキスト取得TABLEへ出力
 
-    $('#limit >label').change(function () {
+    jQuery('#publish > input').change(function () {
+        var size01out = jQuery("#output__publish");
 
-        var label01 = $(this).text();
+        //公開OKを選択
+        if (jQuery('[value="%E5%85%AC%E9%96%8BOK"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("公開OK");
+        }
 
-        var size01out = $("#output__option");
-
-        size01out.text(label01);
+        //公開NGを選択
+        if (jQuery('[value="%E5%85%AC%E9%96%8BNG"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("公開NG");
+        }
     });
 
 });
 
 //モーダルウィンドウ
 
-$(function () {
-    $('.js-modal-open').each(function () {
-        $(this).on('click', function () {
-            var target = $(this).data('target');
+jQuery(function () {
+    jQuery('.js-modal-open').each(function () {
+        jQuery(this).on('click', function () {
+            var target = jQuery(this).data('target');
             var modal = document.getElementById(target);
-            $(modal).fadeIn();
+            jQuery(modal).fadeIn();
             return false;
         });
     });
-    $('.js-modal-close').on('click', function () {
-        $('.js-modal').fadeOut();
+    jQuery('.js-modal-close').on('click', function () {
+        jQuery('.js-modal').fadeOut();
         return false;
     });
 });
 
 
 //無限スクローモダール紐づけ, ID自動振り分け
-$(function () {
-    $('#infinite__banners li').each(function (i) {
-        $(this).attr('data-target', 'bnr' + (i + 1));
+jQuery(function () {
+    jQuery('#infinite__banners li').each(function (i) {
+        jQuery(this).attr('data-target', 'bnr' + (i + 1));
     });
 
-    var box = $(".bnr__modal__box");
+    var box = jQuery(".bnr__modal__box");
 
     box.each(function (i) {
-        $(this).attr('id', 'bnr' + (i + 1));
+        jQuery(this).attr('id', 'bnr' + (i + 1));
     });
 
-    var btn = $(".bnr__modal__box button");
-
+    var btn = jQuery(".bnr__modal__box button");
 
     //モーダルないのボタンクリックしたら管理番号入力
     btn.on("click", function () {
-        var value = $(this).val();
-        var pos = $("#size__select").offset().top;
-        $('#special__size').css("display", "none");
+        //クリックしたボタンのVALを取得
+        var value = jQuery(this).val();
+        //スクロールポイント取得
+        var pos = jQuery("#size__select").offset().top;
+        //特殊サイズが開いていたら閉じる
+        jQuery('#special__size').css("display", "none");
         //管理番号をチェック
-        $('#label__type__a6 > .iopt_radio').prop('checked', 'true');
+        jQuery('#size__select > .radio5').prop('checked', 'true');
 
-        //他のチェックスタイリングを外す
-        $("#size__select > .labels").removeClass("checked");
-        $("#size__select > .label5").addClass("checked");
-        var label5 = $("#size__select > .label5").text();
-        $("#output__type").text(label5);
-        $("#control__num").css("display", "block");
+        //アウトプットの表にも挿入
+        jQuery("#output__type").text("リサイズ依頼");
+        jQuery("#control__num").css("display", "block");
 
         //スクロールする
-        $("html,body").animate({ scrollTop: pos }, 'fast');
-        $("#control__num > div > .text__input1").val(value);
+        jQuery("html,body").animate({ scrollTop: pos }, 'fast');
+        //クリックしたボタンの管理番号を入力
+        jQuery("#control__num > div > .text__input1").val(value);
         return false;
 
     });
@@ -340,6 +323,6 @@ $(function () {
 
 //スクロールコンテンツ表示
 
-$('.in-view').on('inview', function (event, isInView, visiblePartX, visiblePartY) {
-    $(this).stop().addClass('fade-in');
+jQuery('.in-view').on('inview', function (event, isInView, visiblePartX, visiblePartY) {
+    jQuery(this).stop().addClass('fade-in');
 });

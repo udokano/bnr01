@@ -20,12 +20,13 @@
 </div>
 <!-- ./key__visual -->
 
+
 <section class="purchase__form">
   <div class="section__inner form__inner">
-    <form action="<?php echo USCES_CART_URL ?>" method="post">
+    <form action="<?php echo USCES_CART_URL ?>" data-persist="garlic" method="post" id="form">
       <div id="form__parts" class="narrowcolumn" role="main"> 　　　　　
         <?php if (have_posts()) : ?>
-        <?php while (have_posts()) : the_post(); usces_the_item("bnr"); ?>
+        <?php while (have_posts()) : the_post(); usces_the_item("banner"); ?>
         <?php usces_have_skus();?>
         <div class="error_message">
           <?php usces_singleitem_error_message($post->ID, usces_the_itemSku('return')); ?>
@@ -46,9 +47,8 @@
             </div>
             <div class="hidden special__size" id="special__size">
               <p class="tc">サイズを選択してください</p>
-
-                <div class="special__size-box"> <?php echo usces_the_itemOption("特殊サイズ");?> </div>
-                <!-- ./special__size-box -->
+              <div class="special__size-box"> <?php echo usces_the_itemOption("特殊サイズ");?> </div>
+              <!-- ./special__size-box -->
             </div>
           </dl>
           <dl class="select__btns">
@@ -111,27 +111,15 @@
               <p class="note">※当サイトでご紹介させて頂ければ500円お値引きさせて頂きます。</p>
             </dd>
           </dl>
-          <dl class="">
-            <dt>
-              <div class="num__wrap">
-                <div class="num__tit">7</div>
-                <span>お客様情報</span> </div>
-              <!-- ./num__wrap -->
-            </dt>
-            <dd class="info__customer flex" id="info__customer">
-              <div class="text__area"><span>会社名</span><?php echo usces_the_itemOption("会社名");?></div>
-              <div class="text__area"><span>お名前</span><?php echo usces_the_itemOption("お名前");?></div>
-              <div class="text__area"><span>メールアドレス</span><?php echo usces_the_itemOption("メールアドレス");?></div>
-            </dd>
-          </dl>
           <dl class="total">
             <dt>
               <div class="num__wrap">
-                <div class="num__tit">8</div>
+                <div class="num__tit">7</div>
                 <span>ご注文確認</span> </div>
               <!-- ./num__wrap -->
             </dt>
             <dd>
+              <!-- output__table -->
               <table class="output__table">
                 <thead>
                   <tr>
@@ -150,7 +138,7 @@
                   </tr>
                 </tbody>
               </table>
-
+              <!-- ./ output__table-->
               <!-- <p>商品単位<?php echo usces_the_itemPriceCr();?></p>
           <p>カート内の合計金額¥<?php echo usces_totalprice_in_cart(); ?></p> -->
 
@@ -161,13 +149,9 @@
               </div>
               <!-- ./cart-in -->
 
-              <div class="term">
-                <h3>利用規約</h3>
-                <!-- 規約が長いのでインクルード -->
-                <?php get_template_part('inc/trems');?>
-              </div>
-              <!-- ./term -->
-            </dd></dl></div>
+            </dd>
+          </dl>
+        </div>
         <!--./form__entry-->
         <?php endwhile; endif; ?>
       </div>
@@ -191,28 +175,7 @@
         </div>
       </li>
       <?php endwhile; ?>
-      <?php while (have_rows('bnr__list', 102)) : the_row(); ?>
-      <li class="js-modal-open banner__item in-view"> <img src="<?php the_sub_field('bnr__img', 102);?>" alt="制作実績">
-        <div class="bnr__modal__box modal js-modal">
-          <div class="modal__bg js-modal-close"></div>
-          <div class="modal__inner">
-            <div class="bnr__img"> <img src="<?php the_sub_field('bnr__img', 102);?>" alt="制作実績"> </div>
-            <button value="<?php the_sub_field('number', 102);?>" class="tc js-modal-close">このテイストで注文する</button>
-          </div>
-        </div>
-      </li>
-      <?php endwhile; ?>
-      <?php while (have_rows('bnr__list', 102)) : the_row(); ?>
-      <li class="js-modal-open banner__item in-view"> <img src="<?php the_sub_field('bnr__img', 102);?>" alt="制作実績">
-        <div class="bnr__modal__box modal js-modal">
-          <div class="modal__bg js-modal-close"></div>
-          <div class="modal__inner">
-            <div class="bnr__img"> <img src="<?php the_sub_field('bnr__img', 102);?>" alt="制作実績"> </div>
-            <button value="<?php the_sub_field('number', 102);?>" class="tc js-modal-close">このテイストで注文する</button>
-          </div>
-        </div>
-      </li>
-      <?php endwhile; ?>
+
     </ul>
   </div>
 </section>

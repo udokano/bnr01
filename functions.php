@@ -1,6 +1,32 @@
 <?php
 
+add_action('wp_enqueue_scripts', 'my_scripts');
+function my_scripts()
+{
+    wp_enqueue_script('jquery');
 
+    wp_enqueue_style(
+        'validationEngine.jquery.css',
+        get_template_directory_uri() . '/css/validationEngine.jquery.css',
+        array(),
+        '1.0',
+        'all'
+    );
+    wp_enqueue_script(
+        'jquery.validationEngine.js',
+        get_template_directory_uri() . '/js/jquery.validationEngine.js',
+        array('jquery'),
+        '2.6.2',
+        true
+    );
+    wp_enqueue_script(
+        'jquery.validationEngine-ja.js',
+        get_template_directory_uri() . '/js/jquery.validationEngine-ja.js',
+        array('jquery'),
+        '2.0',
+        true
+    );
+}
 
 
 //サムネイル画像有効
@@ -9,6 +35,9 @@ add_theme_support('post-thumbnails', array( 'post' ));
 //投稿サムネイルサイズ指定
 add_image_size('thumb300', 300, 220, true);
 add_image_size('thum', 600, 450, true);
+
+
+//ラジオカスタマイズ
 
 
 
@@ -101,6 +130,9 @@ add_filter('usces_filter_customer_check', 'my_filter_customer_check', 10, 3);
 
         return $mes;
     }
+
+
+
 
 //お客さま情報入力画面不要な項目削除
 
@@ -223,7 +255,7 @@ function my_apply_addressform_confirm($formtag, $type, $data)
     return $formtag;
 }
 
-add_filter('usces_filter_shipping_address_info', 'my_shipping_address_info', 10, 3);
+/* add_filter('usces_filter_shipping_address_info', 'my_shipping_address_info', 10, 3);
 
 
 
@@ -252,7 +284,7 @@ function my_get_customer_button($out = '')
     } else {
         echo $res;
     }
-}
+} */
 
 
 //返信メールカスタマイズ
