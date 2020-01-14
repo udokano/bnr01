@@ -1,0 +1,107 @@
+/*
+納品の流れ
+----------------------------*/
+
+.faq__bg {
+    background-color: #6fa1cf;
+}
+
+.faq {
+    .section__inner {
+        .faq__list {
+            dl {
+                margin-bottom: 2.5rem;
+
+                dt, dd {
+                    display: flex;
+                    align-items: center;
+
+                    .qa__tit {
+                        padding: 1.1rem;
+                        display: inline-block;
+
+                        img {
+                            display: block;
+                            width: 25px;
+                        }
+                    }
+
+                    .text {
+                        padding: 0 .42rem;
+                    }
+                }
+
+                dt {
+                    font-size: 1.1rem;
+
+                    .qa__tit {
+                        background-color: $blue04;
+                    }
+                }
+
+                dd {
+                    width: 94.25%;
+                    margin-left: 5.75%;
+                    font-size: .62rem;
+                    border-top: 1px solid $yellow;
+
+                    .qa__tit {
+                        background-color: $yellow;
+                    }
+
+                    a {
+                        color: $red;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .faq {
+        div.section__inner {
+            padding-bottom: 0;
+
+            .faq__list {
+                dl {
+                    dt, dd {
+                        .qa__tit {
+                            padding: .75rem;
+
+                            img {
+                                width: 12.5px;
+                            }
+                        }
+
+                        .text {
+                            padding: 0 .42rem;
+                        }
+                    }
+
+                    dt {
+                        font-size: .82rem;
+
+                        .qa__tit {
+                            background-color: $blue04;
+                        }
+                    }
+
+                    dd {
+                        align-items: flex-start;
+                        font-size: .62rem;
+
+                        .text {
+                            padding: .52rem .42rem;
+                        }
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 #site__header {
-    background-color: #454545;
+    background-color: #fff;
     padding: 20px 0;
 
     img {
@@ -18,12 +18,28 @@
                 margin: 0 .6rem;
 
                 a {
-                    color: #fff;
+                    color: #1f1f1f;
                     font-size: .58rem;
                 }
 
                 &:last-child {
                     margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.page {
+    #site__header {
+        background-color: #454545;
+
+        .header__nav {
+            ul {
+                li {
+                    a {
+                        color: #fff;
+                    }
                 }
             }
         }

@@ -1,0 +1,143 @@
+/*
+納品の流れ
+----------------------------*/
+
+.flow__bg {
+    background-image: url(../img/flow/flow_title_bg.jpg);
+}
+
+.flow {
+    .section__inner {
+        .flow__step {
+            justify-content: flex-start;
+            margin-bottom: 3.5rem;
+            padding-bottom: .42rem;
+            border-bottom: dashed 1px #b3b2b3;
+
+            .thumb {
+                width: 32%;
+            }
+
+            .step__desc {
+                width: 60%;
+
+                span {
+                    display: inline-block;
+                    padding: 5px 18px;
+                    background-color: $blue06;
+                    color: #fff;
+                    font-size: 1.2rem;
+                    margin-bottom: .8rem;
+                    border-radius: 24px;
+                }
+
+                h3 {
+                    font-size: 1.0rem;
+                    border-bottom: 1px solid #b3b2b3;
+                    color: $yellow;
+                    padding-left: .1rem;
+                    padding-bottom: .2rem;
+                    margin-bottom: .8rem;
+                    font-weight: 600;
+                }
+
+                p {
+                    font-size: .84rem;
+                    line-height: 1.78;
+                    margin-bottom: .9rem;
+                }
+
+                .note {
+                    font-size: .52rem;
+                    text-align: left;
+                    color: #000;
+                }
+            }
+
+            &:nth-child(odd) {
+                .step__desc {
+                    margin-left: 5%;
+                }
+            }
+
+            &:nth-child(even) {
+                .step__desc {
+                    margin-right: 5%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .flow {
+        div.section__inner {
+            padding-bottom: 0;
+
+            .flow__step {
+                flex-flow: column;
+                margin-bottom: 3.5rem;
+                padding-bottom: .42rem;
+                border-bottom: dashed 1px #b3b2b3;
+
+                .thumb {
+                    width: 100%;
+                }
+
+                .step__desc {
+                    width: 100%;
+
+                    span {
+                        display: inline-block;
+                        padding: 5px 18px;
+                        background-color: $blue06;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        margin-bottom: .8rem;
+                        border-radius: 24px;
+                    }
+
+                    h3 {
+                        font-size: 1.0rem;
+                        border-bottom: 1px solid #b3b2b3;
+                        color: $yellow;
+                        padding-left: .1rem;
+                        padding-bottom: .2rem;
+                        margin-bottom: .8rem;
+                        font-weight: 600;
+                    }
+
+                    p {
+                        font-size: .84rem;
+                        line-height: 1.78;
+                        margin-bottom: .9rem;
+                    }
+
+                    .note {
+                        font-size: .52rem;
+                        text-align: left;
+                        color: #000;
+                    }
+                }
+
+                &:nth-child(odd) {
+                    flex-flow: column-reverse;
+
+                    .step__desc {
+                        margin-left: 0%;
+                    }
+                }
+
+                &:nth-child(even) {
+                    .step__desc {
+                        margin-right: 0%;
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

@@ -4,21 +4,33 @@
 
 ===============================*/
 
-$(window).on('load', function () {
+$(".iopt_label").remove();
 
-    //LABEL要素にfor追加ナンバリング
-    jQuery("label").each(function (i) {
-        jQuery(this).attr('for', 'banner' + (i + 1));
 
-    });
 
-    //ラジオボックスID追加ナンバリング
-    jQuery("input[type='radio']").each(function (i) {
-        jQuery(this).attr('id', 'banner' + (i + 1));
+//LABEL要素にfor追加ナンバリング
+jQuery("label").each(function (i) {
+    jQuery(this).attr('for', 'banner' + (i + 1));
 
-    });
 });
 
+//ラジオボックスID追加ナンバリング
+jQuery("input[type='radio']").each(function (i) {
+    jQuery(this).attr('id', 'banner' + (i + 1));
+
+});
+
+//SELECT　ID付与
+jQuery("select").each(function (i) {
+    jQuery(this).attr('id', 'select' + (i + 1));
+
+});
+
+//OPTION ID追加ナンバリング
+jQuery("select > option").each(function (i) {
+    jQuery(this).attr('id', 'option' + (i + 1));
+
+});
 
 
 
@@ -41,7 +53,11 @@ jQuery("#size__select > .iopt_radio").each(function (i) {
 
 });
 
-
+//ラジオボタンクラス追加ナンバリング
+jQuery("#size__select > .iopt_radio").each(function (i) {
+    jQuery(this).attr('class', 'radio' + (i + 1));
+    jQuery(this).addClass("radios");
+});
 
 //ラベルクラス追加ナンバリング
 jQuery(".iopt_radio_label").each(function (i) {
@@ -92,29 +108,29 @@ jQuery("#publish > label").each(function (i) {
 注釈文追加
 ------------------------------------------*/
 
-jQuery("#label__type__a2").append('<span class="sub__text">長辺と短編の合計が600px未満　3600円</span>');
+jQuery("#label__type__a1").append('<span class="sub__text">長辺と短編の合計が600px未満　3600円</span>');
 
-jQuery("#label__type__a3").append('<span class="sub__text">長辺と短編の合計が601px～1000px　5700円</span>');
+jQuery("#label__type__a2").append('<span class="sub__text">長辺と短編の合計が601px～1000px　5700円</span>');
 
-jQuery("#label__type__a4").append('<span class="sub__text">長辺と短編の合計が1001px～1500px　8600円</span>');
+jQuery("#label__type__a3").append('<span class="sub__text">長辺と短編の合計が1001px～1500px　8600円</span>');
 
-jQuery("#label__type__a5").append('<span class="sub__text">11500円</span>');
+jQuery("#label__type__a4").append('<span class="sub__text">11500円</span>');
 
-jQuery("#label__type__a6").append('<span class="sub__text">上記価格の50%OFFの金額</span>');
+jQuery("#label__type__a5").append('<span class="sub__text">上記価格の50%OFFの金額</span>');
 
-jQuery("#label__type__a7").append('<span class="sub__text">特殊サイズのバナーです。サイズをご指定ください</span>');
+jQuery("#label__type__a6").append('<span class="sub__text">特殊サイズのバナーです。サイズをご指定ください</span>');
 
-jQuery("#label__type__b2").append('<span class="sub__text">料金変動無し</span>');
+jQuery("#label__type__b1").append('<span class="sub__text">料金変動無し</span>');
 
-jQuery("#label__type__b3").append('<span class="sub__text">＋2000円</span>');
+jQuery("#label__type__b2").append('<span class="sub__text">＋2000円</span>');
 
-jQuery("#label__type__c2").append('<span class="sub__text">＋2000円</span>');
+jQuery("#label__type__c1").append('<span class="sub__text">＋2000円</span>');
 
-jQuery("#label__type__c3").append('<span class="sub__text">＋1000円</span>');
+jQuery("#label__type__c2").append('<span class="sub__text">＋1000円</span>');
 
-jQuery("#label__type__d3").append('<span class="sub__text">＋1500円</span>');
+jQuery("#label__type__d2").append('<span class="sub__text">＋1500円</span>');
 
-jQuery("#label__type__e2").append('<span class="sub__text">-500円</span>');
+jQuery("#label__type__e1").append('<span class="sub__text">-500円</span>');
 
 
 /*
@@ -310,8 +326,11 @@ jQuery(function () {
         jQuery("#control__num").css("display", "block");
 
         //スクロールする
-        jQuery("html,body").animate({ scrollTop: pos }, 'fast');
+        jQuery("html,body").animate({ scrollTop: pos }, '1000');
         //クリックしたボタンの管理番号を入力
+
+
+        $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").focus();
         jQuery("#control__num > div > .text__input1").val(value);
         return false;
 
