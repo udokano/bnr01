@@ -803,7 +803,7 @@ h3 {
     width: 35px;
   }
   #site__header .menu-trigger span {
-    background-color: #fff;
+    background-color: #1f1f1f;
     height: 3px;
     left: 0;
     position: absolute;
@@ -822,7 +822,7 @@ h3 {
     -webkit-transform: translateX(-50%);
     -webkit-transition: all .4s;
     bottom: -15px;
-    color: #fff;
+    color: #1f1f1f;
     content: 'menu';
     display: block;
     font-size: 10px;
@@ -871,6 +871,7 @@ h3 {
     padding: .8rem 0;
   }
   #site__header .header__nav ul li a {
+    color: #fff;
     display: block;
     font-size: .75rem;
     padding: 0 .6rem;
@@ -882,6 +883,12 @@ h3 {
   #site__header .header__nav.active {
     opacity: 1;
     visibility: visible;
+  }
+  .page #site__header .menu-trigger span {
+    background-color: #fff;
+  }
+  .page #site__header .menu-trigger::after {
+    color: #fff;
   }
 }
 
