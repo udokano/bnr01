@@ -679,92 +679,106 @@ textarea {
 /**
 テーブルスタイル
 -------------------------------**/
+.total {
+    dd {
+        //position: static !important;
 
-.output__table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 3.5rem;
+        .output__table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 3.5rem;
 
-    tr {
-        th, td {
-            text-align: center;
-            vertical-align: middle;
-            padding: .9rem 0;
-            width: 20%;
-        }
+            //position: fixed;
+            //bottom: 0;
+            //left: 0;
+            //z-index: 9999;
 
-        th.last {
-            border-right: none;
-        }
-    }
+            tr {
+                th, td {
+                    text-align: center;
+                    vertical-align: middle;
+                    padding: .9rem 0;
+                    width: 20%;
+                }
 
-    thead {
-        background-color: #949494;
-
-        tr {
-            th {
-                color: #fff;
-                border-right: 1px solid #fff;
+                th.last {
+                    border-right: none;
+                }
             }
 
-            th.last {
-                background-color: #5b738e;
+            thead {
+                background-color: #949494;
+
+                tr {
+                    th {
+                        color: #fff;
+                        border-right: 1px solid #fff;
+                    }
+
+                    th.last {
+                        background-color: #5b738e;
+                    }
+                }
             }
-        }
-    }
 
-    tbody {
-        background-color: #FFF;
+            tbody {
+                background-color: #FFF;
 
-        tr {
-            td {
-                border-right: 1px solid #fff;
+                tr {
+                    td {
+                        border-right: 1px solid #fff;
+                    }
+                }
             }
         }
     }
 }
 
 @media (max-width: 767px) {
-    .output__table {
-        margin-bottom: 3.5rem;
-        overflow: hidden;
+    .total {
+        dd {
+            .output__table {
+                margin-bottom: 3.5rem;
+                overflow: hidden;
 
-        tr {
-            display: block;
+                tr {
+                    display: block;
 
-            th, td {
-                display: block;
-                width: auto;
-                height: 3.7rem;
-                font-size: .7rem;
-                padding: 1.4rem 0 0.7rem !important;
-            }
-        }
-
-        thead {
-            float: left;
-            width: auto;
-            width: 40%;
-
-            tr {
-                th {
-                    border: none;
-                    border-bottom: 1px solid #fff;
+                    th, td {
+                        display: block;
+                        width: auto;
+                        height: 3.7rem;
+                        font-size: .7rem;
+                        padding: 1.4rem 0 0.7rem !important;
+                    }
                 }
-            }
-        }
 
-        tbody {
-            float: left;
-            width: 60%;
+                thead {
+                    float: left;
+                    width: auto;
+                    width: 40%;
 
-            tr {
-                width: 100%;
+                    tr {
+                        th {
+                            border: none;
+                            border-bottom: 1px solid #fff;
+                        }
+                    }
+                }
 
-                td {
-                    border: none;
-                    border-bottom: 1px solid #fff;
-                    width: 100%;
+                tbody {
+                    float: left;
+                    width: 60%;
+
+                    tr {
+                        width: 100%;
+
+                        td {
+                            border: none;
+                            border-bottom: 1px solid #fff;
+                            width: 100%;
+                        }
+                    }
                 }
             }
         }

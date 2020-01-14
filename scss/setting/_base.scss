@@ -277,6 +277,37 @@ h3 {
     }
 }
 
+.pages__title {
+    padding: 5.9rem;
+    margin-bottom: 2.2rem;
+    color: #fff;
+    background: no-repeat 50% 50% /cover;
+    text-align: center;
+
+    h1 {
+        font-size: 1.4rem;
+        padding-bottom: .3rem;
+        position: relative;
+        margin-bottom: .8rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 1px;
+            width: 240px;
+            background-color: #fff;
+        }
+    }
+
+    p {
+        line-height: 1.7;
+        font-size: .7rem;
+    }
+}
+
 @media (max-width: 767px) {
     h2 {
         font-size: 2.0rem;
@@ -284,6 +315,26 @@ h3 {
 
     h3 {
         font-size: 1.4rem;
+    }
+
+    .pages__title {
+        padding: 4.1rem;
+        margin-bottom: 2.2rem;
+
+        h1 {
+            font-size: 1.4rem;
+            padding-bottom: .3rem;
+            margin-bottom: .8rem;
+
+            &::after {
+                width: 180px;
+            }
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: .7rem;
+        }
     }
 }
 

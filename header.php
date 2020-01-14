@@ -10,16 +10,9 @@
 <meta name="format-detection" content="telephone=no">
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.4">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.6">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
- -->
-<script type="text/javascript">
-//不要なラベルを削除
-jQuery(document).ready(function(){
-    $(".iopt_label").remove();
-});
-</script>
+<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
 
 
 <script>
@@ -33,6 +26,14 @@ jQuery("#form").validationEngine('attach', {
     　promptPosition:"topLeft"
   　});
 });
+
+window.onpageshow = function() {
+  $("#form").each(function(){
+    $(this).val("");
+  });
+}
+
+
 </script>
 
 
@@ -40,11 +41,15 @@ jQuery("#form").validationEngine('attach', {
 </head>
 <body <?php body_class(); ?> id="front__page">
 <div class="wrapper">
-<header id="site__header">
+<header id="site__header" >
 
         <div class="header__inner flex al-cent">
                 <div class="header__logo">
-                    <a href="<?php echo home_url('/');?>"><img src="<?php echo get_template_directory_uri(); ?>/img/common/site_logo.png" alt="バナー屋さん"></a>
+                    <a href="<?php echo home_url('/');?>"><?php if (is_home() || is_front_page()) :?>
+  <img src="<?php echo get_template_directory_uri(); ?>/img/common/site_logo.png" alt="バナー屋さん">
+<?php else:?>
+  <img src="<?php echo get_template_directory_uri(); ?>/img/common/site_logo_pages.png" alt="バナー屋さん">
+<?php endif; ?></a>
                 </div><!-- ./header__logo -->
 
 
@@ -57,10 +62,10 @@ jQuery("#form").validationEngine('attach', {
                  <nav class="header__nav" id="js-nav">
 
                         <ul class="flex">
-                            <li><a href="<?php echo home_url('/');?>usces-cart">カートを見る</a></li>
+                            <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view">カートを見る</a></li>
                             <li><a href="<?php echo home_url('/');?>">サービス</a></li>
-                            <li><a href="<?php echo home_url('/');?>">納品までの流れ</a></li>
-                            <li><a href="<?php echo home_url('/');?>">料金</a></li>
+                            <li><a href="<?php echo home_url('/');?>flow">納品までの流れ</a></li>
+                            <li><a href="<?php echo home_url('/');?>retouch">修正について</a></li>
                             <li><a href="<?php echo home_url('/');?>">ヘルプ</a></li>
                         </ul>
 

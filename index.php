@@ -1,20 +1,14 @@
 <?php get_header();?>
 <div class="key__visual">
   <div class="content">
-    <h1><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_logo.png" alt="バナー制作をもっと手軽にバナー屋さん"></h1>
-    <ul class="flex">
-      <li> <em>最短当日納品</em> <i><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_icon01.png" alt="アイコン"></i> </li>
-      <li> <em>面倒な<br>
-        見積もりいらず</em> <i><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_icon02.png" alt="アイコン"></i> </li>
-      <li> <em class="pc-display">多種多様なサイズが<br>
-        制作可能</em><em class="sp-display">特殊サイズが<br>
-        制作可能</em> <i><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_icon03.png" alt="アイコン"></i> </li>
+    <h1><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_cach.png" alt="バナー制作のお悩みを解決し、アクセス数・収益の向上に貢献します"></h1>
+    <ul class="key__visual__btn flex">
+
+      <li><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_btn01.png" alt="最短当日納品"></li>
+      <li><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_btn02.png" alt="クレカ払い可"></li>
+
     </ul>
-    <p class="read__text"> 誰でも手軽に制作依頼をモットーに運営している制作代理店です<br class="pc">
-      ネット広告は、たった1%のクリック率向上で収益が<br class="pc">
-      数千万単位で変動することもある業界です。<br class="pc">
-      私たちはそんな世界で日々、お客様の売り上げ向上の為<br class="pc">
-      サイトアクセス数の増加の為に切磋琢磨しております。 </p>
+
   </div>
   <!-- ./content -->
 </div>
@@ -84,10 +78,7 @@
                 <p class="note">※写真原稿をお持ちでない方はシチュエーションなどを記載ください</p>
               </div>
             </dd>
-            <!-- 追加方法が不明なので非表示 -->
-            <!--  <div class="file__up">
 
-        </div> -->
           </dl>
           <dl class="select__btns">
             <dt>
@@ -126,7 +117,7 @@
                     <th>サイズ用途</th>
                     <th>納期</th>
                     <th>実績として公開</th>
-                    <th class="last">カート内の合計金額</th>
+                    <th class="last">合計金額（税別）</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -134,7 +125,9 @@
                     <td id="output__type"></td>
                     <td id="output__option"></td>
                     <td id="output__publish"></td>
-                    <td class="last" id="output__price"><span>¥</span><?php echo usces_totalprice_in_cart();?></td>
+                    <td class="last" id="output__rice">
+                      <span>¥</span><span id="output__price">0</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -159,6 +152,10 @@
     </form>
   </div>
 </section>
+
+
+
+
 <?php if (have_rows('bnr__list', 102)): ?>
 <section class="infinite__banner__area">
   <div class="section__inner">
