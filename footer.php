@@ -25,6 +25,12 @@ $('input, textarea, select').on('keyup change', function(){
     });
   });
 
+  $('input, textarea, select').on('keyup change', function(){
+    $("a").on('click', function() {
+      $(window).on('beforeunload');
+    });
+  });
+
 
 
   // 戻るリンクや送信ボタンなどの通常の方法で画面遷移した場合は、

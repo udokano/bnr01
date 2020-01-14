@@ -2488,7 +2488,7 @@ a.wpcf7-form-control {
 }
 
 .retouch__desc .section__inner h2 {
-  font-size: 1.62rem;
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 2.2rem;
   text-align: center;
@@ -2533,10 +2533,10 @@ a.wpcf7-form-control {
 
 .retouch__desc.desc01 .section__inner .desc_box dl dt {
   background-color: #6cb5ff;
-  font-size: 1.2rem;
+  font-size: 1.62rem;
   font-weight: 600;
   margin-bottom: 1.2rem;
-  padding: .65rem 0 .1rem;
+  padding: .9rem 0 .1rem;
   position: relative;
 }
 
@@ -2544,8 +2544,8 @@ a.wpcf7-form-control {
   -webkit-transform: translateX(-50%);
   border-color: #6cb6ff transparent transparent transparent;
   border-style: solid;
-  border-width: 26px 240px 0 240px;
-  bottom: -26px;
+  border-width: 45px 241px 0;
+  bottom: -44px;
   content: "";
   height: 0;
   left: 50%;
@@ -2556,13 +2556,9 @@ a.wpcf7-form-control {
 
 .retouch__desc.desc01 .section__inner .desc_box dl dd {
   color: #000;
-  font-size: .8rem;
+  font-size: .90rem;
   line-height: 1.85;
-  padding: .92rem 3.2rem;
-}
-
-.retouch__desc.desc01 .section__inner p.txt {
-  font-weight: 600;
+  padding: 1.98rem 3.0rem;
 }
 
 @media (max-width: 767px) {

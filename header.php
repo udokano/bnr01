@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no">
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.5">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.6">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
 
