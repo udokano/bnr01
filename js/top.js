@@ -315,7 +315,7 @@ jQuery(function () {
         //クリックしたボタンのVALを取得
         var value = jQuery(this).val();
         //スクロールポイント取得
-        var pos = jQuery("#size__select").offset().top;
+        var pos = jQuery("#banner6").offset().top;
         //特殊サイズが開いていたら閉じる
         jQuery('#special__size').css("display", "none");
         //管理番号をチェック

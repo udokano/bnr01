@@ -2,11 +2,11 @@
 納品の流れ
 ----------------------------*/
 
-.faq__bg {
+.retouch__bg {
     background-image: url(../img/retouch/retouch_bg.jpg);
 }
 
-.pages__title.faq__bg {
+.pages__title.retouch__bg {
     color: #454545;
     margin-bottom: 0;
 
@@ -15,17 +15,12 @@
 
         &:after {
             background-color: #454545;
-            height: 2px;
         }
-    }
-
-    p {
-        font-weight: 600;
     }
 }
 
 @media (max-width: 767px) {
-    .pages__title.faq__bg {
+    .pages__title.retouch__bg {
         padding: 3.2rem 1.0rem;
 
         h1 {
@@ -35,7 +30,7 @@
 }
 
 .retouch__desc {
-    padding: 2.0rem 0;
+    padding: 3.9rem 0;
 
     .section__inner {
         padding: 0 !important;
@@ -71,6 +66,7 @@
 
 .retouch__desc.desc01 {
     background-color: #73d0eb;
+    margin-bottom: 0;
 
     .section__inner {
         color: #fff;
@@ -120,6 +116,8 @@
 
 @media (max-width: 767px) {
     .retouch__desc.desc01 {
+        padding: 2.2rem 0;
+
         .section__inner {
             .desc_box {
                 margin-bottom: 0;
@@ -142,6 +140,7 @@
 
                     dd {
                         padding: .92rem 1.0rem;
+                        font-size: .8rem;
                     }
                 }
             }
@@ -166,16 +165,19 @@
 }
 
 .retouch__desc.desc02 {
+    margin-bottom: 0;
+
     .section__inner {
         .txt {
             margin-bottom: 2.95rem;
+            font-weight: 600;
         }
 
         .desc_box {
             dl {
                 width: 490px;
                 margin: 0 1.1rem;
-                padding: 1.5rem 0;
+                padding: 1.5rem 0 2.9rem;
                 text-align: center;
                 background-image: url(../img/retouch/bg_line_after.png), url(../img/retouch/bg_line_befor.png);
                 background-position: 0% 50%,100% 50%;
@@ -186,8 +188,8 @@
                 dt {
                     color: #fff;
                     border-radius: 28px;
-                    padding: 14px 45px;
-                    margin-bottom: 1.2rem;
+                    padding: 9px 45px;
+                    margin-bottom: 1.8rem;
                     display: inline-block;
                     font-size: 1.2rem;
                 }
@@ -243,7 +245,7 @@
             text-align: center;
             color: #fff;
             font-size: 1.5rem;
-            margin-bottom: 1.87rem;
+            margin-bottom: 2.89rem;
             font-weight: 600;
         }
     }

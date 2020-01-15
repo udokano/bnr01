@@ -171,10 +171,6 @@ section {
   display: none !important;
 }
 
-body.page .section__inner {
-  padding: 2.5rem 0;
-}
-
 /*
 SPボックススタイル
 --------------------------*/
@@ -278,9 +274,9 @@ h3 {
 }
 
 .pages__title h1 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: .8rem;
-  padding-bottom: .3rem;
+  padding-bottom: .5rem;
   position: relative;
 }
 
@@ -289,15 +285,16 @@ h3 {
   background-color: #fff;
   bottom: 0;
   content: "";
-  height: 1px;
+  height: 2px;
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
-  width: 240px;
+  width: 280px;
 }
 
 .pages__title p {
   font-size: .7rem;
+  font-weight: 600;
   line-height: 1.7;
 }
 
@@ -310,6 +307,7 @@ h3 {
   }
   .pages__title {
     margin-bottom: 2.2rem;
+    margin-top: 54px;
     padding: 4.1rem;
   }
   .pages__title h1 {
@@ -782,7 +780,12 @@ h3 {
 @media (max-width: 767px) {
   #site__header {
     height: 54px;
+    left: 0;
     padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
   }
   #site__header img {
     vertical-align: top;
@@ -851,6 +854,7 @@ h3 {
   }
   #site__header .header__nav {
     -webkit-transition: all .4s;
+    background-color: rgba(0, 0, 0, 0.68);
     left: 0;
     opacity: 0;
     position: absolute;
@@ -861,8 +865,8 @@ h3 {
     z-index: 5000;
   }
   #site__header .header__nav ul {
-    background-color: rgba(0, 0, 0, 0.68);
     display: block;
+    padding: 0 3.5%;
   }
   #site__header .header__nav ul li {
     border-bottom: 1px solid #fff;
@@ -874,7 +878,7 @@ h3 {
     color: #fff;
     display: block;
     font-size: .75rem;
-    padding: 0 .6rem;
+    padding: 0 1.5%;
   }
   #site__header .header__nav ul li:last-child {
     border-bottom: none;
@@ -2046,6 +2050,9 @@ a.wpcf7-form-control {
 }
 
 @media (max-width: 767px) {
+  .cart__area {
+    margin-top: 116px;
+  }
   .cart__area .section__inner {
     width: 96%;
   }
@@ -2157,60 +2164,76 @@ a.wpcf7-form-control {
   background-color: #6fa1cf;
 }
 
-.faq .section__inner .faq__list dl {
+.faq div.section__inner {
+  padding-right: 5%;
+  width: 1050px;
+}
+
+.faq div.section__inner .faq__list dl {
   margin-bottom: 2.5rem;
 }
 
-.faq .section__inner .faq__list dl dt, .faq .section__inner .faq__list dl dd {
-  -ms-flex-align: center;
-  -webkit-box-align: center;
-  align-items: center;
+.faq div.section__inner .faq__list dl dt, .faq div.section__inner .faq__list dl dd {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.faq .section__inner .faq__list dl dt .qa__tit, .faq .section__inner .faq__list dl dd .qa__tit {
+.faq div.section__inner .faq__list dl dt .qa__tit, .faq div.section__inner .faq__list dl dd .qa__tit {
   display: inline-block;
-  padding: 1.1rem;
+  padding: .7rem;
 }
 
-.faq .section__inner .faq__list dl dt .qa__tit img, .faq .section__inner .faq__list dl dd .qa__tit img {
+.faq div.section__inner .faq__list dl dt .qa__tit img, .faq div.section__inner .faq__list dl dd .qa__tit img {
   display: block;
-  width: 25px;
+  width: 28px;
 }
 
-.faq .section__inner .faq__list dl dt .text, .faq .section__inner .faq__list dl dd .text {
-  padding: 0 .42rem;
+.faq div.section__inner .faq__list dl dt .text, .faq div.section__inner .faq__list dl dd .text {
+  padding: 0 .55rem;
+  width: 100%;
 }
 
-.faq .section__inner .faq__list dl dt {
+.faq div.section__inner .faq__list dl dt {
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  align-items: center;
   font-size: 1.1rem;
 }
 
-.faq .section__inner .faq__list dl dt .qa__tit {
+.faq div.section__inner .faq__list dl dt .qa__tit {
   background-color: #08abff;
 }
 
-.faq .section__inner .faq__list dl dd {
-  border-top: 1px solid #ffa200;
-  font-size: .62rem;
-  margin-left: 5.75%;
+.faq div.section__inner .faq__list dl dd {
+  -ms-flex-align: start;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  font-size: .72rem;
+  margin-left: 5.5%;
   width: 94.25%;
 }
 
-.faq .section__inner .faq__list dl dd .qa__tit {
+.faq div.section__inner .faq__list dl dd .qa__tit {
   background-color: #ffa200;
 }
 
-.faq .section__inner .faq__list dl dd a {
+.faq div.section__inner .faq__list dl dd a {
   color: #ff5c5c;
   text-decoration: underline;
+}
+
+.faq div.section__inner .faq__list dl dd .text {
+  border-top: 1px solid #ffa200;
+  display: block;
+  padding: .72rem .9rem;
 }
 
 @media (max-width: 767px) {
   .faq div.section__inner {
     padding-bottom: 0;
+    padding-right: 0;
+    width: 90%;
   }
   .faq div.section__inner .faq__list dl dt .qa__tit, .faq div.section__inner .faq__list dl dd .qa__tit {
     padding: .75rem;
@@ -2232,6 +2255,8 @@ a.wpcf7-form-control {
     -webkit-box-align: start;
     align-items: flex-start;
     font-size: .62rem;
+    margin-left: 2.18rem;
+    width: auto;
   }
   .faq div.section__inner .faq__list dl dd .text {
     padding: .52rem .42rem;
@@ -2248,66 +2273,76 @@ a.wpcf7-form-control {
   background-image: url(../img/flow/flow_title_bg.jpg);
 }
 
+.flow .section__inner {
+  width: 1110px;
+}
+
 .flow .section__inner .flow__step {
   -ms-flex-pack: start;
   -webkit-box-pack: start;
-  border-bottom: dashed 1px #b3b2b3;
+  border-bottom: dashed 1px #363636;
   justify-content: flex-start;
-  margin-bottom: 3.5rem;
-  padding-bottom: .42rem;
+  margin-bottom: 4.2rem;
+  padding-bottom: .78rem;
 }
 
 .flow .section__inner .flow__step .thumb {
-  width: 32%;
+  width: 34.5%;
 }
 
 .flow .section__inner .flow__step .step__desc {
-  width: 60%;
+  width: 65%;
 }
 
 .flow .section__inner .flow__step .step__desc span {
-  background-color: #2b9dd7;
+  background-color: #1dace8;
   border-radius: 24px;
   color: #fff;
   display: inline-block;
   font-size: 1.2rem;
-  margin-bottom: .8rem;
-  padding: 5px 18px;
+  font-weight: 600;
+  margin-bottom: .65rem;
+  padding: 7px 18px 5px;
 }
 
 .flow .section__inner .flow__step .step__desc h3 {
   border-bottom: 1px solid #b3b2b3;
   color: #ffa200;
-  font-size: 1.0rem;
+  font-size: 1.22rem;
   font-weight: 600;
-  margin-bottom: .8rem;
-  padding-bottom: .2rem;
-  padding-left: .1rem;
+  margin-bottom: .7rem;
+  padding-bottom: .45rem;
+  padding-left: .45rem;
 }
 
 .flow .section__inner .flow__step .step__desc p {
   font-size: .84rem;
+  letter-spacing: 0;
   line-height: 1.78;
-  margin-bottom: .9rem;
+  margin-bottom: .7rem;
+  padding: 0 .5rem;
 }
 
 .flow .section__inner .flow__step .step__desc .note {
-  color: #000;
+  color: #010101;
   font-size: .52rem;
+  margin-bottom: 0;
   text-align: left;
 }
 
 .flow .section__inner .flow__step:nth-child(odd) .step__desc {
-  margin-left: 5%;
+  margin-left: 1.5%;
 }
 
 .flow .section__inner .flow__step:nth-child(even) .step__desc {
-  margin-right: 5%;
+  margin-right: 1.5%;
 }
 
 @media (max-width: 767px) {
   .flow div.section__inner {
     padding-bottom: 0;
+    padding-top: 0;
+    width: 90%;
   }
   .flow div.section__inner .flow__step {
     -ms-flex-flow: column;
@@ -2339,18 +2374,16 @@ a.wpcf7-form-control {
     font-size: 1.0rem;
     font-weight: 600;
     margin-bottom: .8rem;
-    padding-bottom: .2rem;
-    padding-left: .1rem;
+    padding-bottom: .45rem;
+    padding-left: .45rem;
   }
   .flow div.section__inner .flow__step .step__desc p {
-    font-size: .84rem;
-    line-height: 1.78;
+    font-size: .75rem;
     margin-bottom: .9rem;
   }
   .flow div.section__inner .flow__step .step__desc .note {
-    color: #000;
     font-size: .52rem;
-    text-align: left;
+    margin-bottom: 0.9rem;
   }
   .flow div.section__inner .flow__step:nth-child(odd) {
     -ms-flex-flow: column-reverse;
@@ -2370,7 +2403,7 @@ a.wpcf7-form-control {
 }
 
 .key__visual {
-  background: #1dace8 url(../img/top/key_visual_img01.png) no-repeat 125% 50%/auto 58.6666%;
+  background: #1dace8 url(../img/top/key_visual_img01.png) no-repeat 118% 50%/auto 58.6666%;
   height: 660px;
   padding: 140px 0;
   width: 100%;
@@ -2448,39 +2481,34 @@ a.wpcf7-form-control {
 /*
 納品の流れ
 ----------------------------*/
-.faq__bg {
+.retouch__bg {
   background-image: url(../img/retouch/retouch_bg.jpg);
 }
 
-.pages__title.faq__bg {
+.pages__title.retouch__bg {
   color: #454545;
   margin-bottom: 0;
 }
 
-.pages__title.faq__bg h1 {
+.pages__title.retouch__bg h1 {
   font-size: 1.95rem;
 }
 
-.pages__title.faq__bg h1:after {
+.pages__title.retouch__bg h1:after {
   background-color: #454545;
-  height: 2px;
-}
-
-.pages__title.faq__bg p {
-  font-weight: 600;
 }
 
 @media (max-width: 767px) {
-  .pages__title.faq__bg {
+  .pages__title.retouch__bg {
     padding: 3.2rem 1.0rem;
   }
-  .pages__title.faq__bg h1 {
+  .pages__title.retouch__bg h1 {
     font-size: 1.8rem;
   }
 }
 
 .retouch__desc {
-  padding: 2.0rem 0;
+  padding: 3.9rem 0;
 }
 
 .retouch__desc .section__inner {
@@ -2512,6 +2540,7 @@ a.wpcf7-form-control {
 
 .retouch__desc.desc01 {
   background-color: #73d0eb;
+  margin-bottom: 0;
 }
 
 .retouch__desc.desc01 .section__inner {
@@ -2562,6 +2591,9 @@ a.wpcf7-form-control {
 }
 
 @media (max-width: 767px) {
+  .retouch__desc.desc01 {
+    padding: 2.2rem 0;
+  }
   .retouch__desc.desc01 .section__inner .desc_box {
     -ms-flex-flow: column;
     -webkit-box-direction: normal;
@@ -2583,6 +2615,7 @@ a.wpcf7-form-control {
     bottom: -22px;
   }
   .retouch__desc.desc01 .section__inner .desc_box dl dd {
+    font-size: .8rem;
     padding: .92rem 1.0rem;
   }
 }
@@ -2603,7 +2636,12 @@ a.wpcf7-form-control {
   background-color: #ff3e7e !important;
 }
 
+.retouch__desc.desc02 {
+  margin-bottom: 0;
+}
+
 .retouch__desc.desc02 .section__inner .txt {
+  font-weight: 600;
   margin-bottom: 2.95rem;
 }
 
@@ -2614,7 +2652,7 @@ a.wpcf7-form-control {
   background-size: auto 100%,auto 100%;
   font-weight: 600;
   margin: 0 1.1rem;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 2.9rem;
   text-align: center;
   width: 490px;
 }
@@ -2624,8 +2662,8 @@ a.wpcf7-form-control {
   color: #fff;
   display: inline-block;
   font-size: 1.2rem;
-  margin-bottom: 1.2rem;
-  padding: 14px 45px;
+  margin-bottom: 1.8rem;
+  padding: 9px 45px;
 }
 
 @media (max-width: 767px) {
@@ -2670,7 +2708,7 @@ a.wpcf7-form-control {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1.87rem;
+  margin-bottom: 2.89rem;
   text-align: center;
 }
 

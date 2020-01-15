@@ -6,7 +6,7 @@ Template Name: 修正について
 
 <?php get_header();?>
 
-<div class="pages__title faq__bg">
+<div class="pages__title retouch__bg">
 <h1>バナーの修正について</h1>
 <p>バナーの初稿デザインをクライアント様にチェックして頂き、<br class="pc">
 変更や修正箇所の確認・指示をして頂きます。<br>
@@ -30,7 +30,7 @@ Template Name: 修正について
 
              <dl>
                 <dt>デザイン初稿提出</dt>
-                <dd>内容とクオリティをご確認いただき､<br>修正内容をチェック頂きます｡<br>制作費用内での修正は2回までとさせて頂いております。3回目以降は､<br>デザインの最終調整程度とさせて頂きます｡</dd>
+                <dd>内容とクオリティをご確認いただき､<br>修正内容をチェック頂きます｡<br>制作費用内での修正は2回まで<br>とさせて頂いております。3回目以降は､<br>デザインの最終調整程度とさせて頂きます｡</dd>
             </dl>
 
        </div><!-- ./desc__box -->
@@ -46,7 +46,7 @@ Template Name: 修正について
 
         <h2>提出したデザイン案をご確認いただき､<br class="pc">修正箇所をご指示いただきます｡</h2>
 
-        <p class="txt">修正には<span class="blue"> ［ 無料修正 ］</span>と<span class="pink">［ 有料修正 ］</span>がございます</p>
+        <p class="txt">修正には<span class="blue">［無料修正］</span>と<span class="pink">［有料修正］</span>がございます</p>
 
        <div class="desc_box flex">
 
@@ -130,7 +130,7 @@ Template Name: 修正について
                 </div>
 
                 <div class="desc__img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img01.jpg" alt="バナーサンプル">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img01.jpg?1458" alt="バナーサンプル">
                 </div>
 
              </div><!-- ./desc__contents -->
@@ -156,7 +156,7 @@ Template Name: 修正について
              </div><!-- ./desc__contents__wrap -->
 
              <div class="desc__img">
-                 <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img01.jpg" alt="バナーサンプル">
+                 <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img01.jpg?1458" alt="バナーサンプル">
                  <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/ retouch_img_sub01.png" alt="ポイント" class="sub__img">
              </div>
 
@@ -243,7 +243,7 @@ Template Name: 修正について
                 </div>
 
                 <div class="desc__img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img01.jpg" alt="バナーサンプル">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img02.jpg?1450" alt="バナーサンプル">
                 </div>
 
              </div><!-- ./desc__contents -->
@@ -269,7 +269,7 @@ Template Name: 修正について
              </div><!-- ./desc__contents__wrap -->
 
              <div class="desc__img">
-                 <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img02.jpg" alt="バナーサンプル">
+                 <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/retouch_img02.jpg?1458" alt="バナーサンプル">
                  <img src="<?php echo get_template_directory_uri(); ?>/img/retouch/ retouch_img_sub02.png" alt="ポイント" class="sub__img">
              </div>
 
