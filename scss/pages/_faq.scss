@@ -7,32 +7,36 @@
 }
 
 .faq {
-    .section__inner {
+    div.section__inner {
+        width: 1050px;
+        padding-right: 5%;
+
         .faq__list {
             dl {
                 margin-bottom: 2.5rem;
 
                 dt, dd {
                     display: flex;
-                    align-items: center;
 
                     .qa__tit {
-                        padding: 1.1rem;
+                        padding: .7rem;
                         display: inline-block;
 
                         img {
                             display: block;
-                            width: 25px;
+                            width: 28px;
                         }
                     }
 
                     .text {
-                        padding: 0 .42rem;
+                        padding: 0 .55rem;
+                        width: 100%;
                     }
                 }
 
                 dt {
                     font-size: 1.1rem;
+                    align-items: center;
 
                     .qa__tit {
                         background-color: $blue04;
@@ -41,9 +45,9 @@
 
                 dd {
                     width: 94.25%;
-                    margin-left: 5.75%;
-                    font-size: .62rem;
-                    border-top: 1px solid $yellow;
+                    margin-left: 5.5%;
+                    font-size: .72rem;
+                    align-items: flex-start;
 
                     .qa__tit {
                         background-color: $yellow;
@@ -52,6 +56,12 @@
                     a {
                         color: $red;
                         text-decoration: underline;
+                    }
+
+                    .text {
+                        border-top: 1px solid $yellow;
+                        padding: .72rem .9rem;
+                        display: block;
                     }
                 }
             }
@@ -62,6 +72,8 @@
 @media (max-width: 767px) {
     .faq {
         div.section__inner {
+            width: 90%;
+            padding-right: 0;
             padding-bottom: 0;
 
             .faq__list {
@@ -91,6 +103,8 @@
                     dd {
                         align-items: flex-start;
                         font-size: .62rem;
+                        width: auto;
+                        margin-left: 2.18rem;
 
                         .text {
                             padding: .52rem .42rem;

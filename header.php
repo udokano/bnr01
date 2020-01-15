@@ -10,12 +10,15 @@
 <meta name="format-detection" content="telephone=no">
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.2.6">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.3.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
 
 
 <script>
+/*
+リアルタイムバリデーション
+------------------------------*/
 jQuery(document).ready(function(){
 jQuery("#size__select > input[name*='%E3%82%B5%E3%82%A4%E3%82%BA%E6%8C%87%E5%AE%9A']").addClass("validate[required]");
 jQuery("#format > input").addClass("validate[required]");

@@ -168,12 +168,6 @@ section {
     display: none !important;
 }
 
-body.page {
-    .section__inner {
-        padding: 2.5rem 0;
-    }
-}
-
 /*
 SPボックススタイル
 --------------------------*/
@@ -285,8 +279,8 @@ h3 {
     text-align: center;
 
     h1 {
-        font-size: 1.4rem;
-        padding-bottom: .3rem;
+        font-size: 1.8rem;
+        padding-bottom: .5rem;
         position: relative;
         margin-bottom: .8rem;
 
@@ -296,8 +290,8 @@ h3 {
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
-            height: 1px;
-            width: 240px;
+            height: 2px;
+            width: 280px;
             background-color: #fff;
         }
     }
@@ -305,6 +299,7 @@ h3 {
     p {
         line-height: 1.7;
         font-size: .7rem;
+        font-weight: 600;
     }
 }
 
@@ -319,6 +314,7 @@ h3 {
 
     .pages__title {
         padding: 4.1rem;
+        margin-top: 54px;
         margin-bottom: 2.2rem;
 
         h1 {
