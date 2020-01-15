@@ -35,7 +35,7 @@ $('input, textarea, select').on('keyup change', function(){
 
   // 戻るリンクや送信ボタンなどの通常の方法で画面遷移した場合は、
   // 通常通りアラートは表示されずに遷移する
-  $('a, input[type=submit]').on('click', function(e) {
+  $('input[type=submit]').on('click', function(e) {
     $(window).off('beforeunload');
   });
 
