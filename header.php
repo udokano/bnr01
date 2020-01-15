@@ -32,7 +32,9 @@ jQuery("#form").validationEngine('attach', {
 
 window.onpageshow = function() {
   $("#form").each(function(){
-    $(this).val("");
+    $("input[type='radio']").prop("checked",false);
+    $("input[type='text']").val("");
+    $("textarea").val("");
   });
 }
 
