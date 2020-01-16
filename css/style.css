@@ -270,6 +270,7 @@ h3 {
   color: #fff;
   margin-bottom: 2.2rem;
   padding: 5.9rem;
+  position: relative;
   text-align: center;
 }
 
@@ -298,6 +299,36 @@ h3 {
   line-height: 1.7;
 }
 
+/*パンくずリスト*/
+.path {
+  bottom: 10px;
+  display: table;
+  position: absolute;
+  right: 0;
+}
+
+.path li {
+  color: #fff;
+  display: table-cell;
+  font-size: .5rem;
+  padding-right: .7rem;
+  vertical-align: middle;
+}
+
+.path li a {
+  color: #fff;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+  font-size: .5rem;
+}
+
+.path li:nth-of-type(2) {
+  line-height: 1.0;
+}
+
+.path li:last-of-type {
+  margin: 0;
+}
+
 @media (max-width: 767px) {
   h2 {
     font-size: 2.0rem;
@@ -308,7 +339,7 @@ h3 {
   .pages__title {
     margin-bottom: 2.2rem;
     margin-top: 54px;
-    padding: 4.1rem;
+    padding: 4.1rem 0;
   }
   .pages__title h1 {
     font-size: 1.4rem;
@@ -320,7 +351,6 @@ h3 {
   }
   .pages__title p {
     font-size: .7rem;
-    line-height: 1.7;
   }
 }
 
@@ -372,27 +402,6 @@ h3 {
 
 .fade-in {
   opacity: 1.0;
-}
-
-/*下層ページ基本カラー*/
-/*パンくずリスト*/
-.path {
-  margin-bottom: 90px;
-  text-align: center;
-}
-
-.path li {
-  display: inline-block;
-  margin: 0 0.5%;
-}
-
-.path li a {
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
-  font-size: .78rem;
-}
-
-.path li:nth-of-type(1) a {
-  color: #686868;
 }
 
 /*三角形*/
@@ -1007,7 +1016,7 @@ h3 {
 
 @media (max-width: 767px) {
   .modal .modal__inner {
-    height: 65%;
+    height: 92vw;
     padding: 1.5rem;
     width: 90%;
   }
@@ -1033,17 +1042,13 @@ select {
   padding: 8px;
 }
 
-span.wpcf7-list-item {
-  margin-bottom: 35px !important;
-}
-
 input[type="submit"] {
   background-color: #ff9023;
   color: #fff;
   padding: 1.2em;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"] {
   border-radius: 3px;
   padding: .6rem;
 }
@@ -1827,84 +1832,6 @@ textarea {
   font-size: .8rem;
 }
 
-/*CF7フォームスタイル
-----------------------------*/
-.wpcf7 p {
-  margin-bottom: 1.5rem;
-}
-
-.wpcf7 p.sub-tit {
-  color: #6594ac;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  padding: 5px 35px;
-}
-
-.wpcf7 dl {
-  margin-bottom: 2.5rem;
-}
-
-.wpcf7 dl dt {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 1.9rem;
-  padding: 12px 35px;
-}
-
-.wpcf7 dl dd {
-  background: #fff;
-  padding: 35px;
-}
-
-.wpcf7 dl dd.bnr__serect {
-  background-color: #fff;
-}
-
-.wpcf7 dl dd.bnr__serect .radio-row {
-  -ms-flex-wrap: wrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.wpcf7 dl dd.bnr__serect span.radio-col {
-  display: block;
-  width: 47%;
-}
-
-.wpcf7 dl dd.bnr__serect .thumb {
-  margin-bottom: 35px;
-  width: 100%;
-}
-
-.wpcf7 dl#f-size dt .modal__trigger-cont {
-  width: 47%;
-}
-
-.wpcf7 dl#f-size dt .modal__trigger-cont .thumb {
-  margin-bottom: 35px;
-  width: 100%;
-}
-
-.wpcf7 dl#f-size dd {
-  background: none;
-  padding: 0;
-}
-
-.wpcf7 dl.sp__size {
-  -ms-flex-align: center;
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: #fff;
-}
-
-.wpcf7 dl.sp__size dt {
-  font-size: 1.0rem;
-}
-
 /*
 テーブルスタイル
 ----------------------------*/
@@ -1957,44 +1884,19 @@ textarea {
   width: 240px;
 }
 
-a.wpcf7-form-control {
-  background-color: orangered;
-  color: #fff;
-  display: block;
-  height: 53px;
-  line-height: 53px;
-  margin: 0 auto 15px;
-  text-align: center;
-  width: 240px;
-}
-
 #f-num {
   display: none;
 }
 
-/* #size__secrct02 {
-    display: none;
-} */
-/* #total {
-    position: fixed;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 340px;
-    text-align: center;
-    font-size: 3.6rem;
-    color: red;
-    letter-spacing: 2px;
-
-    .checkbox-col label, .radio-col label, .cf7-calculated-name {
-        font-size: 3.6rem;
-    }
-} */
 /*
 カートページスタイル
 -------------------------------*/
 .customer_form {
   width: 100%;
+}
+
+.cart__area {
+  margin-top: 30px;
 }
 
 .cart__area input {
@@ -2155,6 +2057,240 @@ a.wpcf7-form-control {
   .company .section__inner .map {
     width: 100%;
   }
+}
+
+/*
+お問い合わせ
+---------------------------------*/
+.pages__title.contact__bg {
+  background-image: url(../img/contact/contact_bg.jpg);
+  background-position: 50% 100%;
+  margin-bottom: 0;
+}
+
+.contact {
+  background-color: #e3f7ff;
+  padding: 2.5rem 0;
+}
+
+.contact .section__inner {
+  background-color: #fff;
+}
+
+.contact .section__inner .contact__form h2 {
+  background-color: #08abff;
+  color: #fff;
+  font-size: 1.27rem;
+  padding: .82rem 0;
+  text-align: center;
+}
+
+.contact .section__inner .contact__form .required, .contact .section__inner .contact__form .any {
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: .55rem;
+  margin-left: 0.7rem;
+  padding: 4px 7px 5px;
+  vertical-align: middle;
+}
+
+.contact .section__inner .contact__form .required {
+  background-color: #ff5c5c;
+}
+
+.contact .section__inner .contact__form .any {
+  background-color: #ffa200;
+}
+
+.contact .section__inner .contact__form .contact__form__content {
+  padding: 1.9rem 8.8rem 3.8rem;
+  /* 確認画面で注釈文変更 */
+  /*ラジオボックス偽装スタイル*/
+}
+
+@media (max-width: 767px) {
+  .contact .section__inner .contact__form .contact__form__content {
+    padding: 1.8rem;
+  }
+}
+
+.contact .section__inner .contact__form .contact__form__content .sub__text {
+  font-size: .8rem;
+  margin-bottom: 1.8rem;
+}
+
+.contact .section__inner .contact__form .contact__form__content .txt_confirm {
+  display: none;
+}
+
+.contact .section__inner .contact__form .contact__form__content .wpcf7-form-mode-confirm .txt_edit {
+  display: none;
+}
+
+.contact .section__inner .contact__form .contact__form__content .wpcf7-form-mode-confirm .txt_confirm {
+  display: block;
+}
+
+.contact .section__inner .contact__form .contact__form__content input[type="text"], .contact .section__inner .contact__form .contact__form__content input[type="email"], .contact .section__inner .contact__form .contact__form__content textarea {
+  background-color: #f8f8f8;
+  border: none;
+}
+
+.contact .section__inner .contact__form .contact__form__content input[type="text"].wpcf7c-conf, .contact .section__inner .contact__form .contact__form__content input[type="email"].wpcf7c-conf, .contact .section__inner .contact__form .contact__form__content textarea.wpcf7c-conf {
+  background-color: #fff;
+}
+
+.contact .section__inner .contact__form .contact__form__content input[type="text"], .contact .section__inner .contact__form .contact__form__content input[type="email"] {
+  width: 55%;
+}
+
+@media (max-width: 767px) {
+  .contact .section__inner .contact__form .contact__form__content input[type="text"], .contact .section__inner .contact__form .contact__form__content input[type="email"] {
+    width: 100%;
+  }
+}
+
+.contact .section__inner .contact__form .contact__form__content textarea {
+  width: 100%;
+}
+
+.contact .section__inner .contact__form .contact__form__content input[type="text"]:focus, .contact .section__inner .contact__form .contact__form__content input[type="email"]:focus, .contact .section__inner .contact__form .contact__form__content textarea:focus {
+  border: #67b2ec 1px solid;
+}
+
+.contact .section__inner .contact__form .contact__form__content input[type="text"].wpcf7c-conf:focus, .contact .section__inner .contact__form .contact__form__content input[type="email"].wpcf7c-conf:focus, .contact .section__inner .contact__form .contact__form__content textarea.wpcf7c-conf:focus {
+  border: none;
+}
+
+.contact .section__inner .contact__form .contact__form__content .wpcf7-display-none {
+  display: none !important;
+}
+
+.contact .section__inner .contact__form .contact__form__content span.wpcf7-not-valid-tip {
+  display: none !important;
+}
+
+.contact .section__inner .contact__form .contact__form__content input[type="submit"], .contact .section__inner .contact__form .contact__form__content input[type="button"] {
+  background-color: #08abff;
+  color: #fff;
+  display: block;
+  margin: auto;
+  padding: 1.45rem 0;
+  width: 315px;
+}
+
+@media (max-width: 767px) {
+  .contact .section__inner .contact__form .contact__form__content input[type="submit"], .contact .section__inner .contact__form .contact__form__content input[type="button"] {
+    width: 65%;
+  }
+}
+
+.contact .section__inner .contact__form .contact__form__content input.button-rewrite {
+  margin-bottom: .75rem;
+}
+
+.contact .section__inner .contact__form .contact__form__content input[type="radio"], .contact .section__inner .contact__form .contact__form__content input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.contact .section__inner .contact__form .contact__form__content label {
+  width: 100%;
+}
+
+.contact .section__inner .contact__form .contact__form__content dl {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 2.5rem 0 2.65rem;
+}
+
+.contact .section__inner .contact__form .contact__form__content dl dt {
+  font-size: .92rem;
+  margin-bottom: .8rem;
+}
+
+.contact .section__inner .contact__form .contact__form__content dl:first-of-type {
+  padding-top: 0;
+}
+
+.contact .section__inner .contact__form .contact__form__content dl:last-of-type {
+  border-bottom: none;
+}
+
+.contact .section__inner .contact__form .contact__form__content .radio dd .wpcf7-list-item {
+  line-height: 1.0;
+  margin: 0;
+  margin-bottom: .8rem;
+  margin-right: .8rem;
+  position: relative;
+}
+
+.contact .section__inner .contact__form .contact__form__content .radio dd .wpcf7-list-item:last-of-type {
+  margin: 0;
+}
+
+.contact .section__inner .contact__form .contact__form__content .radio dd .wpcf7-list-item .wpcf7-list-item-label {
+  font-size: .6rem;
+  line-height: 1.0;
+  padding: .2rem 0;
+  padding-left: 1.6rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.contact .section__inner .contact__form .contact__form__content .radio dd .wpcf7-list-item input + .wpcf7-list-item-label::before {
+  -webkit-transform: translateY(-50%);
+  background-color: #f8f8f8;
+  border: 1px solid #6594ac;
+  border-radius: 2px;
+  content: "";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+}
+
+.contact .section__inner .contact__form .contact__form__content .radio dd .wpcf7-list-item input + .wpcf7-list-item-label::after {
+  -webkit-transform: translateY(-50%) rotate(-52deg);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.07);
+  border-left: 3px solid rgba(0, 0, 0, 0.07);
+  content: "";
+  height: 5px;
+  left: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-52deg);
+  width: 12px;
+  z-index: 1000;
+}
+
+.contact .section__inner .contact__form .contact__form__content .radio dd .wpcf7-list-item input:checked + .wpcf7-list-item-label::after {
+  border-color: #ff5c5c;
+  content: "";
+}
+
+/* サンクスページ */
+.thanks {
+  background-color: #e3f7ff;
+  margin-bottom: 0;
+}
+
+.thanks .section__inner {
+  background-color: #fff;
+  padding: 3.1rem 0;
+}
+
+.thanks .section__inner h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.thanks .section__inner p {
+  font-size: .8rem;
+  line-height: 1.92;
 }
 
 /*
@@ -2433,6 +2569,7 @@ a.wpcf7-form-control {
     background-position: 50% 89%;
     background-size: 48%  auto;
     height: 100vw;
+    margin-top: 54px;
     padding: 1.2rem 0;
   }
   .key__visual .content h1 {

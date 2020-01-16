@@ -277,6 +277,7 @@ h3 {
     color: #fff;
     background: no-repeat 50% 50% /cover;
     text-align: center;
+    position: relative;
 
     h1 {
         font-size: 1.8rem;
@@ -303,6 +304,37 @@ h3 {
     }
 }
 
+/*パンくずリスト*/
+
+.path {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    display: table;
+
+    li {
+        display: table-cell;
+        padding-right: .7rem;
+        color: #fff;
+        font-size: .5rem;
+        vertical-align: middle;
+
+        a {
+            font-size: .5rem;
+            font-family: $gosic;
+            color: #fff;
+        }
+
+        &:nth-of-type(2) {
+            line-height: 1.0;
+        }
+
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+}
+
 @media (max-width: 767px) {
     h2 {
         font-size: 2.0rem;
@@ -313,7 +345,7 @@ h3 {
     }
 
     .pages__title {
-        padding: 4.1rem;
+        padding: 4.1rem 0;
         margin-top: 54px;
         margin-bottom: 2.2rem;
 
@@ -328,7 +360,6 @@ h3 {
         }
 
         p {
-            line-height: 1.7;
             font-size: .7rem;
         }
     }
@@ -381,29 +412,6 @@ h3 {
 
 .fade-in {
     opacity: 1.0;
-}
-
-/*下層ページ基本カラー*/
-
-/*パンくずリスト*/
-
-.path {
-    text-align: center;
-    margin-bottom: 90px;
-
-    li {
-        display: inline-block;
-        margin: 0 0.5%;
-
-        a {
-            font-size: .78rem;
-            font-family: $gosic;
-        }
-
-        &:nth-of-type(1) a {
-            color: #686868;
-        }
-    }
 }
 
 /*三角形*/

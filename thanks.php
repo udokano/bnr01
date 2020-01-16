@@ -3,17 +3,14 @@
 Template Name: サンクス
 
 */?>
+<?php get_header(); ?>
+<section class="thanks">
+    <div class="section__inner">
+  <h1 class="tc">送信完了</h1>
+    <p class="tc">お問い合わせありがとうございます。<br>2~3営業日以内にメールにて、返信いたします。<br>
+※返信は原則メールのみとなります、ご了承くださいませ。</p>
+    </div>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>ご注文ありがとうございます</h1>
 
-</body>
-</html>
+</section>
+<?php get_footer();?>

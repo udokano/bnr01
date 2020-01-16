@@ -1,5 +1,38 @@
 <?php
 
+
+/*
+コンタクトフォーム７設定
+------------------------------------*/
+
+/* 確認画面に必要なファイル読み込み */
+/* function contact_script()
+{
+    if (is_page("contact")) {
+        wp_enqueue_script('contactform7confirmjs', get_template_directory_uri() . '/js/contact-form7-confirm.js');
+        wp_enqueue_style('contactform7confirmcss', get_template_directory_uri() . '/css/contact-form7-confirm.css');
+    }
+}
+add_action('wp_head', 'contact_script'); */
+
+/* サンクスページへの遷移 */
+
+add_action('wp_footer', 'add_thanks_page');
+function add_thanks_page()
+{
+    echo <<< EOD
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+  location = 'thanks/'; /* 遷移先のURL相対パス */
+}, false );
+</script>
+EOD;
+}
+
+/*
+JQリアルタイムバリデーション
+---------------------------------*/
+
 add_action('wp_enqueue_scripts', 'my_scripts');
 function my_scripts()
 {
@@ -49,6 +82,13 @@ function add_page_to_admin_menu()
 ', 3);
 }
 add_action('admin_menu', 'add_page_to_admin_menu');
+
+
+
+/*
+ Well CART 関連
+
+------------------------------------------------*/
 
 
 
