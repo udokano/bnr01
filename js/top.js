@@ -10,7 +10,9 @@
 
 $(".iopt_label").remove();
 
-
+/*
+スタイリングおよびJSのトリガーにするためのクラス、ID付与
+----------------------------------------------*/
 
 //LABEL要素にfor追加ナンバリング
 jQuery("label").each(function (i) {
@@ -35,13 +37,6 @@ jQuery("select > option").each(function (i) {
     jQuery(this).attr('id', 'option' + (i + 1));
 
 });
-
-
-
-/*
-スタイリングおよびJSのトリガーにするためのクラス、ID付与
-----------------------------------------------*/
-
 
 //テキストボックスクラス追加ナンバリング
 jQuery("#info__customer  .iopt_text").each(function (i) {
@@ -324,16 +319,12 @@ jQuery(function () {
         jQuery('#special__size').css("display", "none");
         //管理番号をチェック
         jQuery('#size__select > .radio5').prop('checked', 'true');
-
         //アウトプットの表にも挿入
         jQuery("#output__type").text("リサイズ依頼");
         jQuery("#control__num").css("display", "block");
-
         //スクロールする
         jQuery("html,body").animate({ scrollTop: pos }, '1000');
         //クリックしたボタンの管理番号を入力
-
-
         $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").focus();
         jQuery("#control__num > div > .text__input1").val(value);
         return false;

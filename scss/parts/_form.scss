@@ -15,17 +15,13 @@ select {
     font-size: .58rem;
 }
 
-span.wpcf7-list-item {
-    margin-bottom: 35px !important;
-}
-
 input[type="submit"] {
     background-color: #ff9023;
     padding: 1.2em;
     color: #fff;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"] {
     border-radius: 3px;
     padding: .6rem;
 }
@@ -869,86 +865,6 @@ textarea {
     }
 }
 
-/*CF7フォームスタイル
-----------------------------*/
-
-.wpcf7 {
-    p {
-        margin-bottom: 1.5rem;
-    }
-
-    p.sub-tit {
-        color: #6594ac;
-        font-weight: 600;
-        letter-spacing: .1em;
-        padding: 5px 35px;
-        font-size: 1.1rem;
-    }
-
-    dl {
-        margin-bottom: 2.5rem;
-
-        dt {
-            margin-bottom: 1.9rem;
-            font-size: 1.8rem;
-            font-weight: 600;
-            padding: 12px 35px;
-        }
-
-        dd {
-            background: #fff;
-            padding: 35px;
-        }
-
-        dd.bnr__serect {
-            background-color: #fff;
-
-            .radio-row {
-                display: flex;
-                flex-wrap: wrap;
-                width: 100%;
-            }
-
-            span.radio-col {
-                width: 47%;
-                display: block;
-            }
-
-            .thumb {
-                width: 100%;
-                margin-bottom: 35px;
-            }
-        }
-    }
-
-    dl#f-size {
-        dt {
-            .modal__trigger-cont {
-                width: 47%;
-
-                .thumb {
-                    width: 100%;
-                    margin-bottom: 35px;
-                }
-            }
-        }
-
-        dd {
-            padding: 0;
-            background: none;
-        }
-    }
-
-    dl.sp__size {
-        background-color: #fff;
-        align-items: center;
-
-        dt {
-            font-size: 1.0rem;
-        }
-    }
-}
-
 /*
 テーブルスタイル
 ----------------------------*/
@@ -1005,37 +921,6 @@ textarea {
     }
 }
 
-a.wpcf7-form-control {
-    background-color: orangered;
-    text-align: center;
-    color: #fff;
-    width: 240px;
-    margin: 0 auto 15px;
-    display: block;
-    line-height: 53px;
-    height: 53px;
-}
-
 #f-num {
     display: none;
 }
-
-/* #size__secrct02 {
-    display: none;
-} */
-
-/* #total {
-    position: fixed;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 340px;
-    text-align: center;
-    font-size: 3.6rem;
-    color: red;
-    letter-spacing: 2px;
-
-    .checkbox-col label, .radio-col label, .cf7-calculated-name {
-        font-size: 3.6rem;
-    }
-} */
