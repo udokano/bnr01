@@ -9,7 +9,7 @@ Template Name: 納品までの流れ
 <div class="pages__title flow__bg">
 <h1>納品までの流れ</h1>
 <p>発注・納品までがスマート！<br>入力フォームに必要事項を記載するだけで<br class="">最短当日にバナーが完成いたします。</p>
-
+<?php echo breadcrumb_func();?>
 </div>
 
 

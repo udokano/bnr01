@@ -11,6 +11,7 @@
 
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.3.5">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
 
@@ -80,7 +81,6 @@ window.onpageshow = function() {
 
                         <ul class="flex">
                             <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view">カートを見る</a></li>
-
                             <li><a href="<?php echo home_url('/');?>flow">納品までの流れ</a></li>
                             <li><a href="<?php echo home_url('/');?>retouch">修正について</a></li>
                             <li><a href="<?php echo home_url('/');?>faq">よくある質問</a></li>

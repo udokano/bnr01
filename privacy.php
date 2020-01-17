@@ -6,6 +6,7 @@ Template Name: プライバシーポリシー
 
 <?php get_header();?>
 
+<?php echo breadcrumb_func();?>
 
 <section class="privacy">
 <div class="section__inner">

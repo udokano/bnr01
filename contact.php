@@ -12,7 +12,6 @@ Template Name: お問い合わせ
 お気軽にお問い合わせください。<br>
 ※原則メールのみの対応となります。</p>
 <?php echo breadcrumb_func();?>
-
 </div><!-- ./pages__title -->
 
 

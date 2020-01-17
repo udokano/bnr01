@@ -9,6 +9,8 @@ Template Name: よくある質問
 <div class="pages__title faq__bg">
 <h1>よくある質問</h1>
 <p>今までのお問い合わせで多かったものを掲載しております。<br>バナー制作注文前に御一読ください</p>
+<?php echo breadcrumb_func();?>
+
 </div>
 
 
