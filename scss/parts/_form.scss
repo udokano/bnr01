@@ -82,24 +82,66 @@ textarea {
     }
 }
 
+/* タイトルスタイル */
+
+.step__wrap {
+    text-align: center;
+
+    span, .step__tit {
+        display: inline-block;
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+    span {
+        background-color: #454545;
+        padding: 3px 4px 2px;
+        color: #fff;
+        border-radius: 3px;
+        font-size: .7rem;
+    }
+
+    .step__tit {
+        font-size: 1.07rem;
+    }
+}
+
 /*フォームエリア記載
 -------------------------*/
 .purchase__form {
-    background-color: #f0faff;
-    background-image: repeating-linear-gradient(to bottom, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px), repeating-linear-gradient(to right, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px);
+    .form__area__out {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 70px 90px 0 90px;
+            border-color: #f3f3f3 transparent transparent transparent;
+        }
+
+        &:nth-of-type(odd) {
+            background-color: #f3f3f3;
+        }
+
+        &:nth-of-type(even) {
+            &::before {
+                border-color: #fff transparent transparent transparent;
+            }
+        }
+    }
 
     .form__inner {
         dl {
-            background-color: $blue03;
-            padding: 2.5rem 3.6rem;
+            padding: 3.5rem 3.6rem;
 
             dt {
                 margin-bottom: 25px;
-            }
-
-            &:nth-of-type(even) {
-                background-color: #fff;
-                border: none;
             }
 
             dd {
@@ -139,7 +181,9 @@ textarea {
                     width: 42%;
                     position: relative;
                     background-color: #fff;
-                    border: 1px solid $blue;
+                    border: 1px solid #bbb;
+                    border-bottom: 5px solid #989898;
+                    border-radius: 0 0 8px 8px;
                     padding: 35px 10px 54px 163px;
                     margin: 0 .8rem 1.6rem;
                     color: $blue;
@@ -155,25 +199,25 @@ textarea {
 
                     &::after {
                         left: 22px;
-                        border: 1px $blue solid;
                         width: 21px;
                         height: 21px;
                         border-radius: 3px;
-                        background-color: #fff;
+                        background-color: #e0e0e0;
                     }
 
                     &::before {
+                        top: 45%;
                         left: 25px;
-                        border-left: 3px solid rgba($color: #000, $alpha: 0.07);
-                        border-bottom: 3px solid rgba($color: #000, $alpha: 0.07);
+                        border-left: 4px solid #bbb;
+                        border-bottom: 4px solid #bbb;
                         transform: translateY(-50%) rotate(-52deg);
                         z-index: 1000;
-                        width: 14px;
-                        height: 7px;
+                        width: 16px;
+                        height: 6px;
                     }
 
                     &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
-                        background: #fff no-repeat 19% 36% / 20% auto;
+                        background: #fff no-repeat 19% 36% / 19% auto;
                     }
 
                     /*サムネイル画像振り分け*/

@@ -1,6 +1,6 @@
 #site__header {
     background-color: #fff;
-    padding: 20px 0;
+    position: relative;
 
     img {
         vertical-align: middle;
@@ -9,21 +9,44 @@
     .header__inner {
         .header__logo {
             width: 140px;
+            padding: 1.4rem 0;
         }
     }
 
     .header__nav {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 82px;
+
         ul {
+            height: 100%;
+            font-size: 0;
+
             li {
-                margin: 0 .6rem;
+                width: 98px;
+                border-left: 1px solid #d8d8d8;
+                display: flex;
+                align-items: center;
+
+                &:last-of-type {
+                    border-right: 1px solid #d8d8d8;
+                }
 
                 a {
                     color: #1f1f1f;
                     font-size: .58rem;
+                    display: block;
+                    width: 100%;
+                    text-align: center;
                 }
 
                 &:last-child {
                     margin-right: 0;
+                }
+
+                &:hover {
+                    border-top: 4px solid $blue04;
                 }
             }
         }
@@ -63,6 +86,7 @@
         .header__inner {
             .header__logo {
                 width: 110px;
+                padding: 0;
             }
         }
 
@@ -138,11 +162,13 @@
             left: 0;
             top: 54px;
             width: 100%;
+            height: auto;
             transition: all .4s;
             z-index: 5000;
             background-color: rgba($color: #000000, $alpha: 0.68);
 
             ul {
+                height: auto;
                 display: block;
                 padding: 0 3.5%;
 
@@ -151,12 +177,25 @@
                     margin: 0;
                     padding: .8rem 0;
                     border-bottom: 1px solid #fff;
+                    width: 100%;
+                    border-left: none;
+                    text-align: left;
+                    display: block;
+
+                    &:last-of-type {
+                        border-right: none;
+                    }
+
+                    &:hover {
+                        border: none;
+                    }
 
                     a {
                         font-size: .75rem;
                         display: block;
                         color: #fff;
                         padding: 0 1.5%;
+                        text-align: left;
                     }
 
                     &:last-child {

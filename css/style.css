@@ -754,7 +754,7 @@ h3 {
 
 #site__header {
   background-color: #fff;
-  padding: 20px 0;
+  position: relative;
 }
 
 #site__header img {
@@ -762,20 +762,51 @@ h3 {
 }
 
 #site__header .header__inner .header__logo {
+  padding: 1.4rem 0;
   width: 140px;
 }
 
+#site__header .header__nav {
+  height: 82px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#site__header .header__nav ul {
+  font-size: 0;
+  height: 100%;
+}
+
 #site__header .header__nav ul li {
-  margin: 0 .6rem;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  border-left: 1px solid #d8d8d8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 98px;
+}
+
+#site__header .header__nav ul li:last-of-type {
+  border-right: 1px solid #d8d8d8;
 }
 
 #site__header .header__nav ul li a {
   color: #1f1f1f;
+  display: block;
   font-size: .58rem;
+  text-align: center;
+  width: 100%;
 }
 
 #site__header .header__nav ul li:last-child {
   margin-right: 0;
+}
+
+#site__header .header__nav ul li:hover {
+  border-top: 4px solid #08abff;
 }
 
 .page #site__header {
@@ -800,6 +831,7 @@ h3 {
     vertical-align: top;
   }
   #site__header .header__inner .header__logo {
+    padding: 0;
     width: 110px;
   }
   #site__header .menu-trigger,
@@ -864,6 +896,7 @@ h3 {
   #site__header .header__nav {
     -webkit-transition: all .4s;
     background-color: rgba(0, 0, 0, 0.68);
+    height: auto;
     left: 0;
     opacity: 0;
     position: absolute;
@@ -875,19 +908,31 @@ h3 {
   }
   #site__header .header__nav ul {
     display: block;
+    height: auto;
     padding: 0 3.5%;
   }
   #site__header .header__nav ul li {
     border-bottom: 1px solid #fff;
+    border-left: none;
+    display: block;
     display: block;
     margin: 0;
     padding: .8rem 0;
+    text-align: left;
+    width: 100%;
+  }
+  #site__header .header__nav ul li:last-of-type {
+    border-right: none;
+  }
+  #site__header .header__nav ul li:hover {
+    border: none;
   }
   #site__header .header__nav ul li a {
     color: #fff;
     display: block;
     font-size: .75rem;
     padding: 0 1.5%;
+    text-align: left;
   }
   #site__header .header__nav ul li:last-child {
     border-bottom: none;
@@ -1139,12 +1184,55 @@ textarea {
   }
 }
 
+/* タイトルスタイル */
+.step__wrap {
+  text-align: center;
+}
+
+.step__wrap span, .step__wrap .step__tit {
+  display: inline-block;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.step__wrap span {
+  background-color: #454545;
+  border-radius: 3px;
+  color: #fff;
+  font-size: .7rem;
+  padding: 3px 4px 2px;
+}
+
+.step__wrap .step__tit {
+  font-size: 1.07rem;
+}
+
 /*フォームエリア記載
 -------------------------*/
-.purchase__form {
-  background-color: #f0faff;
-  background-image: -webkit-repeating-linear-gradient(top, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px), -webkit-repeating-linear-gradient(left, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px);
-  background-image: repeating-linear-gradient(to bottom, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px), repeating-linear-gradient(to right, transparent 17px, rgba(178, 178, 178, 0.07) 18px, rgba(178, 178, 178, 0.07) 18px, transparent 19px, transparent 35px, rgba(178, 178, 178, 0.07) 36px, rgba(178, 178, 178, 0.07) 36px, transparent 37px, transparent 53px, rgba(178, 178, 178, 0.07) 54px, rgba(178, 178, 178, 0.07) 54px, transparent 55px, transparent 71px, rgba(178, 178, 178, 0.07) 72px, rgba(178, 178, 178, 0.07) 72px, transparent 73px, transparent 89px, rgba(178, 178, 178, 0.07) 90px, rgba(178, 178, 178, 0.07) 90px);
+.purchase__form .form__area__out {
+  position: relative;
+}
+
+.purchase__form .form__area__out::before {
+  -webkit-transform: translateX(-50%);
+  border-color: #f3f3f3 transparent transparent transparent;
+  border-style: solid;
+  border-width: 70px 90px 0 90px;
+  content: "";
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 0;
+}
+
+.purchase__form .form__area__out:nth-of-type(odd) {
+  background-color: #f3f3f3;
+}
+
+.purchase__form .form__area__out:nth-of-type(even)::before {
+  border-color: #fff transparent transparent transparent;
 }
 
 .purchase__form .form__inner {
@@ -1152,18 +1240,12 @@ textarea {
 }
 
 .purchase__form .form__inner dl {
-  background-color: #e3f7ff;
-  padding: 2.5rem 3.6rem;
+  padding: 3.5rem 3.6rem;
   /*サイズ用途選択スタイル記述(四角ボタン)*/
 }
 
 .purchase__form .form__inner dl dt {
   margin-bottom: 25px;
-}
-
-.purchase__form .form__inner dl:nth-of-type(even) {
-  background-color: #fff;
-  border: none;
 }
 
 .purchase__form .form__inner dl dd {
@@ -1200,7 +1282,9 @@ textarea {
 
 .purchase__form .form__inner dl .select__zone label {
   background-color: #fff;
-  border: 1px solid #6594ac;
+  border: 1px solid #bbb;
+  border-bottom: 5px solid #989898;
+  border-radius: 0 0 8px 8px;
   color: #6594ac;
   display: inline-block;
   font-size: .88rem;
@@ -1222,8 +1306,7 @@ textarea {
 }
 
 .purchase__form .form__inner dl .select__zone label::after {
-  background-color: #fff;
-  border: 1px #6594ac solid;
+  background-color: #e0e0e0;
   border-radius: 3px;
   height: 21px;
   left: 22px;
@@ -1232,17 +1315,18 @@ textarea {
 
 .purchase__form .form__inner dl .select__zone label::before {
   -webkit-transform: translateY(-50%) rotate(-52deg);
-  border-bottom: 3px solid rgba(0, 0, 0, 0.07);
-  border-left: 3px solid rgba(0, 0, 0, 0.07);
-  height: 7px;
+  border-bottom: 4px solid #bbb;
+  border-left: 4px solid #bbb;
+  height: 6px;
   left: 25px;
+  top: 45%;
   transform: translateY(-50%) rotate(-52deg);
-  width: 14px;
+  width: 16px;
   z-index: 1000;
 }
 
 .purchase__form .form__inner dl .select__zone label:nth-of-type(1), .purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6) {
-  background: #fff no-repeat 19% 36% / 20% auto;
+  background: #fff no-repeat 19% 36% / 19% auto;
 }
 
 .purchase__form .form__inner dl .select__zone label:nth-of-type(1) {
@@ -2539,16 +2623,15 @@ textarea {
 }
 
 .key__visual {
-  background: #1dace8 url(../img/top/key_visual_img01.png) no-repeat 118% 50%/auto 58.6666%;
-  height: 660px;
-  padding: 140px 0;
+  background-color: #f3f3f3;
+  padding: 4.05rem 0;
   width: 100%;
 }
 
 .key__visual .content h1 {
-  margin-bottom: 1.6rem;
-  margin-right: 35%;
-  width: 65%;
+  color: #454545;
+  font-size: 1.6rem;
+  text-align: center;
 }
 
 .key__visual .content .key__visual__btn {
@@ -2566,23 +2649,92 @@ textarea {
 
 @media (max-width: 767px) {
   .key__visual {
-    background-position: 50% 89%;
-    background-size: 48%  auto;
-    height: 100vw;
     margin-top: 54px;
-    padding: 1.2rem 0;
+    padding: 2.8rem 0;
   }
   .key__visual .content h1 {
-    margin-bottom: 1.6rem;
-    margin-right: 0%;
+    font-size: 1.01rem;
+  }
+}
+
+/*
+アウトプットリスト
+----------------------------*/
+.output__list {
+  background-color: #7f7f7f;
+  padding: .85rem 0;
+}
+
+.output__list .section__inner .output__content {
+  /*============================
+            #out__list04
+            ============================*/
+}
+
+.output__list .section__inner .output__content dl {
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: .7rem;
+  height: 54px;
+  overflow: hidden;
+  text-align: center;
+  width: 23.5%;
+}
+
+.output__list .section__inner .output__content dl dt, .output__list .section__inner .output__content dl dd {
+  position: relative;
+}
+
+.output__list .section__inner .output__content dl dt .col__cent, .output__list .section__inner .output__content dl dd .col__cent {
+  -webkit-transform: translate(-50%, -50%);
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.output__list .section__inner .output__content dl dt {
+  background-color: #6a6a6a;
+  color: #fff;
+  width: 40%;
+}
+
+.output__list .section__inner .output__content dl dd {
+  background-color: #fff;
+  color: #ccc;
+  width: 60%;
+}
+
+.output__list .section__inner .output__content dl#out__list04 dt {
+  background-color: #10a84a;
+}
+
+.output__list .section__inner .output__content dl#out__list04 dd {
+  color: #10a84a;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .output__list {
+    padding: .85rem 0;
+  }
+  .output__list .section__inner .output__content dl {
+    display: block;
+    font-size: .5rem;
+    height: auto;
+    width: 23.5%;
+  }
+  .output__list .section__inner .output__content dl dt, .output__list .section__inner .output__content dl dd {
     width: 100%;
   }
-  .key__visual .content .key__visual__btn {
-    margin-right: 0%;
-    width: 100%;
+  .output__list .section__inner .output__content dl dt {
+    height: 38px;
   }
-  .key__visual .content .key__visual__btn li {
-    width: 38%;
+  .output__list .section__inner .output__content dl dd {
+    height: 50px;
   }
 }
 

@@ -80,10 +80,10 @@ window.onpageshow = function() {
                  <nav class="header__nav" id="js-nav">
 
                         <ul class="flex">
-                            <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view">カートを見る</a></li>
-                            <li><a href="<?php echo home_url('/');?>flow">納品までの流れ</a></li>
+                            <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view">カート</a></li>
+                            <li><a href="<?php echo home_url('/');?>flow">納品までの<br class="pc">流れ</a></li>
                             <li><a href="<?php echo home_url('/');?>retouch">修正について</a></li>
-                            <li><a href="<?php echo home_url('/');?>faq">よくある質問</a></li>
+                            <li><a href="<?php echo home_url('/');?>faq">Q&A</a></li>
                             <li><a href="<?php echo home_url('/');?>contact">お問い合わせ</a></li>
                         </ul>
 
