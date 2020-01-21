@@ -28,7 +28,6 @@ input[type="text"], input[type="email"] {
 
 textarea {
     background-color: #fff;
-    border: 1px solid $blue05;
     padding: 1.2em;
     margin-bottom: 1.2rem;
     height: 221px;
@@ -37,9 +36,11 @@ textarea {
 }
 
 .note {
-    color: #ff0005;
+    color: #454545;
     text-align: center;
     line-height: 1.85;
+    font-size: .74rem;
+    margin-top: 2.5rem;
 }
 
 /*ラベル名が自動的に出力されるのを非表示*/
@@ -67,17 +68,35 @@ textarea {
 
 /*初めは非表示*/
 .hidden {
-    display: none;
-    background-color: #fff !important;
-    border-color: $blue !important;
+    visibility: hidden;
+    height: 0;
+
+    //position: absolute !important;
+}
+
+.hidden__box {
+    visibility: hidden;
+    height: 0;
+    border: 1px solid #bbb;
     width: 87.5%;
     margin: auto;
+}
+
+.hidden__box.viv {
     padding: 2.5rem 3.6rem;
 }
 
+.viv {
+    visibility: visible;
+    height: auto;
+}
+
 @media (max-width: 767px) {
-    .hidden {
+    .hidden__box {
         width: 100%;
+    }
+
+    .hidden__box.viv {
         padding: 2.0rem .5rem;
     }
 }
@@ -86,6 +105,7 @@ textarea {
 
 .step__wrap {
     text-align: center;
+    margin-bottom: 2.5rem;
 
     span, .step__tit {
         display: inline-block;
@@ -95,22 +115,87 @@ textarea {
 
     span {
         background-color: #454545;
-        padding: 3px 4px 2px;
+        padding: 4px 6px 3px;
         color: #fff;
         border-radius: 3px;
-        font-size: .7rem;
+        font-size: .9rem;
     }
 
     .step__tit {
-        font-size: 1.07rem;
+        font-size: 1.28rem;
+        color: #454545;
+    }
+}
+
+/*
+吹き出し（原寸サイズを見る）
+-------------------------*/
+
+.img__mark {
+    position: absolute;
+    width: 59px;
+    height: 69px;
+    background: no-repeat 50% 50% / 100% auto;
+    background-image: url(../img/top/tip.png);
+    z-index: 5000;
+    animation: img_box 2.0s ease-in infinite;
+    cursor: pointer;
+}
+
+.img__mark#mark01 {
+    left: 410px;
+    top: -12px;
+}
+
+.img__mark#mark02 {
+    right: 80px;
+    top: -12px;
+}
+
+@media (max-width: 767px) {
+    .img__mark {
+        display: none;
+    }
+}
+
+/*アニメーションスタイル*/
+
+@keyframes img_box {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
 
 /*フォームエリア記載
 -------------------------*/
 .purchase__form {
+    h1 {
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        padding: 1.1rem 0;
+        font-size: 1.8rem;
+        background-color: #2d417f;
+    }
+
     .form__area__out {
         position: relative;
+
+        .step__img {
+            position: absolute;
+            left: 3.5vw;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 7%;
+        }
 
         &::before {
             content: "";
@@ -121,24 +206,30 @@ textarea {
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 70px 90px 0 90px;
-            border-color: #f3f3f3 transparent transparent transparent;
-        }
-
-        &:nth-of-type(odd) {
-            background-color: #f3f3f3;
+            border-width: 50px 70px 0 70px;
+            border-color: #fff transparent transparent transparent;
         }
 
         &:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        &:nth-of-type(odd) {
             &::before {
-                border-color: #fff transparent transparent transparent;
+                border-color: #f3f3f3 transparent transparent transparent;
+            }
+        }
+
+        &:nth-of-type(1) {
+            &::before {
+                border: none;
             }
         }
     }
 
     .form__inner {
         dl {
-            padding: 3.5rem 3.6rem;
+            padding: 6rem 3.6rem;
 
             dt {
                 margin-bottom: 25px;
@@ -152,6 +243,9 @@ textarea {
                 font-size: .88rem;
 
                 /*各バナーの補足文の設定*/
+                .item__text {
+                    font-size: .92rem;
+                }
 
                 .sub__text {
                     white-space: nowrap;
@@ -163,6 +257,13 @@ textarea {
                     font-size: .72rem;
                     color: #454545;
                     font-weight: 100;
+                }
+
+                .price__text {
+                    display: block;
+                    margin-top: .7rem;
+                    color: $green;
+                    font-size: .68rem;
                 }
             }
 
@@ -183,12 +284,24 @@ textarea {
                     background-color: #fff;
                     border: 1px solid #bbb;
                     border-bottom: 5px solid #989898;
-                    border-radius: 0 0 8px 8px;
-                    padding: 35px 10px 54px 163px;
+
+                    //border-bottom: none;
+
+                    //border-radius: 0 0 8px 8px;
+                    border-radius: 8px 8px 10px 10px/0 0 4px 4px;
+
+                    //box-shadow: 0px 6px 0px 0px #bbbbbb;
+                    padding: 25px 10px 35px 163px;
+                    height: 115px;
                     margin: 0 .8rem 1.6rem;
                     color: $blue;
                     font-weight: 600;
                     font-size: .88rem;
+
+                    &:hover {
+                        bottom: -2px;
+                        border-bottom-width: 1px;
+                    }
 
                     &::after, &::before {
                         content: "";
@@ -250,11 +363,18 @@ textarea {
 
                 input[type="radio"]:checked + label {
                     border: none;
-                    outline: 4px solid $yellow;
-                    outline-offset: -2px;
+
+                    //outline: 4px solid $yellow;
+                    //outline-offset: -2px;
+                    background-color: #299cc5;
+                    border-bottom: 5px solid #1386af;
 
                     &::before {
-                        border-color: $yellow;
+                        border-color: $green;
+                    }
+
+                    span {
+                        color: #fff;
                     }
                 }
 
@@ -264,26 +384,35 @@ textarea {
                     outline-offset: -2px;
 
                     &::before {
-                        border-color: $yellow;
+                        border-color: $green;
+                    }
+                }
+            }
+
+            #size__select {
+                label {
+                    &:nth-of-type(1) {
+                        background-image: url(../img/icons/s_icon.png);
+                    }
+
+                    &:nth-of-type(2) {
+                        background-image: url(../img/icons/m_icon.png);
+                    }
+
+                    &:nth-of-type(3) {
+                        background-image: url(../img/icons/l_icon.png);
                     }
                 }
             }
         }
 
-        .size__select.select__zone {
+        .select__zone.select__time {
             label {
-                /*サムネイル画像振り分け*/
-                &:nth-of-type(1) {
-                    background-image: url(../img/icons/s_icon.png);
-                }
-
-                &:nth-of-type(2) {
-                    background-image: url(../img/icons/m_icon.png);
-                }
-
-                &:nth-of-type(3) {
-                    background-image: url(../img/icons/l_icon.png);
-                }
+                padding: 30px 10px 10px 80px;
+                background-image: none !important;
+                width: 30%;
+                margin: 0 .5rem;
+                color: #454545;
             }
         }
 
@@ -292,169 +421,10 @@ textarea {
             position: absolute;
         }
 
-        /* ボタンタイプスタイル記述(黄色いボタン) */
-        .select__btns {
-            .select__btn__zone {
-                justify-content: space-around;
-                flex-wrap: wrap;
-                width: 80%;
-                margin: auto;
-
-                label {
-                    width: 30%;
-                    border-radius: 37px;
-                    color: #fff;
-                    height: 78px;
-                    line-height: 78px;
-                    position: relative;
-                    margin: 0 .5rem 1.8rem;
-                    padding: 0 30px 0 112px;
-
-                    &::after, &::before {
-                        content: "";
-                        position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
-                    }
-
-                    &::after {
-                        left: 34px;
-                        border: 2px #f8f8f8 solid;
-                        width: 21px;
-                        height: 21px;
-                        border-radius: 3px;
-                        background-color: #fff;
-                    }
-
-                    &::before {
-                        left: 39px;
-                        border-left: 3px solid rgba($color: #000, $alpha: 0.07);
-                        border-bottom: 3px solid rgba($color: #000, $alpha: 0.07);
-                        transform: translateY(-50%) rotate(-52deg);
-                        z-index: 1000;
-                        width: 13px;
-                        height: 6px;
-                    }
-
-                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
-                        background: #454545 no-repeat 34% 50% / 22px auto;
-                    }
-
-                    /*サムネイル画像振り分け*/
-                    &:nth-of-type(1) {
-                        background-image: url(../img/icons/option_icon01.png);
-                    }
-
-                    &:nth-of-type(2) {
-                        background-image: url(../img/icons/option_icon02.png);
-                    }
-
-                    &:nth-of-type(3) {
-                        background-image: url(../img/icons/option_icon03.png);
-                    }
-
-                    &:nth-of-type(4) {
-                        background-image: url(../img/icons/option_icon01.png);
-                    }
-
-                    &:nth-of-type(5) {
-                        background-image: url(../img/icons/option_icon02.png);
-                    }
-
-                    &:nth-of-type(6) {
-                        background-image: url(../img/icons/option_icon03.png);
-                    }
-
-                    .sub__text {
-                        bottom: -24px;
-                        color: #fff;
-                    }
-                }
-
-                input[type="radio"]:checked + label {
-                    background-color: $yellow;
-
-                    &::before {
-                        border-color: red;
-                    }
-
-                    &::after {
-                        border-color: $yellow;
-                    }
-                }
-
-                label.checked {
-                    background-color: $yellow;
-
-                    &::before {
-                        border-color: red;
-                    }
-
-                    &::after {
-                        border-color: $yellow;
-                    }
-                }
-            }
-        }
-
-        .select__btns {
-            .select__btn__zone.limit {
-                justify-content: center;
-
-                label {
-                    &:nth-of-type(1) {
-                        background-image: url(../img/icons/option_icon01.png);
-                    }
-
-                    &:nth-of-type(2) {
-                        background-image: url(../img/icons/option_icon01.png);
-                    }
-
-                    &:nth-of-type(3) {
-                        background-image: url(../img/icons/option_icon01.png);
-                    }
-                }
-            }
-        }
-
-        .select__btns {
-            .select__btn__zone.select__data {
-                justify-content: center;
-
-                label {
-                    width: 41.5%;
-                    height: 74px;
-                    line-height: 74px;
-                    padding: 0 30px 0 86px;
-                    font-size: .78rem;
-                    margin: 0  .98rem 1.8rem;
-
-                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
-                        background-image: none;
-                    }
-                }
-            }
-        }
-
-        .select__btns {
-            .select__btn__zone.public__btn {
-                label {
-                    width: 31%;
-                    height: 74px;
-                    line-height: 74px;
-                    padding: 0 30px 0 86px;
-                    font-size: 1.1rem;
-
-                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
-                        background-image: none;
-                    }
-                }
-            }
-        }
-
-        .hidden {
+        .hidden__box {
             p {
                 margin-bottom: 1.7rem;
+                font-weight: 600;
             }
 
             input, select {
@@ -544,15 +514,23 @@ textarea {
 
 @media (max-width: 767px) {
     .purchase__form {
+        .step__img {
+            display: none;
+        }
+
+        .form__area__out {
+            &::before {
+                border-width: 1.98rem 2.5rem 0;
+            }
+        }
+
         .form__inner {
             dl {
-                padding: 2.0rem .5rem;
+                padding: 4.0rem .5rem;
 
                 dt {
                     margin-bottom: 25px;
                 }
-
-                &:nth-of-type(even) {}
 
                 dd {}
 
@@ -570,8 +548,6 @@ textarea {
                         padding-left: 9.4rem;
                         margin: 0 auto 1.2rem;
                         font-size: .9rem;
-
-                        &::after, &::before {}
 
                         &::after {
                             left: 22px;
@@ -595,85 +571,13 @@ textarea {
                         }
                     }
                 }
-            }
 
-            .select__btns {
-                .select__btn__zone {
-                    justify-content: space-between;
-                    width: 100%;
-
+                .select__zone.select__time {
                     label {
-                        width: 49%;
-                        margin: 0 0 1.2rem;
-                        padding: 0;
-                        padding-left: 4.8rem;
-                        height: 68px;
-                        line-height: 68px;
-
-                        &::after {
-                            left: 14px;
-                            width: 21px;
-                            height: 21px;
-                        }
-
-                        &::before {
-                            left: 20px;
-                            width: 13px;
-                            height: 6px;
-                        }
-
-                        &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
-                            background-size: 1.35rem;
-                            background-position: 35% 50%;
-                        }
-
-                        .sub__text {
-                            bottom: -22px;
-                            font-size: .67rem;
-                        }
-                    }
-                }
-            }
-
-            .select__btns {
-                .select__btn__zone.public__btn {
-                    justify-content: space-between;
-
-                    label {
-                        width: 48%;
-                        padding: 0;
-                        padding-left: 3.4rem;
-                    }
-                }
-            }
-
-            .select__btns {
-                .select__btn__zone.limit {
-                    justify-content: space-around;
-
-                    label {
-                        margin: 0 0 .8rem;
-                        background-size: 1.12rem;
-                        background-position: 26% 50%;
-                        padding-left: 5.0rem;
-                        width: 66%;
-                    }
-                }
-            }
-
-            .select__btns {
-                .select__btn__zone.select__data {
-                    justify-content: center;
-
-                    label {
-                        width: 90%;
-                        padding: 0 30px 0 70px;
-                        font-size: .78rem;
-                        margin: 0  .98rem 1.8rem;
-
-                        &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
-                            background-image: none;
-                        }
+                        padding: 30px 10px 10px 80px;
+                        background-image: none !important;
+                        width: 100%;
+                        margin: 0 auto 1.5rem;
                     }
                 }
             }
@@ -696,19 +600,6 @@ textarea {
                         p {
                             margin-bottom: 25px;
                         }
-                    }
-                }
-            }
-
-            .info__customer {
-                width: 80%;
-
-                .text__area {
-                    margin: 0 .3rem 1.7rem;
-                    width: 100%;
-
-                    &:last-child {
-                        margin: 0;
                     }
                 }
             }
@@ -828,23 +719,41 @@ textarea {
 /*カートへ入れるボタン*/
 
 .cart__in {
-    width: 422px;
-    margin: 0 auto 3.5rem;
+    width: 550px;
+    padding: 5.5rem 0;
+    margin: auto;
 
     .cart__btn__cont {
         display: inline-block;
         position: relative;
 
+        .cart__text {
+            position: absolute;
+            color: #fff;
+            left: 50%;
+            top: 13px;
+            transform: translateX(-50%);
+            font-size: .62rem;
+            white-space: nowrap;
+        }
+
         input {
-            width: 422px;
+            width: 550px;
             display: block;
-            height: 88px;
-            line-height: 88px;
-            background-color: #2b9dd7;
-            border-radius: 12px;
+            height: 118px;
+            line-height: 118px;
+            background-color: #13b131;
+            border-radius: 4px 4px 8px 8px;
+            border-bottom: 6px solid #008f1b;
             padding: 0;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
             padding-left: 57px;
+
+            &:hover {
+                bottom: -3px;
+                border-bottom-width: 2px;
+            }
         }
 
         &::after {
@@ -862,20 +771,22 @@ textarea {
 
 @media (max-width: 767px) {
     .cart__in {
-        width: 310px;
+        padding: 4.0rem 0 2.5rem;
+        min-width: 330px;
+        width: 100%;
+        max-width: 580px;
 
         .cart__btn__cont {
             margin: auto;
             display: block;
 
             input {
-                width: 310px;
+                width: 100%;
                 display: block;
-                height: 68px;
-                line-height: 68px;
-                border-radius: 12px;
-                font-size: 1.08rem;
-                padding-left: 2.2rem;
+                height: 98px;
+                line-height: 98px;
+                font-size: 1.0rem;
+                padding-left: .5rem;
             }
 
             &::after {
@@ -883,7 +794,7 @@ textarea {
                 background-size: 1.3rem;
                 height: 25px;
                 width: 24px;
-                left: 26px;
+                left: 1.98rem;
             }
         }
     }

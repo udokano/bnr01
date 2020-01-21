@@ -40,8 +40,8 @@ $(function () {
     $("#banner12").attr("data-price", "0");
     $("#banner13").attr("data-price", "1500");
     //公開
-    $("#banner14").attr("data-price", "-500");
-    $("#banner15").attr("data-price", "0");
+    $("#banner14").attr("data-price", "0");
+    $("#banner15").attr("data-price", "-500");
 
     //特殊サイズ
     $("#option1").attr("data-price", "0");

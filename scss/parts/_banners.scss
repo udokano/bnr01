@@ -5,12 +5,13 @@
 
 */
 .infinite__banner__area {
-    margin: 2.2rem 0 3.8rem;
+    background-color: #282828;
+    padding: 2.5rem 0;
 
     .section__inner {
         h2 {
             text-align: center;
-            color: $yellow;
+            color: #fff;
             font-size: 1.4rem;
             margin-bottom: 2.2rem;
         }
@@ -43,7 +44,7 @@
 
 @media (max-width: 767px) {
     .infinite__banner__area {
-        margin: 2.2rem 0 3.8rem;
+        margin-bottom: 0;
 
         .section__inner {
             h2 {
@@ -81,7 +82,7 @@
     height: 100vh;
     width: 100%;
     background-color: rgba($color: #000000, $alpha: 0.5);
-    z-index: 9000;
+    z-index: 9998;
 
     .modal__inner {
         width: 540px;
@@ -108,7 +109,83 @@
         position: fixed;
         overflow: hidden;
         width: 100%;
-        z-index: 9300;
+        z-index: 9998;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal {
+        .modal__inner {
+            width: 90%;
+            height: 92vw;
+            padding: 1.5rem;
+
+            h3 {
+                font-size: 1.2rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+}
+
+/*
+サンプルバナーモーダル
+----------------------------------------------*/
+
+.sample__modal {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .modal__inner {
+        max-width: 1600px;
+        width: 90%;
+        min-width: 1150px;
+        height: 92vw;
+        margin: 6.5rem 0;
+        padding: 3.2rem;
+
+        .sample__img {
+            text-align: center;
+            margin-bottom: 1.1rem;
+
+            p {
+                font-size: .8rem;
+                margin-bottom: .8rem;
+            }
+
+            h3 {
+                margin-bottom: 1.1rem;
+            }
+
+            img {
+                width: auto;
+                display: inline-block;
+                margin: 1.2rem;
+            }
+        }
+
+        .close__btn {
+            width: 44%;
+            margin: auto;
+            background-color: #299cc5;
+            height: 75px;
+            line-height: 75px;
+            color: #fff;
+            border-bottom: 5px solid #1386af;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+
+            &:hover {
+                bottom: -4px;
+                border-bottom-width: 1px;
+            }
+        }
     }
 }
 

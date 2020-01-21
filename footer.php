@@ -1,4 +1,8 @@
+<div class="cards">
+  <p><img src="<?php echo get_template_directory_uri(); ?>/img/top/cards.jpg" alt="クレジットカード"></p>
+</div>
 <footer id="site__footer">
+  <div class="footer__logo"> <img src="<?php echo get_template_directory_uri(); ?>/img/common/bottom_logo.png" alt="バナー屋さん"> </div>
   <ul class="footer__nav">
     <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view">カートを見る</a></li>
     <li><a href="<?php echo home_url('/');?>#form">制作依頼</a></li>
@@ -8,21 +12,22 @@
     <li><a href="<?php echo home_url('/');?>company">会社概要</a></li>
     <li><a href="<?php echo home_url('/');?>company#company__info">特定商取引法に基づく表記</a></li>
   </ul>
+  <p class="tc copy">© バナー屋さん.</p>
 </footer>
 </div>
-<!--  ./wrapper -->
+<!--  ./wrapper --> 
 
-<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script> 
+<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script> 
+
+<!-- トップページのみ読み込み -->
 <?php if (is_home() || is_front_page()) : ?>
- <script src="<?php echo get_template_directory_uri(); ?>/js/top.js?"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/top.js?"></script> 
 <script src="<?php echo get_template_directory_uri(); ?>/js/price.js"></script>
 <?php endif; ?>
 <?php wp_footer(); ?>
 
-
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-<script>
+<!-- <script>
 $('input, textarea, select').on('keyup change', function(){
     $(window).on('beforeunload', function() {
       return "このページを離れると、入力したデータが削除されます。本当に移動しますか。";
@@ -41,7 +46,6 @@ $('input, textarea, select').on('keyup change', function(){
     $(window).off('beforeunload');
   });
 
-</script>
+</script> -->
 
-</body>
-</html>
+</body></html>
