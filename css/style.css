@@ -1174,7 +1174,7 @@ LIVE　チャット設定
 }
 
 .sample__modal .modal__inner {
-  height: 92vw;
+  height: 1200px;
   margin: 6.5rem 0;
   max-width: 1600px;
   min-width: 1150px;
@@ -1284,22 +1284,27 @@ textarea {
 
 ::-webkit-input-placeholder {
   color: #ccc;
+  font-size: .6rem;
 }
 
 ::-moz-placeholder {
   color: #ccc;
+  font-size: .6rem;
 }
 
 :-ms-input-placeholder {
   color: #ccc;
+  font-size: .6rem;
 }
 
 ::-ms-input-placeholder {
   color: #ccc;
+  font-size: .6rem;
 }
 
 ::placeholder {
   color: #ccc;
+  font-size: .6rem;
 }
 
 #instruction textarea {
@@ -1730,6 +1735,140 @@ textarea {
   margin-right: 51%;
 }
 
+.purchase__form .form__inner .file__up__area .box__content {
+  margin-bottom: 1.8rem;
+}
+
+@media (max-width: 767px) {
+  .purchase__form .form__inner .file__up__area .box__content {
+    -ms-flex-flow: column-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    flex-flow: column-reverse;
+    margin-bottom: 0;
+  }
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop, .purchase__form .form__inner .file__up__area .box__content .text {
+  width: 49%;
+}
+
+@media (max-width: 767px) {
+  .purchase__form .form__inner .file__up__area .box__content .file__drop, .purchase__form .form__inner .file__up__area .box__content .text {
+    width: 100%;
+  }
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop .row {
+  margin: 0;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target {
+  background-color: transparent;
+  border: 3px dashed #ccc;
+  border-radius: 3px;
+  font-size: .78rem;
+  height: auto;
+  height: 175px;
+  margin: 0 0 18px;
+  padding: 2.9rem 2.5rem;
+}
+
+@media (max-width: 767px) {
+  .purchase__form .form__inner .file__up__area .box__content .file__drop .row .target {
+    display: none;
+  }
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text {
+  color: #299cc5;
+  font-size: 1.0rem;
+  margin-bottom: .7rem;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text02 {
+  font-size: .46rem;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop .row .input__wrap {
+  width: 100%;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop .row .input__wrap input {
+  background-color: #fff;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .purchase__form .form__inner .file__up__area .box__content .text {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.purchase__form .form__inner .file__up__area .box__content .text textarea {
+  height: 240px;
+  margin-bottom: 0;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .text textarea :placeholder {
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .purchase__form .form__inner .file__up__area .btn__to__content {
+    -ms-flex-flow: column;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-flow: column;
+  }
+}
+
+.purchase__form .form__inner .file__up__area .btn__to__content .btn__to {
+  width: 40%;
+}
+
+@media (max-width: 767px) {
+  .purchase__form .form__inner .file__up__area .btn__to__content .btn__to {
+    margin: .8rem;
+    width: 100%;
+  }
+}
+
+.purchase__form .form__inner .file__up__area .btn__to__content p {
+  font-size: .62rem;
+}
+
+/*ファイルアウトプッとエリア*/
+#url__out tr:nth-of-type(even) {
+  background-color: #f8f8f8;
+}
+
+#url__out tr:nth-of-type(odd) {
+  background-color: #e3e3e3;
+}
+
+#url__out td {
+  font-size: .68rem;
+  vertical-align: middle;
+}
+
+#url__out td input {
+  background-color: #fff;
+  width: 100%;
+}
+
+#url__out td button {
+  background-color: #d9534f;
+  color: #fff;
+  line-height: 1.0;
+  padding: 0;
+}
+
+#url__out .preview {
+  display: inline-block;
+  width: 45px;
+}
+
 .term h3 {
   text-align: center;
 }
@@ -1935,12 +2074,13 @@ textarea {
   line-height: 118px;
   padding: 0;
   padding-left: 57px;
+  position: relative;
   width: 550px;
 }
 
 .cart__in .cart__btn__cont input:hover {
   border-bottom-width: 2px;
-  bottom: -3px;
+  bottom: -5px;
 }
 
 .cart__in .cart__btn__cont::after {

@@ -14,6 +14,8 @@ $(".iopt_label").remove();
 スタイリングおよびJSのトリガーにするためのクラス、ID付与
 ----------------------------------------------*/
 
+
+
 //LABEL要素にfor追加ナンバリング
 jQuery("label").each(function (i) {
     jQuery(this).attr('for', 'banner' + (i + 1));
@@ -174,11 +176,6 @@ jQuery("#control__num > div > .text__input1").attr('placeholder', '例：0000000
 
 jQuery("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置');
 
-jQuery("#info__customer .text1").attr('placeholder', '未入力でも注文可能です');
-
-jQuery("#info__customer .text2").attr('placeholder', 'バナーヤスオ');
-
-jQuery("#info__customer .text3").attr('placeholder', '未入力でも注文可能です');
 
 
 
@@ -211,13 +208,13 @@ $(window).on("scroll", function () {
 
 $(window).on('load', function () {
 
-    $("#form__area02").addClass("hidden");
+    /* $("#form__area02").addClass("hidden");
     $("#form__area03").addClass("hidden");
     $("#form__area04").addClass("hidden");
     $("#form__area05").addClass("hidden");
     $("#form__area06").addClass("hidden");
     $("#form__area07").addClass("hidden");
-
+ */
 });
 
 
@@ -244,14 +241,6 @@ $(function () {
     var pos07 = jQuery("#form__area06").offset().top;
 
     var pos08 = jQuery("#form__area07").offset().top;
-
-    console.log(pos04);
-
-    console.log(pos05);
-
-    console.log(pos06);
-
-    console.log(pos07);
 
 
 

@@ -50,6 +50,7 @@ textarea {
 
 ::placeholder {
     color: #ccc;
+    font-size: .6rem;
 }
 
 #instruction {
@@ -477,6 +478,135 @@ textarea {
                 }
             }
         }
+
+        .file__up__area {
+            .box__content {
+                margin-bottom: 1.8rem;
+
+                @media (max-width: 767px) {
+                    margin-bottom: 0;
+                    flex-flow: column-reverse;
+                }
+
+                .file__drop, .text {
+                    width: 49%;
+
+                    @media (max-width: 767px) {
+                        width: 100%;
+                    }
+                }
+
+                .file__drop {
+                    .row {
+                        margin: 0;
+
+                        .target {
+                            padding: 2.9rem 2.5rem;
+                            margin: 0 0 18px;
+                            background-color: transparent;
+                            border: 3px dashed #ccc;
+                            border-radius: 3px;
+                            height: auto;
+                            font-size: .78rem;
+                            height: 175px;
+
+                            @media (max-width: 767px) {
+                                display: none;
+                            }
+
+                            .sub__text {
+                                font-size: 1.0rem;
+                                color: #299cc5;
+                                margin-bottom: .7rem;
+                            }
+
+                            .sub__text02 {
+                                font-size: .46rem;
+                            }
+                        }
+
+                        .input__wrap {
+                            width: 100%;
+
+                            input {
+                                width: 100%;
+                                background-color: #fff;
+                            }
+                        }
+                    }
+                }
+
+                .text {
+                    @media (max-width: 767px) {
+                        margin-bottom: 1.2rem;
+                    }
+
+                    textarea {
+                        margin-bottom: 0;
+                        height: 240px;
+
+                        :placeholder {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+
+            .btn__to__content {
+                @media (max-width: 767px) {
+                    flex-flow: column;
+                }
+
+                .btn__to {
+                    width: 40%;
+
+                    @media (max-width: 767px) {
+                        width: 100%;
+                        margin: .8rem;
+                    }
+                }
+
+                p {
+                    font-size: .62rem;
+                }
+            }
+        }
+    }
+}
+
+/*ファイルアウトプッとエリア*/
+
+#url__out {
+    tr {
+        &:nth-of-type(even) {
+            background-color: #f8f8f8;
+        }
+
+        &:nth-of-type(odd) {
+            background-color: #e3e3e3;
+        }
+    }
+
+    td {
+        vertical-align: middle;
+        font-size: .68rem;
+
+        input {
+            background-color: #fff;
+            width: 100%;
+        }
+
+        button {
+            line-height: 1.0;
+            padding: 0;
+            background-color: #d9534f;
+            color: #fff;
+        }
+    }
+
+    .preview {
+        width: 45px;
+        display: inline-block;
     }
 }
 
@@ -749,9 +879,10 @@ textarea {
             font-size: 1.5rem;
             font-weight: 600;
             padding-left: 57px;
+            position: relative;
 
             &:hover {
-                bottom: -3px;
+                bottom: -5px;
                 border-bottom-width: 2px;
             }
         }
