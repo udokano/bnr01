@@ -1,0 +1,8 @@
+"Chat ID",From,Message,Timestamp,Origin
+1,ああああ,aaaaaa,"2020-01-17 13:08:17",user
+1,ああああ,aaaaaa,"2020-01-17 13:08:20",user
+1,ああああ,aaaa,"2020-01-17 13:08:22",user
+1,ああああ,sisisi,"2020-01-17 13:08:26",user
+1,"System notification","User is browsing https://u-d.jp/wp_bnr/","2020-01-17 13:09:25",agent
+1,"System notification","User is browsing https://u-d.jp/wp_bnr/","2020-01-17 13:19:51",agent
+1,"System notification","User is browsing https://u-d.jp/wp_bnr/","2020-01-17 13:27:40",agent

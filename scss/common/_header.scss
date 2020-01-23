@@ -1,6 +1,6 @@
 #site__header {
     background-color: #fff;
-    padding: 20px 0;
+    position: relative;
 
     img {
         vertical-align: middle;
@@ -8,18 +8,51 @@
 
     .header__inner {
         .header__logo {
-            width: 140px;
+            width: 320px;
+            padding: 1.1rem 0;
         }
     }
 
     .header__nav {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 94px;
+
         ul {
+            height: 100%;
+            font-size: 0;
+
             li {
-                margin: 0 .6rem;
+                width: 120px;
+                border-left: 1px solid #d8d8d8;
 
                 a {
+                    position: relative;
                     color: #1f1f1f;
                     font-size: .58rem;
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+
+                    &:hover::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 4px;
+                        background-color: $blue04;
+                    }
                 }
 
                 &:last-child {
@@ -30,7 +63,7 @@
     }
 }
 
-.page {
+/* .page {
     #site__header {
         background-color: #454545;
 
@@ -45,7 +78,7 @@
         }
     }
 }
-
+ */
 @media (max-width: 767px) {
     #site__header {
         height: 54px;
@@ -62,7 +95,8 @@
 
         .header__inner {
             .header__logo {
-                width: 110px;
+                width: 160px;
+                padding: 0;
             }
         }
 
@@ -138,11 +172,13 @@
             left: 0;
             top: 54px;
             width: 100%;
+            height: auto;
             transition: all .4s;
             z-index: 5000;
             background-color: rgba($color: #000000, $alpha: 0.68);
 
             ul {
+                height: auto;
                 display: block;
                 padding: 0 3.5%;
 
@@ -151,12 +187,25 @@
                     margin: 0;
                     padding: .8rem 0;
                     border-bottom: 1px solid #fff;
+                    width: 100%;
+                    border-left: none;
+                    text-align: left;
+                    display: block;
+
+                    &:last-of-type {
+                        border-right: none;
+                    }
+
+                    &:hover {
+                        border: none;
+                    }
 
                     a {
                         font-size: .75rem;
                         display: block;
                         color: #fff;
                         padding: 0 1.5%;
+                        text-align: left;
                     }
 
                     &:last-child {
@@ -173,7 +222,7 @@
         }
     }
 
-    .page {
+    /* .page {
         #site__header {
             .menu-trigger span {
                 background-color: #fff;
@@ -183,5 +232,5 @@
                 color: #fff;
             }
         }
-    }
+    } */
 }

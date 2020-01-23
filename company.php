@@ -6,6 +6,7 @@ Template Name: 会社概要
 
 <?php get_header();?>
 
+<?php echo breadcrumb_func();?>
 
 <section class="company">
 <div class="section__inner">

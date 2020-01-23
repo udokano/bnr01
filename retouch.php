@@ -13,8 +13,9 @@ Template Name: 修正について
 修正内容に関しましては、無料の場合と有料の場合がございます。<br class="pc">
 簡単な文字変更、画像の修正などは<br class="pc">
 無料で修正させて頂きます。</p>
+<?php echo breadcrumb_func();?>
 </div>
-
+<!-- ./pages__title -->
 
 <section class="retouch__desc desc01">
         <div class="section__inner">
