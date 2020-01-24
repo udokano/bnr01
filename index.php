@@ -189,7 +189,8 @@
                       <div class="up_icon"><img src="<?php echo get_template_directory_uri(); ?>/img/icons/img_up_icon.png" alt="画像アップロード"></div>
                     </div>
                       <p class="sub__text02">※可能ファイル：JPG/PNG/GIF/PDF/PSD/AI/エクセル/パワーポイント/ワード/zip<br>
-                        ※データ量上限：10MB</p>
+                       ※複数ファイルある場合は、ZIP等で圧縮して1つのファイルにおまとめください。<br>
+                       ※データ量上限：10MB</p>
                     </div>
                     <div class="input__wrap">
 
