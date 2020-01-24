@@ -1,6 +1,9 @@
+<?php if (is_home() || is_front_page()) : ?>
 <div class="cards">
   <p><img src="<?php echo get_template_directory_uri(); ?>/img/top/cards.jpg" alt="クレジットカード"></p>
 </div>
+<?php endif; ?>
+
 <footer id="site__footer">
   <div class="footer__logo"> <img src="<?php echo get_template_directory_uri(); ?>/img/common/bottom_logo.png" alt="バナー屋さん"> </div>
   <ul class="footer__nav">
@@ -80,7 +83,7 @@
                       <p class="name">
                           {% if (file.url) { %}
                               <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a><br>
-							  <input type="text" name="{%=file.name%}" value="{%=file.url%}" id="sd[i]">
+							  <input type="text" name="itemOption[83][banner][%E5%8F%82%E8%80%83%E7%94%BB%E5%83%8FURL]" value="{%=file.url%}" id="aa">
                           {% } else { %}
                               <span>{%=file.name%}</span>
                           {% } %}
@@ -93,17 +96,17 @@
               <td>
                   <span class="size">{%=o.formatFileSize(file.size)%}</span>
               </td>
-              <td>
+              <td class="btn__cell">
                   {% if (file.deleteUrl) { %}
                       <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                           <i class="glyphicon glyphicon-trash"></i>
-                          <span>Delete</span>
+                          <span>削除</span>
                       </button>
                       <!--<input type="checkbox" name="delete" value="1" class="toggle">-->
                   {% } else { %}
                       <button class="btn btn-warning cancel">
                           <i class="glyphicon glyphicon-ban-circle"></i>
-                          <span>Cancel</span>
+                          <span>取り消し</span>
                       </button>
                   {% } %}
               </td>
@@ -156,17 +159,61 @@
 
     <script>
 
+    /*
+    ファイルアップロード関連の記述
+    ----------------------------- */
+
 $(function () {
     $('#fileupload').fileupload({
 	autoUpload: true,
 	maxFileSize: 10240000, // 10 MB
-	maxNumberOfFiles: 3, //3個まで
+	maxNumberOfFiles: 1, //3個までを、1個に変更
     dropZone: $(".target")
-    });
 });
+
+/* ファイルをドロップしたら次の要素表示、したスクロール */
+
+$(function(){
+$('#fileupload').on('drop', function (e)
+{$('#form__area05').addClass("viv");
+     var pos06 = jQuery("#form__area05").offset().top;
+        $("html,body").animate({ scrollTop: pos06 }, '500');
+     e.preventDefault();
+     var files = e.originalEvent.dataTransfer.files;
+     //We need to send dropped files to Server
+     handleFileUpload(files,obj);
+});
+});
+
+/* URL出力用のTEXTのNAMEを削除 */
+$(function () {
+var $test1 = $('#url1');
+$test1.attr("name","");
+});
+
+/*
+
+テストのための記述のため,一旦非表示
+
+$("input[type='file']").on('change',function(){
+var $test1 = $('#url1');
+var $test2 = $('#aa');
+console.log($test2);
+$test1.attr("name","");
+$("#aa").attr("name","itemOption[83][banner][%E5%8F%82%E8%80%83%E7%94%BB%E5%83%8FURL01]");
+
+jQuery("#url__input input").each(function (i) {
+    jQuery(this).attr('id', 'url' + (i + 1));
+    jQuery(this).attr('class', 'url' + (i + 1));
+
+}); */
+
+
+});
+
 </script>
 <?php endif; ?>
+<!-- ./トップページのみの読み込み -->
 <?php wp_footer(); ?>
-
-
-</body></html>
+</body>
+</html>

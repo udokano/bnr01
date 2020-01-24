@@ -28,7 +28,7 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.3.5">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.3.9">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
@@ -60,14 +60,15 @@ jQuery(".wpcf7-form").validationEngine('attach', {
 
 /* リロードフォームクリア */
 
-/* window.onpageshow = function() {
+window.onpageshow = function() {
+  $(".template-download").remove();
   $("form").each(function(){
     $("input[type='radio']").prop("checked",false);
-    $("input[type='text']").val("");
+    $("#txt").val("");
     $("textarea").val("");
   });
 }
- */
+
 
 </script>
 

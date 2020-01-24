@@ -6,9 +6,6 @@
 
 ----------------------*/
 
-
-
-
 /*
 dataで各要素に値段を登録
 ---------------------------------------*/
@@ -64,13 +61,21 @@ $(function () {
 
 $(function () {
     sptext01 = 0;
-    //各ラジオボタンの金額設定
+    /* 各ラジオボタンの金額設定 */
+
+    //サイズ選択
     radioprice01 = 0;
+    //バナータイプ
     radioprice02 = 0;
+    //納期
     radioprice03 = 0;
+    //データ納品
     radioprice04 = 0;
+    //実績公開
     radioprice05 = 0;
+    //特殊サイズ値段
     spps01 = 0;
+    //管理番号値段
     spps02 = 0;
     checkprice = 0;
 
@@ -88,22 +93,22 @@ $(function () {
     //バナータイプ
     $("input[name*='%E3%83%90%E3%83%8A%E3%83%BC%E5%BD%A2%E5%BC%8F']").on("change", function () {
         $(this).data('price');
-
         radioprice02 = $(this).data('price');
 
         var sel = $("#select1 option:selected").val();
         spps01 = $("#select1 option:selected").data('price');
-
+        //管理番号の値取得
         var contnum = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").val();
-
+        //リサイズ依頼、特殊サイズ以外が選択されていたら
         if (sel === "この中から選択してください" && contnum === "") {
             $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
         }
         else if (sel === "この中から選択してください") {
-
+            //管理番号の値をたさない
             if (contnum == "") {
                 $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
             }
+            //管理番号の値カウント
             else {
                 $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02))
             }
@@ -121,6 +126,7 @@ $(function () {
         radioprice03 = $(this).data('price');
         var sel = $("#select1 option:selected").val();
         spps01 = $("#select1 option:selected").data('price');
+        //管理番号の値取得
         var contnum = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").val();
 
         if (sel === "この中から選択してください" && contnum === "") {
@@ -234,82 +240,8 @@ $(function () {
             spps02 = $(this).attr("data-price");
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
-        }
+        }//以降は特殊サイズ
     });
+
+
 });
-
-//ブラウザバックした時に選択時のPRICE挿入
-/* $(window).on('load', function () {
-    sptext01 = 0;
-    //各ラジオボタンの金額設定
-    radiototal = 0;
-
-    spps01 = 0;
-    spps02 = 0;
-    var as = $("input[name*='%E3%82%B5%E3%82%A4%E3%82%BA%E6%8C%87%E5%AE%9A']:checked");
-    console.log(as);
-    var sl = $("#select1 option:selected")
-    var tf = as.attr("data-price");
-    console.log(tf);
-    radiototal = tf
-    sl.data("price");
-    spps01 = sl.data("price");
-    $('#output__price').text(parseInt(radiototal) + spps01 + parseInt(spps02));
-
-
-}); */
-
-
-
-/* $(function () {
-
-var i;
-var p1 = 0;
-var p2 = 0;
-var p3 = 0;
-
-
-$("input").change(function () {
-
-
-    var text = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']");
-
-    var textval = text.val();
-
-    if (textval == ""); {
-        text.attr("data-price", 0);
-    }
-
-    if (textval <= 10000); {
-        $(this).attr("data-price", 1800);
-    }
-
-    var textdata = text.attr("data-price");
-
-
-
-    var goods1 = $("input[name*='%E3%82%B5%E3%82%A4%E3%82%BA%E6%8C%87%E5%AE%9A']"); //チェック済みのラジオボタンを調べて値を取得
-
-    console.log(goods1);
-
-    for (i = 0; i < goods1.length; i++) {
-        if (goods1[i].checked) {
-            p1 = goods1[i].getAttribute("data-price");
-            break;
-        }
-    }
-
-    var goods2 = $("input[name*='%E3%83%90%E3%83%8A%E3%83%BC%E5%BD%A2%E5%BC%8F']"); //チェック済みのラジオボタンを調べて値を取得
-    for (i = 0; i < goods2.length; i++) {
-        if (goods2[i].checked) {
-            p2 = goods2[i].getAttribute("data-price");
-            break;
-        }
-    }
-    var to = parseInt(p1) + parseInt(p2) + parseInt(textdata);;
-
-    $("#output__price").text(to);
-});
-
-
-}); */
