@@ -1295,26 +1295,31 @@ textarea {
 ::-webkit-input-placeholder {
   color: #ccc;
   font-size: .6rem;
+  line-height: 1.75;
 }
 
 ::-moz-placeholder {
   color: #ccc;
   font-size: .6rem;
+  line-height: 1.75;
 }
 
 :-ms-input-placeholder {
   color: #ccc;
   font-size: .6rem;
+  line-height: 1.75;
 }
 
 ::-ms-input-placeholder {
   color: #ccc;
   font-size: .6rem;
+  line-height: 1.75;
 }
 
 ::placeholder {
   color: #ccc;
   font-size: .6rem;
+  line-height: 1.75;
 }
 
 #instruction textarea {
@@ -1608,11 +1613,11 @@ textarea {
   -webkit-transform: translateY(-50%) rotate(-52deg);
   border-bottom: 4px solid #bbb;
   border-left: 4px solid #bbb;
-  height: 6px;
+  height: 9px;
   left: 25px;
-  top: 45%;
+  top: 46%;
   transform: translateY(-50%) rotate(-52deg);
-  width: 16px;
+  width: 19px;
   z-index: 1000;
 }
 
@@ -1763,6 +1768,10 @@ textarea {
   width: 49%;
 }
 
+.purchase__form .form__inner .file__up__area .box__content .file__drop textarea, .purchase__form .form__inner .file__up__area .box__content .text textarea {
+  font-size: .7rem;
+}
+
 @media (max-width: 767px) {
   .purchase__form .form__inner .file__up__area .box__content .file__drop, .purchase__form .form__inner .file__up__area .box__content .text {
     width: 100%;
@@ -1775,7 +1784,7 @@ textarea {
 
 .purchase__form .form__inner .file__up__area .box__content .file__drop .row .target {
   background-color: transparent;
-  border: 3px dashed #ccc;
+  border: 2px dashed #00a0e9;
   border-radius: 3px;
   font-size: .78rem;
   height: 184px;
@@ -1791,8 +1800,18 @@ textarea {
 
 .purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text {
   color: #299cc5;
+  display: inline-block;
   font-size: 1.0rem;
+  font-weight: 600;
   margin-bottom: .7rem;
+  position: relative;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text .up_icon {
+  left: -50px;
+  position: absolute;
+  top: 5px;
+  width: 40px;
 }
 
 .purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text02 {
@@ -1805,6 +1824,7 @@ textarea {
 
 .purchase__form .form__inner .file__up__area .box__content .file__drop .row .input__wrap input {
   background-color: #fff;
+  font-size: .7rem;
   width: 100%;
 }
 
@@ -2087,6 +2107,14 @@ textarea {
   top: 13px;
   transform: translateX(-50%);
   white-space: nowrap;
+}
+
+.cart__in .cart__btn__cont:hover .cart__text {
+  top: 18px;
+}
+
+.cart__in .cart__btn__cont:hover::after {
+  top: 53.5%;
 }
 
 .cart__in .cart__btn__cont input {
