@@ -10,7 +10,7 @@
 
     <div class="key__visual__right">
       <p class="f-ryu"> バナー制作専門サービス </p>
-      <a href="#infinite__banner__area"><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_btn.png" alt="制作実績はこちら"></a> </div>
+      <a href="#infinite__banner__area" id="js-anchor"><img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_btn.png" alt="制作実績はこちら"></a> </div>
     <!-- ./key__visual__right -->
   </div>
   <!-- ./content -->
@@ -22,8 +22,7 @@
   <div class="section__inner">
     <div class="output__content flex">
       <dl class="flex" id="out__list01">
-        <dt><span class="col__cent">サイズ<br class="pc">
-          用途</span></dt>
+        <dt><span class="col__cent">サイズ<br class="pc">用途</span></dt>
         <dd><span class="col__cent">選択してください</span></dd>
       </dl>
       <dl class="flex" id="out__list02">
@@ -31,8 +30,7 @@
         <dd><span class="col__cent">選択してください</span></dd>
       </dl>
       <dl class="flex" id="out__list03">
-        <dt><span class="col__cent">実績として<br class="pc">
-          公開</span></dt>
+        <dt><span class="col__cent">実績として<br class="pc">公開</span></dt>
         <dd><span class="col__cent">選択してください</span></dd>
       </dl>
       <dl class="flex" id="out__list04">
@@ -186,20 +184,21 @@
                 <div class="file__drop">
                   <div class="row fileupload-buttonbar">
                     <div class="target">
-                      <p class="sub__text">ここにファイルをドラッグして<br class="pc">アップロード</p>
-                      <p class="sub__text02">※可能ファイル：JPG/PNG/GIF/PDF/PSD/AI/エクセル/パワーポイント/ワード/zip<br>※データ量上限：10MB</p>
+                      <p class="sub__text">ここにファイルをドラッグして<br class="pc">
+                        アップロード</p>
+                      <p class="sub__text02">※可能ファイル：JPG/PNG/GIF/PDF/PSD/AI/エクセル/パワーポイント/ワード/zip<br>
+                        ※データ量上限：10MB</p>
                     </div>
                     <div class="input__wrap">
 
-                    <!--   <span class="btn btn-success fileinput-button"><span>ファイルを選択</span> -->
+                      <!--   <span class="btn btn-success fileinput-button"><span>ファイルを選択</span> -->
                       <input type="file" name="files[]" multiple />
                       </span> <span class="fileupload-process"></span> </div>
                   </div>
                 </div>
                 <!-- ./file__drop -->
-                <div class="text" id="instruction">
-                  <?php echo usces_the_itemOption("デザイン指示");?>
-                </div><!-- ./text -->
+                <div class="text" id="instruction"> <?php echo usces_the_itemOption("デザイン指示");?> </div>
+                <!-- ./text -->
               </div>
               <!-- ./box__content -->
 
@@ -208,24 +207,17 @@
                 <tbody class="files">
                 </tbody>
               </table>
-
+              <!-- hidden__url__text URLを受け取るためだけのインプットテキスト -->
+              <div class="hidden__url__text" id="url__input"> <?php echo usces_the_itemOption("参考画像URL");?> </div>
+              <!-- ./hidden__url__text -->
 
               <!-- 指示書作成ジェネレーターボタン  -->
 
-
               <div class="btn__to__content flex al-cent">
-
-                  <div class="btn__to">
-                      <a href="https://u-d.jp/instruction/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/top/btn_to.png" alt="デザイン指示作成支援ツールを起動"></a>
-                  </div>
-
-                  <p>※データ容量が大きい場合は別途、FIRE STRAGE等の外部ストレージサービスをご利用ください。<br>※複数ファイルある場合は、ZIP等で圧縮して1つのファイルにおまとめください。</p>
-
+                <div class="btn__to"> <a href="https://u-d.jp/instruction/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/top/btn_to.png" alt="デザイン指示作成支援ツールを起動"></a> </div>
+                <p>※データ容量が大きい場合は別途、FIRE STRAGE等の外部ストレージサービスをご利用ください。<br>
+                  ※複数ファイルある場合は、ZIP等で圧縮して1つのファイルにおまとめください。</p>
               </div>
-
-
-
-
             </dd>
           </dl>
         </div>
@@ -306,6 +298,16 @@
           <div class="modal__bg js-modal-close"></div>
           <div class="modal__inner">
             <div class="bnr__img"> <img src="<?php the_sub_field('bnr__img', 102);?>" alt="制作実績"> </div>
+            <p class="sample__bnr__text tc">
+              <?php
+              $cf_color = the_sub_field('sample_bnr', 102);
+              if ($cf_color == 1) {
+                  echo 'バナー屋さんサンプルバナー';
+              } else {
+                  echo '';
+              }
+              ?>
+            </p>
             <button value="<?php the_sub_field('number', 102);?>" class="tc js-modal-close">このテイストで注文する</button>
           </div>
         </div>

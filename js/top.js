@@ -4,17 +4,40 @@
 
 ===============================*/
 
+
+/*
+実績はこちらをクリック、アンカーリンク
+-----------------------------*/
+
+$("#js-anchor").on("click", function () {
+    const bnr__pos = $("#infinite__banner__area").offset().top;
+    jQuery("html,body").animate({ scrollTop: bnr__pos - 25 }, '500');
+});
+
+
+
+
 /*
 いらないラベル削除
 */
 
 $(".iopt_label").remove();
 
+
 /*
 スタイリングおよびJSのトリガーにするためのクラス、ID付与
 ----------------------------------------------*/
+/*管理番号入力 TEXT*/
+jQuery("#control__num div input").each(function (i) {
+    jQuery(this).attr('id', 'txt' + (i + 1));
 
+});
+/* URL TEXT */
+jQuery("#url__input input").each(function (i) {
+    jQuery(this).attr('id', 'url' + (i + 1));
+    jQuery(this).attr('class', 'url' + (i + 1));
 
+});
 
 //LABEL要素にfor追加ナンバリング
 jQuery("label").each(function (i) {
@@ -208,13 +231,13 @@ $(window).on("scroll", function () {
 
 $(window).on('load', function () {
 
-    /* $("#form__area02").addClass("hidden");
-    $("#form__area03").addClass("hidden");
-    $("#form__area04").addClass("hidden");
-    $("#form__area05").addClass("hidden");
-    $("#form__area06").addClass("hidden");
-    $("#form__area07").addClass("hidden");
- */
+    /*  $("#form__area02").addClass("hidden__filed");
+     $("#form__area03").addClass("hidden__filed");
+     $("#form__area04").addClass("hidden__filed");
+     $("#form__area05").addClass("hidden__filed");
+     $("#form__area06").addClass("hidden__filed");
+     $("#form__area07").addClass("hidden__filed"); */
+
 });
 
 
@@ -323,7 +346,12 @@ $(function () {
         jQuery("html,body").animate({ scrollTop: pos05 }, '500');
     });
 
-    $("#instruction").change(function () {
+    $("#instruction textarea").change(function () {
+        $('#form__area05').addClass("viv");
+        $("html,body").animate({ scrollTop: pos06 }, '500');
+    });
+
+    $("input[type='file']").change(function () {
         $('#form__area05').addClass("viv");
         $("html,body").animate({ scrollTop: pos06 }, '500');
     });
@@ -381,20 +409,22 @@ jQuery(function () {
         var value = jQuery(this).val();
         //スクロールポイント取得
         var pos = jQuery("#banner6").offset().top;
+        //すでに特殊サイズのオプションが選択されていたら選択を一番上にする、料金加算を防ぐ
+        jQuery('#select1 #option1').prop('selected', 'true');
         //特殊サイズが開いていたら閉じる
         jQuery('#special__size').removeClass("viv");
         //管理番号をチェック
         jQuery('#size__select > .radio5').prop('checked', 'true');
-
+        //管理番号入力エリア表示
         jQuery("#control__num").addClass("viv");
         //次の要素も開く
         jQuery("#form__area02").addClass("viv");
-
         //スクロールする
         jQuery("html,body").animate({ scrollTop: pos }, '1000');
-        //クリックしたボタンの管理番号を入力
+        //テキストフォーカスさせる
         $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").focus();
-        jQuery("#control__num > div > .text__input1").val(value);
+        //クリックしたボタンの管理番号を入力、そしてテキストに値が入った瞬間にkeyupイベントを発生させる
+        jQuery("#control__num > div > .text__input1").val(value).keyup();
         return false;
 
     });

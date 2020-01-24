@@ -773,7 +773,7 @@ h3 {
   font-size: .5rem;
 }
 
-.pages #site__footer {
+.page #site__footer {
   margin-bottom: 0;
 }
 
@@ -794,7 +794,7 @@ h3 {
 }
 
 /*
-LIVE　チャット設定
+LIVE　チャット位置設定
 --------------------------*/
 /*表示位置*/
 .home #wp-live-chat {
@@ -869,6 +869,10 @@ LIVE　チャット設定
 #site__header .header__nav ul li a span {
   text-align: center;
   vertical-align: middle;
+}
+
+#site__header .header__nav ul li a:hover {
+  text-decoration: none;
 }
 
 #site__header .header__nav ul li a:hover::before {
@@ -1069,7 +1073,12 @@ LIVE　チャット設定
 }
 
 .infinite__banner__area .section__inner .banners li .bnr__img {
-  margin-bottom: .9rem;
+  margin-bottom: .4rem;
+}
+
+.infinite__banner__area .section__inner .banners li .sample__bnr__text {
+  font-size: .7rem;
+  margin-bottom: .4rem;
 }
 
 .infinite__banner__area .section__inner .banners li button {
@@ -1077,9 +1086,10 @@ LIVE　チャット設定
   border-radius: 6px;
   color: #fff;
   display: block;
+  font-size: .84rem;
   margin: 0 auto 1.2rem;
   padding: .75rem 0;
-  width: 58%;
+  width: 48%;
 }
 
 @media (max-width: 767px) {
@@ -1183,7 +1193,7 @@ LIVE　チャット設定
 }
 
 .sample__modal .modal__inner .sample__img {
-  margin-bottom: 1.1rem;
+  margin-bottom: .6rem;
   text-align: center;
 }
 
@@ -1336,7 +1346,7 @@ textarea {
 }
 
 /*初めは非表示*/
-.hidden {
+.hidden__filed {
   height: 0;
   visibility: hidden;
 }
@@ -1768,10 +1778,9 @@ textarea {
   border: 3px dashed #ccc;
   border-radius: 3px;
   font-size: .78rem;
-  height: auto;
-  height: 175px;
+  height: 184px;
   margin: 0 0 18px;
-  padding: 2.9rem 2.5rem;
+  padding: 2.0rem 1.1rem;
 }
 
 @media (max-width: 767px) {
@@ -1838,7 +1847,22 @@ textarea {
   font-size: .62rem;
 }
 
+/* 隠しインプット */
+.hidden__url__text {
+  height: 0;
+}
+
+.hidden__url__text input {
+  height: 0;
+  padding: 0;
+  visibility: hidden;
+}
+
 /*ファイルアウトプッとエリア*/
+#url__out {
+  width: 100%;
+}
+
 #url__out tr:nth-of-type(even) {
   background-color: #f8f8f8;
 }
@@ -1854,6 +1878,8 @@ textarea {
 
 #url__out td input {
   background-color: #fff;
+  font-size: .62rem;
+  letter-spacing: 1px;
   width: 100%;
 }
 
@@ -2868,6 +2894,7 @@ textarea {
 .key__visual .content .key__visual__left h1 {
   color: #454545;
   font-size: 1.32rem;
+  line-height: 1.6;
   margin-bottom: 1.25rem;
   text-align: center;
 }
