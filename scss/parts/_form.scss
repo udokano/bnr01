@@ -51,6 +51,7 @@ textarea {
 ::placeholder {
     color: #ccc;
     font-size: .6rem;
+    line-height: 1.75;
 }
 
 #instruction {
@@ -320,14 +321,14 @@ textarea {
                     }
 
                     &::before {
-                        top: 45%;
+                        top: 46%;
                         left: 25px;
                         border-left: 4px solid #bbb;
                         border-bottom: 4px solid #bbb;
                         transform: translateY(-50%) rotate(-52deg);
                         z-index: 1000;
-                        width: 16px;
-                        height: 6px;
+                        width: 19px;
+                        height: 9px;
                     }
 
                     &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
@@ -491,6 +492,10 @@ textarea {
                 .file__drop, .text {
                     width: 49%;
 
+                    textarea {
+                        font-size: .7rem;
+                    }
+
                     @media (max-width: 767px) {
                         width: 100%;
                     }
@@ -504,7 +509,7 @@ textarea {
                             padding: 2.0rem 1.1rem;
                             margin: 0 0 18px;
                             background-color: transparent;
-                            border: 3px dashed #ccc;
+                            border: 2px dashed #00a0e9;
                             border-radius: 3px;
                             font-size: .78rem;
                             height: 184px;
@@ -517,6 +522,16 @@ textarea {
                                 font-size: 1.0rem;
                                 color: #299cc5;
                                 margin-bottom: .7rem;
+                                position: relative;
+                                display: inline-block;
+                                font-weight: 600;
+
+                                .up_icon {
+                                    left: -50px;
+                                    top: 5px;
+                                    position: absolute;
+                                    width: 40px;
+                                }
                             }
 
                             .sub__text02 {
@@ -530,6 +545,7 @@ textarea {
                             input {
                                 width: 100%;
                                 background-color: #fff;
+                                font-size: .7rem;
                             }
                         }
                     }
@@ -880,6 +896,16 @@ textarea {
             transform: translateX(-50%);
             font-size: .62rem;
             white-space: nowrap;
+        }
+
+        &:hover {
+            .cart__text {
+                top: 18px;
+            }
+
+            &::after {
+                top: 53.5%;
+            }
         }
 
         input {

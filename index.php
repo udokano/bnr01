@@ -184,10 +184,13 @@
                 <div class="file__drop">
                   <div class="row fileupload-buttonbar">
                     <div class="target">
-                      <p class="sub__text">ここにファイルをドラッグして<br class="pc">
-                        アップロード</p>
+                      <div class="sub__text">ここにファイルをドラッグして<br class="pc">
+                        アップロード
+                      <div class="up_icon"><img src="<?php echo get_template_directory_uri(); ?>/img/icons/img_up_icon.png" alt="画像アップロード"></div>
+                    </div>
                       <p class="sub__text02">※可能ファイル：JPG/PNG/GIF/PDF/PSD/AI/エクセル/パワーポイント/ワード/zip<br>
-                        ※データ量上限：10MB</p>
+                       ※複数ファイルある場合は、ZIP等で圧縮して1つのファイルにおまとめください。<br>
+                       ※データ量上限：10MB</p>
                     </div>
                     <div class="input__wrap">
 
@@ -204,7 +207,7 @@
 
               <!-- この中の表にURL NAMEなどの情報が出力される -->
               <table role="presentation" class="table table-striped" id="url__out">
-                <tbody class="files">
+                <tbody class="files" id="files">
                 </tbody>
               </table>
               <!-- hidden__url__text URLを受け取るためだけのインプットテキスト -->

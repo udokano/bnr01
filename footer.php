@@ -185,10 +185,17 @@ $('#fileupload').on('drop', function (e)
 });
 });
 
+
+
+
 /* URL出力用のTEXTのNAMEを削除 */
 $(function () {
 var $test1 = $('#url1');
 $test1.attr("name","");
+});
+
+$(window).on("load",function(){
+  $(".template-download").remove();
 });
 
 /*
