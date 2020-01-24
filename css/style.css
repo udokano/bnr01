@@ -843,7 +843,7 @@ LIVE　チャット位置設定
 }
 
 #site__header .header__nav ul li {
-  border-left: 1px solid #d8d8d8;
+  border-left: 1px solid #ededed;
   width: 120px;
 }
 
@@ -858,7 +858,7 @@ LIVE　チャット位置設定
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: .58rem;
+  font-size: .7rem;
   height: 100%;
   justify-content: center;
   position: relative;
@@ -1184,11 +1184,16 @@ LIVE　チャット位置設定
 }
 
 .sample__modal .modal__inner {
-  height: 1200px;
-  margin: 6.5rem 0;
+  -webkit-transform: none;
+  height: auto;
+  left: auto;
+  margin: 9.2rem auto 0;
   max-width: 1600px;
   min-width: 1150px;
   padding: 3.2rem;
+  position: relative;
+  top: auto;
+  transform: none;
   width: 90%;
 }
 
@@ -1223,7 +1228,7 @@ LIVE　チャット位置設定
   margin: auto;
   position: relative;
   text-align: center;
-  width: 44%;
+  width: 30%;
 }
 
 .sample__modal .modal__inner .close__btn:hover {
@@ -1396,15 +1401,28 @@ textarea {
 
 .step__wrap span {
   background-color: #454545;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #fff;
-  font-size: .9rem;
-  padding: 4px 6px 3px;
+  font-size: 1.01rem;
+  letter-spacing: 0.05em;
+  margin-right: .7rem;
+  padding: 6px 10px 4px;
 }
 
 .step__wrap .step__tit {
   color: #454545;
-  font-size: 1.28rem;
+  font-size: 1.9rem;
+}
+
+@media (max-width: 767px) {
+  .step__wrap .step__tit {
+    display: block;
+    font-size: 1.6rem;
+    margin-top: .7rem;
+  }
+  .step__wrap span {
+    display: inline-block;
+  }
 }
 
 /*
@@ -1416,19 +1434,19 @@ textarea {
   background: no-repeat 50% 50% / 100% auto;
   background-image: url(../img/top/tip.png);
   cursor: pointer;
-  height: 69px;
+  height: 100px;
   position: absolute;
-  width: 59px;
+  width: 89px;
   z-index: 5000;
 }
 
 .img__mark#mark01 {
-  left: 410px;
+  left: 435px;
   top: -12px;
 }
 
 .img__mark#mark02 {
-  right: 80px;
+  right: 25px;
   top: -12px;
 }
 
@@ -1444,9 +1462,17 @@ textarea {
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
+  25% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
   50% {
-    -webkit-transform: translateY(-3px);
-    transform: translateY(-3px);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -1458,9 +1484,17 @@ textarea {
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
+  25% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
   50% {
-    -webkit-transform: translateY(-3px);
-    transform: translateY(-3px);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -1475,7 +1509,7 @@ textarea {
   color: #fff;
   font-size: 1.8rem;
   font-weight: 600;
-  padding: 1.1rem 0;
+  padding: 1.6rem 0;
   text-align: center;
 }
 
@@ -1518,8 +1552,12 @@ textarea {
   border: none;
 }
 
+.purchase__form .form__area__out:nth-of-type(1) dl {
+  padding: 3.0rem 0;
+}
+
 .purchase__form .form__inner dl {
-  padding: 6rem 3.6rem;
+  padding: 6.5rem 0;
   /*サイズ用途選択スタイル記述(四角ボタン)*/
 }
 
@@ -1531,37 +1569,15 @@ textarea {
   position: relative;
 }
 
-.purchase__form .form__inner dl label {
-  font-size: .88rem;
-  /*各バナーの補足文の設定*/
-}
-
-.purchase__form .form__inner dl label .item__text {
-  font-size: .92rem;
-}
-
-.purchase__form .form__inner dl label .sub__text {
-  -webkit-transform: translateX(-50%);
-  bottom: 10px;
-  color: #454545;
-  display: inline-block;
-  font-size: .72rem;
-  font-weight: 100;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.purchase__form .form__inner dl label .price__text {
-  color: #10a84c;
-  display: block;
-  font-size: .68rem;
-  margin-top: .7rem;
-}
-
 .purchase__form .form__inner dl .select__zone {
-  text-align: center;
+  -ms-flex-pack: justify;
+  -ms-flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   /*クリックしたときのスタイル*/
 }
 
@@ -1573,24 +1589,57 @@ textarea {
 .purchase__form .form__inner dl .select__zone label {
   background-color: #fff;
   border: 1px solid #bbb;
-  border-bottom: 5px solid #989898;
-  border-radius: 8px 8px 10px 10px/0 0 4px 4px;
+  border-bottom: 8px solid #989898;
+  border-radius: 5px 5px 19px 19px;
   color: #6594ac;
   display: inline-block;
   font-size: .88rem;
   font-weight: 600;
-  height: 115px;
-  margin: 0 .8rem 1.6rem;
-  padding: 25px 10px 35px 163px;
+  height: 136px;
+  margin: 0 0 1.6rem;
+  padding: 25px 10px 48px 188px;
   position: relative;
   text-align: left;
-  width: 42%;
+  width: 48%;
+  /*各バナーの補足文の設定*/
   /*サムネイル画像振り分け*/
 }
 
 .purchase__form .form__inner dl .select__zone label:hover {
+  background-position: 17% 39%;
   border-bottom-width: 1px;
   bottom: -2px;
+}
+
+.purchase__form .form__inner dl .select__zone label:hover .item__text, .purchase__form .form__inner dl .select__zone label:hover .price__text {
+  bottom: -5px;
+  position: relative;
+}
+
+.purchase__form .form__inner dl .select__zone label .item__text {
+  font-size: 1.2rem;
+}
+
+.purchase__form .form__inner dl .select__zone label .sub__text {
+  bottom: 19px;
+  color: #454545;
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 100;
+  left: 78px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.purchase__form .form__inner dl .select__zone label .price__text {
+  color: #10a84c;
+  display: block;
+  font-size: .86rem;
+  margin-top: .62rem;
+}
+
+.purchase__form .form__inner dl .select__zone label .price__text.red {
+  color: #fb6464;
 }
 
 .purchase__form .form__inner dl .select__zone label::after, .purchase__form .form__inner dl .select__zone label::before {
@@ -1604,25 +1653,25 @@ textarea {
 .purchase__form .form__inner dl .select__zone label::after {
   background-color: #e0e0e0;
   border-radius: 3px;
-  height: 21px;
+  height: 34px;
   left: 22px;
-  width: 21px;
+  width: 34px;
 }
 
 .purchase__form .form__inner dl .select__zone label::before {
   -webkit-transform: translateY(-50%) rotate(-52deg);
-  border-bottom: 4px solid #bbb;
-  border-left: 4px solid #bbb;
-  height: 9px;
-  left: 25px;
+  border-bottom: 6px solid #bbb;
+  border-left: 6px solid #bbb;
+  height: 15px;
+  left: 29px;
   top: 46%;
   transform: translateY(-50%) rotate(-52deg);
-  width: 19px;
+  width: 29px;
   z-index: 1000;
 }
 
 .purchase__form .form__inner dl .select__zone label:nth-of-type(1), .purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6) {
-  background: #fff no-repeat 19% 36% / 19% auto;
+  background: #fff no-repeat 17% 34% / 17% auto;
 }
 
 .purchase__form .form__inner dl .select__zone label:nth-of-type(1) {
@@ -1660,7 +1709,7 @@ textarea {
 }
 
 .purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label span {
-  color: #fff;
+  color: #fff !important;
 }
 
 .purchase__form .form__inner dl .select__zone label.checked {
@@ -1685,12 +1734,45 @@ textarea {
   background-image: url(../img/icons/l_icon.png);
 }
 
-.purchase__form .form__inner .select__zone.select__time label {
+.purchase__form .form__inner .select__zone.limit label {
   background-image: none !important;
   color: #454545;
-  margin: 0 .5rem;
   padding: 30px 10px 10px 80px;
-  width: 30%;
+  width: 32%;
+}
+
+.purchase__form .form__inner .select__zone.limit p.note {
+  margin: 30px auto 0;
+  width: 50%;
+}
+
+.purchase__form .form__inner .select__zone.select__data, .purchase__form .form__inner .select__zone.public__btn {
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.purchase__form .form__inner .select__zone.select__data label, .purchase__form .form__inner .select__zone.public__btn label {
+  background-image: none !important;
+  color: #454545;
+  margin: 0 .5rem .6rem;
+  padding: 30px 10px 10px 80px;
+  width: 32%;
+}
+
+.purchase__form .form__inner .select__zone.select__data p.note, .purchase__form .form__inner .select__zone.public__btn p.note {
+  margin: 30px auto 0;
+  width: 50%;
+}
+
+.purchase__form .form__inner .select__zone.type02 label {
+  padding: 0;
+  padding-top: 35px;
+}
+
+.purchase__form .form__inner .select__zone.type02 label span {
+  display: block;
+  text-align: center;
 }
 
 .purchase__form .form__inner input[type="radio"] {
@@ -1815,6 +1897,7 @@ textarea {
 }
 
 .purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text02 {
+  color: #6a6a6a;
   font-size: .46rem;
 }
 
@@ -1910,6 +1993,11 @@ textarea {
   padding: 0;
 }
 
+#url__out td .name a {
+  display: inline-block;
+  margin-bottom: .38rem;
+}
+
 #url__out .preview {
   display: inline-block;
   width: 45px;
@@ -1977,20 +2065,26 @@ textarea {
     width: 21px;
   }
   .purchase__form .form__inner dl .select__zone label::before {
-    -webkit-transform: translateY(-50%) rotate(-52deg);
-    height: 7px;
+    border-width: 4px;
+    height: 10px;
     left: 25px;
-    transform: translateY(-50%) rotate(-52deg);
-    width: 14px;
+    width: 19px;
   }
   .purchase__form .form__inner dl .select__zone label:nth-of-type(1), .purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6) {
     background-position: 24% 38%;
     background-size: 4.5rem;
   }
-  .purchase__form .form__inner dl .select__zone.select__time label {
+  .purchase__form .form__inner dl .select__zone label .sub__text {
+    -webkit-transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .purchase__form .form__inner dl .select__zone.type02 label {
     background-image: none !important;
     margin: 0 auto 1.5rem;
-    padding: 30px 10px 10px 80px;
+    width: 100%;
+  }
+  .purchase__form .form__inner dl .select__zone.type02 p.note {
     width: 100%;
   }
   .purchase__form .form__inner .control__num input {
@@ -2089,8 +2183,8 @@ textarea {
 /*カートへ入れるボタン*/
 .cart__in {
   margin: auto;
-  padding: 5.5rem 0;
-  width: 550px;
+  padding: 6.5rem 0;
+  width: 752px;
 }
 
 .cart__in .cart__btn__cont {
@@ -2101,16 +2195,16 @@ textarea {
 .cart__in .cart__btn__cont .cart__text {
   -webkit-transform: translateX(-50%);
   color: #fff;
-  font-size: .62rem;
+  font-size: .76rem;
   left: 50%;
   position: absolute;
-  top: 13px;
+  top: 20px;
   transform: translateX(-50%);
   white-space: nowrap;
 }
 
 .cart__in .cart__btn__cont:hover .cart__text {
-  top: 18px;
+  top: 25px;
 }
 
 .cart__in .cart__btn__cont:hover::after {
@@ -2120,16 +2214,16 @@ textarea {
 .cart__in .cart__btn__cont input {
   background-color: #13b131;
   border-bottom: 6px solid #008f1b;
-  border-radius: 4px 4px 8px 8px;
+  border-radius: 5px 5px 9px 9px;
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.82rem;
   font-weight: 600;
-  height: 118px;
-  line-height: 118px;
+  height: 136px;
+  line-height: 136px;
   padding: 0;
   padding-left: 57px;
   position: relative;
-  width: 550px;
+  width: 752px;
 }
 
 .cart__in .cart__btn__cont input:hover {
@@ -2139,14 +2233,14 @@ textarea {
 
 .cart__in .cart__btn__cont::after {
   -webkit-transform: translateY(-50%);
-  background: url(../img/icons/cart_icon.png) no-repeat 20% 50%/34px 35px;
+  background: url(../img/icons/cart_icon.png) no-repeat 20% 50%/100% auto;
   content: "";
-  height: 35px;
-  left: 45px;
+  height: 37px;
+  left: 108px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 34px;
+  width: 46px;
 }
 
 @media (max-width: 767px) {
@@ -2159,6 +2253,9 @@ textarea {
   .cart__in .cart__btn__cont {
     display: block;
     margin: auto;
+  }
+  .cart__in .cart__btn__cont .cart__text {
+    font-size: .6rem;
   }
   .cart__in .cart__btn__cont input {
     display: block;
@@ -3019,7 +3116,7 @@ textarea {
 
 .key__visual .content .key__visual__right p {
   color: #fff;
-  font-size: 1.05rem;
+  font-size: 1.21rem;
   margin-bottom: 1.1rem;
   text-align: center;
 }
@@ -3027,7 +3124,7 @@ textarea {
 .key__visual .content .key__visual__right a {
   display: block;
   margin: auto;
-  width: 50%;
+  width: 52%;
 }
 
 @media (max-width: 767px) {
@@ -3098,6 +3195,11 @@ textarea {
   width: 100%;
 }
 
+.output__list .section__inner .output__content dl dt .col__cent.bla, .output__list .section__inner .output__content dl dd .col__cent.bla {
+  color: #6a6a6a;
+  font-weight: 600;
+}
+
 .output__list .section__inner .output__content dl dt {
   background-color: #6a6a6a;
   color: #fff;
@@ -3108,6 +3210,10 @@ textarea {
   background-color: #fff;
   color: #ccc;
   width: 60%;
+}
+
+.output__list .section__inner .output__content dl:hover {
+  opacity: .7;
 }
 
 .output__list .section__inner .output__content dl#out__list04 dt {

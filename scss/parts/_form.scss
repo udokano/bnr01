@@ -117,15 +117,31 @@ textarea {
 
     span {
         background-color: #454545;
-        padding: 4px 6px 3px;
+        padding: 6px 10px 4px;
         color: #fff;
-        border-radius: 3px;
-        font-size: .9rem;
+        border-radius: 5px;
+        font-size: 1.01rem;
+        letter-spacing: 0.05em;
+        margin-right: .7rem;
     }
 
     .step__tit {
-        font-size: 1.28rem;
+        font-size: 1.9rem;
         color: #454545;
+    }
+}
+
+@media (max-width: 767px) {
+    .step__wrap {
+        .step__tit {
+            display: block;
+            margin-top: .7rem;
+            font-size: 1.6rem;
+        }
+
+        span {
+            display: inline-block;
+        }
     }
 }
 
@@ -135,8 +151,8 @@ textarea {
 
 .img__mark {
     position: absolute;
-    width: 59px;
-    height: 69px;
+    width: 89px;
+    height: 100px;
     background: no-repeat 50% 50% / 100% auto;
     background-image: url(../img/top/tip.png);
     z-index: 5000;
@@ -145,12 +161,12 @@ textarea {
 }
 
 .img__mark#mark01 {
-    left: 410px;
+    left: 435px;
     top: -12px;
 }
 
 .img__mark#mark02 {
-    right: 80px;
+    right: 25px;
     top: -12px;
 }
 
@@ -167,8 +183,16 @@ textarea {
         transform: translateY(0);
     }
 
+    25% {
+        transform: translateY(-5px);
+    }
+
     50% {
-        transform: translateY(-3px);
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-5px);
     }
 
     100% {
@@ -183,7 +207,7 @@ textarea {
         text-align: center;
         color: #fff;
         font-weight: 600;
-        padding: 1.1rem 0;
+        padding: 1.6rem 0;
         font-size: 1.8rem;
         background-color: #2d417f;
     }
@@ -226,12 +250,16 @@ textarea {
             &::before {
                 border: none;
             }
+
+            dl {
+                padding: 3.0rem 0;
+            }
         }
     }
 
     .form__inner {
         dl {
-            padding: 6rem 3.6rem;
+            padding: 6.5rem 0;
 
             dt {
                 margin-bottom: 25px;
@@ -241,37 +269,11 @@ textarea {
                 position: relative;
             }
 
-            label {
-                font-size: .88rem;
-
-                /*各バナーの補足文の設定*/
-                .item__text {
-                    font-size: .92rem;
-                }
-
-                .sub__text {
-                    white-space: nowrap;
-                    display: inline-block;
-                    position: absolute;
-                    left: 50%;
-                    bottom: 10px;
-                    transform: translateX(-50%);
-                    font-size: .72rem;
-                    color: #454545;
-                    font-weight: 100;
-                }
-
-                .price__text {
-                    display: block;
-                    margin-top: .7rem;
-                    color: $green;
-                    font-size: .68rem;
-                }
-            }
-
             /*サイズ用途選択スタイル記述(四角ボタン)*/
             .select__zone {
-                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
 
                 input[type="radio"] {
                     opacity: 0;
@@ -281,21 +283,21 @@ textarea {
                 label {
                     display: inline-block;
                     text-align: left;
-                    width: 42%;
+                    width: 48%;
                     position: relative;
                     background-color: #fff;
                     border: 1px solid #bbb;
-                    border-bottom: 5px solid #989898;
+                    border-bottom: 8px solid #989898;
 
                     //border-bottom: none;
 
                     //border-radius: 0 0 8px 8px;
-                    border-radius: 8px 8px 10px 10px/0 0 4px 4px;
+                    border-radius: 5px 5px 19px 19px;
 
                     //box-shadow: 0px 6px 0px 0px #bbbbbb;
-                    padding: 25px 10px 35px 163px;
-                    height: 115px;
-                    margin: 0 .8rem 1.6rem;
+                    padding: 25px 10px 48px 188px;
+                    height: 136px;
+                    margin: 0 0 1.6rem;
                     color: $blue;
                     font-weight: 600;
                     font-size: .88rem;
@@ -303,6 +305,41 @@ textarea {
                     &:hover {
                         bottom: -2px;
                         border-bottom-width: 1px;
+                        background-position: 17% 39%;
+
+                        .item__text, .price__text {
+                            position: relative;
+                            bottom: -5px;
+                        }
+                    }
+
+                    /*各バナーの補足文の設定*/
+                    .item__text {
+                        font-size: 1.2rem;
+                    }
+
+                    .sub__text {
+                        white-space: nowrap;
+                        display: inline-block;
+                        position: absolute;
+                        left: 78px;
+                        bottom: 19px;
+
+                        //transform: translateX(-50%);
+                        font-size: .72rem;
+                        color: #454545;
+                        font-weight: 100;
+                    }
+
+                    .price__text {
+                        display: block;
+                        margin-top: .62rem;
+                        color: $green;
+                        font-size: .86rem;
+                    }
+
+                    .price__text.red {
+                        color: #fb6464;
                     }
 
                     &::after, &::before {
@@ -314,25 +351,25 @@ textarea {
 
                     &::after {
                         left: 22px;
-                        width: 21px;
-                        height: 21px;
+                        width: 34px;
+                        height: 34px;
                         border-radius: 3px;
                         background-color: #e0e0e0;
                     }
 
                     &::before {
                         top: 46%;
-                        left: 25px;
-                        border-left: 4px solid #bbb;
-                        border-bottom: 4px solid #bbb;
+                        left: 29px;
+                        border-left: 6px solid #bbb;
+                        border-bottom: 6px solid #bbb;
                         transform: translateY(-50%) rotate(-52deg);
                         z-index: 1000;
-                        width: 19px;
-                        height: 9px;
+                        width: 29px;
+                        height: 15px;
                     }
 
                     &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
-                        background: #fff no-repeat 19% 36% / 19% auto;
+                        background: #fff no-repeat 17% 34% / 17% auto;
                     }
 
                     /*サムネイル画像振り分け*/
@@ -376,7 +413,7 @@ textarea {
                     }
 
                     span {
-                        color: #fff;
+                        color: #fff !important;
                     }
                 }
 
@@ -408,13 +445,46 @@ textarea {
             }
         }
 
-        .select__zone.select__time {
+        .select__zone.limit {
             label {
                 padding: 30px 10px 10px 80px;
                 background-image: none !important;
-                width: 30%;
-                margin: 0 .5rem;
+                width: 32%;
                 color: #454545;
+            }
+
+            p.note {
+                width: 50%;
+                margin: 30px auto 0;
+            }
+        }
+
+        .select__zone.select__data, .select__zone.public__btn {
+            justify-content: center;
+
+            label {
+                padding: 30px 10px 10px 80px;
+                background-image: none !important;
+                width: 32%;
+                margin: 0 .5rem .6rem;
+                color: #454545;
+            }
+
+            p.note {
+                width: 50%;
+                margin: 30px auto 0;
+            }
+        }
+
+        .select__zone.type02 {
+            label {
+                padding: 0;
+                padding-top: 35px;
+
+                span {
+                    display: block;
+                    text-align: center;
+                }
             }
         }
 
@@ -536,6 +606,7 @@ textarea {
 
                             .sub__text02 {
                                 font-size: .46rem;
+                                color: #6a6a6a;
                             }
                         }
 
@@ -633,6 +704,13 @@ textarea {
             background-color: #d9534f;
             color: #fff;
         }
+
+        .name {
+            a {
+                display: inline-block;
+                margin-bottom: .38rem;
+            }
+        }
     }
 
     .preview {
@@ -721,24 +799,32 @@ textarea {
 
                         &::before {
                             left: 25px;
-                            transform: translateY(-50%) rotate(-52deg);
-                            width: 14px;
-                            height: 7px;
+                            width: 19px;
+                            height: 10px;
+                            border-width: 4px;
                         }
 
                         &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
                             background-position: 24% 38%;
                             background-size: 4.5rem;
                         }
+
+                        .sub__text {
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
                     }
                 }
 
-                .select__zone.select__time {
+                .select__zone.type02 {
                     label {
-                        padding: 30px 10px 10px 80px;
                         background-image: none !important;
                         width: 100%;
                         margin: 0 auto 1.5rem;
+                    }
+
+                    p.note {
+                        width: 100%;
                     }
                 }
             }
@@ -880,8 +966,8 @@ textarea {
 /*カートへ入れるボタン*/
 
 .cart__in {
-    width: 550px;
-    padding: 5.5rem 0;
+    width: 752px;
+    padding: 6.5rem 0;
     margin: auto;
 
     .cart__btn__cont {
@@ -892,15 +978,15 @@ textarea {
             position: absolute;
             color: #fff;
             left: 50%;
-            top: 13px;
+            top: 20px;
             transform: translateX(-50%);
-            font-size: .62rem;
+            font-size: .76rem;
             white-space: nowrap;
         }
 
         &:hover {
             .cart__text {
-                top: 18px;
+                top: 25px;
             }
 
             &::after {
@@ -909,15 +995,15 @@ textarea {
         }
 
         input {
-            width: 550px;
+            width: 752px;
             display: block;
-            height: 118px;
-            line-height: 118px;
+            height: 136px;
+            line-height: 136px;
             background-color: #13b131;
-            border-radius: 4px 4px 8px 8px;
+            border-radius: 5px 5px 9px 9px;
             border-bottom: 6px solid #008f1b;
             padding: 0;
-            font-size: 1.5rem;
+            font-size: 1.82rem;
             font-weight: 600;
             padding-left: 57px;
             position: relative;
@@ -931,10 +1017,10 @@ textarea {
         &::after {
             content: "";
             position: absolute;
-            background: url(../img/icons/cart_icon.png) no-repeat 20% 50% / 34px 35px;
-            height: 35px;
-            width: 34px;
-            left: 45px;
+            background: url(../img/icons/cart_icon.png) no-repeat 20% 50% / 100% auto;
+            height: 37px;
+            width: 46px;
+            left: 108px;
             top: 50%;
             transform: translateY(-50%);
         }
@@ -951,6 +1037,10 @@ textarea {
         .cart__btn__cont {
             margin: auto;
             display: block;
+
+            .cart__text {
+                font-size: .6rem;
+            }
 
             input {
                 width: 100%;

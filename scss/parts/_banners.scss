@@ -150,8 +150,12 @@
         max-width: 1600px;
         width: 90%;
         min-width: 1150px;
-        height: 1200px;
-        margin: 6.5rem 0;
+        margin: 9.2rem auto 0;
+        position: relative;
+        left: auto;
+        top: auto;
+        height: auto;
+        transform: none;
         padding: 3.2rem;
 
         .sample__img {
@@ -175,7 +179,7 @@
         }
 
         .close__btn {
-            width: 44%;
+            width: 30%;
             margin: auto;
             background-color: #299cc5;
             height: 75px;

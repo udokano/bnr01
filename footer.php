@@ -25,7 +25,7 @@
 
 <!-- トップページのみ読み込み -->
 <?php if (is_home() || is_front_page()) : ?>
-<script src="<?php echo get_template_directory_uri(); ?>/js/top.js?"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/top.js?var=1.1.2"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/price.js"></script>
 <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
