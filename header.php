@@ -48,6 +48,21 @@ jQuery("form").validationEngine('attach', {
   　});
 });
 
+<?php if (is_page('usces-cart')): ?>
+
+jQuery(function(){
+    jQuery("form").validationEngine();
+    jQuery("#mailaddress1").addClass("validate[required]");
+     jQuery("#mailaddress2").addClass("validate[required,equals[mailaddress1]]");
+jQuery("#name1").addClass("validate[required]");
+jQuery("#name2").addClass("validate[required]");
+jQuery("#tel").addClass("validate[required]");
+
+
+
+});
+
+<?php endif; ?>
 
 /* お問い合わせページ */
 jQuery(document).ready(function(){

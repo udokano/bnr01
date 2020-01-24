@@ -76,7 +76,7 @@ get_header();
 
 				<div class="send"><?php usces_get_cart_button(); ?></div>
 				<?php do_action('usces_action_cart_page_inform'); ?>
-				<a href="<?php echo home_url('/');?>">戻る</a>
+
 				</form>
 
 				<div class="footer_explanation">

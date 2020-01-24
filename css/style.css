@@ -2227,20 +2227,103 @@ textarea {
 /*
 カートページスタイル
 -------------------------------*/
+#cart {
+  font-size: .74rem;
+}
+
 .customer_form {
   width: 100%;
 }
 
+.catbox .post .entry {
+  border-bottom: none;
+}
+
 .cart__area {
   margin-top: 30px;
+  /* カートページ */
+  /* お客様情報入力ページ */
 }
 
-.cart__area input {
-  padding: .32rem !important;
+.cart__area #cart input.delButton {
+  background-color: #d9534f;
+  font-size: .78rem;
+  padding: 0.35rem .48rem .33rem;
 }
 
-.cart__area table tr th, .cart__area table tr td {
+.cart__area #cart table {
+  border: none;
+  border-color: #cecece;
+}
+
+.cart__area #cart table tbody {
+  border-left: 1px solid #000;
+}
+
+.cart__area #cart table tr th, .cart__area #cart table tr td {
+  border-bottom: none;
+  border-color: #cecece;
+  border-left: none;
   padding: .6rem;
+}
+
+.cart__area #cart table tr th:nth-of-type(1), .cart__area #cart table tr td:nth-of-type(1) {
+  border-left: 1px solid #cecece;
+}
+
+.cart__area #customer-info table {
+  margin-bottom: 1.5rem;
+}
+
+.cart__area #customer-info table tr th, .cart__area #customer-info table tr td {
+  padding: .4rem .4rem;
+  position: relative;
+}
+
+.cart__area #customer-info table tr th .formError, .cart__area #customer-info table tr td .formError {
+  top: 7px !important;
+}
+
+.cart__area #customer-info table tr th input, .cart__area #customer-info table tr td input {
+  font-size: .68rem;
+  padding: 0.35rem .4rem;
+}
+
+.cart__area #delivery-info table tr th, .cart__area #delivery-info table tr td {
+  padding: .4rem .4rem;
+  vertical-align: middle;
+}
+
+.cart__area #delivery-info table tr th label, .cart__area #delivery-info table tr td label {
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+}
+
+.cart__area #delivery-info table tr th input, .cart__area #delivery-info table tr td input {
+  display: inline-block;
+  margin-right: .45rem;
+  vertical-align: middle;
+}
+
+.cart__area #delivery-info table tr th textarea, .cart__area #delivery-info table tr td textarea {
+  background-color: #f8f8f8;
+  height: 180px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.cart__area #delivery-info table tr th dl dt, .cart__area #delivery-info table tr td dl dt {
+  margin-bottom: .4rem;
+  padding: 0;
+}
+
+.cart__area #delivery-info table tr th dl dt:last-of-type, .cart__area #delivery-info table tr td dl dt:last-of-type {
+  margin-bottom: 0;
 }
 
 .usccart_navi .ucart {
@@ -2279,7 +2362,7 @@ textarea {
   padding: 1.2rem 1.1rem !important;
 }
 
-.send input.back_cart_button, .send input.back_to_delivery_button {
+.send input.back_cart_button, .send input.back_to_delivery_button, .send input.back_to_customer_button {
   background-color: #666 !important;
 }
 
