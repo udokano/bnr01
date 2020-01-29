@@ -26,6 +26,8 @@
             li {
                 width: 120px;
                 border-left: 1px solid #ededed;
+                border-bottom: 1px solid #ededed;
+                position: relative;
 
                 a {
                     position: relative;
@@ -67,22 +69,44 @@
     }
 }
 
-/* .page {
-    #site__header {
-        background-color: #454545;
+.bachi {
+    position: absolute;
+    background-color: #ff3d00;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    font-size: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    color: #fff;
+    line-height: 27px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 5000;
 
+    .num {
+        padding-left: 2px;
+    }
+}
+
+.bachi.show__bachi {
+    visibility: inherit;
+    opacity: 1.0;
+}
+
+.page {
+    #site__header {
         .header__nav {
             ul {
                 li {
-                    a {
-                        color: #fff;
-                    }
+                    a {}
                 }
             }
         }
     }
 }
- */
+
 @media (max-width: 767px) {
     #site__header {
         height: 54px;

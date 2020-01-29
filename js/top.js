@@ -5,6 +5,7 @@
 ===============================*/
 
 
+
 /*
 実績はこちらをクリック、アンカーリンク
 -----------------------------*/
@@ -135,6 +136,10 @@ jQuery("#label__type__a1").after('<div class="img__mark js-modal-open" id="mark0
 
 jQuery("#label__type__a2").after('<div class="img__mark js-modal-open" id="mark02" data-target="sample02"></div>');
 
+
+
+
+
 /*
 注釈文追加
 ------------------------------------------*/
@@ -195,7 +200,7 @@ jQuery("#label__type__e2 .item__text").append('<span class="price__text red">-50
 jQuery(".cart__btn__cont").append('<span class="cart__text">ご入力ありがとうございました！</span>');
 
 
-
+$(".labels").wrapInner('<div class="inner__label"></div>');
 
 /*
 プレースポルダー追加
@@ -235,17 +240,28 @@ $(window).on("scroll", function () {
 位置を取得してから非表示にしたいので読み込み後に非表示
 -----------------------------------------*/
 
-$(window).on('load', function () {
+/* $(window).on('load', function () {
 
-    $("#form__area02").addClass("hidden__filed");
-    $("#form__area03").addClass("hidden__filed");
-    $("#form__area04").addClass("hidden__filed");
-    $("#form__area05").addClass("hidden__filed");
-    $("#form__area06").addClass("hidden__filed");
-    $("#form__area07").addClass("hidden__filed");
+     $("#form__area02").addClass("hidden__filed");
+     $("#form__area03").addClass("hidden__filed");
+     $("#form__area04").addClass("hidden__filed");
+     $("#form__area05").addClass("hidden__filed");
+     $("#form__area06").addClass("hidden__filed");
+     $("#form__area07").addClass("hidden__filed");
 
+}); */
+
+
+$(function () {
+    setTimeout(function () {
+        $("#form__area02").addClass("hidden__filed");
+        $("#form__area03").addClass("hidden__filed");
+        $("#form__area04").addClass("hidden__filed");
+        $("#form__area05").addClass("hidden__filed");
+        $("#form__area06").addClass("hidden__filed");
+        $("#form__area07").addClass("hidden__filed");
+    }, 500);
 });
-
 
 $(function () {
 

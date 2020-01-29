@@ -28,12 +28,13 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.4.3">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.1">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.4.6">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
 
 <script>
+
 /*
 リアルタイムバリデーション
 ------------------------------*/
@@ -77,6 +78,7 @@ jQuery(".wpcf7-form").validationEngine('attach', {
   　});
 });
 <?php endif; ?>
+<?php if (is_home() || is_front_page()) : ?>
 
 /* リロードフォームクリア */
 
@@ -89,6 +91,7 @@ window.onpageshow = function() {
   });
 }
 
+<?php endif; ?>
 
 </script>
 
@@ -103,7 +106,9 @@ window.onpageshow = function() {
     <div class="menu-trigger" id="js-menu"> <span></span> <span></span> <span></span> </div>
     <nav class="header__nav" id="js-nav">
       <ul class="flex">
-        <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view"><span>カート</span></a></li>
+        <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view"><span>カート</span>
+         <div class="bachi pc" id="bachi"><span class="num" id="bachi__txt"><?php usces_totalquantity_in_cart();?></span></div></a>
+       </li>
         <li><a href="<?php echo home_url('/');?>flow"><span>納品までの<br class="pc">流れ</span></a></li>
         <li><a href="<?php echo home_url('/');?>retouch"><span>修正について</span></a></li>
         <li><a href="<?php echo home_url('/');?>faq"><span>Q&A</span></a></li>

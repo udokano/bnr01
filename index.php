@@ -281,8 +281,15 @@
             </div>
             <!-- ./step__wrap -->
           </div>
-          <!--./section__inner-->
+          <!-- ./cart__in -->
+
+          <div class="term__inc" id="term">
+            <?php get_template_part('inc/trems');?>
+
+          </div>
+
         </div>
+          <!--./section__inner-->
       </div>
       <!--./form__entry-->
       <?php endwhile; endif; ?>

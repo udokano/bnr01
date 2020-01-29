@@ -33,6 +33,8 @@ textarea {
     height: 221px;
     border-radius: 11px;
     width: 100%;
+    line-height: 1.75;
+    word-break: break-all;
 }
 
 .note {
@@ -285,17 +287,17 @@ textarea {
                     text-align: left;
                     width: 48%;
                     position: relative;
+                    z-index: 10;
                     background-color: #fff;
                     border: 1px solid #bbb;
-                    border-bottom: 8px solid #989898;
 
                     //border-bottom: none;
 
                     //border-radius: 0 0 8px 8px;
-                    border-radius: 5px 5px 19px 19px;
+                    border-radius: 5px;
 
                     //box-shadow: 0px 6px 0px 0px #bbbbbb;
-                    padding: 25px 10px 48px 188px;
+
                     height: 136px;
                     margin: 0 0 1.6rem;
                     color: $blue;
@@ -303,13 +305,41 @@ textarea {
                     font-size: .88rem;
 
                     &:hover {
-                        bottom: -2px;
+                        bottom: -10px;
                         border-bottom-width: 1px;
                         background-position: 17% 39%;
 
                         .item__text, .price__text {
                             position: relative;
                             bottom: -5px;
+                        }
+
+                        .inner__label {
+                            &::after {
+                                background: none;
+                            }
+                        }
+                    }
+
+                    .inner__label {
+                        padding: 25px 10px 48px 188px;
+                        position: relative;
+                        height: 100%;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -8px;
+                            left: 0;
+                            width: 100%;
+                            display: block;
+                            height: 10px;
+                            z-index: 9;
+
+                            //background-color: #919191;
+                            //clip-path: polygon(0 0, 100% 0, 98% 45%, 2% 45%);
+                            //border-radius: 10% 10% 9% 9% / 0% 0% 100% 100%;
+                            background: url(../img/top/bg_btn_bottom.png) no-repeat 0% 100% / 100% 100%;
                         }
                     }
 
@@ -406,7 +436,6 @@ textarea {
                     //outline: 4px solid $yellow;
                     //outline-offset: -2px;
                     background-color: #299cc5;
-                    border-bottom: 5px solid #1386af;
 
                     &::before {
                         border-color: $green;
@@ -414,6 +443,20 @@ textarea {
 
                     span {
                         color: #fff !important;
+                    }
+
+                    .inner__label {
+                        &::after {
+                            background-image: url(../img/top/bg_btn_bottom_check.png);
+                        }
+                    }
+
+                    &:hover {
+                        .inner__label {
+                            &::after {
+                                background: none;
+                            }
+                        }
                     }
                 }
 
@@ -431,7 +474,7 @@ textarea {
             #size__select {
                 label {
                     &:nth-of-type(1) {
-                        background-image: url(../img/icons/s_icon.png);
+                        background-image: url(../img/icons/s_icon.png) !important;
                     }
 
                     &:nth-of-type(2) {
@@ -447,10 +490,13 @@ textarea {
 
         .select__zone.limit {
             label {
-                padding: 30px 10px 10px 80px;
                 background-image: none !important;
                 width: 32%;
                 color: #454545;
+
+                .inner__label {
+                    padding: 30px 10px 10px 80px;
+                }
             }
 
             p.note {
@@ -463,11 +509,14 @@ textarea {
             justify-content: center;
 
             label {
-                padding: 30px 10px 10px 80px;
                 background-image: none !important;
                 width: 32%;
                 margin: 0 .5rem .6rem;
                 color: #454545;
+
+                .inner__label {
+                    padding: 30px 10px 10px 30px;
+                }
             }
 
             p.note {
@@ -478,8 +527,9 @@ textarea {
 
         .select__zone.type02 {
             label {
-                padding: 0;
-                padding-top: 35px;
+                .inner__label {
+                    padding-top: 35px;
+                }
 
                 span {
                     display: block;
@@ -631,7 +681,7 @@ textarea {
                         margin-bottom: 0;
                         height: 240px;
 
-                        :placeholder {
+                        ::placeholder {
                             text-align: left;
                         }
                     }
@@ -784,9 +834,12 @@ textarea {
 
                     label {
                         width: 100%;
-                        padding-left: 9.4rem;
                         margin: 0 auto 1.2rem;
                         font-size: .9rem;
+
+                        .inner__label {
+                            padding-left: 9.4rem;
+                        }
 
                         &::after {
                             left: 22px;
@@ -821,6 +874,10 @@ textarea {
                         background-image: none !important;
                         width: 100%;
                         margin: 0 auto 1.5rem;
+
+                        .inner__label {
+                            padding-left: 1.0rem;
+                        }
                     }
 
                     p.note {
@@ -967,7 +1024,7 @@ textarea {
 
 .cart__in {
     width: 752px;
-    padding: 6.5rem 0;
+    padding: 6.5rem 0 2.2rem;
     margin: auto;
 
     .cart__btn__cont {
@@ -986,7 +1043,7 @@ textarea {
 
         &:hover {
             .cart__text {
-                top: 25px;
+                top: 29px;
             }
 
             &::after {
@@ -1064,20 +1121,32 @@ textarea {
 
 /*利用規約*/
 
-.term {
+.term__inc#term {
     width: 100%;
     height: 320px;
     overflow-y: scroll;
     background-color: #ededed;
     padding: 1.6rem;
+    font-size: .74rem;
+    margin-bottom: 1.8rem;
 
     h3 {
         color: $yellow;
         font-size: 1.2rem;
-        margin-bottom: .8rem;
+        margin-bottom: .5rem;
+        text-align: center;
+    }
 
-        p {
-            font-size: .8rem;
+    p {
+        font-size: .8rem;
+    }
+
+    dl {
+        padding: 0;
+        margin-bottom: 1.5rem;
+
+        dt {
+            font-weight: 600;
         }
     }
 }

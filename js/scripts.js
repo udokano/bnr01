@@ -2,6 +2,18 @@
 
 jQuery(function ($) {
 
+  /*
+カートの中身をカウント0の時は要素削除
+-------------------------------------*/
+
+  var bachi = $("#bachi");
+  var bachitxt = $("#bachi__txt").text();
+
+  if (bachitxt != 0) {
+    bachi.addClass("show__bachi");
+  }
+
+
 
 
   $('.js-link').on('click', function (e) {

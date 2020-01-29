@@ -775,6 +775,7 @@ h3 {
 
 .page #site__footer {
   margin-bottom: 0;
+  margin-top: 130px;
 }
 
 @media (max-width: 767px) {
@@ -843,7 +844,9 @@ LIVE　チャット位置設定
 }
 
 #site__header .header__nav ul li {
+  border-bottom: 1px solid #ededed;
   border-left: 1px solid #ededed;
+  position: relative;
   width: 120px;
 }
 
@@ -889,22 +892,33 @@ LIVE　チャット位置設定
   margin-right: 0;
 }
 
-/* .page {
-    #site__header {
-        background-color: #454545;
-
-        .header__nav {
-            ul {
-                li {
-                    a {
-                        color: #fff;
-                    }
-                }
-            }
-        }
-    }
+.bachi {
+  -webkit-transform: translateX(-50%);
+  background-color: #ff3d00;
+  border-radius: 50%;
+  bottom: -10px;
+  color: #fff;
+  font-size: 14px;
+  height: 27px;
+  left: 50%;
+  line-height: 27px;
+  opacity: 0;
+  position: absolute;
+  transform: translateX(-50%);
+  visibility: hidden;
+  width: 27px;
+  z-index: 5000;
 }
- */
+
+.bachi .num {
+  padding-left: 2px;
+}
+
+.bachi.show__bachi {
+  opacity: 1.0;
+  visibility: inherit;
+}
+
 @media (max-width: 767px) {
   #site__header {
     height: 54px;
@@ -1279,9 +1293,11 @@ textarea {
   background-color: #fff;
   border-radius: 11px;
   height: 221px;
+  line-height: 1.75;
   margin-bottom: 1.2rem;
   padding: 1.2em;
   width: 100%;
+  word-break: break-all;
 }
 
 .note {
@@ -1589,18 +1605,17 @@ textarea {
 .purchase__form .form__inner dl .select__zone label {
   background-color: #fff;
   border: 1px solid #bbb;
-  border-bottom: 8px solid #989898;
-  border-radius: 5px 5px 19px 19px;
+  border-radius: 5px;
   color: #6594ac;
   display: inline-block;
   font-size: .88rem;
   font-weight: 600;
   height: 136px;
   margin: 0 0 1.6rem;
-  padding: 25px 10px 48px 188px;
   position: relative;
   text-align: left;
   width: 48%;
+  z-index: 10;
   /*各バナーの補足文の設定*/
   /*サムネイル画像振り分け*/
 }
@@ -1608,12 +1623,34 @@ textarea {
 .purchase__form .form__inner dl .select__zone label:hover {
   background-position: 17% 39%;
   border-bottom-width: 1px;
-  bottom: -2px;
+  bottom: -10px;
 }
 
 .purchase__form .form__inner dl .select__zone label:hover .item__text, .purchase__form .form__inner dl .select__zone label:hover .price__text {
   bottom: -5px;
   position: relative;
+}
+
+.purchase__form .form__inner dl .select__zone label:hover .inner__label::after {
+  background: none;
+}
+
+.purchase__form .form__inner dl .select__zone label .inner__label {
+  height: 100%;
+  padding: 25px 10px 48px 188px;
+  position: relative;
+}
+
+.purchase__form .form__inner dl .select__zone label .inner__label::after {
+  background: url(../img/top/bg_btn_bottom.png) no-repeat 0% 100%/100% 100%;
+  bottom: -8px;
+  content: "";
+  display: block;
+  height: 10px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
 }
 
 .purchase__form .form__inner dl .select__zone label .item__text {
@@ -1701,7 +1738,6 @@ textarea {
 .purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label {
   background-color: #299cc5;
   border: none;
-  border-bottom: 5px solid #1386af;
 }
 
 .purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label::before {
@@ -1710,6 +1746,14 @@ textarea {
 
 .purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label span {
   color: #fff !important;
+}
+
+.purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label .inner__label::after {
+  background-image: url(../img/top/bg_btn_bottom_check.png);
+}
+
+.purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label:hover .inner__label::after {
+  background: none;
 }
 
 .purchase__form .form__inner dl .select__zone label.checked {
@@ -1723,7 +1767,7 @@ textarea {
 }
 
 .purchase__form .form__inner dl #size__select label:nth-of-type(1) {
-  background-image: url(../img/icons/s_icon.png);
+  background-image: url(../img/icons/s_icon.png) !important;
 }
 
 .purchase__form .form__inner dl #size__select label:nth-of-type(2) {
@@ -1737,8 +1781,11 @@ textarea {
 .purchase__form .form__inner .select__zone.limit label {
   background-image: none !important;
   color: #454545;
-  padding: 30px 10px 10px 80px;
   width: 32%;
+}
+
+.purchase__form .form__inner .select__zone.limit label .inner__label {
+  padding: 30px 10px 10px 80px;
 }
 
 .purchase__form .form__inner .select__zone.limit p.note {
@@ -1756,8 +1803,11 @@ textarea {
   background-image: none !important;
   color: #454545;
   margin: 0 .5rem .6rem;
-  padding: 30px 10px 10px 80px;
   width: 32%;
+}
+
+.purchase__form .form__inner .select__zone.select__data label .inner__label, .purchase__form .form__inner .select__zone.public__btn label .inner__label {
+  padding: 30px 10px 10px 30px;
 }
 
 .purchase__form .form__inner .select__zone.select__data p.note, .purchase__form .form__inner .select__zone.public__btn p.note {
@@ -1765,8 +1815,7 @@ textarea {
   width: 50%;
 }
 
-.purchase__form .form__inner .select__zone.type02 label {
-  padding: 0;
+.purchase__form .form__inner .select__zone.type02 label .inner__label {
   padding-top: 35px;
 }
 
@@ -1922,7 +1971,23 @@ textarea {
   margin-bottom: 0;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .text textarea :placeholder {
+.purchase__form .form__inner .file__up__area .box__content .text textarea ::-webkit-input-placeholder {
+  text-align: left;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .text textarea ::-moz-placeholder {
+  text-align: left;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .text textarea :-ms-input-placeholder {
+  text-align: left;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .text textarea ::-ms-input-placeholder {
+  text-align: left;
+}
+
+.purchase__form .form__inner .file__up__area .box__content .text textarea ::placeholder {
   text-align: left;
 }
 
@@ -2053,8 +2118,10 @@ textarea {
   .purchase__form .form__inner dl .select__zone label {
     font-size: .9rem;
     margin: 0 auto 1.2rem;
-    padding-left: 9.4rem;
     width: 100%;
+  }
+  .purchase__form .form__inner dl .select__zone label .inner__label {
+    padding-left: 9.4rem;
   }
   .purchase__form .form__inner dl .select__zone label::after {
     background-color: #fff;
@@ -2083,6 +2150,9 @@ textarea {
     background-image: none !important;
     margin: 0 auto 1.5rem;
     width: 100%;
+  }
+  .purchase__form .form__inner dl .select__zone.type02 label .inner__label {
+    padding-left: 1.0rem;
   }
   .purchase__form .form__inner dl .select__zone.type02 p.note {
     width: 100%;
@@ -2183,7 +2253,7 @@ textarea {
 /*カートへ入れるボタン*/
 .cart__in {
   margin: auto;
-  padding: 6.5rem 0;
+  padding: 6.5rem 0 2.2rem;
   width: 752px;
 }
 
@@ -2204,7 +2274,7 @@ textarea {
 }
 
 .cart__in .cart__btn__cont:hover .cart__text {
-  top: 25px;
+  top: 29px;
 }
 
 .cart__in .cart__btn__cont:hover::after {
@@ -2275,22 +2345,34 @@ textarea {
 }
 
 /*利用規約*/
-.term {
+.term__inc#term {
   background-color: #ededed;
+  font-size: .74rem;
   height: 320px;
+  margin-bottom: 1.8rem;
   overflow-y: scroll;
   padding: 1.6rem;
   width: 100%;
 }
 
-.term h3 {
+.term__inc#term h3 {
   color: #ffa200;
   font-size: 1.2rem;
-  margin-bottom: .8rem;
+  margin-bottom: .5rem;
+  text-align: center;
 }
 
-.term h3 p {
+.term__inc#term p {
   font-size: .8rem;
+}
+
+.term__inc#term dl {
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+
+.term__inc#term dl dt {
+  font-weight: 600;
 }
 
 /*
@@ -2479,6 +2561,7 @@ textarea {
 }
 
 .send {
+  text-align: center;
   /*戻る系のボタン色変更*/
 }
 
