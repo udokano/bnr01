@@ -2,9 +2,15 @@
 会社概要
 ----------------------------*/
 .company {
+    background-color: #fbfbfb;
+
     .section__inner {
         width: 100%;
         padding: 2.8rem 0 0;
+
+        .company__info {
+            margin-bottom: 3.5rem;
+        }
 
         h1 {
             font-size: 1.8rem;
@@ -22,7 +28,7 @@
             font-size: .7rem;
             padding: 0.8rem 1.5rem;
             display: flex;
-            border-bottom: 1px solid #f8f8f8;
+            border-bottom: 1px solid #efefef;
 
             dt {
                 font-weight: 600;

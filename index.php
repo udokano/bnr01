@@ -90,7 +90,7 @@
               <div class="modal__bg js-modal-close"></div>
               <!-- ./modal__bg -->
               <div class="modal__inner">
-                <h3>辺と短編の合計が601~1000px</h3>
+                <h3>長辺と短編の合計が601~1000px</h3>
                 <div class="sample__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/m_size_sample03.jpg" alt="サンプル" width="500" height="500"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/m_size_sample02.jpg" alt="サンプル" width="150" height="500"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/m_size_sample01.jpg" alt="サンプル" width="700" height="300"> </div>
                 <!-- ./sample__img -->
                 <div class="close__btn js-modal-close">閉じる</div>

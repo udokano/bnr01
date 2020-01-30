@@ -2253,7 +2253,7 @@ textarea {
 /*カートへ入れるボタン*/
 .cart__in {
   margin: auto;
-  padding: 6.5rem 0 2.2rem;
+  padding: 6.5rem 0 2.0rem;
   width: 752px;
 }
 
@@ -2628,9 +2628,17 @@ textarea {
 /*
 会社概要
 ----------------------------*/
+.company {
+  background-color: #fbfbfb;
+}
+
 .company .section__inner {
   padding: 2.8rem 0 0;
   width: 100%;
+}
+
+.company .section__inner .company__info {
+  margin-bottom: 3.5rem;
 }
 
 .company .section__inner h1 {
@@ -2644,7 +2652,7 @@ textarea {
 }
 
 .company .section__inner dl {
-  border-bottom: 1px solid #f8f8f8;
+  border-bottom: 1px solid #efefef;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
