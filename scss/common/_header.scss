@@ -73,20 +73,22 @@
     position: absolute;
     background-color: #ff3d00;
     border-radius: 50%;
-    width: 27px;
-    height: 27px;
+    width: 29px;
+    height: 29px;
     font-size: 14px;
     left: 50%;
     transform: translateX(-50%);
     bottom: -10px;
     color: #fff;
-    line-height: 27px;
+    line-height: 28px;
     visibility: hidden;
     opacity: 0;
     z-index: 5000;
+    letter-spacing: 0;
 
     .num {
-        padding-left: 2px;
+        letter-spacing: 0;
+        line-height: 0;
     }
 }
 

@@ -130,7 +130,11 @@
                 }
 
                 &:hover {
-                    opacity: .7;
+                    dt {
+                        background-color: #605b5b;
+                    }
+
+                    dd {}
                 }
             }
 
@@ -148,6 +152,10 @@
                     font-weight: 600;
 
                     #output__price {}
+                }
+
+                &:hover {
+                    cursor: auto;
                 }
             }
         }

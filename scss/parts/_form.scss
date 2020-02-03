@@ -305,13 +305,13 @@ textarea {
                     font-size: .88rem;
 
                     &:hover {
-                        bottom: -10px;
+                        bottom: -5px;
                         border-bottom-width: 1px;
                         background-position: 17% 39%;
 
                         .item__text, .price__text {
                             position: relative;
-                            bottom: -5px;
+                            bottom: -3px;
                         }
 
                         .inner__label {
@@ -329,11 +329,11 @@ textarea {
                         &::after {
                             content: "";
                             position: absolute;
-                            bottom: -8px;
+                            bottom: -4px;
                             left: 0;
                             width: 100%;
                             display: block;
-                            height: 10px;
+                            height: 5px;
                             z-index: 9;
 
                             //background-color: #919191;

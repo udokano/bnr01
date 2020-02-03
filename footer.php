@@ -8,7 +8,7 @@
   <div class="footer__logo"> <img src="<?php echo get_template_directory_uri(); ?>/img/common/bottom_logo.png" alt="バナー屋さん"> </div>
   <ul class="footer__nav">
     <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view">カートを見る</a></li>
-    <li><a href="<?php echo home_url('/');?>#form">制作依頼</a></li>
+    <li><a href="<?php echo home_url('/');?>#form__head">制作依頼</a></li>
     <li><a href="<?php echo home_url('/');?>contact">お問い合わせ</a></li>
     <li><a href="<?php echo home_url('/');?>faq">よくある質問</a></li>
     <li><a href="<?php echo home_url('/');?>privacy">プライバシーポリシー</a></li>

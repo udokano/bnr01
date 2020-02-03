@@ -31,6 +31,17 @@ get_header();
 				<?php do_action('usces_action_cartcompletion_page_footer', $usces_entries, $usces_carts); ?>
 				</div><!-- footer_explanation -->
 
+				<div class="thanks__note tc mb15">
+				<div class="note__inner">
+					<p>※ご注文確認メールが届かない場合は、<br>迷惑メールフォルダ内の確認をお願いいたします。</p>
+
+				<p class="mb15">万が一、当店からの確認メールが届かない場合は、<br>お手数ですが、こちらのメールアドレスまでご連絡ください。</p>
+				<p class="tc"><a href="mailto:banner@u-d.jp">banner@u-d.jp</a></p>
+				</div>
+
+				</div>
+
+
 				<div class="send tc"><a href="<?php echo home_url(); ?>" class="back_to_top_button"><?php _e('Back to the top page.', 'usces'); ?></a></div>
 			<?php echo apply_filters('usces_filter_conversion_tracking', null, $usces_entries, $usces_carts); ?>
 

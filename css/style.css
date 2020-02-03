@@ -538,6 +538,10 @@ h3 {
   margin-bottom: 0 !important;
 }
 
+.mb15 {
+  margin-bottom: 15px;
+}
+
 /*swiper*/
 @media (max-width: 767px) {
   .swiper-wrapper.sp-bnr {
@@ -749,7 +753,7 @@ h3 {
 }
 
 #site__footer .footer__logo {
-  margin: 0 auto .8rem;
+  margin: .38rem auto .8rem;
   width: 7%;
 }
 
@@ -899,19 +903,21 @@ LIVE　チャット位置設定
   bottom: -10px;
   color: #fff;
   font-size: 14px;
-  height: 27px;
+  height: 29px;
   left: 50%;
-  line-height: 27px;
+  letter-spacing: 0;
+  line-height: 28px;
   opacity: 0;
   position: absolute;
   transform: translateX(-50%);
   visibility: hidden;
-  width: 27px;
+  width: 29px;
   z-index: 5000;
 }
 
 .bachi .num {
-  padding-left: 2px;
+  letter-spacing: 0;
+  line-height: 0;
 }
 
 .bachi.show__bachi {
@@ -1623,11 +1629,11 @@ textarea {
 .purchase__form .form__inner dl .select__zone label:hover {
   background-position: 17% 39%;
   border-bottom-width: 1px;
-  bottom: -10px;
+  bottom: -5px;
 }
 
 .purchase__form .form__inner dl .select__zone label:hover .item__text, .purchase__form .form__inner dl .select__zone label:hover .price__text {
-  bottom: -5px;
+  bottom: -3px;
   position: relative;
 }
 
@@ -1643,10 +1649,10 @@ textarea {
 
 .purchase__form .form__inner dl .select__zone label .inner__label::after {
   background: url(../img/top/bg_btn_bottom.png) no-repeat 0% 100%/100% 100%;
-  bottom: -8px;
+  bottom: -4px;
   content: "";
   display: block;
-  height: 10px;
+  height: 5px;
   left: 0;
   position: absolute;
   width: 100%;
@@ -2478,6 +2484,11 @@ textarea {
   border-left: 1px solid #cecece;
 }
 
+.cart__area #cart table tr .price__txt {
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
 .cart__area #customer-info table {
   margin-bottom: 1.5rem;
 }
@@ -2544,12 +2555,12 @@ textarea {
 
 .usccart_navi .ucart li.usccart_cart, .usccart_navi .ucart li.usccart_delivery, .usccart_navi .ucart li.usccart_customer {
   background: none;
-  background-color: #ffa200;
+  background-color: #2d417f;
 }
 
 .usccart_navi .ucart li.usccart_confirm {
   background: none;
-  background-color: #ff5c5c;
+  background-color: #13b131;
 }
 
 #cart th, #cart td {
@@ -2560,22 +2571,48 @@ textarea {
   width: auto;
 }
 
-.send {
+#inside-cart .send {
+  border: none;
+}
+
+.cart__area .send {
+  border: none !important;
   text-align: center;
   /*戻る系のボタン色変更*/
 }
 
-.send input {
+.cart__area .send input, .cart__area .send .to_customerinfo_button {
+  background-color: #13b131;
   color: #fff;
   padding: 1.2rem 1.1rem !important;
 }
 
-.send input.back_cart_button, .send input.back_to_delivery_button, .send input.back_to_customer_button {
+.cart__area .send input.back_cart_button, .cart__area .send input.back_to_delivery_button, .cart__area .send input.back_to_customer_button {
   background-color: #666 !important;
 }
 
 .continue_shopping_button {
   background-color: #666 !important;
+}
+
+#cart_completion h1 {
+  font-size: 2.0rem;
+  margin-bottom: 2.2rem;
+}
+
+#cart_completion .thanks__note {
+  font-size: .78rem;
+}
+
+#cart_completion .thanks__note .note__inner {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 1.1rem;
+}
+
+#cart_completion .thanks__note .note__inner a {
+  color: #000;
+  font-weight: 600;
 }
 
 @media (max-width: 767px) {
@@ -3303,8 +3340,8 @@ textarea {
   width: 60%;
 }
 
-.output__list .section__inner .output__content dl:hover {
-  opacity: .7;
+.output__list .section__inner .output__content dl:hover dt {
+  background-color: #605b5b;
 }
 
 .output__list .section__inner .output__content dl#out__list04 dt {
@@ -3315,6 +3352,10 @@ textarea {
   color: #10a84a;
   font-size: 1.02rem;
   font-weight: 600;
+}
+
+.output__list .section__inner .output__content dl#out__list04:hover {
+  cursor: auto;
 }
 
 .output__list.js-fixed {

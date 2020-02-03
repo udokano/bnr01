@@ -19,9 +19,12 @@ get_header();
 <div class="entry">
 
 <div id="info-confirm">
-	<div class="confiem_notice tc">
+	<div class="confiem_notice tc mb15">
 	<?php _e('Please do not change product addition and amount of it with the other window with displaying this page.', 'usces'); ?>
 	</div>
+
+	<p class="sub__notice tc">
+	※ご入金確認後、バナーのデザイン着工とさせていただきます。<br>お申込みから3営業日までに本メール記載の口座へお振込みをお願い致します。</p>
 
 	<div class="usccart_navi">
 		<ol class="ucart">
