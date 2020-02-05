@@ -83,13 +83,40 @@ function add_page_to_admin_menu()
 }
 add_action('admin_menu', 'add_page_to_admin_menu');
 
+if (!current_user_can('administrator')) { // 管理者以外を対象
+    function remove_menus()
+    {
+        global $menu;
+        remove_menu_page('edit.php'); // 投稿を非表示
+        remove_menu_page('index.php');                  // ダッシュボード
+    remove_menu_page('upload.php');                 // メディア
+    remove_menu_page('edit.php?post_type=page');    // 固定ページ
+    remove_menu_page('edit-comments.php');          // コメント
+    remove_menu_page('themes.php');                 // 外観
+    remove_menu_page('plugins.php');                // プラグイン
+    remove_menu_page('users.php');                  // ユーザー
+    remove_menu_page('tools.php');                  // ツール
+    remove_menu_page('options-general.php');        // 設定
+    remove_menu_page('admin.php?page=wpcf7');  // お問い合わせ
+    remove_menu_page('profile.php');  // プロフィール
+    }
+    add_action('admin_menu', 'remove_menus');
+
+    /*メニューにお問い合わせデータ追加*/
+
+
+    function add_page_to_admin_menu2()
+    {
+        add_menu_page('ライブチャット', 'ライブチャット', 'edit_posts', 'admin.php?page=wplivechat-menu', '', 'dashicons-admin-comments', 4);
+    }
+    add_action('admin_menu', 'add_page_to_admin_menu2');
+}
 
 
 /*
  Well CART 関連
 
 ------------------------------------------------*/
-
 
 
 //カートの表をカスタマイズ

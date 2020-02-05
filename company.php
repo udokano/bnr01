@@ -41,7 +41,7 @@ Template Name: 会社概要
 
     <dl>
         <dt>メールアドレス</dt>
-        <dd>contact@u-d.jp</dd>
+        <dd>banner@u-d.jp</dd>
     </dl>
 
      <dl>

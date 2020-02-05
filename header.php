@@ -7,6 +7,15 @@
 </title>
 <meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no">
+<!-- Global site tag (gtag.js) - Google Ads: 787386783 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-787386783"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-787386783');
+</script>
 <?php if (is_home() || is_front_page()) : ?>
 <link
       rel="stylesheet"
@@ -28,7 +37,7 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.4.8">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.4.9">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
@@ -90,10 +99,16 @@ window.onpageshow = function() {
     $("textarea").val("");
   });
 }
-
 <?php endif; ?>
 
 </script>
+<?php if (is_home() || is_front_page()) : ?>
+<!-- User Heat Tag -->
+<script type="text/javascript">
+(function(add, cla){window['UserHeatTag']=cla;window[cla]=window[cla]||function(){(window[cla].q=window[cla].q||[]).push(arguments)},window[cla].l=1*new Date();var ul=document.createElement('script');var tag = document.getElementsByTagName('script')[0];ul.async=1;ul.src=add;tag.parentNode.insertBefore(ul,tag);})('//uh.nakanohito.jp/uhj2/uh.js', '_uhtracker');_uhtracker({id:'uhM3V76Yhu'});
+</script>
+<!-- End User Heat Tag -->
+<?php endif; ?>
 
 </head>
 <body <?php body_class(); ?> id="front__page">

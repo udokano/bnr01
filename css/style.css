@@ -1630,11 +1630,10 @@ textarea {
   background-position: 17% 39%;
   border-bottom-width: 1px;
   bottom: -5px;
-}
-
-.purchase__form .form__inner dl .select__zone label:hover .item__text, .purchase__form .form__inner dl .select__zone label:hover .price__text {
-  bottom: -3px;
-  position: relative;
+  /*  .item__text, .price__text {
+                             position: relative;
+                             bottom: -3px;
+                         } */
 }
 
 .purchase__form .form__inner dl .select__zone label:hover .inner__label::after {
@@ -1760,6 +1759,7 @@ textarea {
 
 .purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label:hover .inner__label::after {
   background: none;
+  bottom: -2px;
 }
 
 .purchase__form .form__inner dl .select__zone label.checked {

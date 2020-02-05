@@ -218,26 +218,31 @@ $(function () {
         if (ttt == "") {
             $(this).attr("data-price", 0);
             spps02 = $(this).attr("data-price");
+
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt <= 10000) {
             $(this).attr("data-price", 1800);
             spps02 = $(this).attr("data-price");
+            /* Sサイズ */
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt >= 10001 && ttt <= 20000) {
             $(this).attr("data-price", 2850);
             spps02 = $(this).attr("data-price");
+            /* Mサイズ */
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt >= 20001 && ttt <= 30000) {
             $(this).attr("data-price", 4300);
             spps02 = $(this).attr("data-price");
+            /* Lサイズ */
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt >= 30001 && ttt <= 40000) {
             $(this).attr("data-price", 5750);
             spps02 = $(this).attr("data-price");
+            /* ブログヘッダー */
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         }//以降は特殊サイズ

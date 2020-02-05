@@ -309,10 +309,10 @@ textarea {
                         border-bottom-width: 1px;
                         background-position: 17% 39%;
 
-                        .item__text, .price__text {
-                            position: relative;
-                            bottom: -3px;
-                        }
+                        /*  .item__text, .price__text {
+                             position: relative;
+                             bottom: -3px;
+                         } */
 
                         .inner__label {
                             &::after {
@@ -455,6 +455,7 @@ textarea {
                         .inner__label {
                             &::after {
                                 background: none;
+                                bottom: -2px;
                             }
                         }
                     }
