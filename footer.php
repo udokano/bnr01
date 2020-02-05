@@ -8,7 +8,7 @@
   <div class="footer__logo"> <img src="<?php echo get_template_directory_uri(); ?>/img/common/bottom_logo.png" alt="バナー屋さん"> </div>
   <ul class="footer__nav">
     <li><a href="<?php echo home_url('/');?>usces-cart" class="cart-view">カートを見る</a></li>
-    <li><a href="<?php echo home_url('/');?>#form">制作依頼</a></li>
+    <li><a href="<?php echo home_url('/');?>#form__head">制作依頼</a></li>
     <li><a href="<?php echo home_url('/');?>contact">お問い合わせ</a></li>
     <li><a href="<?php echo home_url('/');?>faq">よくある質問</a></li>
     <li><a href="<?php echo home_url('/');?>privacy">プライバシーポリシー</a></li>
@@ -21,11 +21,11 @@
 <!--  ./wrapper -->
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js?var=1.1"></script>
 
 <!-- トップページのみ読み込み -->
 <?php if (is_home() || is_front_page()) : ?>
-<script src="<?php echo get_template_directory_uri(); ?>/js/top.js?"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/top.js?var=1.1.3"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/price.js"></script>
 <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
@@ -158,6 +158,8 @@
     <![endif]-->
 
     <script>
+
+
 
     /*
     ファイルアップロード関連の記述

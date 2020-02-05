@@ -23,7 +23,7 @@ get_header();
 					<ol class="ucart">
 					<li class="ucart usccart"><?php _e('1.Cart', 'usces'); ?></li>
 					<li class="ucart usccustomer"><?php _e('2.Customer Info', 'usces'); ?></li>
-					<li class="ucart uscdelivery usccart_delivery">支払い方法</li>
+					<li class="ucart uscdelivery usccart_delivery">お支払い方法</li>
 					<li class="ucart uscconfirm"><?php _e('4.Confirm', 'usces'); ?></li>
 					</ol>
 				</div>
@@ -51,6 +51,7 @@ get_header();
 						<th scope="row"><?php _e('Delivery Time', 'usces'); ?></th>
 						<td colspan="2"><?php usces_the_delivery_time($usces_entries['order']['delivery_time']); ?></td>
 					</tr>
+
 					<tr >
 						<th scope="row"><em><?php _e('*', 'usces'); ?></em><?php _e('payment method', 'usces'); ?></th>
 						<td colspan="2"><?php usces_the_payment_method($usces_entries['order']['payment_name']); ?></td>
@@ -68,6 +69,9 @@ get_header();
 
 			<?php $entry_order_note = empty($usces_entries['order']['note']) ? apply_filters('usces_filter_default_order_note', null) : $usces_entries['order']['note']; ?>
 				<table class="customer_form" id="notes_table">
+					<tr>
+						<td colspan="2">※領収書発行が必要な場合は、必要な旨と宛名をご入力ください。</td>
+					</tr>
 					<tr>
 						<th scope="row"><?php _e('Notes', 'usces'); ?></th>
 						<td colspan="2"><textarea name="offer[note]" id="note" class="notes"><?php echo esc_html($entry_order_note); ?></textarea></td>

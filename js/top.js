@@ -5,6 +5,7 @@
 ===============================*/
 
 
+
 /*
 実績はこちらをクリック、アンカーリンク
 -----------------------------*/
@@ -135,6 +136,10 @@ jQuery("#label__type__a1").after('<div class="img__mark js-modal-open" id="mark0
 
 jQuery("#label__type__a2").after('<div class="img__mark js-modal-open" id="mark02" data-target="sample02"></div>');
 
+
+
+
+
 /*
 注釈文追加
 ------------------------------------------*/
@@ -182,14 +187,20 @@ jQuery("#label__type__c1 .item__text").append('<span class="price__text">＋2000
 
 jQuery("#label__type__c2 .item__text").append('<span class="price__text">＋1000円</span>');
 
+jQuery("#label__type__c3 .item__text").append('<span class="price__text">0円</span>');
+
+jQuery("#label__type__d1 .item__text").append('<span class="price__text">0円</span>');
+
 jQuery("#label__type__d2 .item__text").append('<span class="price__text">＋1500円</span>');
 
-jQuery("#label__type__e2 .item__text").append('<span class="price__text">-500円</span>');
+jQuery("#label__type__e1 .item__text").append('<span class="price__text">0円</span>');
+
+jQuery("#label__type__e2 .item__text").append('<span class="price__text red">-500円</span>');
 
 jQuery(".cart__btn__cont").append('<span class="cart__text">ご入力ありがとうございました！</span>');
 
 
-
+$(".labels").wrapInner('<div class="inner__label"></div>');
 
 /*
 プレースポルダー追加
@@ -229,17 +240,28 @@ $(window).on("scroll", function () {
 位置を取得してから非表示にしたいので読み込み後に非表示
 -----------------------------------------*/
 
-$(window).on('load', function () {
+/* $(window).on('load', function () {
 
-    /*  $("#form__area02").addClass("hidden__filed");
+     $("#form__area02").addClass("hidden__filed");
      $("#form__area03").addClass("hidden__filed");
      $("#form__area04").addClass("hidden__filed");
      $("#form__area05").addClass("hidden__filed");
      $("#form__area06").addClass("hidden__filed");
-     $("#form__area07").addClass("hidden__filed"); */
+     $("#form__area07").addClass("hidden__filed");
 
+}); */
+
+
+$(function () {
+    setTimeout(function () {
+        $("#form__area02").addClass("hidden__filed");
+        $("#form__area03").addClass("hidden__filed");
+        $("#form__area04").addClass("hidden__filed");
+        $("#form__area05").addClass("hidden__filed");
+        $("#form__area06").addClass("hidden__filed");
+        $("#form__area07").addClass("hidden__filed");
+    }, 500);
 });
-
 
 $(function () {
 
@@ -343,6 +365,8 @@ $(function () {
 
     $("#limit > input").change(function () {
         jQuery('#form__area04').addClass("viv");
+        jQuery('#form__area05').addClass("viv");
+
         jQuery("html,body").animate({ scrollTop: pos05 }, '500');
     });
 
@@ -364,6 +388,97 @@ $(function () {
     $("#publish input").change(function () {
         $('#form__area07').addClass("viv");
         $("html,body").animate({ scrollTop: pos08 }, '500');
+    });
+
+
+});
+
+
+/*
+選択したオプションを確認の表にアウトプット
+-----------------------------------*/
+
+jQuery(function () {
+
+    //バナータイプのラベルテキスト取得からTABLEへ出力
+    jQuery("#size__select > input").change(function () {
+        var size01out = jQuery("#output__type");
+        size01out.addClass("bla");
+        //リサイズ依頼を選択
+        if (jQuery('[value="S%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("Sサイズ");
+        }
+
+        //特殊サイズを選択
+        if (jQuery('[value="M%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("Mサイズ");
+        }
+        //リサイズ依頼を選択
+        if (jQuery('[value="L%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("Lサイズ");
+        }
+
+        //特殊サイズを選択
+        if (jQuery('[value="SNS%E7%94%A8%E3%83%BB%E3%83%96%E3%83%AD%E3%82%B0%E7%94%A8%E3%83%98%E3%83%83%E3%83%80%E3%83%BC"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("SNS用・ブログ用ヘッダー");
+        }
+        //リサイズ依頼を選択
+        if (jQuery('[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("リサイズ依頼");
+        }
+
+        //特殊サイズを選択
+        if (jQuery('[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("特殊サイズ");
+        }
+    });
+    //オプション選択のラベルテキスト取得TABLEへ出力
+
+    jQuery('#limit > input').change(function () {
+        var size01out = jQuery("#output__option");
+        size01out.addClass("bla");
+
+
+        if (jQuery('[value="1%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("1営業日");
+        }
+
+
+        if (jQuery('[value="2%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("2営業日");
+        }
+
+        if (jQuery('[value="3%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("3営業日");
+        }
+
+    });
+
+    //オプション選択のラベルテキスト取得TABLEへ出力
+
+    jQuery('#publish > input').change(function () {
+        var size01out = jQuery("#output__publish");
+        size01out.addClass("bla");
+
+        if (jQuery('[value="%E5%85%AC%E9%96%8BOK"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("公開OK");
+        }
+
+
+        if (jQuery('[value="%E5%85%AC%E9%96%8BNG"]').prop('checked')) {
+            size01out.text("");
+            size01out.text("公開NG");
+        }
     });
 
 
@@ -410,6 +525,9 @@ jQuery(function () {
         //スクロールポイント取得
         var pos = jQuery("#banner6").offset().top;
         //すでに特殊サイズのオプションが選択されていたら選択を一番上にする、料金加算を防ぐ
+        var size01out = jQuery("#output__type");
+        size01out.text("リサイズ依頼");
+        size01out.addClass("bla");
         jQuery('#select1 #option1').prop('selected', 'true');
         //特殊サイズが開いていたら閉じる
         jQuery('#special__size').removeClass("viv");

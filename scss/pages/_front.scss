@@ -29,14 +29,14 @@
 
             p {
                 color: #fff;
-                font-size: 1.05rem;
+                font-size: 1.21rem;
                 margin-bottom: 1.1rem;
                 text-align: center;
             }
 
             a {
                 display: block;
-                width: 50%;
+                width: 52%;
                 margin: auto;
             }
         }
@@ -110,6 +110,11 @@
                         display: block;
                         width: 100%;
                     }
+
+                    .col__cent.bla {
+                        color: #6a6a6a;
+                        font-weight: 600;
+                    }
                 }
 
                 dt {
@@ -122,6 +127,14 @@
                     background-color: #fff;
                     color: #ccc;
                     width: 60%;
+                }
+
+                &:hover {
+                    dt {
+                        background-color: #605b5b;
+                    }
+
+                    dd {}
                 }
             }
 
@@ -139,6 +152,10 @@
                     font-weight: 600;
 
                     #output__price {}
+                }
+
+                &:hover {
+                    cursor: auto;
                 }
             }
         }

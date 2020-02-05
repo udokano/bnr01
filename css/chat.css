@@ -6,3 +6,16 @@
 .messageBody {
     font-size: .68rem;
 }
+
+#wp-live-chat-2-inner input::placeholder, .wdt-emoji-picker-parent textarea::placeholder {
+    color: rgb(138, 138, 138);
+}
+
+#wplc_hovercard, #wp-live-chat-2 {
+    right: 110px;
+}
+
+#wplc_first_message {
+    font-size: 11px;
+    letter-spacing: 1px;
+}

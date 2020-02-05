@@ -2,6 +2,18 @@
 
 jQuery(function ($) {
 
+  /*
+カートの中身をカウント0の時は要素削除
+-------------------------------------*/
+
+  var bachi = $("#bachi");
+  var bachitxt = $("#bachi__txt").text();
+
+  if (bachitxt != 0) {
+    bachi.addClass("show__bachi");
+  }
+
+
 
 
   $('.js-link').on('click', function (e) {
@@ -43,13 +55,14 @@ jQuery(function ($) {
 
 
   //スムーススクロール
-  var headerHight = 100; //ヘッダの高さ
-  $('a[href^=#]').click(function () {
-    var href = $(this).attr("href");
-    var target = $(href == "#" || href == "" ? 'html' : href);
-    var position = target.offset().top - headerHight; //ヘッダの高さ分位置をずらす
-    $("html, body").animate({ scrollTop: position }, 550, "swing");
-    return false;
-  });
-
+  $("a[href*=#]")//^を*に換え、hrefのどこかに#を持つ場合に実行
+    .not("[data-lity]")
+    .click(function () {
+      if (location.pathname.replace(/^\//, '') !== this.pathname.replace(/^\//, '') || location.hostname !== this.hostname) return;//リンク先が別のページの場合は終了
+      var href = $(this).attr("href");
+      var target = $(href == "#" || href == "" ? "html" : href);
+      var position = target.offset().top - headerHight;
+      $("html, body").animate({ scrollTop: position }, 550, "swing");
+      return false;
+    });
 });

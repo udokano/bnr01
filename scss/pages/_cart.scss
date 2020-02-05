@@ -44,6 +44,11 @@
                         border-left: 1px solid #cecece;
                     }
                 }
+
+                .price__txt {
+                    font-size: 1.18rem;
+                    font-weight: 600;
+                }
             }
         }
     }
@@ -126,12 +131,12 @@
 
         li.usccart_cart, li.usccart_delivery, li.usccart_customer {
             background: none;
-            background-color: $yellow;
+            background-color: #2d417f;
         }
 
         li.usccart_confirm {
             background: none;
-            background-color: $red;
+            background-color: #13b131;
         }
     }
 }
@@ -144,20 +149,52 @@
     width: auto;
 }
 
-.send {
-    input {
-        padding: 1.2rem 1.1rem !important;
-        color: #fff;
-    }
+#inside-cart .send {
+    border: none;
+}
 
-    /*戻る系のボタン色変更*/
-    input.back_cart_button, input.back_to_delivery_button, input.back_to_customer_button {
-        background-color: #666 !important;
+.cart__area {
+    .send {
+        border: none !important;
+        text-align: center;
+
+        input, .to_customerinfo_button {
+            padding: 1.2rem 1.1rem !important;
+            color: #fff;
+            background-color: #13b131;
+        }
+
+        /*戻る系のボタン色変更*/
+        input.back_cart_button, input.back_to_delivery_button, input.back_to_customer_button {
+            background-color: #666 !important;
+        }
     }
 }
 
 .continue_shopping_button {
     background-color: #666 !important;
+}
+
+#cart_completion {
+    h1 {
+        font-size: 2.0rem;
+        margin-bottom: 2.2rem;
+    }
+
+    .thanks__note {
+        font-size: .78rem;
+
+        .note__inner {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 1.1rem;
+
+            a {
+                color: #000;
+                font-weight: 600;
+            }
+        }
+    }
 }
 
 @media (max-width: 767px) {

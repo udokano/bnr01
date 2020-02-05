@@ -23,15 +23,15 @@
     <div class="output__content flex">
       <dl class="flex" id="out__list01">
         <dt><span class="col__cent">サイズ<br class="pc">用途</span></dt>
-        <dd><span class="col__cent">選択してください</span></dd>
+        <dd><span class="col__cent" id="output__type">選択してください</span></dd>
       </dl>
       <dl class="flex" id="out__list02">
         <dt><span class="col__cent">納期</span></dt>
-        <dd><span class="col__cent">選択してください</span></dd>
+        <dd><span class="col__cent" id="output__option">選択してください</span></dd>
       </dl>
       <dl class="flex" id="out__list03">
         <dt><span class="col__cent">実績として<br class="pc">公開</span></dt>
-        <dd><span class="col__cent">選択してください</span></dd>
+        <dd><span class="col__cent" id="output__publish">選択してください</span></dd>
       </dl>
       <dl class="flex" id="out__list04">
         <dt><span class="col__cent">合計金額</span></dt>
@@ -63,7 +63,7 @@
           <dl>
             <dt>
               <div class="step__wrap"> <span>ステップ1</span>
-                <div class="step__tit">サイズ用途選択</div>
+                <div class="step__tit">サイズ・用途選択</div>
                 <!-- ./step__tit -->
               </div>
               <!-- ./step__wrap -->
@@ -90,7 +90,7 @@
               <div class="modal__bg js-modal-close"></div>
               <!-- ./modal__bg -->
               <div class="modal__inner">
-                <h3>辺と短編の合計が601~1000px</h3>
+                <h3>長辺と短編の合計が601~1000px</h3>
                 <div class="sample__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/m_size_sample03.jpg" alt="サンプル" width="500" height="500"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/m_size_sample02.jpg" alt="サンプル" width="150" height="500"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/m_size_sample01.jpg" alt="サンプル" width="700" height="300"> </div>
                 <!-- ./sample__img -->
                 <div class="close__btn js-modal-close">閉じる</div>
@@ -150,7 +150,7 @@
               </div>
               <!-- ./step__wrap -->
             </dt>
-            <dd class="select__zone select__time limit" id="limit"> <?php echo usces_the_itemOption("納期の選択");?>
+            <dd class="select__zone select__time limit type02" id="limit"> <?php echo usces_the_itemOption("納期の選択");?>
               <p class="note">※即日コースは15時までの受付となります。<br class="pc">
                 ※15時以降のご注文は翌営業日の対応となりますのでご了承ください</p>
             </dd>
@@ -241,8 +241,8 @@
               </div>
               <!-- ./step__wrap -->
             </dt>
-            <dd class="select__zone select__time select__data " id="data"><?php echo usces_the_itemOption("データご納品");?>
-              <p class="note">※ご自身でリサイズ等行う場合はご指定ください。なお、photoshopバージョンのご指定は出来ませんので予めご了承ください。</p>
+            <dd class="select__zone  select__data type02" id="data"><?php echo usces_the_itemOption("データご納品");?>
+              <p class="note">※ご自身でリサイズ等行う場合はご指定ください。<br>なお、photoshopバージョンのご指定は出来ませんので予めご了承ください。</p>
             </dd>
           </dl>
         </div>
@@ -263,7 +263,7 @@
               </div>
               <!-- ./step__wrap -->
             </dt>
-            <dd class="select__zone select__time public__btn " id="publish"><?php echo usces_the_itemOption("実績として公開");?>
+            <dd class="select__zone  public__btn type02" id="publish"><?php echo usces_the_itemOption("実績として公開");?>
               <p class="note">※当サイトでご紹介させて頂ければ500円お値引きさせて頂きます。</p>
             </dd>
           </dl>
@@ -281,8 +281,15 @@
             </div>
             <!-- ./step__wrap -->
           </div>
-          <!--./section__inner-->
+          <!-- ./cart__in -->
+
+          <div class="term__inc" id="term">
+            <?php get_template_part('inc/trems');?>
+
+          </div>
+
         </div>
+          <!--./section__inner-->
       </div>
       <!--./form__entry-->
       <?php endwhile; endif; ?>

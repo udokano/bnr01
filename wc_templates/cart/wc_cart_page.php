@@ -59,7 +59,7 @@ get_header();
 						<tfoot>
 						<tr>
 							<th colspan="4" scope="row" class="aright"><?php _e('total items', 'usces'); ?><?php usces_guid_tax(); ?></th>
-							<th class="aright" colspan="2"><?php usces_crform(usces_total_price('return'), true, false); ?></th>
+							<th class="tc price__txt" colspan="2"><?php usces_crform(usces_total_price('return'), true, false); ?></th>
 						<!-- 	<th colspan="2">&nbsp;</th> -->
 						</tr>
 						</tfoot>
