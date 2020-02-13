@@ -226,16 +226,18 @@
                         border-right: none;
                     }
 
-                    &:hover {
-                        border: none;
-                    }
-
                     a {
                         font-size: .75rem;
                         display: block;
                         color: #fff;
                         padding: 0 1.5%;
                         text-align: left;
+
+                        &:hover {
+                            &::before {
+                                background: none;
+                            }
+                        }
                     }
 
                     &:last-child {

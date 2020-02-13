@@ -743,7 +743,7 @@ h3 {
 
 .cards p {
   margin: auto;
-  width: 16%;
+  width: 24%;
 }
 
 #site__footer {
@@ -1032,15 +1032,15 @@ LIVE　チャット位置設定
   #site__header .header__nav ul li:last-of-type {
     border-right: none;
   }
-  #site__header .header__nav ul li:hover {
-    border: none;
-  }
   #site__header .header__nav ul li a {
     color: #fff;
     display: block;
     font-size: .75rem;
     padding: 0 1.5%;
     text-align: left;
+  }
+  #site__header .header__nav ul li a:hover::before {
+    background: none;
   }
   #site__header .header__nav ul li:last-child {
     border-bottom: none;
