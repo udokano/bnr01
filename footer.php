@@ -1,6 +1,6 @@
 <?php if (is_home() || is_front_page()) : ?>
 <div class="cards">
-  <p><img src="<?php echo get_template_directory_uri(); ?>/img/top/cards.jpg" alt="クレジットカード"></p>
+  <p><img src="<?php echo get_template_directory_uri(); ?>/img/top/cards.jpg?2015" alt="クレジットカード"></p>
 </div>
 <?php endif; ?>
 
