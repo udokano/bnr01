@@ -184,7 +184,7 @@ add_action('admin_menu', 'add_page_to_admin_menu');
 /* 指示書リスト */
 function add_page_to_admin_menu02()
 {
-    add_menu_page('指示書リスト', '指示書リスト', 'edit_posts', 'edit.php?post_type=mwf_204&paged=1&ids=212%2C211%2C210%2C209%2C208%2C207%2C206', '', 'dashicons-text-page
+    add_menu_page('指示書管理', '指示書管理', 'edit_posts', 'edit.php?post_type=mwf_204&paged=1&ids=212%2C211%2C210%2C209%2C208%2C207%2C206', '', 'dashicons-text-page
 ', 2);
 }
 add_action('admin_menu', 'add_page_to_admin_menu02');

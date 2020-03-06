@@ -37,12 +37,22 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.4.91">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.5.1">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
+<script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
 
 
+<!-- 指示書作成ページ　フォーム内容保存 -->
+<?php if (is_page('direction')): ?>
+<script>
+
+$(function(){
+$('form').garlic();
+});
+
+</script>
+<?php endif; ?>
 
 
 <script>
@@ -128,16 +138,11 @@ jQuery("#new__member__form").validationEngine('attach', {
     　promptPosition:"topLeft"
   　});
 });
-
-
 <?php endif; ?>
-
-
 
 <?php if (is_home() || is_front_page()) : ?>
 
 /* リロードフォームクリア */
-
 window.onpageshow = function() {
   $(".template-download").remove();
   $("form").each(function(){

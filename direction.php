@@ -24,8 +24,6 @@ Template Name: 指示書作成
 
 <div class="contact__form__content direction__form__content">
 
-
-
 <?php echo do_shortcode('[mwform_formkey key="204"]');?>
 
 </div>
@@ -33,11 +31,6 @@ Template Name: 指示書作成
 
 
 </div><!-- ./contact__form -->
-
-
-
-
-
 
 </div><!-- ./section__inner -->
 </section>
@@ -50,20 +43,13 @@ Template Name: 指示書作成
 <script>
   $("#mw_wp_form_mw-wp-form-204 form").attr("id","fileupload");
   $("#fileupload").attr("enctype","multipart/form-data");
+  $("#fileupload").attr("data-persist","multipart/form-data");
 </script>
 
 
 
 <script>
-$(function(){
-$('#fileupload').on('drop', function (e)
-{$('.sub__text02').addClass("down");
-     e.preventDefault();
-     var files = e.originalEvent.dataTransfer.files;
-     //We need to send dropped files to Server
-     handleFileUpload(files,obj);
-});
-});
+
 
 
 jQuery("#text__area").attr('placeholder', 'こちらにデザイン指示を入力 \r\n 例：明るい感じでロゴは右下に配置');
@@ -82,9 +68,6 @@ $test1.attr("name","");
 	        $(".template-download").remove();
 	    },500);
 	});
-
-
-
 
 </script>
 
