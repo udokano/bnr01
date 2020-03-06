@@ -5,15 +5,6 @@
 コンタクトフォーム７設定
 ------------------------------------*/
 
-/* 確認画面に必要なファイル読み込み */
-/* function contact_script()
-{
-    if (is_page("contact")) {
-        wp_enqueue_script('contactform7confirmjs', get_template_directory_uri() . '/js/contact-form7-confirm.js');
-        wp_enqueue_style('contactform7confirmcss', get_template_directory_uri() . '/css/contact-form7-confirm.css');
-    }
-}
-add_action('wp_head', 'contact_script'); */
 
 /* サンクスページへの遷移 */
 
@@ -28,6 +19,113 @@ document.addEventListener( 'wpcf7mailsent', function( event ) {
 </script>
 EOD;
 }
+
+// Contact Form 7 にショートコードを追加
+function get_mytheme_url()
+{
+    return get_template_directory_uri();
+}
+wpcf7_add_shortcode('show_mytheme_url', 'get_mytheme_url', true);
+
+
+//GET_FORM　値埋め込み
+
+
+//氏名
+
+/* function my_form_tag_filter03($tag)
+{
+    if (! is_array($tag)) {
+        return $tag;
+    }
+
+    if (isset($_GET['seimei'])) {
+        $name = $tag['name'];
+        if ($name == 'seimei') {
+            $tag['values'] = (array) $_GET['seimei'];
+        }
+    }
+
+    return $tag;
+}
+add_filter('wpcf7_form_tag', 'my_form_tag_filter03'); */
+
+
+//メールアドレス
+
+/* function my_form_tag_filter02($tag)
+{
+    if (! is_array($tag)) {
+        return $tag;
+    }
+
+    if (isset($_GET['your-email'])) {
+        $name = $tag['name'];
+        if ($name == 'your-email') {
+            $tag['values'] = (array) $_GET['your-email'];
+        }
+    }
+
+    return $tag;
+}
+add_filter('wpcf7_form_tag', 'my_form_tag_filter02'); */
+
+
+//注文番号
+
+/* function my_form_tag_filter($tag)
+{
+    if (! is_array($tag)) {
+        return $tag;
+    }
+
+    if (isset($_GET['order__num'])) {
+        $name = $tag['name'];
+        if ($name == 'order__num') {
+            $tag['values'] = (array) $_GET['order__num'];
+        }
+    }
+
+    return $tag;
+}
+add_filter('wpcf7_form_tag', 'my_form_tag_filter'); */
+
+/*
+
+MW FORM パラメーター
+
+----------------------------------*/
+
+function my_mwform_value($value, $name)
+{
+    if ($name === '氏名' && !empty($_GET['氏名']) && !is_array($_GET['氏名'])) {
+        return $_GET['氏名'];
+    }
+    return $value;
+}
+add_filter('mwform_value_mw-wp-form-204', 'my_mwform_value', 10, 2);
+
+
+function my_mwform_value02($value, $name)
+{
+    if ($name === 'メールアドレス' && !empty($_GET['メールアドレス']) && !is_array($_GET['メールアドレス'])) {
+        return $_GET['メールアドレス'];
+    }
+    return $value;
+}
+add_filter('mwform_value_mw-wp-form-204', 'my_mwform_value02', 10, 2);
+
+
+function my_mwform_value03($value, $name)
+{
+    if ($name === '注文番号' && !empty($_GET['注文番号']) && !is_array($_GET['注文番号'])) {
+        return $_GET['注文番号'];
+    }
+    return $value;
+}
+add_filter('mwform_value_mw-wp-form-204', 'my_mwform_value03', 10, 2);
+
+
 
 /*
 JQリアルタイムバリデーション
@@ -83,6 +181,19 @@ function add_page_to_admin_menu()
 }
 add_action('admin_menu', 'add_page_to_admin_menu');
 
+/* 指示書リスト */
+function add_page_to_admin_menu02()
+{
+    add_menu_page('指示書リスト', '指示書リスト', 'edit_posts', 'edit.php?post_type=mwf_204&paged=1&ids=212%2C211%2C210%2C209%2C208%2C207%2C206', '', 'dashicons-text-page
+', 2);
+}
+add_action('admin_menu', 'add_page_to_admin_menu02');
+
+
+
+
+/* 編集者用メニュー */
+
 if (!current_user_can('administrator')) { // 管理者以外を対象
     function remove_menus()
     {
@@ -119,6 +230,8 @@ if (!current_user_can('administrator')) { // 管理者以外を対象
 ------------------------------------------------*/
 
 
+
+
 //カートの表をカスタマイズ
 
 /*いらない項目を削除*/
@@ -149,6 +262,7 @@ function usces_filter_apply_addressform($html)
 
     $html = preg_replace('/<td class="stock">(.*)<\/td>/', '', $html);
 
+    $html = preg_replace('/<td class="unitprice">(.*)<\/td>/', '', $html);
 
     return $html;
 }
@@ -166,9 +280,6 @@ function usces_filter_apply_addressform_confirm($html)
     return $html;
 }
 add_filter('usces_filter_addressform_confirm', 'usces_filter_apply_addressform_confirm', 10, 1);
-
-
-
 
 //バリデーション削除
 
@@ -199,6 +310,44 @@ add_filter('usces_filter_customer_check', 'my_filter_customer_check', 10, 3);
     }
 
 
+    /* 会員登録画面　住所、郵便番号のバリデーション削除 */
+
+add_filter('usces_filter_member_check_fromcart', 'my_filter_customer_check02', 10, 3);
+    function my_filter_customer_check02($mes)
+    {
+        do_action('my_filter_customer_check02');
+        $mes = '';
+        if (!WCUtils::is_blank($_POST['customer']['password1']) || !WCUtils::is_blank($_POST['customer']['password2'])) {
+            if (!empty($member_pass_rule_max)) {
+                if ($member_pass_rule_min > strlen(trim($_POST['customer']['password1'])) || strlen(trim($_POST['customer']['password1'])) > $member_pass_rule_max) {
+                    $mes .= sprintf(__('Please enter %2$s characters a minimum of %1$s characters and a maximum password.', 'usces'), $member_pass_rule_min, $member_pass_rule_max) . "<br />";
+                }
+            } else {
+                if ($member_pass_rule_min > strlen(trim($_POST['customer']['password1']))) {
+                    $mes .= sprintf(__('Please enter at least %s characters password.', 'usces'), $member_pass_rule_min) . "<br />";
+                }
+            }
+        }
+        if (WCUtils::is_blank($_POST['customer']['password1']) || WCUtils::is_blank($_POST['customer']['password2']) || trim($_POST['customer']['password1']) != trim($_POST['customer']['password2'])) {
+            $mes .= __('Password is not correct.', 'usces') . "<br />";
+        }
+
+        if (!is_email($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress2']) || trim($_POST['customer']['mailaddress1']) != trim($_POST['customer']['mailaddress2'])) {
+            $mes .= __('e-mail address is not correct', 'usces') . "<br />";
+        }
+        if (WCUtils::is_blank($_POST["customer"]["name1"])) {
+            $mes .= __('Name is not correct', 'usces') . "<br />";
+        }
+
+        if (WCUtils::is_blank($_POST["customer"]["tel"]) && usces_is_required_field('tel')) {
+            $mes .= __('enter phone numbers', 'usces') . "<br />";
+        }
+        if (!WCUtils::is_blank($_POST['customer']["tel"]) && preg_match("/[^\d\-+]/", trim($_POST["customer"]["tel"])) && usces_is_required_field('tel')) {
+            $mes .= __('Please input a phone number with a half size number.', 'usces') . "<br />";
+        }
+
+        return $mes;
+    }
 
 
 //お客さま情報入力画面不要な項目削除
@@ -321,55 +470,165 @@ function my_apply_addressform_confirm($formtag, $type, $data)
     }
     return $formtag;
 }
-
-/* add_filter('usces_filter_shipping_address_info', 'my_shipping_address_info', 10, 3);
-
+add_filter("usces_filter_member_history", "my_filter_member_history", 10, 2);
 
 
-//会員登録機能削除
-//会員登録して次へのボタン削除
+/* マイページ関連 */
 
-add_filter("usces_filter_get_customer_button", "my_get_customer_button", 10, 1);
-function my_get_customer_button($out = '')
+function my_filter_member_history($out = '')
 {
-    global $usces, $member_regmode;
-    $res = '';
+    global $usces;
 
-    $res = '<input name="backCart" type="submit" class="back_cart_button" value="'.__('Back', 'usces').'" />&nbsp;&nbsp;';
+    $usces_members = $usces->get_member();
+    $history = $usces->get_member_history($usces_members['ID']);
+    $usces_member_history = apply_filters('usces_filter_get_member_history', $history, $usces_members['ID']);
 
-    $button = '<input name="deliveryinfo" type="submit" class="to_deliveryinfo_button" value="'.__(' Next ', 'usces').'" />&nbsp;&nbsp;';
-    $res .= apply_filters('usces_filter_customer_button', $button);
+    $usces_member_history_count = ($usces_member_history && is_array($usces_member_history)) ? count($usces_member_history) : 0;
 
-    if (usces_is_membersystem_state() && $member_regmode != 'editmemberfromcart' && usces_is_login() == false) {
-        $res .= '';
-    } elseif (usces_is_membersystem_state() && $member_regmode == 'editmemberfromcart') {
-        $res .= '';
+    $html = '<div class="history-area">';
+    if (0 == $usces_member_history_count) {
+        $html .= '<table id="history_head"><tr>
+		<td>' . __('There is no purchase history for this moment.', 'usces') . '</td>
+		</tr></table>';
+    } else {
+        foreach ($usces_member_history as $umhs) {
+            $cart = $umhs['cart'];
+            $history_member_head = '<table id="history_head"><thead>
+				<tr class="order_head_label">
+				<th class="historyrow order_number">' . __('Order number', 'usces') . '</th>
+				<th class="historyrow purchase_date">' . __('Purchase date', 'usces') . '</th>
+				<th class="historyrow purchase_price">' . __('Purchase price', 'usces') . '</th>';
+            if (usces_is_tax_display() && 'products' == usces_get_tax_target()) {
+                $history_member_head .= '<th class="historyrow tax">' . usces_tax_label(array(), 'return') . '</th>';
+            }
+            if (usces_is_membersystem_point() && 0 == usces_point_coverage()) {
+                $history_member_head .= '<th class="historyrow used_point">' . __('Used points', 'usces') . '</th>';
+            }
+            $history_member_head .= '';
+            if (usces_is_tax_display() && 'all' == usces_get_tax_target()) {
+                $history_member_head .= '<th class="historyrow tax">' . usces_tax_label(array(), 'return') . '</th>';
+            }
+            if (usces_is_membersystem_point() && 1 == usces_point_coverage()) {
+                $history_member_head .= '<th class="historyrow used_point">' . __('Used points', 'usces') . '</th>';
+            }
+            if (usces_is_membersystem_point()) {
+                $history_member_head .= '<th class="historyrow get_point">' . __('Acquired points', 'usces') . '</th>';
+            }
+            $total_price = $usces->get_total_price($cart)-$umhs['usedpoint']+$umhs['discount']+$umhs['shipping_charge']+$umhs['cod_fee']+$umhs['tax'];
+            if ($total_price < 0) {
+                $total_price = 0;
+            }
+            $history_member_head .= '</tr></thead>
+				<tbody>
+				<tr class="order_head_value">
+				<td class="order_number">' . usces_get_deco_order_id($umhs['ID']) . '</td>
+				<td class="date purchase_date">' . $umhs['date'] . '</td>
+				<td class="purchase_price">' . usces_crform($total_price, true, false, 'return') . '</td>';
+            if (usces_is_tax_display() && 'products' == usces_get_tax_target()) {
+                $history_member_head .= '<td class=" tax">' . usces_tax($umhs, 'return') . '</td>';
+            }
+            if (usces_is_membersystem_point() && 0 == usces_point_coverage()) {
+                $history_member_head .= '<td class=" used_point">' . number_format($umhs['usedpoint']) . '</td>';
+            }
+            $history_member_head .= '';
+            if (usces_is_tax_display() && 'all' == usces_get_tax_target()) {
+                $history_member_head .= '<td class=" tax">' . usces_tax($umhs, 'return') . '</td>';
+            }
+            if (usces_is_membersystem_point() && 1 == usces_point_coverage()) {
+                $history_member_head .= '<td class=" used_point">' . number_format($umhs['usedpoint']) . '</td>';
+            }
+            if (usces_is_membersystem_point()) {
+                $history_member_head .= '<td class="  get_point">' . number_format($umhs['getpoint']) . '</td>';
+            }
+            $history_member_head .= '</tr>';
+
+            /*---------- 指示書作成ボタン追加 ---------------*/
+
+            $history_member_head .= '<tr class="direction"><th colspan="4" class="direction__links">'. '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書作成フォーム' . '</a>' .'</th></tr>';
+
+            $html .= apply_filters('usces_filter_history_member_head', $history_member_head, $umhs);
+            $html .= apply_filters('usces_filter_member_history_header', null, $umhs);
+            $html .= '</tbody></table>
+                    <table id="retail_table_' . $umhs['ID'] . '" class="retail">';
+
+            /* サムネイル画像 */
+            $history_cart_head = '<thead><tr>
+					<th scope="row" class="cartrownum">No.</th>
+
+					<th class="productname">' . __('Items', 'usces') . '</th>
+
+
+					<th class="subtotal">' . __('Amount', 'usces') . '</th>
+					</tr></thead><tbody>';
+            $html .= apply_filters('usces_filter_history_cart_head', $history_cart_head, $umhs);
+            $cart_count = ($cart && is_array($cart)) ? count($cart) : 0;
+            for ($i=0; $i<$cart_count; $i++) {
+                $cart_row = $cart[$i];
+                $ordercart_id = $cart_row['cart_id'];
+                $post_id = $cart_row['post_id'];
+                $sku = $cart_row['sku'];
+                $sku_code = urldecode($cart_row['sku']);
+                $quantity = $cart_row['quantity'];
+                $options = (!empty($cart_row['options'])) ? $cart_row['options'] : array();
+                $itemCode = $cart_row['item_code'];
+                $itemName = $cart_row['item_name'];
+                $cartItemName = $usces->getCartItemName_byOrder($cart_row);
+                $skuPrice = $cart_row['price'];
+                $pictid = (int)$usces->get_mainpictid($itemCode);
+                $optstr =  '';
+                if (is_array($options) && count($options) > 0) {
+                    foreach ($options as $key => $value) {
+                        if (!empty($key)) {
+                            $key = urldecode($key);
+                            $value = maybe_unserialize($value);
+                            if (is_array($value)) {
+                                $c = '';
+                                $optstr .= esc_html($key) . ' : ';
+                                foreach ($value as $v) {
+                                    $optstr .= $c.nl2br(esc_html(rawurldecode($v)));
+                                    $c = ', ';
+                                }
+                                $optstr .= "<br />\n";
+                            } else {
+                                $optstr .= esc_html($key) . ' : ' . nl2br(esc_html(rawurldecode($value))) . "<br />\n";
+                            }
+                        }
+                    }
+                    $optstr = apply_filters('usces_filter_option_history', $optstr, $options);
+                }
+                $optstr = apply_filters('usces_filter_option_info_history', $optstr, $umhs, $cart_row, $i);
+                $args = compact('cart', 'i', 'cart_row', 'post_id', 'sku');
+
+                $cart_item_name = '' . apply_filters('usces_filter_cart_item_name', esc_html($cartItemName), $args) . '<br />' . $optstr . '' . apply_filters('usces_filter_history_item_name', null, $umhs, $cart_row, $i);
+                $cart_item_name = apply_filters('usces_filter_history_cart_item_name', $cart_item_name, $cartItemName, $optstr, $cart_row, $i, $umhs);
+
+
+                //サムネイル画像削除
+                $history_cart_row = '<tr>
+                    <td class="cartrownum">' . ($i + 1) . '</td>
+
+					<td class="aleft productname">' . $cart_item_name . '</td>
+
+
+					<td class="ssubtotal">' . usces_crform($skuPrice * $cart_row['quantity'], true, false, 'return') . '</td>
+                    </tr>';
+
+                /* ---------------- */
+                $materials = compact('cart_thumbnail', 'post_id', 'pictid', 'cartItemName', 'optstr');
+                $html .= apply_filters('usces_filter_history_cart_row', $history_cart_row, $umhs, $cart_row, $i, $materials);
+            }
+            $html .= '</tbody></table>';
+            $html .= apply_filters('usces_filter_member_history_row', '', $umhs, $cart);
+        }
     }
+    $html .= '</div>';
 
     if ($out == 'return') {
-        return $res;
+        return $html;
     } else {
-        echo $res;
+        echo $html;
     }
-} */
-
-
-//返信メールカスタマイズ
-
-
-//お客様情報消す
-// add_filter("usces_filter_apply_mail_addressform", "my_filter_apply_mail_addressform", 10, 4);
-// function my_filter_apply_mail_addressform($formtag, $type, $data, $order_id)
-// {
-//     if ($type === "order_mail_customer") {
-//         $formtag = "";
-//     }
-//     return $formtag;
-// }
-
-
-
-
+}
 
 //送料消す
 add_filter("usces_filter_send_order_mail_meisai", "my_filter_send_order_mail_meisai", 10, 4);
@@ -400,7 +659,42 @@ function my_filter_send_order_mail_others($msg_others)
     $msg_others = str_replace(array_keys($replace), $replace, $msg_others);
     return $msg_others;
 }
-/* 自動返信のサンキューメールの【その他】を【メッセージ】に（終了）*/
+
+//会員登録後のメールに会員番号・お名前・メアド・マイページURL追記
+
+add_filter('usces_filter_send_regmembermail_message', 'my_send_regmembermail_message', 10, 2);
+
+function my_send_regmembermail_message()
+{
+    global $usces;
+
+    $args = func_get_args();
+
+    $mail_data = $usces->options['mail_data'];
+
+    $user = $args[1];
+
+    $message = $mail_data['header']['membercomp'];
+
+    $message .= '会員番号：' . trim($user['ID']) . "\r\n";
+
+    $message .= 'お名前：' . trim($user['name1']) . trim($user['name2']) . "\r\n";
+
+    $message .= 'メールアドレス：' . trim($user['mailaddress1']) . "\r\n";
+
+    $message .= '会員情報ページURL：'.home_url("/").'usces-member'. "\r\n";
+
+    $message .= $mail_data['footer']['membercomp'];
+
+    return $message;
+}
+
+
+/*---------------------------------
+
+WEAL CART  END
+
+---------------------------------*/
 
 
 //レスポンシブなページネーションを作成する

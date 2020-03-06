@@ -6,7 +6,9 @@
  */
 get_header();
 ?>
+<section class="cart__area">
 
+<div class="section__inner">
 <div id="content" class="two-column">
 <div class="catbox">
 
@@ -14,8 +16,8 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-		<h1 class="member_page_title"><?php _e('Change password', 'usces'); ?></h1>
-		<div class="entry">
+		<h1 class="member_page_title tc"><?php _e('Change password', 'usces'); ?></h1>
+		<div class="entry tc">
 
 			<div id="memberpages">
 
@@ -56,7 +58,9 @@ get_header();
 <?php endif; ?>
 </div><!-- end of catbox -->
 </div><!-- end of content -->
+</div><!-- ./ section__inner -->
 
-<?php get_sidebar( 'other' ); ?>
+</section>
+
 
 <?php get_footer(); ?>

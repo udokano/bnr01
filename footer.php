@@ -23,10 +23,17 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js?var=1.1"></script>
 
-<!-- トップページのみ読み込み -->
+
+
+
 <?php if (is_home() || is_front_page()) : ?>
+
 <script src="<?php echo get_template_directory_uri(); ?>/js/top.js?var=1.1.3"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/price.js"></script>
+
+<?php endif; ?>
+<?php if (is_page('direction')): ?>
+
 <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
       {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -71,6 +78,11 @@
     <script id="template-download" type="text/x-tmpl">
       {% for (var i=0, file; file=o.files[i]; i++) { %}
           <tr class="template-download fade">
+                         {% if (file.error) { %}
+                          {% } else { %}
+                              <td class="fw600 tc">アップロード完了</td>
+                          {% } %}
+
               <td>
                   <span class="preview">
                       {% if (file.thumbnailUrl) { %}
@@ -79,21 +91,21 @@
                   </span>
               </td>
               <td>
-                  {% if (window.innerWidth > 480 || !file.thumbnailUrl) { %}
+
                       <p class="name">
                           {% if (file.url) { %}
-                              <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a><br>
-							  <input type="text" name="itemOption[83][banner][%E5%8F%82%E8%80%83%E7%94%BB%E5%83%8FURL]" value="{%=file.url%}" id="aa">
+                              <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a><br class="pc-display">
+							  <input type="text" name="url__input" value="{%=file.url%}" id="aa" class="sp__hidden">
                           {% } else { %}
                               <span>{%=file.name%}</span>
                           {% } %}
                       </p>
-                  {% } %}
+
                   {% if (file.error) { %}
-                      <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+                      <div><span class="label label-danger">エラー</span>許可されていないファイル形式です</div>
                   {% } %}
               </td>
-              <td>
+              <td class="pc-display">
                   <span class="size">{%=o.formatFileSize(file.size)%}</span>
               </td>
               <td class="btn__cell">
@@ -173,56 +185,28 @@ $(function () {
     dropZone: $(".target")
 });
 
-/* ファイルをドロップしたら次の要素表示、したスクロール */
 
-$(function(){
-$('#fileupload').on('drop', function (e)
-{$('#form__area05').addClass("viv");
-     var pos06 = jQuery("#form__area05").offset().top;
-        $("html,body").animate({ scrollTop: pos06 }, '500');
-     e.preventDefault();
-     var files = e.originalEvent.dataTransfer.files;
-     //We need to send dropped files to Server
-     handleFileUpload(files,obj);
-});
 });
 
 
 
+</script>
 
-/* URL出力用のTEXTのNAMEを削除 */
-$(function () {
-var $test1 = $('#url1');
-$test1.attr("name","");
-});
+<?php endif; ?>
 
-$(window).on("load",function(){
-  $(".template-download").remove();
-});
-
+<?php if (is_page('usces-member')): ?>
+<script>
 /*
-
-テストのための記述のため,一旦非表示
-
-$("input[type='file']").on('change',function(){
-var $test1 = $('#url1');
-var $test2 = $('#aa');
-console.log($test2);
-$test1.attr("name","");
-$("#aa").attr("name","itemOption[83][banner][%E5%8F%82%E8%80%83%E7%94%BB%E5%83%8FURL01]");
-
-jQuery("#url__input input").each(function (i) {
-    jQuery(this).attr('id', 'url' + (i + 1));
-    jQuery(this).attr('class', 'url' + (i + 1));
-
-}); */
-
-
-});
+戻るボタン押したらバリデーション無効化する
+-------------*/
+  jQuery(".back_cart_button").on("click", function () {
+      jQuery("input").removeClass("validate[required]");
+      jQuery("input").removeClass("validate[required,equals[mailaddress1]]");
+      jQuery("input").removeClass("validate[required,equals[pass01]]");
+  });
 
 </script>
 <?php endif; ?>
-<!-- ./トップページのみの読み込み -->
 <?php wp_footer(); ?>
 </body>
 </html>

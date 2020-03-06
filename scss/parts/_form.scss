@@ -217,6 +217,10 @@ textarea {
     .form__area__out {
         position: relative;
 
+        &:last-of-type {
+            padding-bottom: 2.5rem;
+        }
+
         .step__img {
             position: absolute;
             left: 3.5vw;
@@ -621,92 +625,92 @@ textarea {
                         width: 100%;
                     }
                 }
-
-                .file__drop {
-                    .row {
-                        margin: 0;
-
-                        .target {
-                            padding: 2.0rem 1.1rem;
-                            margin: 0 0 18px;
-                            background-color: transparent;
-                            border: 2px dashed #00a0e9;
-                            border-radius: 3px;
-                            font-size: .78rem;
-                            height: 184px;
-
-                            @media (max-width: 767px) {
-                                display: none;
-                            }
-
-                            .sub__text {
-                                font-size: 1.0rem;
-                                color: #299cc5;
-                                margin-bottom: .7rem;
-                                position: relative;
-                                display: inline-block;
-                                font-weight: 600;
-
-                                .up_icon {
-                                    left: -50px;
-                                    top: 5px;
-                                    position: absolute;
-                                    width: 40px;
-                                }
-                            }
-
-                            .sub__text02 {
-                                font-size: .46rem;
-                                color: #6a6a6a;
-                            }
-                        }
-
-                        .input__wrap {
-                            width: 100%;
-
-                            input {
-                                width: 100%;
-                                background-color: #fff;
-                                font-size: .7rem;
-                            }
-                        }
-                    }
-                }
-
-                .text {
-                    @media (max-width: 767px) {
-                        margin-bottom: 1.2rem;
-                    }
-
-                    textarea {
-                        margin-bottom: 0;
-                        height: 240px;
-
-                        ::placeholder {
-                            text-align: left;
-                        }
-                    }
-                }
             }
+        }
 
-            .btn__to__content {
-                @media (max-width: 767px) {
-                    flex-flow: column;
-                }
+        .file__drop {
+            .row {
+                margin: 0;
 
-                .btn__to {
-                    width: 40%;
+                .target {
+                    padding: 2.0rem 1.1rem;
+                    margin: 0 0 18px;
+                    background-color: transparent;
+                    border: 2px dashed #00a0e9;
+                    border-radius: 3px;
+                    font-size: .78rem;
+                    height: 184px;
 
                     @media (max-width: 767px) {
+                        display: none;
+                    }
+
+                    .sub__text {
+                        font-size: 1.0rem;
+                        color: #299cc5;
+                        margin-bottom: .7rem;
+                        position: relative;
+                        display: inline-block;
+                        font-weight: 600;
+
+                        .up_icon {
+                            left: -50px;
+                            top: 5px;
+                            position: absolute;
+                            width: 40px;
+                        }
+                    }
+
+                    .sub__text02 {
+                        font-size: .46rem;
+                        color: #6a6a6a;
+                    }
+                }
+
+                .input__wrap {
+                    width: 100%;
+
+                    input {
                         width: 100%;
-                        margin: .8rem;
+                        background-color: #fff;
+                        font-size: .7rem;
                     }
                 }
+            }
+        }
 
-                p {
-                    font-size: .62rem;
+        .text {
+            @media (max-width: 767px) {
+                margin-bottom: 1.2rem;
+            }
+
+            textarea {
+                margin-bottom: 0;
+                height: 240px;
+
+                ::placeholder {
+                    text-align: left;
                 }
             }
+        }
+    }
+
+    .btn__to__content {
+        @media (max-width: 767px) {
+            flex-flow: column;
+        }
+
+        .btn__to {
+            width: 40%;
+
+            @media (max-width: 767px) {
+                width: 100%;
+                margin: .8rem;
+            }
+        }
+
+        p {
+            font-size: .62rem;
         }
     }
 }
@@ -771,6 +775,8 @@ textarea {
 }
 
 .term {
+    margin-bottom: 1.5rem;
+
     h3 {
         text-align: center;
     }
@@ -1129,7 +1135,7 @@ textarea {
     background-color: #ededed;
     padding: 1.6rem;
     font-size: .74rem;
-    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
 
     h3 {
         color: $yellow;

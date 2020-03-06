@@ -35,16 +35,13 @@ gulp.task('sass', function () {
 
 // 保存時のリロード
 gulp.task('browser-sync', function (done) {
-    browserSync.init({
-
-        //ローカル開発
-        server: {
-            baseDir: "./",
-            index: "index.php"
-        }
-    });
-    done();
+    const browserSyncOption = {
+        proxy: "http://banner.local/"
+    }
+    browserSync.init(browserSyncOption)
+    done()
 });
+
 
 gulp.task('bs-reload', function (done) {
     browserSync.reload();

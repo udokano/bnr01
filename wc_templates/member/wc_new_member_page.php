@@ -1,12 +1,10 @@
 <?php
-/**
- * <meta content="charset=UTF-8">
- * @package Welcart
- * @subpackage Welcart Default Theme
- */
+
 get_header();
 ?>
+<section class="cart__area">
 
+<div class="section__inner">
 <div id="content" class="two-column">
 <div class="catbox">
 
@@ -14,25 +12,19 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-	<h1 class="member_page_title"><?php _e('New enrollment form', 'usces'); ?></h1>
+	<h1 class="member_page_title tc"><?php _e('New enrollment form', 'usces'); ?></h1>
 		<div class="entry">
 
 			<div id="memberpages">
 
 				<div id="newmember">
 
-					<div class="header_explanation">
-						<ul>
-						<li><?php _e('All your personal information  will be protected and handled with carefull attention.', 'usces'); ?></li>
-						<li><?php _e('Your information is entrusted to us for the purpose of providing information and respond to your requests, but to be used for any other purpose. More information, please visit our Privacy  Notice.', 'usces'); ?></li>
-						<li><?php _e('The items marked with *, are mandatory. Please complete.', 'usces'); ?></li>
-						<li><?php _e('Please use Alphanumeric characters for numbers.', 'usces'); ?></li>
-						</ul>
-						<?php do_action('usces_action_newmember_page_header'); ?>
+					<div class="header_explanation tc">
+							<p>この新規入会フォームより送信いただく、個人情報の取り扱いにつきましては細心の注意を払っております。<br>お預かりしたお客様の情報は本人様へのお問い合わせ内容についてのご返答や情報のご提供の目的であり、他の目的に使用することはございません。<br>詳しくは<a href="<?php home_url("/");?>privacy">「プライバシーポリシー」</a>をご覧ください。<br>*印の付いている項目は必須となっております。漏れなくご記入ください。<br class="pc">英数字は半角での記入をお願いいたします。</p>
 					</div><!-- end of header_explanation -->
 
 					<div class="error_message"><?php usces_error_message(); ?></div>
-					<form action="<?php echo apply_filters('usces_filter_newmember_form_action', usces_url('member', 'return')); ?>" method="post" onKeyDown="if (event.keyCode == 13) {return false;}">
+					<form action="<?php echo apply_filters('usces_filter_newmember_form_action', usces_url('member', 'return')); ?>" method="post" onKeyDown="if (event.keyCode == 13) {return false;}" id="new__member__form">
 						<table border="0" cellpadding="0" cellspacing="0" class="customer_form">
 							<tr>
 								<th scope="row"><em><?php _e('*', 'usces'); ?></em><?php _e('e-mail adress', 'usces'); ?></th>
@@ -50,7 +42,7 @@ get_header();
 								<th scope="row"><em><?php _e('*', 'usces'); ?></em><?php _e('Password (confirm)', 'usces'); ?></th>
 								<td colspan="2"><input name="member[password2]" id="password2" type="password" value="<?php usces_memberinfo('password2'); ?>" /></td>
 							</tr>
-							<?php uesces_addressform( 'member', usces_memberinfo(NULL), 'echo' ); ?>
+							<?php uesces_addressform('member', usces_memberinfo(null), 'echo'); ?>
 						</table>
 						<?php usces_agree_member_field(); ?>
 						<div class="send"><?php usces_newmember_button($member_regmode); ?></div>
@@ -71,7 +63,10 @@ get_header();
 <?php endif; ?>
 </div><!-- end of catbox -->
 </div><!-- end of content -->
+</div><!-- ./ section__inner -->
 
-<?php get_sidebar( 'cartmember' ); ?>
+</section>
+
+
 
 <?php get_footer(); ?>

@@ -2,6 +2,11 @@
 get_header();
 ?>
 
+<style>
+.aright.unitprice {
+display:none;
+}
+	</style>
 
 
 <section class="cart__area">
@@ -46,11 +51,11 @@ get_header();
 							<th scope="row" class="num">No.</th>
 							<!-- <th class="thumbnail"> </th> -->
 							<th class="item"><?php _e('item name', 'usces'); ?></th>
-							<th class="quantity"><?php _e('Unit price', 'usces'); ?></th>
+							<!-- <th class="quantity"><?php _e('Unit price', 'usces'); ?></th> -->
 
 							<th class="subtotal"><?php _e('Amount', 'usces'); ?><?php usces_guid_tax(); ?></th>
 						<!-- 	<th class="stock"><?php _e('stock status', 'usces'); ?></th> -->
-							<th class="action" colspan="2">&nbsp;</th>
+							<th class="action" >&nbsp;</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -58,7 +63,7 @@ get_header();
 						</tbody>
 						<tfoot>
 						<tr>
-							<th colspan="4" scope="row" class="aright"><?php _e('total items', 'usces'); ?><?php usces_guid_tax(); ?></th>
+							<th colspan="2" scope="row" class="aright"><?php _e('total items', 'usces'); ?><?php usces_guid_tax(); ?></th>
 							<th class="tc price__txt" colspan="2"><?php usces_crform(usces_total_price('return'), true, false); ?></th>
 						<!-- 	<th colspan="2">&nbsp;</th> -->
 						</tr>

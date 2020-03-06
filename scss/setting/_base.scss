@@ -32,6 +32,7 @@ a {
 
 a img:hover, a:hover {
     opacity: 0.8;
+    text-decoration: none;
 }
 
 li img {
@@ -528,6 +529,10 @@ h3 {
 
 .mb15 {
     margin-bottom: 15px;
+}
+
+.mb30 {
+    margin-bottom: 30px;
 }
 
 /*swiper*/

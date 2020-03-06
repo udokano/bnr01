@@ -46,7 +46,7 @@
 
 <section class="purchase__form" id="form__head">
   <h1>バナーを注文する</h1>
-  <form action="<?php echo USCES_CART_URL ?>" method="post" id="fileupload" enctype="multipart/form-data">
+  <form action="<?php echo USCES_CART_URL ?>" method="post">
     <div id="form__parts" class="narrowcolumn" role="main"> 　　　　　
       <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); usces_the_item("banner"); ?>
@@ -160,82 +160,16 @@
       </div>
       <!--./form__area__out -->
 
-      <!--form__area__start-->
-      <div class="form__area__out" id="form__area04">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step4.png" alt="step04"> </div>
-        <!-- ./step__img -->
-        <div class="section__inner form__inner">
-          <dl class="select__public">
-            <dt>
-              <div class="step__wrap"> <span>ステップ4</span>
-                <div class="step__tit">デザインの指示</div>
-                <!-- ./step__tit -->
-              </div>
-              <!-- ./step__wrap -->
-            </dt>
-            <dd class="file__up__area">
-              <div class="box__content flex">
-                <noscript>
-                <input
-            type="hidden"
-            name="redirect"
-            value="https://blueimp.github.io/jQuery-File-Upload/"/>
-                </noscript>
-                <div class="file__drop">
-                  <div class="row fileupload-buttonbar">
-                    <div class="target">
-                      <div class="sub__text">ここにファイルをドラッグして<br class="pc">
-                        アップロード
-                      <div class="up_icon"><img src="<?php echo get_template_directory_uri(); ?>/img/icons/img_up_icon.png" alt="画像アップロード"></div>
-                    </div>
-                      <p class="sub__text02">※可能ファイル：JPG/PNG/GIF/PDF/PSD/AI/エクセル/パワーポイント/ワード/zip<br>
-                       ※複数ファイルある場合は、ZIP等で圧縮して1つのファイルにおまとめください。<br>
-                       ※データ量上限：10MB</p>
-                    </div>
-                    <div class="input__wrap">
 
-                      <!--   <span class="btn btn-success fileinput-button"><span>ファイルを選択</span> -->
-                      <input type="file" name="files[]" multiple />
-                      </span> <span class="fileupload-process"></span> </div>
-                  </div>
-                </div>
-                <!-- ./file__drop -->
-                <div class="text" id="instruction"> <?php echo usces_the_itemOption("デザイン指示");?> </div>
-                <!-- ./text -->
-              </div>
-              <!-- ./box__content -->
-
-              <!-- この中の表にURL NAMEなどの情報が出力される -->
-              <table role="presentation" class="table table-striped" id="url__out">
-                <tbody class="files" id="files">
-                </tbody>
-              </table>
-              <!-- hidden__url__text URLを受け取るためだけのインプットテキスト -->
-              <div class="hidden__url__text" id="url__input"> <?php echo usces_the_itemOption("参考画像URL");?> </div>
-              <!-- ./hidden__url__text -->
-
-              <!-- 指示書作成ジェネレーターボタン  -->
-
-              <div class="btn__to__content flex al-cent">
-                <div class="btn__to"> <a href="https://u-d.jp/instruction/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/top/btn_to.png" alt="デザイン指示作成支援ツールを起動"></a> </div>
-                <p>※データ容量が大きい場合は別途、FIRE STRAGE等の外部ストレージサービスをご利用ください。<br>
-                  ※複数ファイルある場合は、ZIP等で圧縮して1つのファイルにおまとめください。</p>
-              </div>
-            </dd>
-          </dl>
-        </div>
-        <!--./section__inner-->
-      </div>
-      <!--./form__area__out -->
 
       <!--form__area__start-->
       <div class="form__area__out" id="form__area05">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step5.png" alt="step05"> </div>
+        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step4.png" alt="step04"> </div>
         <!-- ./step__img -->
         <div class="section__inner form__inner">
           <dl class="select__btns">
             <dt>
-              <div class="step__wrap"> <span>ステップ5</span>
+              <div class="step__wrap"> <span>ステップ4</span>
                 <div class="step__tit">元データ(PSD)のご提供</div>
                 <!-- ./step__tit -->
               </div>
@@ -252,12 +186,12 @@
 
       <!--form__area__start-->
       <div class="form__area__out" id="form__area06">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step6.png" alt="step06"> </div>
+        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step5.png" alt="step05"> </div>
         <!-- ./step__img -->
         <div class="section__inner form__inner">
           <dl class="select__public select__btns">
             <dt>
-              <div class="step__wrap"> <span>ステップ6</span>
+              <div class="step__wrap"> <span>ステップ5</span>
                 <div class="step__tit">弊社実績として公開可否</div>
                 <!-- ./step__tit -->
               </div>
@@ -272,7 +206,7 @@
       </div>
       <!--./form__area__out -->
       <div class="form__area__out" id="form__area07">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step7.png" alt="step07"> </div>
+        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step6.png" alt="step06"> </div>
         <!-- ./step__img -->
         <div class="section__inner form__inner">
           <div class="cart__in">

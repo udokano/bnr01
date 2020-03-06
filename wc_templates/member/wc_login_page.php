@@ -1,12 +1,10 @@
 <?php
-/**
- * <meta content="charset=UTF-8">
- * @package Welcart
- * @subpackage Welcart Default Theme
- */
+
 get_header();
 ?>
+<section class="cart__area">
 
+<div class="section__inner">
 <div id="content" class="two-column">
 <div class="catbox">
 
@@ -14,7 +12,7 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-		<h1 class="member_page_title"><?php _e('Log-in for members', 'usces'); ?></h1>
+		<h1 class="member_page_title tc"><?php _e('Log-in for members', 'usces'); ?></h1>
 		<div class="entry">
 
 		<div id="memberpages">
@@ -28,16 +26,16 @@ get_header();
 				<div class="loginbox">
 					<form name="loginform" id="loginform" action="<?php echo apply_filters('usces_filter_login_form_action', USCES_MEMBER_URL); ?>" method="post">
 						<p>
-							<label><?php _e('e-mail adress', 'usces'); ?><br />
+							<label><span><?php _e('e-mail adress', 'usces');?></span>
 							<input type="text" name="loginmail" id="loginmail" class="loginmail" value="<?php echo esc_attr(usces_remembername('return')); ?>" size="20" /></label>
 						</p>
 						<p>
-							<label><?php _e('password', 'usces'); ?><br />
+							<label><span><?php _e('password', 'usces');?></span>
 							<input class="hidden" value=" " />
 							<input type="password" name="loginpass" id="loginpass" class="loginpass" size="20" autocomplete="off" /></label>
 						</p>
 						<p class="forgetmenot">
-							<label><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e('memorize login information', 'usces'); ?></label>
+							<label><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php _e('memorize login information', 'usces');?></span></label>
 						</p>
 						<p class="submit">
 						<?php usces_login_button(); ?>
@@ -48,8 +46,8 @@ get_header();
 						<a href="<?php usces_url('lostmemberpassword'); ?>" title="<?php _e('Did you forget your password?', 'usces'); ?>"><?php _e('Did you forget your password?', 'usces'); ?></a>
 					</p>
 					<p id="nav">
-					<?php if ( ! usces_is_login() ) : ?>
-						<a href="<?php usces_url('newmember') . apply_filters('usces_filter_newmember_urlquery', NULL); ?>" title="<?php _e('New enrollment for membership.', 'usces'); ?>"><?php _e('New enrollment for membership.', 'usces'); ?></a>
+					<?php if (! usces_is_login()) : ?>
+						<a href="<?php usces_url('newmember') . apply_filters('usces_filter_newmember_urlquery', null); ?>" title="<?php _e('New enrollment for membership.', 'usces'); ?>"><?php _e('New enrollment for membership.', 'usces'); ?></a>
 					<?php endif; ?>
 					</p>
 				</div>
@@ -62,7 +60,7 @@ get_header();
 		</div><!-- end of memberpages -->
 
 		<script type="text/javascript">
-		<?php if ( usces_is_login() ) : ?>
+		<?php if (usces_is_login()) : ?>
 			setTimeout( function(){ try{
 			d = document.getElementById('loginpass');
 			d.value = '';
@@ -81,7 +79,8 @@ get_header();
 <?php endif; ?>
 </div><!-- end of catbox -->
 </div><!-- end of content -->
+</div><!-- end of content -->
+</div><!-- ./ section__inner -->
 
-<?php get_sidebar( 'other' ); ?>
 
 <?php get_footer(); ?>

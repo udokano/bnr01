@@ -55,7 +55,7 @@ jQuery(function ($) {
 
 
   //スムーススクロール
-  $("a[href*=#]")//^を*に換え、hrefのどこかに#を持つ場合に実行
+  $("a[href='#']")//^を*に換え、hrefのどこかに#を持つ場合に実行
     .not("[data-lity]")
     .click(function () {
       if (location.pathname.replace(/^\//, '') !== this.pathname.replace(/^\//, '') || location.hostname !== this.hostname) return;//リンク先が別のページの場合は終了
