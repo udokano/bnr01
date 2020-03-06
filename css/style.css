@@ -35,6 +35,7 @@ a {
 
 a img:hover, a:hover {
   opacity: 0.8;
+  text-decoration: none;
 }
 
 li img {
@@ -540,6 +541,10 @@ h3 {
 
 .mb15 {
   margin-bottom: 15px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
 }
 
 /*swiper*/
@@ -1539,6 +1544,10 @@ textarea {
   position: relative;
 }
 
+.purchase__form .form__area__out:last-of-type {
+  padding-bottom: 2.5rem;
+}
+
 .purchase__form .form__area__out .step__img {
   -webkit-transform: translateY(-50%);
   left: 3.5vw;
@@ -1915,11 +1924,11 @@ textarea {
   }
 }
 
-.purchase__form .form__inner .file__up__area .box__content .file__drop .row {
+.purchase__form .form__inner .file__drop .row {
   margin: 0;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target {
+.purchase__form .form__inner .file__drop .row .target {
   background-color: transparent;
   border: 2px dashed #00a0e9;
   border-radius: 3px;
@@ -1930,12 +1939,12 @@ textarea {
 }
 
 @media (max-width: 767px) {
-  .purchase__form .form__inner .file__up__area .box__content .file__drop .row .target {
+  .purchase__form .form__inner .file__drop .row .target {
     display: none;
   }
 }
 
-.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text {
+.purchase__form .form__inner .file__drop .row .target .sub__text {
   color: #299cc5;
   display: inline-block;
   font-size: 1.0rem;
@@ -1944,61 +1953,61 @@ textarea {
   position: relative;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text .up_icon {
+.purchase__form .form__inner .file__drop .row .target .sub__text .up_icon {
   left: -50px;
   position: absolute;
   top: 5px;
   width: 40px;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .file__drop .row .target .sub__text02 {
+.purchase__form .form__inner .file__drop .row .target .sub__text02 {
   color: #6a6a6a;
   font-size: .46rem;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .file__drop .row .input__wrap {
+.purchase__form .form__inner .file__drop .row .input__wrap {
   width: 100%;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .file__drop .row .input__wrap input {
+.purchase__form .form__inner .file__drop .row .input__wrap input {
   background-color: #fff;
   font-size: .7rem;
   width: 100%;
 }
 
 @media (max-width: 767px) {
-  .purchase__form .form__inner .file__up__area .box__content .text {
+  .purchase__form .form__inner .text {
     margin-bottom: 1.2rem;
   }
 }
 
-.purchase__form .form__inner .file__up__area .box__content .text textarea {
+.purchase__form .form__inner .text textarea {
   height: 240px;
   margin-bottom: 0;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .text textarea ::-webkit-input-placeholder {
+.purchase__form .form__inner .text textarea ::-webkit-input-placeholder {
   text-align: left;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .text textarea ::-moz-placeholder {
+.purchase__form .form__inner .text textarea ::-moz-placeholder {
   text-align: left;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .text textarea :-ms-input-placeholder {
+.purchase__form .form__inner .text textarea :-ms-input-placeholder {
   text-align: left;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .text textarea ::-ms-input-placeholder {
+.purchase__form .form__inner .text textarea ::-ms-input-placeholder {
   text-align: left;
 }
 
-.purchase__form .form__inner .file__up__area .box__content .text textarea ::placeholder {
+.purchase__form .form__inner .text textarea ::placeholder {
   text-align: left;
 }
 
 @media (max-width: 767px) {
-  .purchase__form .form__inner .file__up__area .btn__to__content {
+  .purchase__form .btn__to__content {
     -ms-flex-flow: column;
     -webkit-box-direction: normal;
     -webkit-box-orient: vertical;
@@ -2006,18 +2015,18 @@ textarea {
   }
 }
 
-.purchase__form .form__inner .file__up__area .btn__to__content .btn__to {
+.purchase__form .btn__to__content .btn__to {
   width: 40%;
 }
 
 @media (max-width: 767px) {
-  .purchase__form .form__inner .file__up__area .btn__to__content .btn__to {
+  .purchase__form .btn__to__content .btn__to {
     margin: .8rem;
     width: 100%;
   }
 }
 
-.purchase__form .form__inner .file__up__area .btn__to__content p {
+.purchase__form .btn__to__content p {
   font-size: .62rem;
 }
 
@@ -2072,6 +2081,10 @@ textarea {
 #url__out .preview {
   display: inline-block;
   width: 45px;
+}
+
+.term {
+  margin-bottom: 1.5rem;
 }
 
 .term h3 {
@@ -2355,9 +2368,9 @@ textarea {
   background-color: #ededed;
   font-size: .74rem;
   height: 320px;
-  margin-bottom: 1.8rem;
   overflow-y: scroll;
   padding: 1.6rem;
+  padding-bottom: 1.8rem;
   width: 100%;
 }
 
@@ -2581,6 +2594,12 @@ textarea {
   /*戻る系のボタン色変更*/
 }
 
+@media (max-width: 767px) {
+  .cart__area .send input {
+    margin-bottom: 1.0rem;
+  }
+}
+
 .cart__area .send input, .cart__area .send .to_customerinfo_button {
   background-color: #13b131;
   color: #fff;
@@ -2593,6 +2612,23 @@ textarea {
 
 .continue_shopping_button {
   background-color: #666 !important;
+}
+
+/* 最終確認ページ */
+#info-confirm p {
+  font-size: .78rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #info-confirm #cart_table .subtotal {
+    width: 113px;
+  }
+}
+
+#info-confirm #cart_table .full__total {
+  font-size: .94rem !important;
+  font-weight: 600;
 }
 
 #cart_completion h1 {
@@ -2660,6 +2696,307 @@ textarea {
     font-size: .5rem;
     padding: 2px;
   }
+  /* 最終確認ページ */
+  #info-confirm #cart_table .aright {
+    text-align: center !important;
+  }
+  #info-confirm #cart_table .full__total {
+    font-size: .94rem !important;
+    font-weight: 600;
+  }
+  #info-confirm #cart_table tbody .subtotal {
+    text-align: center !important;
+  }
+}
+
+/*
+
+ログインページ関連
+
+-------------------------------*/
+/* ログイン・パスワードロストボックス */
+#memberpages .error_message {
+  text-align: center;
+}
+
+#memberpages div.loginbox {
+  background-color: #f4f4f4;
+  border: none;
+  margin-top: 0;
+  max-width: 465px;
+  padding: 1.42rem 1.68rem;
+  width: 100%;
+}
+
+#memberpages div.loginbox input[type="text"], #memberpages div.loginbox input[type="password"] {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  line-height: 1.0;
+  padding: 0;
+  padding: .4rem .45rem;
+  width: 100%;
+}
+
+#memberpages div.loginbox input.member_login_button {
+  display: block;
+  margin: 0 auto;
+  max-width: 220px;
+  width: 68%;
+}
+
+#memberpages div.loginbox label {
+  width: 100%;
+}
+
+#memberpages div.loginbox label span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .35rem;
+}
+
+#memberpages div.loginbox a {
+  color: #ff3e7e;
+  display: block;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-bottom: .28rem;
+}
+
+#memberpages div.loginbox .forgetmenot label {
+  vertical-align: middle;
+}
+
+#memberpages div.loginbox .forgetmenot label span, #memberpages div.loginbox .forgetmenot label input {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  width: auto;
+}
+
+#memberpages div.loginbox .forgetmenot label input {
+  margin-right: .6rem;
+}
+
+#memberpages div.loginbox .forgetmenot label span {
+  line-height: 1.0;
+}
+
+#memberpages div.loginbox p#nav {
+  padding: 0;
+}
+
+#memberpages .member_submenu {
+  text-align: center;
+}
+
+#memberpages .member_submenu li {
+  display: inline-block;
+}
+
+#memberpages .member_submenu li a {
+  color: #ff3e7e;
+  font-size: .95rem;
+}
+
+#newmember .header_explanation {
+  font-size: .7rem;
+  margin-bottom: 1.8rem;
+}
+
+#newmember .header_explanation ul li {
+  font-size: .7rem;
+}
+
+#newmember .customer_form input {
+  width: 100%;
+}
+
+#newmember .customer_form input#mailaddress1, #newmember .customer_form input#mailaddress2, #newmember .customer_form input[type='password'] {
+  width: 48%;
+}
+
+@media (max-width: 767px) {
+  #newmember .customer_form input#mailaddress1, #newmember .customer_form input#mailaddress2, #newmember .customer_form input[type='password'] {
+    width: 100%;
+  }
+}
+
+#newmember .customer_form input.wh40 {
+  width: 40% !important;
+}
+
+@media (max-width: 767px) {
+  #newmember .customer_form input.wh40 {
+    width: 100% !important;
+  }
+}
+
+#newmember .customer_form tr th {
+  font-size: .9rem;
+  width: 27%;
+}
+
+@media (max-width: 767px) {
+  #newmember .customer_form tr th {
+    font-size: .7rem;
+  }
+}
+
+#newmember .customer_form tr td {
+  font-size: .78rem;
+}
+
+#newmember .customer_form tr td, #newmember .customer_form tr th {
+  padding: .78rem;
+  position: relative;
+  vertical-align: middle;
+}
+
+#newmember input[type="submit"] {
+  padding: 1.2rem 2.5rem !important;
+}
+
+/* マイページテーブル */
+#memberinfo {
+  /* 会員情報修正フォーム */
+  /*   .back__to__btn {
+       background-color: $yellow;
+   }
+*/
+}
+
+#memberinfo h3 {
+  background-color: #2d417f;
+  border: none;
+  font-size: 1.08rem;
+  height: auto;
+  margin-bottom: 2.5rem;
+  padding: .7rem 0;
+  text-align: center;
+}
+
+#memberinfo #member__info__table {
+  margin-bottom: 1.1rem;
+}
+
+#memberinfo #member__info__table tr th, #memberinfo #member__info__table tr td {
+  padding: .7rem 1.2rem !important;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  #memberinfo #member__info__table tr th, #memberinfo #member__info__table tr td {
+    padding: .4rem .2rem !important;
+  }
+}
+
+#memberinfo table {
+  border-collapse: collapse;
+  font-size: .88rem;
+  margin-bottom: 1.5rem;
+}
+
+#memberinfo table a {
+  color: #777;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 767px) {
+  #memberinfo table a {
+    font-size: .62rem;
+  }
+}
+
+#memberinfo table tr td, #memberinfo table tr th {
+  font-size: 0.88rem !important;
+  padding: .4rem !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media (max-width: 767px) {
+  #memberinfo table tr td, #memberinfo table tr th {
+    font-size: .6rem !important;
+    padding: .35rem .38rem !important;
+  }
+}
+
+#memberinfo table tr td.aleft {
+  text-align: left;
+}
+
+#memberinfo table tr.direction .direction__links {
+  background-color: #fff;
+  padding: 1.0rem 0 !important;
+}
+
+#memberinfo table tr.direction .direction__links a {
+  background-color: #10a84c;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.1rem;
+  height: 59px;
+  line-height: 59px;
+  padding: 0 1.28rem;
+  text-align: center;
+}
+
+#memberinfo table tbody tr {
+  /* 領主書ダウンロード横の隙間削除 */
+}
+
+#memberinfo table tbody tr td.retail:last-of-type {
+  display: none;
+}
+
+#memberinfo #customer_form {
+  margin-bottom: 1.7rem;
+}
+
+#memberinfo #customer_form tr td, #memberinfo #customer_form tr th {
+  font-size: .8rem !important;
+  padding: .4rem .7rem !important;
+  text-align: left !important;
+}
+
+@media (max-width: 767px) {
+  #memberinfo #customer_form tr td, #memberinfo #customer_form tr th {
+    font-size: .6rem !important;
+    padding: .4rem .5rem !important;
+  }
+}
+
+#memberinfo #customer_form tr td input, #memberinfo #customer_form tr th input {
+  width: 100%;
+}
+
+#memberinfo #customer_form tr td input#mailaddress1, #memberinfo #customer_form tr td input#mailaddress2, #memberinfo #customer_form tr td input[type='password'], #memberinfo #customer_form tr td #tel, #memberinfo #customer_form tr th input#mailaddress1, #memberinfo #customer_form tr th input#mailaddress2, #memberinfo #customer_form tr th input[type='password'], #memberinfo #customer_form tr th #tel {
+  width: 48%;
+}
+
+@media (max-width: 767px) {
+  #memberinfo #customer_form tr td input#mailaddress1, #memberinfo #customer_form tr td input#mailaddress2, #memberinfo #customer_form tr td input[type='password'], #memberinfo #customer_form tr td #tel, #memberinfo #customer_form tr th input#mailaddress1, #memberinfo #customer_form tr th input#mailaddress2, #memberinfo #customer_form tr th input[type='password'], #memberinfo #customer_form tr th #tel {
+    width: 100%;
+  }
+}
+
+#memberinfo #customer_form tr th {
+  width: 20% !important;
+}
+
+#memberinfo #customer_form tr td {
+  padding: .9rem .7rem !important;
+}
+
+#memberinfo .reave__btn {
+  background-color: #777777;
+}
+
+#memberinfo .send input {
+  font-size: .8rem;
+  margin-bottom: .8rem;
+  padding: .7rem .72rem;
 }
 
 /*
@@ -2963,6 +3300,440 @@ textarea {
 .thanks .section__inner p {
   font-size: .8rem;
   line-height: 1.92;
+}
+
+/* 指示書作成フォーム */
+.direction__bg.pages__title {
+  background: #80bbf7;
+  margin-bottom: 0;
+}
+
+.direction {
+  background-color: #f3f3f3;
+}
+
+.direction .section__inner .direction__form h2 {
+  background-color: #2d417f;
+}
+
+.direction .section__inner .direction__form .direction__form__content {
+  padding-top: 3.8rem;
+  /* 送信完了画面メッセージ */
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content {
+    padding: 2.5rem 1.2rem;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .direction__tit {
+  font-size: 1.36rem;
+  font-weight: 600;
+  margin-bottom: 2.2rem;
+  text-align: center;
+}
+
+.direction .section__inner .direction__form .direction__form__content .mw_wp_form.mw_wp_form_complete p {
+  font-size: 1.28rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.direction .section__inner .direction__form .direction__form__content .col__02 {
+  padding: 0 0 2.5rem;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .col__02 {
+    -ms-flex-flow: column;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-flow: column;
+    padding-bottom: 0;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .col__02 dl {
+  border: none;
+  padding: 0;
+  width: 48%;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .col__02 dl {
+    margin-bottom: 1.75rem;
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .col__02 dl dd input {
+  width: 100%;
+}
+
+.direction .section__inner .direction__form .direction__form__content .col__01 {
+  border-bottom: 1px solid #e3e3e3;
+  margin-bottom: 4.5rem;
+}
+
+.direction .section__inner .direction__form .direction__form__content .col__01 dl dd input {
+  width: 48%;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .col__01 dl dd input {
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content {
+  margin-bottom: 1.8rem;
+  /* ファイルアップロードテーブル */
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content {
+    -ms-flex-flow: column-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    flex-flow: column-reverse;
+    margin-bottom: 0;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop, .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text {
+  width: 100%;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop textarea, .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea {
+  font-size: .7rem;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop, .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text {
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row {
+  margin: 0;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target {
+  background-color: transparent;
+  border: 2px dashed #00a0e9;
+  border-radius: 3px;
+  color: #299cc5;
+  font-size: .78rem;
+  height: auto;
+  margin: 0 0 18px;
+  padding: 4.8rem 1.1rem;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target {
+    border: none;
+    display: none;
+    height: auto;
+    padding: 0;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .sub__text, .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target h3 {
+  color: #299cc5;
+  display: inline-block;
+  font-size: 1.0rem;
+  font-weight: 600;
+  margin-bottom: .7rem;
+  position: relative;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .sub__text .up_icon, .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target h3 .up_icon {
+  left: -50px;
+  position: absolute;
+  top: 5px;
+  width: 40px;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target h3 {
+  display: inline-block;
+  padding: 0 2.8rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target h3::after {
+    -webkit-transform: translateY(-50%);
+    background: url(../img/icons/img_up_icon.png) no-repeat 0% 50%/auto 100%;
+    content: "";
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target h3 {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-container {
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-handler {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-handler .codedropz-upload-inner {
+    overflow: visible;
+    white-space: pre-wrap;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-handler .codedropz-upload-inner span {
+  display: block;
+  font-size: .6rem;
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-handler .codedropz-upload-inner span {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-handler .codedropz-upload-inner .codedropz-btn-wrap {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-handler .codedropz-upload-inner .codedropz-btn-wrap .cd-upload-btn {
+    background-color: #ffa200;
+    color: #fff;
+    display: block;
+    height: 59px;
+    line-height: 59px;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .sub__text02 {
+  color: #6a6a6a;
+  font-size: .46rem;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .target .codedropz-upload-handler {
+  border: none;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .input__wrap {
+  background-color: #e3e3e3;
+  margin-bottom: 1.7rem;
+  width: 44%;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .input__wrap input {
+  display: none;
+  font-size: .84rem;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .input__wrap {
+    background-color: none;
+    display: none;
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .file_up {
+  background-color: #00a0e9;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: .58rem;
+  height: 29px;
+  line-height: 29px;
+  margin: 0 auto 1.8rem;
+  text-align: center;
+  width: 22%;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .file__drop .row .file_up {
+    background-color: #ffa200;
+    font-size: .85rem;
+    height: 59px;
+    line-height: 59px;
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td .preview {
+    display: block;
+    margin: 0 auto;
+    width: 64%;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td .sp__hidden {
+    height: 0;
+    padding: 0;
+    visibility: hidden;
+    width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td .name {
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td .name a {
+    display: inline;
+    margin-bottom: 0;
+    word-break: break-all;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td.btn__cell {
+  padding-right: 1.1rem;
+  text-align: right;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td.btn__cell .btn {
+  width: 220px;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content #url__out tbody td.btn__cell .btn {
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text {
+  margin-top: 1.7rem;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea {
+  font-size: .88rem;
+  height: 240px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-webkit-input-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-moz-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea:-ms-input-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-ms-input-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-webkit-input-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-moz-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea:-ms-input-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-ms-input-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::placeholder {
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .btn__to__content {
+    -ms-flex-flow: column;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-flow: column;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .btn__to__content .btn__to {
+  width: 55%;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .btn__to__content .btn__to {
+    margin: .8rem;
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .file__up__area .btn__to__content p {
+  font-size: .58rem;
+  width: 40%;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .file__up__area .btn__to__content p {
+    width: 100%;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .send {
+  background-color: #10a84c !important;
 }
 
 /*

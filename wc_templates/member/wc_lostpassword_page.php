@@ -1,12 +1,11 @@
 <?php
-/**
- * <meta content="charset=UTF-8">
- * @package Welcart
- * @subpackage Welcart Default Theme
- */
+
 get_header();
 ?>
 
+<section class="cart__area">
+
+<div class="section__inner">
 <div id="content" class="two-column">
 <div class="catbox">
 
@@ -14,7 +13,7 @@ get_header();
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
-	<h1 class="member_page_title"><?php _e('The new password acquisition', 'usces'); ?></h1>
+	<h1 class="member_page_title tc"><?php _e('The new password acquisition', 'usces'); ?></h1>
 		<div class="entry">
 
 			<div id="memberpages">
@@ -28,17 +27,17 @@ get_header();
 					<div class="loginbox">
 						<form name="loginform" id="loginform" action="<?php usces_url('member'); ?>" method="post" onKeyDown="if (event.keyCode == 13) {return false;}">
 							<p>
-								<label><?php _e('e-mail adress', 'usces'); ?><br />
+								<label><span><?php _e('e-mail adress', 'usces'); ?></span>
 								<input type="text" name="loginmail" id="loginmail" class="loginmail" value="" size="20" /></label>
 							</p>
-							<p class="submit">
+							<p class="submit tc">
 								<input type="submit" name="lostpassword" id="member_login" value="<?php _e('Obtain new password', 'usces'); ?>" />
 							</p>
 							<?php do_action('usces_action_newpass_page_inform'); ?>
 						</form>
-						<div><?php _e('Change your password by following the instruction in this mail.', 'usces'); ?></div>
-						<p id="nav">
-						<?php if ( ! usces_is_login() ) : ?>
+						<div class="tc" style="font-size: .94rem; margin-bottom: 1.1rem;"><?php _e('Change your password by following the instruction in this mail.', 'usces'); ?></div>
+						<p id="nav" class="tc">
+						<?php if (! usces_is_login()) : ?>
 							<a href="<?php usces_url('login'); ?>" title="<?php _e('Log-in', 'usces'); ?>"><?php _e('Log-in', 'usces'); ?></a>
 						<?php endif; ?>
 						</p>
@@ -62,6 +61,9 @@ get_header();
 </div><!-- end of catbox -->
 </div><!-- end of content -->
 
-<?php get_sidebar( 'other' ); ?>
+</div><!-- ./ section__inner -->
+
+</section>
+
 
 <?php get_footer(); ?>

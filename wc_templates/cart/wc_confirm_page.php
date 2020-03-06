@@ -19,12 +19,12 @@ get_header();
 <div class="entry">
 
 <div id="info-confirm">
-	<div class="confiem_notice tc mb15">
+	<p class="confiem_notice tc mb15">
 	<?php _e('Please do not change product addition and amount of it with the other window with displaying this page.', 'usces'); ?>
-	</div>
+	</p>
 
-	<p class="sub__notice tc">
-	※ご入金確認後、バナーのデザイン着工とさせていただきます。<br>お申込みから3営業日までに本メール記載の口座へお振込みをお願い致します。</p>
+	<p class="sub__notice tc ">
+	※ご入金確認後、バナーのデザイン着工とさせていただきます。<br class="pc">お申込みから3営業日までに本メール記載の口座へお振込みをお願い致します。</p>
 
 	<div class="usccart_navi">
 		<ol class="ucart">
@@ -47,7 +47,7 @@ get_header();
 				<th scope="row" class="num"><?php _e('No.', 'usces'); ?></th>
 
 				<th><?php _e('Items', 'usces'); ?></th>
-				<th class="price"><?php _e('Unit price', 'usces'); ?></th>
+			<!-- 	<th class="price"><?php _e('Unit price', 'usces'); ?></th> -->
 
 				<th class="subtotal"><?php _e('Amount', 'usces'); ?><?php usces_guid_tax(); ?></th>
 
@@ -104,8 +104,8 @@ get_header();
 			</tr>
 <?php endif; ?>
 			<tr>
-				<th colspan="2" class="aright"><?php _e('Total Amount', 'usces'); ?></th>
-				<th class="aright" colspan="2"><?php usces_crform($usces_entries['order']['total_full_price'], true, false); ?></th>
+				<th colspan="2" class="aright full__total"><?php _e('Total Amount', 'usces'); ?></th>
+				<th class="aright full__total" colspan="2"><?php usces_crform($usces_entries['order']['total_full_price'], true, false); ?></th>
 			</tr>
 			</tfoot>
 		</table>

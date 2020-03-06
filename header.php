@@ -16,13 +16,14 @@
 
   gtag('config', 'AW-787386783');
 </script>
-<?php if (is_home() || is_front_page()) : ?>
 <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous"
     />
+<?php if (is_page('direction')): ?>
+
 
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/blueimp-gallery.min.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery.fileupload.css" />
@@ -37,10 +38,23 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.4.91">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.5.1">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script> -->
+<script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
+
+
+<!-- 指示書作成ページ　フォーム内容保存 -->
+<?php if (is_page('direction')): ?>
+<script>
+
+$(function(){
+$('form').garlic();
+});
+
+</script>
+<?php endif; ?>
+
 
 <script>
 
@@ -74,23 +88,62 @@ jQuery("#name1").addClass("validate[required]");
 jQuery("#name2").addClass("validate[required]");
 jQuery("#tel").addClass("validate[required]");
 });
+
+jQuery(function () {
+    jQuery("#customer_form").validationEngine();
+    jQuery("#mailaddress1").addClass("validate[required]");
+    jQuery("#mailaddress2").addClass("validate[required,equals[mailaddress1]]");
+    jQuery("#pass01").addClass("validate[required]");
+    jQuery("#pass02").addClass("validate[required,equals[pass01]]");
+    jQuery("#name1").addClass("validate[required]");
+    jQuery("#name2").addClass("validate[required]");
+    jQuery("#tel").addClass("validate[required]");
+});
+
+/*
+戻るボタン押したらバリデーション無効化する
+-------------*/
+  jQuery(".back_cart_button").on("click", function () {
+      jQuery("input").removeClass("validate[required]");
+      jQuery("input").removeClass("validate[required,equals[mailaddress1]]");
+      jQuery("input").removeClass("validate[required,equals[pass01]]");
+  });
+
+
 <?php endif; ?>
 
 <?php if (is_page('contact')): ?>
 
 /* お問い合わせページ */
 jQuery(document).ready(function(){
-jQuery("input[name='seimei']").addClass("validate[required]");
+jQuery("input[name='注文番号']").addClass("validate[required]");
 jQuery("input[name='your-email']").addClass("validate[required]");
 jQuery(".wpcf7-form").validationEngine('attach', {
     　promptPosition:"topLeft"
   　});
 });
 <?php endif; ?>
+
+<?php if (is_page('usces-member')): ?>
+
+/* 新規会員入会ページ */
+jQuery(document).ready(function(){
+jQuery("#mailaddress1").addClass("validate[required]");
+jQuery("#mailaddress2").addClass("validate[required,equals[mailaddress1]]");
+      jQuery("#password1").addClass("validate[required]");
+     jQuery("#password2").addClass("validate[required,equals[password1]]");
+     jQuery("#name1").addClass("validate[required]");
+jQuery("#name2").addClass("validate[required]");
+jQuery("#tel").addClass("validate[required]");
+jQuery("#new__member__form").validationEngine('attach', {
+    　promptPosition:"topLeft"
+  　});
+});
+<?php endif; ?>
+
 <?php if (is_home() || is_front_page()) : ?>
 
 /* リロードフォームクリア */
-
 window.onpageshow = function() {
   $(".template-download").remove();
   $("form").each(function(){
@@ -127,6 +180,14 @@ window.onpageshow = function() {
         <li><a href="<?php echo home_url('/');?>flow"><span>納品までの<br class="pc">流れ</span></a></li>
         <li><a href="<?php echo home_url('/');?>retouch"><span>修正について</span></a></li>
         <li><a href="<?php echo home_url('/');?>faq"><span>Q&A</span></a></li>
+        <?php if (usces_is_login()): ?>
+        <?php else: ?>
+        <li><a href="<?php echo home_url('/');?>usces-member/?page=newmember"><span>会員登録</span></a></li>
+        <?php endif; ?>
+        <li> <a href="<?php echo home_url('/');?>usces-member">
+<?php if (usces_is_login()): ?>
+マイページ<?php else: ?>ログイン<?php endif; ?>
+      </a></li>
         <li><a href="<?php echo home_url('/');?>contact"><span>お問い合わせ</span></a></li>
       </ul>
     </nav>

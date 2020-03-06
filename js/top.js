@@ -256,7 +256,7 @@ $(function () {
     setTimeout(function () {
         $("#form__area02").addClass("hidden__filed");
         $("#form__area03").addClass("hidden__filed");
-        $("#form__area04").addClass("hidden__filed");
+        /*   $("#form__area04").addClass("hidden__filed");*/
         $("#form__area05").addClass("hidden__filed");
         $("#form__area06").addClass("hidden__filed");
         $("#form__area07").addClass("hidden__filed");
@@ -279,7 +279,7 @@ $(function () {
 
     var pos04 = jQuery("#form__area03").offset().top;
 
-    var pos05 = jQuery("#form__area04").offset().top;
+    /* var pos05 = jQuery("#form__area04").offset().top; */
 
     var pos06 = jQuery("#form__area05").offset().top;
 
@@ -367,10 +367,10 @@ $(function () {
         jQuery('#form__area04').addClass("viv");
         jQuery('#form__area05').addClass("viv");
 
-        jQuery("html,body").animate({ scrollTop: pos05 }, '500');
+        jQuery("html,body").animate({ scrollTop: pos06 }, '500');
     });
 
-    $("#instruction textarea").change(function () {
+    /* $("#instruction textarea").change(function () {
         $('#form__area05').addClass("viv");
         $("html,body").animate({ scrollTop: pos06 }, '500');
     });
@@ -378,7 +378,7 @@ $(function () {
     $("input[type='file']").change(function () {
         $('#form__area05').addClass("viv");
         $("html,body").animate({ scrollTop: pos06 }, '500');
-    });
+    }); */
 
     $("#data input").change(function () {
         $('#form__area06').addClass("viv");

@@ -158,6 +158,12 @@
         border: none !important;
         text-align: center;
 
+        input {
+            @media (max-width: 767px) {
+                margin-bottom: 1.0rem;
+            }
+        }
+
         input, .to_customerinfo_button {
             padding: 1.2rem 1.1rem !important;
             color: #fff;
@@ -173,6 +179,34 @@
 
 .continue_shopping_button {
     background-color: #666 !important;
+}
+
+/* 最終確認ページ */
+#info-confirm {
+    p {
+        font-size: .78rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #cart_table {
+        .subtotal {
+            @media (min-width: 768px) {
+                width: 113px;
+            }
+        }
+
+        .full__total {
+            font-size: .94rem !important;
+            font-weight: 600;
+        }
+
+        tbody {
+            .subtotal {
+                //text-align: center !important;
+           
+            }
+        }
+    }
 }
 
 #cart_completion {
@@ -260,6 +294,329 @@
 
         thead {
             tr {}
+        }
+    }
+
+    /* 最終確認ページ */
+    #info-confirm {
+        #cart_table {
+            .aright {
+                text-align: center !important;
+            }
+
+            .full__total {
+                font-size: .94rem !important;
+                font-weight: 600;
+            }
+
+            tbody {
+                .subtotal {
+                    text-align: center !important;
+                }
+            }
+        }
+    }
+}
+
+/*
+
+ログインページ関連
+
+-------------------------------*/
+
+/* ログイン・パスワードロストボックス */
+
+#memberpages {
+    .error_message {
+        text-align: center;
+    }
+
+    div.loginbox {
+        margin-top: 0;
+        max-width: 465px;
+        width: 100%;
+        padding: 1.42rem 1.68rem;
+        background-color: rgb(244, 244, 244);
+        border: none;
+
+        input[type="text"], input[type="password"] {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 100%;
+            line-height: 1.0;
+            padding: 0;
+            padding: .4rem .45rem;
+            border-radius: 0;
+        }
+
+        input.member_login_button {
+            display: block;
+            width: 68%;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        label {
+            width: 100%;
+
+            span {
+                display: block;
+                margin-bottom: .35rem;
+                font-weight: 600;
+            }
+        }
+
+        a {
+            font-size: .9rem;
+            display: block;
+            margin-bottom: .28rem;
+            color: $pink;
+            font-weight: 600;
+        }
+
+        .forgetmenot {
+            label {
+                vertical-align: middle;
+
+                span, input {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: auto;
+                    margin-bottom: 0;
+                }
+
+                input {
+                    margin-right: .6rem;
+                }
+
+                span {
+                    line-height: 1.0;
+                }
+            }
+        }
+
+        p#nav {
+            padding: 0;
+        }
+    }
+
+    .member_submenu {
+        text-align: center;
+
+        li {
+            display: inline-block;
+
+            a {
+                color: $pink;
+                font-size: .95rem;
+            }
+        }
+    }
+}
+
+#newmember {
+    .header_explanation {
+        font-size: .7rem;
+        margin-bottom: 1.8rem;
+
+        ul {
+            li {
+                font-size: .7rem;
+            }
+        }
+    }
+
+    .customer_form {
+        input {
+            width: 100%;
+        }
+
+        input#mailaddress1, input#mailaddress2, input[type='password'] {
+            width: 48%;
+
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+        }
+
+        input.wh40 {
+            width: 40% !important;
+
+            @media (max-width: 767px) {
+                width: 100% !important;
+            }
+        }
+
+        tr {
+            th {
+                width: 27%;
+                font-size: .9rem;
+
+                @media (max-width: 767px) {
+                    font-size: .7rem;
+                }
+            }
+
+            td {
+                font-size: .78rem;
+            }
+
+            td, th {
+                vertical-align: middle;
+                padding: .78rem;
+                position: relative;
+            }
+        }
+    }
+
+    input[type="submit"] {
+        padding: 1.2rem 2.5rem !important;
+    }
+}
+
+/* マイページテーブル */
+
+#memberinfo {
+    h3 {
+        font-size: 1.08rem;
+        padding: .7rem 0;
+        text-align: center;
+        background-color: #2d417f;
+        border: none;
+        height: auto;
+        margin-bottom: 2.5rem;
+    }
+
+    #member__info__table {
+        margin-bottom: 1.1rem;
+
+        tr {
+            th, td {
+                text-align: left;
+                padding: .7rem 1.2rem !important;
+
+                @media (max-width: 767px) {
+                    padding: .4rem .2rem !important;
+                }
+            }
+        }
+    }
+
+    table {
+        font-size: .88rem;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+
+        a {
+            color: #777;
+            font-size: 0.88rem;
+
+            @media (max-width: 767px) {
+                font-size: .62rem;
+            }
+        }
+
+        tr {
+            td, th {
+                font-size: 0.88rem !important;
+                padding: .4rem !important;
+                text-align: center;
+                vertical-align: middle;
+
+                @media (max-width: 767px) {
+                    font-size: .6rem !important;
+                    padding: .35rem .38rem !important;
+                }
+            }
+
+            td.aleft {
+                text-align: left;
+            }
+        }
+
+        tr.direction {
+            .direction__links {
+                background-color: #fff;
+                padding: 1.0rem 0 !important;
+
+                a {
+                    color: #fff;
+                    font-size: 1.1rem;
+                    text-align: center;
+                    background-color: $green;
+                    display: inline-block;
+                    padding: 0 1.28rem;
+                    height: 59px;
+                    line-height: 59px;
+                }
+            }
+        }
+    }
+
+    table {
+        tbody {
+            tr {
+                /* 領主書ダウンロード横の隙間削除 */
+                td.retail {
+                    &:last-of-type {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    /* 会員情報修正フォーム */
+    #customer_form {
+        margin-bottom: 1.7rem;
+
+        tr {
+            td, th {
+                text-align: left !important;
+                padding: .4rem .7rem !important;
+                font-size: .8rem !important;
+
+                @media (max-width: 767px) {
+                    font-size: .6rem !important;
+                    padding: .4rem .5rem !important;
+                }
+
+                input {
+                    width: 100%;
+                }
+
+                input#mailaddress1, input#mailaddress2, input[type='password'], #tel {
+                    width: 48%;
+
+                    @media (max-width: 767px) {
+                        width: 100%;
+                    }
+                }
+            }
+
+            th {
+                width: 20% !important;
+            }
+
+            td {
+                padding: .9rem .7rem !important;
+            }
+        }
+    }
+
+ /*   .back__to__btn {
+       background-color: $yellow;
+   }
+*/
+    .reave__btn {
+        background-color: #777777;
+    }
+
+    .send {
+        input {
+            margin-bottom: .8rem;
+            font-size: .8rem;
+            padding: .7rem .72rem;
         }
     }
 }

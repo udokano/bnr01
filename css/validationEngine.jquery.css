@@ -38,6 +38,16 @@
     text-align: left;
 }
 
+#new__member__form .formError {
+    top: 2.1rem !important;
+}
+
+@media (max-width: 767px) {
+    #new__member__form .formError {
+        width: 80%;
+    }
+}
+
 .formError.inline {
     position: relative;
     top: 0;
