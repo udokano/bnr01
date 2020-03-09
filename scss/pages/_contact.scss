@@ -164,12 +164,13 @@
                             }
 
                             .wpcf7-list-item-label {
-                                padding: .2rem 0;
+                                padding: .8rem 0;
                                 padding-left: 1.6rem;
                                 line-height: 1.0;
                                 vertical-align: middle;
                                 font-size: .6rem;
                                 white-space: nowrap;
+                                position: relative;
                             }
 
                             input + .wpcf7-list-item-label::before {
@@ -249,6 +250,12 @@
         .direction__form {
             h2 {
                 background-color: #2d417f;
+
+                .num {
+                    display: inline-block;
+                    margin-bottom: .56rem;
+                    font-size: .76rem;
+                }
             }
 
             .direction__form__content {
@@ -270,8 +277,63 @@
                 .mw_wp_form.mw_wp_form_complete {
                     p {
                         text-align: center;
-                        font-size: 1.28rem;
+                        font-size: .94rem;
                         font-weight: 600;
+
+                        a {
+                            display: inline-block;
+                            margin: 1.1rem 0;
+                        }
+                    }
+                }
+
+                .error {
+                    text-align: center;
+                }
+
+                /* ラジオボタンタブ */
+
+                .radio__tab__content {
+                    width: 100%;
+                    border-top: 1px solid #6a6a6a;
+                    border-bottom: 1px solid #6a6a6a;
+                    font-size: 0;
+                    margin-bottom: 2.78rem;
+
+                    .mwform-radio-field {
+                        width: 50%;
+                        margin: 0;
+                        display: inline-block;
+                        text-align: center;
+
+                        .mwform-radio-field-text {
+                            padding: .98rem 0;
+                            display: block;
+                            font-size: .95rem;
+                        }
+
+                        input[type="radio"]:checked + .mwform-radio-field-text {
+                            background-color: #6a6a6a;
+                            color: #fff;
+                        }
+                    }
+                }
+
+                /* タブ内容 */
+
+                .tab__content {
+                    .tab__contents {
+                        visibility: hidden;
+                        height: 0;
+                        opacity: 0;
+                        overflow: hidden;
+                        transition: ease .3s;
+                    }
+
+                    .tab__contents.is-show {
+                        visibility: initial;
+                        height: auto;
+                        opacity: 1;
                     }
                 }
 
@@ -571,30 +633,6 @@
                                 }
                             }
                         }
-
-                        .text {
-                            margin-top: 1.7rem;
-
-                            @media (max-width: 767px) {
-                                margin-bottom: 1.2rem;
-                            }
-
-                            textarea {
-                                margin-bottom: 0;
-                                height: 240px;
-                                font-size: .88rem;
-                                line-height: 1.6;
-
-                                &::placeholder {
-                                    text-align: left;
-                                    font-size: .96rem;
-
-                                    @media (max-width: 767px) {
-                                        font-size: .82rem;
-                                    }
-                                }
-                            }
-                        }
                     }
 
                     .btn__to__content {
@@ -620,6 +658,35 @@
                             }
                         }
                     }
+                }
+
+                .text {
+                    margin-top: 1.7rem;
+
+                    @media (max-width: 767px) {
+                        margin-bottom: 1.2rem;
+                    }
+
+                    .text__area {
+                        margin-bottom: 0;
+                        height: 240px;
+                        font-size: .88rem;
+                        line-height: 1.6;
+
+                        &::placeholder {
+                            text-align: left;
+                            font-size: .96rem;
+
+                            @media (max-width: 767px) {
+                                font-size: .82rem;
+                            }
+                        }
+                    }
+                }
+
+                .text.text__easy {
+                    margin-top: 0;
+                    margin-bottom: 3.0rem;
                 }
 
                 .send {

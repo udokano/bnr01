@@ -2926,12 +2926,12 @@ textarea {
   text-align: left;
 }
 
-#memberinfo table tr.direction .direction__links {
+#memberinfo table .direction__links {
   background-color: #fff;
   padding: 1.0rem 0 !important;
 }
 
-#memberinfo table tr.direction .direction__links a {
+#memberinfo table .direction__links a {
   background-color: #10a84c;
   color: #fff;
   display: inline-block;
@@ -2940,6 +2940,32 @@ textarea {
   line-height: 59px;
   padding: 0 1.28rem;
   text-align: center;
+}
+
+#memberinfo table td.direction__links {
+  padding: .3rem 0 !important;
+}
+
+@media (max-width: 767px) {
+  #memberinfo table td.direction__links {
+    width: 20%;
+  }
+}
+
+#memberinfo table td.direction__links a {
+  font-size: .64rem;
+  height: 49px;
+  line-height: 49px;
+  padding: 0 .78rem;
+}
+
+@media (max-width: 767px) {
+  #memberinfo table td.direction__links a {
+    font-size: .4rem;
+    height: 29px;
+    line-height: 29px;
+    padding: 0 .1rem;
+  }
 }
 
 #memberinfo table tbody tr {
@@ -3241,8 +3267,9 @@ textarea {
 .contact .section__inner .contact__form .contact__form__content .radio dd .wpcf7-list-item .wpcf7-list-item-label {
   font-size: .6rem;
   line-height: 1.0;
-  padding: .2rem 0;
+  padding: .8rem 0;
   padding-left: 1.6rem;
+  position: relative;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -3316,9 +3343,17 @@ textarea {
   background-color: #2d417f;
 }
 
+.direction .section__inner .direction__form h2 .num {
+  display: inline-block;
+  font-size: .76rem;
+  margin-bottom: .56rem;
+}
+
 .direction .section__inner .direction__form .direction__form__content {
   padding-top: 3.8rem;
   /* 送信完了画面メッセージ */
+  /* ラジオボタンタブ */
+  /* タブ内容 */
 }
 
 @media (max-width: 767px) {
@@ -3335,9 +3370,59 @@ textarea {
 }
 
 .direction .section__inner .direction__form .direction__form__content .mw_wp_form.mw_wp_form_complete p {
-  font-size: 1.28rem;
+  font-size: .94rem;
   font-weight: 600;
   text-align: center;
+}
+
+.direction .section__inner .direction__form .direction__form__content .mw_wp_form.mw_wp_form_complete p a {
+  display: inline-block;
+  margin: 1.1rem 0;
+}
+
+.direction .section__inner .direction__form .direction__form__content .error {
+  text-align: center;
+}
+
+.direction .section__inner .direction__form .direction__form__content .radio__tab__content {
+  border-bottom: 1px solid #6a6a6a;
+  border-top: 1px solid #6a6a6a;
+  font-size: 0;
+  margin-bottom: 2.78rem;
+  width: 100%;
+}
+
+.direction .section__inner .direction__form .direction__form__content .radio__tab__content .mwform-radio-field {
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  width: 50%;
+}
+
+.direction .section__inner .direction__form .direction__form__content .radio__tab__content .mwform-radio-field .mwform-radio-field-text {
+  display: block;
+  font-size: .95rem;
+  padding: .98rem 0;
+}
+
+.direction .section__inner .direction__form .direction__form__content .radio__tab__content .mwform-radio-field input[type="radio"]:checked + .mwform-radio-field-text {
+  background-color: #6a6a6a;
+  color: #fff;
+}
+
+.direction .section__inner .direction__form .direction__form__content .tab__content .tab__contents {
+  -webkit-transition: ease .3s;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: ease .3s;
+  visibility: hidden;
+}
+
+.direction .section__inner .direction__form .direction__form__content .tab__content .tab__contents.is-show {
+  height: auto;
+  opacity: 1;
+  visibility: initial;
 }
 
 .direction .section__inner .direction__form .direction__form__content .col__02 {
@@ -3641,66 +3726,6 @@ textarea {
   }
 }
 
-.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text {
-  margin-top: 1.7rem;
-}
-
-@media (max-width: 767px) {
-  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text {
-    margin-bottom: 1.2rem;
-  }
-}
-
-.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea {
-  font-size: .88rem;
-  height: 240px;
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-webkit-input-placeholder {
-  font-size: .96rem;
-  text-align: left;
-}
-
-.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-moz-placeholder {
-  font-size: .96rem;
-  text-align: left;
-}
-
-.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea:-ms-input-placeholder {
-  font-size: .96rem;
-  text-align: left;
-}
-
-.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-ms-input-placeholder {
-  font-size: .96rem;
-  text-align: left;
-}
-
-.direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::placeholder {
-  font-size: .96rem;
-  text-align: left;
-}
-
-@media (max-width: 767px) {
-  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-webkit-input-placeholder {
-    font-size: .82rem;
-  }
-  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-moz-placeholder {
-    font-size: .82rem;
-  }
-  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea:-ms-input-placeholder {
-    font-size: .82rem;
-  }
-  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::-ms-input-placeholder {
-    font-size: .82rem;
-  }
-  .direction .section__inner .direction__form .direction__form__content .file__up__area .box__content .text textarea::placeholder {
-    font-size: .82rem;
-  }
-}
-
 @media (max-width: 767px) {
   .direction .section__inner .direction__form .direction__form__content .file__up__area .btn__to__content {
     -ms-flex-flow: column;
@@ -3730,6 +3755,71 @@ textarea {
   .direction .section__inner .direction__form .direction__form__content .file__up__area .btn__to__content p {
     width: 100%;
   }
+}
+
+.direction .section__inner .direction__form .direction__form__content .text {
+  margin-top: 1.7rem;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .text {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .text .text__area {
+  font-size: .88rem;
+  height: 240px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.direction .section__inner .direction__form .direction__form__content .text .text__area::-webkit-input-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .text .text__area::-moz-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .text .text__area:-ms-input-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .text .text__area::-ms-input-placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+.direction .section__inner .direction__form .direction__form__content .text .text__area::placeholder {
+  font-size: .96rem;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .direction .section__inner .direction__form .direction__form__content .text .text__area::-webkit-input-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .text .text__area::-moz-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .text .text__area:-ms-input-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .text .text__area::-ms-input-placeholder {
+    font-size: .82rem;
+  }
+  .direction .section__inner .direction__form .direction__form__content .text .text__area::placeholder {
+    font-size: .82rem;
+  }
+}
+
+.direction .section__inner .direction__form .direction__form__content .text.text__easy {
+  margin-bottom: 3.0rem;
+  margin-top: 0;
 }
 
 .direction .section__inner .direction__form .direction__form__content .send {

@@ -15,17 +15,21 @@ $(function () {
 
     //Sサイズ
     $("#banner1").attr("data-price", "3600");
-
     //Mサイズ
     $("#banner2").attr("data-price", "5700");
     //Lサイズ
     $("#banner3").attr("data-price", "8600");
     //SNSブログヘッダー
     $("#banner4").attr("data-price", "11500");
+    //リサイズ依頼
     $("#banner5").attr("data-price", "0");
+    //特殊サイズ
     $("#banner6").attr("data-price", "0");
+
     //バナータイプ
+    //シンプル
     $("#banner7").attr("data-price", "0");
+    //リッチ
     $("#banner8").attr("data-price", "2000");
 
     //納期

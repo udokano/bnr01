@@ -45,6 +45,14 @@
         <li><a href="<?php echo home_url('/');?>flow"><span>納品までの<br class="pc">流れ</span></a></li>
         <li><a href="<?php echo home_url('/');?>retouch"><span>修正について</span></a></li>
         <li><a href="<?php echo home_url('/');?>faq"><span>Q&A</span></a></li>
+        <?php if (usces_is_login()): ?>
+        <?php else: ?>
+        <li><a href="<?php echo home_url('/');?>usces-member/?page=newmember"><span>会員登録</span></a></li>
+        <?php endif; ?>
+        <li> <a href="<?php echo home_url('/');?>usces-member">
+<?php if (usces_is_login()): ?>
+マイページ<?php else: ?>ログイン<?php endif; ?>
+      </a></li>
         <li><a href="<?php echo home_url('/');?>contact"><span>お問い合わせ</span></a></li>
       </ul>
     </nav>

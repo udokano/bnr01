@@ -2,6 +2,27 @@
 
 
 /*
+エディタ内にURL記入用ショートコード
+--------------------------------------*/
+
+add_shortcode('url', 'shortcode_url');
+function shortcode_url()
+{
+    return get_template_directory_uri();
+}
+
+
+add_shortcode('param', 'shortcode_param');
+function shortcode_param()
+{
+    $result = $_GET["注文番号"];
+
+    return $result;
+}
+
+
+
+/*
 コンタクトフォーム７設定
 ------------------------------------*/
 
@@ -125,10 +146,42 @@ function my_mwform_value03($value, $name)
 }
 add_filter('mwform_value_mw-wp-form-204', 'my_mwform_value03', 10, 2);
 
+/*
+
+MW バリデーション
+
+--------------------------*/
+
+function my_validation_rule($Validation, $data)
+{
+    if ($data['指示タイプ'] === 'デザインお任せ') {
+        $Validation->set_rule('指示内容簡易版', 'noEmpty', array(
+          'message' => 'キャッチコピーや文言を入力してください'
+        ));
+    }
+    return $Validation;
+}
+  add_filter('mwform_validation_mw-wp-form-204', 'my_validation_rule', 11, 2);
+
+function my_validation_rule02($Validation, $data)
+{
+    if ($data['指示タイプ'] === '細かく指示をする') {
+        $Validation->set_rule('指示内容', 'noEmpty', array(
+          'message' => '指示内容を記載してください'
+        ));
+    }
+    return $Validation;
+}
+  add_filter('mwform_validation_mw-wp-form-204', 'my_validation_rule02', 11, 2);
+
+ /*------------------------
+  MW FORM END
+-*/
+
 
 
 /*
-JQリアルタイムバリデーション
+JQリアルタイムバリデーション読み込み
 ---------------------------------*/
 
 add_action('wp_enqueue_scripts', 'my_scripts');
@@ -551,12 +604,13 @@ function my_filter_member_history($out = '')
             $html .= '</tbody></table>
                     <table id="retail_table_' . $umhs['ID'] . '" class="retail">';
 
-            /* サムネイル画像 */
+            /* サムネイル画像 削除 */
+            /* 指示書作成欄　追加 */
             $history_cart_head = '<thead><tr>
 					<th scope="row" class="cartrownum">No.</th>
 
 					<th class="productname">' . __('Items', 'usces') . '</th>
-
+<th class="direction__th">指示書</th>
 
 					<th class="subtotal">' . __('Amount', 'usces') . '</th>
 					</tr></thead><tbody>';
@@ -603,11 +657,15 @@ function my_filter_member_history($out = '')
                 $cart_item_name = apply_filters('usces_filter_history_cart_item_name', $cart_item_name, $cartItemName, $optstr, $cart_row, $i, $umhs);
 
 
-                //サムネイル画像削除
+                /* サムネイル画像 削除 */
+                /* 指示書作成欄　追加 */
+
                 $history_cart_row = '<tr>
                     <td class="cartrownum">' . ($i + 1) . '</td>
 
-					<td class="aleft productname">' . $cart_item_name . '</td>
+                    <td class="aleft productname">' . $cart_item_name . '</td>
+
+                    <td class="direction__td direction__links">'.  '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書作成' . '</a>'   .'</td>
 
 
 					<td class="ssubtotal">' . usces_crform($skuPrice * $cart_row['quantity'], true, false, 'return') . '</td>

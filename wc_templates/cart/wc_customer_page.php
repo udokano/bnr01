@@ -117,4 +117,7 @@ get_header();
 
 <script>
 
+	$(".to_deliveryinfo_button").val("会員登録して進む");
+	$(".to_reganddeliveryinfo_button").val("会員登録せずに進む");
+
 </script>
