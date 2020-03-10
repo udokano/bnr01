@@ -46,7 +46,7 @@ Template Name: 指示書作成
 <script>
   $("#mw_wp_form_mw-wp-form-204 form").attr("id","fileupload");
   $("#fileupload").attr("enctype","multipart/form-data");
-  $("#fileupload").attr("data-persist","multipart/form-data");
+  $("#fileupload").attr("data-persist","garlic");
 </script>
 
 <script>
@@ -63,7 +63,7 @@ if ( $('.mw_wp_form .error')[0] ) {
 
 	$('body,html').delay(200).animate({scrollTop:position - 40}, 600, 'swing');
 }
-    </script>
+</script>
 <script>
 
 jQuery("#text__area").attr('placeholder', 'こちらにデザイン指示を入力 \r\n 例：明るい感じでロゴは右下に配置');

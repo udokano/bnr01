@@ -21,7 +21,7 @@
 <!--  ./wrapper -->
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js?var=1.1"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js?var=1.2"></script>
 
 
 

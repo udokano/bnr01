@@ -166,7 +166,7 @@ function my_validation_rule($Validation, $data)
 function my_validation_rule02($Validation, $data)
 {
     if ($data['指示タイプ'] === '細かく指示をする') {
-        $Validation->set_rule('指示内容', 'noEmpty', array(
+        $Validation->set_rule('指示内容詳細', 'noEmpty', array(
           'message' => '指示内容を記載してください'
         ));
     }
@@ -174,9 +174,33 @@ function my_validation_rule02($Validation, $data)
 }
   add_filter('mwform_validation_mw-wp-form-204', 'my_validation_rule02', 11, 2);
 
- /*------------------------
+
+  /* 自動返信メール条件分岐　
+
+  指示タイプによって不要な項目は出力しない!! */
+
+  function my_mail($Mail, $values, $Data)
+  {
+      // $Data->get( 'hoge' ) で送信されたデータが取得できます。
+      if ($Data->get('指示タイプ') == 'デザインお任せ') {
+          $Mail->body .= "\r\r"."指示タイプ"."\r".$Data->get('指示タイプ')."\r\r";
+          $Mail->body .= "指示内容"."\r".$Data->get('指示内容簡易版')."\r\r";
+      }
+      if ($Data->get('指示タイプ') == '細かく指示をする') {
+          $Mail->body .= "\r\r"."指示タイプ"."\r".$Data->get('指示タイプ')."\r\r";
+          $Mail->body .= "指示内容"."\r".$Data->get('指示内容詳細')."\r\r";
+          $Mail->body .= "アップロードファイル"."\r".$Data->get('url__input')."\r\r";
+      }
+      return $Mail;
+  }
+add_filter('mwform_auto_mail_raw_mw-wp-form-204', 'my_mail', 10, 3);
+
+
+ /*--------------------------------
+
   MW FORM END
--*/
+
+-----------------------------------*/
 
 
 
@@ -234,7 +258,7 @@ function add_page_to_admin_menu()
 }
 add_action('admin_menu', 'add_page_to_admin_menu');
 
-/* 指示書リスト */
+/* 指示書管理を追加 */
 function add_page_to_admin_menu02()
 {
     add_menu_page('指示書管理', '指示書管理', 'edit_posts', 'edit.php?post_type=mwf_204&paged=1&ids=212%2C211%2C210%2C209%2C208%2C207%2C206', '', 'dashicons-text-page
@@ -278,11 +302,10 @@ if (!current_user_can('administrator')) { // 管理者以外を対象
 
 
 /*
+
  Well CART 関連
 
 ------------------------------------------------*/
-
-
 
 
 //カートの表をカスタマイズ
