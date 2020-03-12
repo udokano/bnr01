@@ -53,6 +53,43 @@ jQuery(function ($) {
   }) */
 
 
+  //指示書フォームラジオ選択フォーム
+
+  $(".tab__radios").on("change load", function () {
+
+    if (($('[id=tab__radios-1]').prop('checked'))) {
+      jQuery("#tab02").removeClass("is-show");
+      jQuery("#tab01").addClass("is-show");
+    }
+
+    if (($('[id=tab__radios-2]').prop('checked'))) {
+      jQuery("#tab01").removeClass("is-show");
+      jQuery("#tab02").addClass("is-show");
+    }
+  });
+
+  $(window).on("load", function () {
+    if (($('[id=tab__radios-1]').prop('checked'))) {
+      jQuery("#tab02").removeClass("is-show");
+      jQuery("#tab01").addClass("is-show");
+    }
+
+    if (($('[id=tab__radios-2]').prop('checked'))) {
+      jQuery("#tab01").removeClass("is-show");
+      jQuery("#tab02").addClass("is-show");
+    }
+  });
+
+  //フリガナ自動入力
+  $(function () {
+    $.fn.autoKana('#name1', '#name3', {
+      katakana: true  //true：カタカナ、false：ひらがな（デフォルト）
+    });
+    $.fn.autoKana('#name2', '#name4', {
+      katakana: true  //true：カタカナ、false：ひらがな（デフォルト）
+    });
+  });
+
 
   //スムーススクロール
   $("a[href='#']")//^を*に換え、hrefのどこかに#を持つ場合に実行

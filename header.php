@@ -16,12 +16,14 @@
 
   gtag('config', 'AW-787386783');
 </script>
+<?php if (is_home() || is_front_page()  || is_page('direction')): ?>
 <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous"
     />
+  <?php endif; ?>
 <?php if (is_page('direction')): ?>
 
 
@@ -38,7 +40,7 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.5.1">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.5.3">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
@@ -116,7 +118,7 @@ jQuery(function () {
 
 /* お問い合わせページ */
 jQuery(document).ready(function(){
-jQuery("input[name='注文番号']").addClass("validate[required]");
+jQuery("input[name='seimei']").addClass("validate[required]");
 jQuery("input[name='your-email']").addClass("validate[required]");
 jQuery(".wpcf7-form").validationEngine('attach', {
     　promptPosition:"topLeft"
