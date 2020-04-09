@@ -132,9 +132,9 @@ jQuery("#publish > label").each(function (i) {
 原寸サイズマーク追加
 ------------------------------------*/
 
-jQuery("#label__type__a1").after('<div class="img__mark js-modal-open" id="mark01" data-target="sample01"></div>');
+jQuery("#label__type__a1").after('<div class="img__mark animation__ballon js-modal-open" id="mark01" data-target="sample01"></div>');
 
-jQuery("#label__type__a2").after('<div class="img__mark js-modal-open" id="mark02" data-target="sample02"></div>');
+jQuery("#label__type__a2").after('<div class="img__mark animation__ballon js-modal-open" id="mark02" data-target="sample02"></div>');
 
 
 
@@ -197,7 +197,7 @@ jQuery("#label__type__e1 .item__text").append('<span class="price__text">0円</s
 
 jQuery("#label__type__e2 .item__text").append('<span class="price__text red">-500円</span>');
 
-jQuery(".cart__btn__cont").append('<span class="cart__text">ご入力ありがとうございました！</span>');
+jQuery(".cart__btn__cont").append('<span class="cart__text">お支払い後、デザインのご指示を行っていただきます。</span>');
 
 
 $(".labels").wrapInner('<div class="inner__label"></div>');
@@ -252,14 +252,31 @@ $(window).on("scroll", function () {
 }); */
 
 
+/* 各フォームエリアを変数に入れる */
+const $form__area01 = $("#form__area01");
+const $form__area02 = $("#form__area02");
+const $form__area03 = $("#form__area03");
+const $form__area04 = $("#form__area04");
+const $form__area05 = $("#form__area05");
+const $form__area06 = $("#form__area06");
+const $form__area07 = $("#form__area07");
+
+//特殊サイズ、管理番号の要素取得
+
+const $control__num = $("#control__num");
+const $special__size = $("#special__size");
+
+const $text__input = $("#txt1");
+
+
 $(function () {
     setTimeout(function () {
-        $("#form__area02").addClass("hidden__filed");
-        $("#form__area03").addClass("hidden__filed");
-        /*   $("#form__area04").addClass("hidden__filed");*/
-        $("#form__area05").addClass("hidden__filed");
-        $("#form__area06").addClass("hidden__filed");
-        $("#form__area07").addClass("hidden__filed");
+        $form__area02.addClass("hidden__filed");
+        $form__area03.addClass("hidden__filed");
+
+        $form__area05.addClass("hidden__filed");
+        $form__area06.addClass("hidden__filed");
+        $form__area07.addClass("hidden__filed");
     }, 500);
 });
 
@@ -269,23 +286,23 @@ $(function () {
     各要素を非表示にする前に本来の位置を取得
     ------------------------------*/
 
-    var pos = jQuery("#form__area01").offset().top;
+    var pos = $form__area01.offset().top;
 
-    var pos01 = jQuery("#form__area02").offset().top;
+    var pos01 = $form__area02.offset().top;
 
-    var pos02 = jQuery("#control__num").offset().top;
+    var pos02 = $control__num.offset().top;
 
-    var pos03 = jQuery("#special__size").offset().top;
+    var pos03 = $special__size.offset().top;
 
-    var pos04 = jQuery("#form__area03").offset().top;
+    var pos04 = $form__area03.offset().top;
 
     /* var pos05 = jQuery("#form__area04").offset().top; */
 
-    var pos06 = jQuery("#form__area05").offset().top;
+    var pos06 = $form__area05.offset().top;
 
-    var pos07 = jQuery("#form__area06").offset().top;
+    var pos07 = $form__area06.offset().top;
 
-    var pos08 = jQuery("#form__area07").offset().top;
+    var pos08 = $form__area07.offset().top;
 
 
 
@@ -298,17 +315,17 @@ $(function () {
     });
 
     $("#out__list02").on("click", function () {
-        $("#form__area02").addClass("viv");
-        $("#form__area03").addClass("viv");
+        $form__area02.addClass("viv");
+        $form__area03.addClass("viv");
         jQuery("html,body").animate({ scrollTop: pos04 }, '500');
     });
 
     $("#out__list03").on("click", function () {
-        $("#form__area02").addClass("viv");
-        $("#form__area03").addClass("viv");
-        $("#form__area04").addClass("viv");
-        $("#form__area05").addClass("viv");
-        $("#form__area06").addClass("viv");
+        $form__area02.addClass("viv");
+        $form__area03.addClass("viv");
+        $form__area04.addClass("viv");
+        $form__area05.addClass("viv");
+        $form__area06.addClass("viv");
         jQuery("html,body").animate({ scrollTop: pos07 }, '500');
     });
 
@@ -317,31 +334,39 @@ $(function () {
     --------------------------------------------*/
 
     jQuery("#size__select > input").change(function () {
+        const sp__banner__type = $('#banner5,#banner6');
+        const $resize__banner = $("#banner5");
+        const $special__banner = $("#banner6");
+        $text__input.removeClass("validate[required]");//管理番号バリデーション外す
+        $("#select1").removeClass("validate[required]");//特殊サイズバリデーション外す
 
         //リサイズ依頼、特殊サイズ以外を選択
-        if (!jQuery('[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"],[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
-            jQuery('#form__area02').addClass("viv");
-            jQuery('#control__num').removeClass("viv");
-            jQuery('#special__size').removeClass("viv");
-            jQuery(".text__input1").val("");
+        if (!sp__banner__type.prop('checked')) {
+            $form__area02.addClass("viv");
+            $control__num.removeClass("viv");
+            $special__size.removeClass("viv");
+            $text__input.val("");//管理番号は空にする!!
             jQuery("html,body").animate({ scrollTop: pos01 }, '500');
         }
 
 
 
         //リサイズ依頼を選択
-        if (jQuery('[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
-            jQuery('#control__num').addClass("viv");
-            jQuery('#special__size').removeClass("viv");
+        if ($resize__banner.prop('checked')) {
+            $control__num.addClass("viv");
+            $text__input.addClass("validate[required]");//管理番号を入力してほしいからバリデーションをつける
+            $special__size.removeClass("viv");
             jQuery("html,body").animate({ scrollTop: pos02 }, '500');
         }
 
         //特殊サイズを選択
-        if (jQuery('[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
-            jQuery('#special__size').addClass("viv");
-            jQuery('#control__num').removeClass("viv");
-            jQuery(".text__input1").val("");
+        if ($special__banner.prop('checked')) {
+            $special__size.addClass("viv");
+            $control__num.removeClass("viv");
+            $text__input.val("");//管理番号は空にする!!
+            $("#select1").addClass("validate[required]");//特殊サイズを選択して欲しいから、バリデーションつける
             jQuery("html,body").animate({ scrollTop: pos03 }, '500');
+            jQuery("#select1 option:first-child").val("");//『選択してください』は無効にする
         }
 
     });

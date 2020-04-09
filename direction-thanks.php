@@ -1,9 +1,8 @@
 <?php
 /*
-Template Name: 指示書作成
+Template Name: 指示書作成-サンクス
 */
 ?>
-
 
 <?php get_header();?>
 
@@ -84,23 +83,5 @@ $test1.attr("name","");
 	    },500);
 	});
 
-
-
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script>
-$(function(){
-	var num = $("#form__colse").attr("data-num");
-	var c__name = "form";
-	console.log(num);
-		$("#form__colse").click(function(){
-
- 			 $.cookie("form", num, {expires: 7, path: "/"});
-		});
-
-	});
-
-
-
-</script>

@@ -180,4 +180,8 @@ get_header();
 </div><!-- ./ section__inner -->
 </section>
 
+<script>
+$(".back_to_delivery_button").val("お支払方法入力に戻る");
+</script>
+
 <?php get_footer(); ?>

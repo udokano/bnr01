@@ -19,16 +19,16 @@
 </footer>
 </div>
 <!--  ./wrapper -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js?var=1.2"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js?var=1.3"></script>
 
 
 
 
 <?php if (is_home() || is_front_page()) : ?>
 
-<script src="<?php echo get_template_directory_uri(); ?>/js/top.js?var=1.1.4"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/top.js?var=1.1.7"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/price.js"></script>
 
 <?php endif; ?>
@@ -39,6 +39,9 @@
     <script id="template-upload" type="text/x-tmpl">
       {% for (var i=0, file; file=o.files[i]; i++) { %}
           <tr class="template-upload fade">
+          <td>
+            <strong class="error text-danger"></strong>
+          </td>
               <td>
                   <span class="preview"></span>
               </td>
@@ -46,13 +49,13 @@
                   {% if (window.innerWidth > 480 || !o.options.loadImageFileTypes.test(file.type)) { %}
                       <p class="name">{%=file.name%}</p>
                   {% } %}
-                  <strong class="error text-danger"></strong>
+
               </td>
               <td>
                   <p class="size">Processing...</p>
                   <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
               </td>
-              <td>
+              <td class="btn__cell">
                   {% if (!o.options.autoUpload && o.options.edit && o.options.loadImageFileTypes.test(file.type)) { %}
                     <button class="btn btn-success edit" data-index="{%=i%}" disabled>
                         <i class="glyphicon glyphicon-edit"></i>
@@ -96,7 +99,7 @@
                       <p class="name">
                           {% if (file.url) { %}
                               <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a><br class="pc-display">
-							  <input type="text" name="url__input" value="{%=file.url%}" id="aa" class="sp__hidden">
+							  <input type="text" name="url__input" value="{%=file.url%}" id="aa" class="sp__hidden ">
                           {% } else { %}
                               <span>{%=file.name%}</span>
                           {% } %}

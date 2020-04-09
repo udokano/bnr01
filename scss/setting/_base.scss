@@ -138,7 +138,8 @@ html {
 
 body {
     line-height: 1.5;
-    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+    font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN','ヒラギノ角ゴシック','Hiragino Sans',YuGothic,'Yu Gothic','Yu Gothic UI','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+    color: #454545;
 }
 
 .wrapper {
@@ -547,12 +548,16 @@ h3 {
     height: auto;
 }
 
+.swiper-button {
+    width: 34px;
+}
+
 .swiper-button-prev {
-    background: url("../img/common/arrow_02.svg") no-repeat 50% 50% / 20px;
+    background: url("../img/top/slide_prev.png") no-repeat 50% 50% / 34px;
 }
 
 .swiper-button-next {
-    background: url("../img/common/arrow_01.svg") no-repeat 50% 50% / 20px;
+    background: url("../img/top/slide_next.png") no-repeat 50% 50% / 34px;
 }
 
 .area-bgs {

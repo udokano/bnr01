@@ -289,15 +289,6 @@ if (!current_user_can('administrator')) { // 管理者以外を対象
     remove_menu_page('profile.php');  // プロフィール
     }
     add_action('admin_menu', 'remove_menus');
-
-    /*メニューにお問い合わせデータ追加*/
-
-
-    function add_page_to_admin_menu2()
-    {
-        add_menu_page('ライブチャット', 'ライブチャット', 'edit_posts', 'admin.php?page=wplivechat-menu', '', 'dashicons-admin-comments', 4);
-    }
-    add_action('admin_menu', 'add_page_to_admin_menu2');
 }
 
 
@@ -620,7 +611,7 @@ function my_filter_member_history($out = '')
 
             /*---------- 指示書作成ボタン追加 ---------------*/
 
-            $history_member_head .= '<tr class="direction"><th colspan="4" class="direction__links">'. '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書作成フォーム' . '</a>' .'</th></tr>';
+            /*  $history_member_head .= '<tr class="direction"><th colspan="4" class="direction__links">'. '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書作成フォーム' . '</a>' .'</th></tr>'; */
 
             $html .= apply_filters('usces_filter_history_member_head', $history_member_head, $umhs);
             $html .= apply_filters('usces_filter_member_history_header', null, $umhs);
@@ -688,7 +679,7 @@ function my_filter_member_history($out = '')
 
                     <td class="aleft productname">' . $cart_item_name . '</td>
 
-                    <td class="direction__td direction__links">'.  '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書作成' . '</a>'   .'</td>
+                    <td class="direction__td direction__links">'.  '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書を<br>作成' . '</a>'   .'</td>
 
 
 					<td class="ssubtotal">' . usces_crform($skuPrice * $cart_row['quantity'], true, false, 'return') . '</td>

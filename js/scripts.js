@@ -30,27 +30,7 @@ jQuery(function ($) {
     $("#js-nav").toggleClass("active");
   });
 
-  //スライダー
 
-  //バナー
-
-  /* var mySwiper = new Swiper('.swiper1', {
-    loop: true,
-    initialSlide: 0,
-    slidesPerView: 1,
-    paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    breakpoints: {
-      767: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        pagination: '.swiper-pagination',
-
-      }
-    }
-
-  }) */
 
 
   //指示書フォームラジオ選択フォーム
@@ -102,4 +82,28 @@ jQuery(function ($) {
       $("html, body").animate({ scrollTop: position }, 550, "swing");
       return false;
     });
+
+  //スライダー
+
+  //指示書作成
+
+  var mySwiper = new Swiper('.direction__slider', {
+    loop: true,
+    initialSlide: 0,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    observer: true,
+    observeParents: true,
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    breakpoints: {
+      767: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      }
+    }
+
+  });
 });
