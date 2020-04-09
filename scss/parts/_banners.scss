@@ -199,6 +199,21 @@
     }
 }
 
+.direction__flow__modal {
+    .modal__inner {
+        max-width: 800px;
+        min-width: auto;
+
+        .direction__slider {
+            margin-bottom: 2.8rem;
+        }
+
+        .close__btn {
+            width: 48%;
+        }
+    }
+}
+
 @media (max-width: 767px) {
     .modal {
         .modal__inner {

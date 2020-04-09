@@ -2,8 +2,7 @@
 <div class="key__visual">
   <div class="content flex al-cent">
     <div class="key__visual__left">
-      <h1 class="f-ryu">私たちはクリエイティビティを大事にし<br class="pc">
-        数字を追いかけるバナー職人です。</h1>
+      <h1 class="f-ryu">Web広告屋さんのバナー制作<br class="pc">かんたんお見積り＆かんたん発注！！</h1>
       <p class="cach"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/key_visual_cach.png" alt="短納期×高クオリティー"> </p>
     </div>
     <!-- ./key__visual__left -->
@@ -211,11 +210,85 @@
         <div class="section__inner form__inner">
           <div class="cart__in">
             <div class="cart__btn__cont">
+            <div class="cart__ballon animation__ballon js-modal-open" data-target="direction__flow"><img src="<?php echo get_template_directory_uri(); ?>/img/top/tip02.png" alt="デザインのご指示方法を見る"></div>
               <?php usces_the_itemSkuButton('カートに入れて注文に進む');?>
             </div>
             <!-- ./step__wrap -->
           </div>
           <!-- ./cart__in -->
+           <!-- sample__modal -->
+            <div class="sample__modal direction__flow__modal modal__box modal js-modal" id="direction__flow">
+              <div class="modal__bg js-modal-close"></div>
+              <!-- ./modal__bg -->
+              <div class="modal__inner">
+                <h3>指示書作成方法</h3>
+                    <div class="swiper-container direction__slider">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <div class="slide-img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/top/direction_flow01.jpg" alt="指示書作成方法スライド">
+                        </div>
+                          <!-- ./slide-img -->
+                        </div>
+                         <!-- ./swiper-slide -->
+                        <div class="swiper-slide">
+                          <div class="slide-img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/top/direction_flow02.jpg" alt="指示書作成方法スライド">
+                          </div>
+                            <!-- ./slide-img -->
+                        </div>
+                         <!-- ./swiper-slide -->
+                        <div class="swiper-slide">
+                          <div class="slide-img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/top/direction_flow03.jpg" alt="指示書作成方法スライド">
+                          </div>
+                          <!-- ./slide-img -->
+                        </div>
+                        <!-- ./swiper-slide -->
+                          <div class="swiper-slide">
+                          <div class="slide-img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/top/direction_flow04.jpg" alt="指示書作成方法スライド">
+                          </div>
+                          <!-- ./slide-img -->
+                        </div>
+                        <!-- ./swiper-slide -->
+                          <div class="swiper-slide">
+                          <div class="slide-img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/top/direction_flow05.jpg" alt="指示書作成方法スライド">
+                          </div>
+                          <!-- ./slide-img -->
+                        </div>
+                        <!-- ./swiper-slide -->
+                          <div class="swiper-slide">
+                          <div class="slide-img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/top/direction_flow06.jpg" alt="指示書作成方法スライド">
+                          </div>
+                          <!-- ./slide-img -->
+                        </div>
+                        <!-- ./swiper-slide -->
+                          <!-- ./swiper-slide -->
+                          <div class="swiper-slide">
+                          <div class="slide-img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/top/direction_flow07.jpg" alt="指示書作成方法スライド">
+                          </div>
+                          <!-- ./slide-img -->
+                        </div>
+                        <!-- ./swiper-slide -->
+                      </div>
+                      <!-- ./swiper-wrapper -->
+
+                          <div class="swiper-button-prev swiper-button"></div>
+                          <div class="swiper-button-next swiper-button"></div>
+
+                    </div>
+                    <!-- ./swiper-container -->
+
+                <div class="close__btn js-modal-close">閉じる</div>
+                <!-- ./close__btn -->
+              </div>
+              <!-- ./modal__inner -->
+            </div>
+            <!-- ./sample__modal -->
 
           <div class="term__inc" id="term">
             <?php get_template_part('inc/trems');?>

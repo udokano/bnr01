@@ -310,6 +310,10 @@
                             padding: .98rem 0;
                             display: block;
                             font-size: .95rem;
+
+                            @media (max-width: 767px) {
+                                font-size: .78rem;
+                            }
                         }
 
                         input[type="radio"]:checked + .mwform-radio-field-text {
@@ -592,6 +596,10 @@
                                             display: block;
                                             margin: 0 auto;
                                         }
+
+                                        canvas {
+                                            width: 45px !important;
+                                        }
                                     }
 
                                     .sp__hidden {
@@ -607,6 +615,7 @@
                                         @media (max-width: 767px) {
                                             overflow: hidden;
                                             width: 100%;
+                                            text-align: center;
                                         }
 
                                         a {
@@ -621,7 +630,6 @@
 
                                 td.btn__cell {
                                     text-align: right;
-                                    padding-right: 1.1rem;
 
                                     .btn {
                                         width: 220px;

@@ -2,6 +2,7 @@
 
 get_header();
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <section class="cart__area">
 
 <div class="section__inner">
@@ -11,20 +12,47 @@ get_header();
 
 <script>
 
+
+
 jQuery(function(){
 
 
 
-
-    jQuery(".direction__links a").each(function() {
-		var user__name = $("#user__name").text();
-		var user__mail = $("#user__mail").text();
+//会員情報を指示書作成ボタンのリンクにパラメーターを追加
+    jQuery(".direction__links a").each(function(i) {
+		var user__name = $("#hidden__name__full").val();
+		var user__mail = $("#hidden__mail").val();
         var obj = jQuery(this);
         var link = obj.attr("href");
-        obj.attr("href",link +"&氏名=" + user__name + "&メールアドレス=" + user__mail)
-    });
-});
 
+        obj.attr("href",link +"&氏名=" + user__name + "&メールアドレス=" + user__mail );
+    });
+
+	//会員情報を指示書作成ボタンのリンクにパラメーターを追加
+    /* jQuery(".direction__links a").each(function(i) {
+		var order__number = $(".order_head_value .order_number").text();
+        var obj = jQuery(this);
+
+
+        obj.attr("data-num",order__number );
+    }); */
+
+
+
+
+//会員情報編集画面に、『氏名』『氏名カナ』『TEL』の値を飛ばす
+	const tel__num = $("#hidden__tel").val();
+	const name__value01 = $("#hidden__name01").val();
+	const name__value02 = $("#hidden__name02").val();
+	const name__value03 = $("#hidden__name03").val();
+	const name__value04 = $("#hidden__name04").val();
+	$("#tel").val(tel__num);
+	$("#name1").val(name__value01);
+	$("#name2").val(name__value02);
+	$("#name3").val(name__value03);
+	$("#name4").val(name__value04);
+
+});
 
 </script>
 
@@ -32,39 +60,29 @@ jQuery(function(){
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
 
+<!-- <input type="text" id="kk" value="">
+<button type="button" id="keep1">cookie1の保存</button>
+<div id="cookie1__out"></div>
+
+<button type="button" id="delete1">cookie1の削除</button> -->
+
 		<h1 class="member_page_title tc"><?php _e('Membership', 'usces'); ?></h1>
+		<input type="hidden" id="hidden__tel" value="<?php usces_memberinfo("tel");?>">
+		<input type="hidden" id="hidden__name__full" value="<?php usces_the_member_name();?>">
+			<input type="hidden" id="hidden__mail" value="<?php usces_memberinfo('mailaddress1');?>">
+		<input type="hidden" id="hidden__name01" value="<?php usces_memberinfo("name1");?>">
+		<input type="hidden" id="hidden__name02" value="<?php usces_memberinfo("name2");?>">
+		<input type="hidden" id="hidden__name03" value="<?php usces_memberinfo("name3");?>">
+		<input type="hidden" id="hidden__name04" value="<?php usces_memberinfo("name4");?>">
+		<input type="hidden" id="hidden__pass01" value="<?php usces_memberinfo("password1");?>">
+
 		<div class="entry">
 
 			<div id="memberpages">
 
 				<div class="whitebox">
 					<div id="memberinfo">
-					<table id="member__info__table">
-						<tr>
-							<th scope="row"><?php _e('member number', 'usces'); ?></th>
-							<td class="num"><?php usces_memberinfo('ID'); ?></td>
-						<!-- 	<td rowspan="3">&nbsp;</td> -->
-							<th><?php _e('Strated date', 'usces'); ?></th>
-							<td><?php usces_memberinfo('registered'); ?></td>
-						</tr>
-						<tr>
-							<th scope="row"><?php _e('Full name', 'usces'); ?></th>
-							<td id="user__name"><?php usces_the_member_name(); ?></td>
-							<?php if (usces_is_membersystem_point()) : ?>
-							<th><?php _e('The current point', 'usces'); ?></th>
-							<td class="num"><?php usces_memberinfo('point'); ?></td>
-							<?php else : ?>
-							<th>&nbsp;</th>
-							<td class="num">&nbsp;</td>
-							<?php endif; ?>
-						</tr>
-						<tr>
-							<th scope="row"><?php _e('e-mail adress', 'usces'); ?></th>
-							<td id="user__mail"><?php usces_memberinfo('mailaddress1'); ?></td>
-							<?php $html_reserve = '<th>&nbsp;</th><td>&nbsp;</td>'; ?>
-							<?php echo apply_filters('usces_filter_memberinfo_page_reserve', $html_reserve, usces_memberinfo('ID', 'return')); ?>
-						</tr>
-					</table>
+
 					<ul class="member_submenu">
 						<li class="edit_member"><a href="#edit"><?php _e('To member information editing', 'usces'); ?></a></li>
 						<?php do_action('usces_action_member_submenu_list'); ?>
@@ -83,7 +101,16 @@ jQuery(function(){
 					<div class="error_message"><?php usces_error_message(); ?></div>
 					<form action="<?php usces_url('member'); ?>#edit" method="post" onKeyDown="if (event.keyCode == 13) {return false;}">
 						<table class="customer_form" id="customer_form">
+							<tr>
+						<th scope="row"><?php _e('member number', 'usces');?></th>
+						<td colspan="2"><?php usces_memberinfo('ID');?></td>
+						</tr>
+						<tr>
+						<th scope="row"><?php _e('Strated date', 'usces');?></th>
+						<td colspan="2"><?php usces_memberinfo('registered'); ?></td>
+						</tr>
 							<?php uesces_addressform('member', usces_memberinfo(null), 'echo'); ?>
+
 							<tr>
 								<th scope="row"><?php _e('e-mail adress', 'usces'); ?></th>
 								<td colspan="2"><input name="member[mailaddress1]" id="mailaddress1" type="text" value="<?php usces_memberinfo('mailaddress1'); ?>" /></td>
@@ -128,3 +155,60 @@ jQuery(function(){
 
 
 <?php get_footer(); ?>
+
+<script>
+//クッキーテスト
+
+
+
+
+
+$(function() {
+//$.cookie("form", "none");
+
+//テスト記述
+var kk = $("#kk").val();
+
+$('#keep1').click(function(){
+    $.cookie("cookie1", "kk", {expires: 7, path: "/"});
+	alert(kk + "を保存しました");
+});
+
+$('#kk').val($.cookie('cookie1'));
+
+$('#delete1').click(function(){
+
+    $.removeCookie("form");
+
+
+});
+
+
+//ボタン非活性テスト
+
+const c__names = $.cookie("form");
+
+console.log(c__names);
+
+
+jQuery(".direction__links a").each(function(i) {
+        var c__names = $.cookie("form");
+		console.log(c__names);
+        var obj = jQuery(this);
+		var href = obj.attr("href");
+		console.log(href);
+		if(href.indexOf(c__names) > -1) {
+			obj.css("background-color","#666");
+			obj.text("送信済み");//文字列を変更する。
+			obj.attr("href","");//リンク先を消す。
+		}
+
+
+        //obj.attr("data-num",order__number );
+    });
+
+
+});
+
+
+</script>

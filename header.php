@@ -40,7 +40,8 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.5.3">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.6.25">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
@@ -73,7 +74,19 @@ jQuery("#limit > input").addClass("validate[required]");
 jQuery("#data > input").addClass("validate[required]");
 jQuery("#publish > input").addClass("validate[required]");
 jQuery("form").validationEngine('attach', {
-    　promptPosition:"topLeft"
+    　promptPosition:"topLeft",
+    'custom_error_messages': {
+      '#select1': {
+        'required': {
+          'message': '特殊サイズを選択してください'
+        }
+      },
+      '#txt1': {
+           'required': {
+          'message': '管理番号を入力してください'
+        }
+      }
+    }
   　});
 });
 
@@ -147,7 +160,7 @@ jQuery("#new__member__form").validationEngine('attach', {
 
 /* リロードフォームクリア */
 window.onpageshow = function() {
-  $(".template-download").remove();
+
   $("form").each(function(){
     $("input[type='radio']").prop("checked",false);
     $("#txt").val("");

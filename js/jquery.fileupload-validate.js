@@ -11,7 +11,7 @@
 
 /* global define, require */
 
-(function(factory) {
+(function (factory) {
   'use strict';
   if (typeof define === 'function' && define.amd) {
     // Register as an anonymous AMD module:
@@ -23,7 +23,7 @@
     // Browser globals:
     factory(window.jQuery);
   }
-})(function($) {
+})(function ($) {
   'use strict';
 
   // Append to the default processQueue:
@@ -62,7 +62,7 @@
 
       // Error and info messages:
       messages: {
-        maxNumberOfFiles: '一括アップロードできるのは3つまでです',
+        maxNumberOfFiles: 'アップロード可能なファイルは1つだけです',
         acceptFileTypes: 'この拡張子は許可されていません',
         maxFileSize: 'ファイルが大きすぎます',
         minFileSize: 'ファイルが小さすぎます'
@@ -70,7 +70,7 @@
     },
 
     processActions: {
-      validate: function(data, options) {
+      validate: function (data, options) {
         if (options.disabled) {
           return data;
         }
@@ -85,7 +85,7 @@
         if (
           $.type(options.maxNumberOfFiles) === 'number' &&
           (settings.getNumberOfFiles() || 0) + data.files.length >
-            options.maxNumberOfFiles
+          options.maxNumberOfFiles
         ) {
           file.error = settings.i18n('maxNumberOfFiles');
         } else if (
