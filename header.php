@@ -41,9 +41,39 @@
 
 <?php wp_head(); ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.6.4">
+
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?var=1.6.7">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/chat.css?var=1.3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+
+
+<script>
+
+    /*
+  キャンペーンバナー
+  --------------------------------------------*/
+$(function(){
+  var cookie = $.cookie('campaign');
+  if (cookie) {
+    $('.campaign').addClass('is-close');
+  }
+
+  else {
+    $('.campaign').addClass('is-view');
+  }
+
+  $('.js-campaign--close').on('click', function () {
+    $('.campaign').removeClass('is-view');
+    $('.campaign').addClass('is-close');
+    $.cookie('campaign', 'close');
+  });
+
+});
+
+</script>
+
 <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
 
 

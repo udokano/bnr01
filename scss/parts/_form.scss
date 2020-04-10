@@ -74,6 +74,7 @@ textarea {
 .hidden__filed {
     visibility: hidden;
     height: 0;
+    padding-bottom: 0;
 
     //position: absolute !important;
 }
@@ -125,13 +126,14 @@ textarea {
         border-radius: 5px;
         font-size: .98rem;
         letter-spacing: 0.05em;
-        margin-right: .7rem;
+        margin-right: .2rem;
     }
 
     .step__tit {
         font-size: 1.9rem;
         padding: 0;
         color: #454545;
+        letter-spacing: 0.05em;
     }
 }
 
@@ -214,9 +216,10 @@ textarea {
         text-align: center;
         color: #fff;
         font-weight: 600;
-        padding: 1.6rem 0;
-        font-size: 1.8rem;
+        padding: 1.7315789473684rem 0;
+        font-size: 2.1052631578947rem;
         background-color: #2d417f;
+        line-height: 1;
     }
 
     .form__area__out {
@@ -260,10 +263,11 @@ textarea {
         &:nth-of-type(1) {
             &::before {
                 border: none;
+                display: none;
             }
 
             dl {
-                padding: 3.0rem 0;
+                padding: 3.8rem 0 2.0rem;
             }
         }
     }
@@ -308,7 +312,7 @@ textarea {
                     //box-shadow: 0px 6px 0px 0px #bbbbbb;
 
                     height: 136px;
-                    margin: 0 0 1.6rem;
+                    margin: 0 0 2rem;
                     color: $blue;
                     font-weight: 600;
                     font-size: .88rem;
@@ -377,6 +381,18 @@ textarea {
                         margin-top: .38rem;
                         color: $green;
                         font-size: .86rem;
+                    }
+
+                    .line-through {
+                        text-decoration: line-through;
+                        font-size: .65rem;
+                        display: inline-block;
+                        margin-right: .7rem;
+                    }
+
+                    .campaign__price {
+                        color: #fb6464;
+                        font-size: .97rem;
                     }
 
                     .price__text.red {
@@ -456,7 +472,7 @@ textarea {
                         background-color: #fff;
                     }
 
-                    span {
+                    span, em {
                         color: #fff !important;
                     }
 

@@ -14,13 +14,13 @@ $(function () {
 
 
     //Sサイズ
-    $("#banner1").attr("data-price", "2600");
+    $("#banner1").attr("data-price", "3600");
     //Mサイズ
-    $("#banner2").attr("data-price", "4700");
+    $("#banner2").attr("data-price", "5700");
     //Lサイズ
-    $("#banner3").attr("data-price", "7600");
+    $("#banner3").attr("data-price", "8600");
     //SNSブログヘッダー
-    $("#banner4").attr("data-price", "10500");
+    $("#banner4").attr("data-price", "11500");
     //リサイズ依頼
     $("#banner5").attr("data-price", "0");
     //特殊サイズ
@@ -46,15 +46,15 @@ $(function () {
 
     //特殊サイズ
     $("#option1").attr("data-price", "0");
-    $("#option2").attr("data-price", "8600");
-    $("#option3").attr("data-price", "8900");
-    $("#option4").attr("data-price", "9200");
-    $("#option5").attr("data-price", "9500");
-    $("#option6").attr("data-price", "9800");
-    $("#option7").attr("data-price", "10100");
-    $("#option8").attr("data-price", "10400");
-    $("#option9").attr("data-price", "10700");
-    $("#option10").attr("data-price", "11000");
+    $("#option2").attr("data-price", "9600");
+    $("#option3").attr("data-price", "9900");
+    $("#option4").attr("data-price", "10200");
+    $("#option5").attr("data-price", "10500");
+    $("#option6").attr("data-price", "10800");
+    $("#option7").attr("data-price", "11100");
+    $("#option8").attr("data-price", "11400");
+    $("#option9").attr("data-price", "11700");
+    $("#option10").attr("data-price", "12000");
 
 });
 
@@ -226,25 +226,25 @@ $(function () {
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt <= 10000) {
-            $(this).attr("data-price", 800);
+            $(this).attr("data-price", 1800);
             spps02 = $(this).attr("data-price");
             /* Sサイズ */
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt >= 10001 && ttt <= 20000) {
-            $(this).attr("data-price", 1850);
+            $(this).attr("data-price", 2850);
             spps02 = $(this).attr("data-price");
             /* Mサイズ */
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt >= 20001 && ttt <= 30000) {
-            $(this).attr("data-price", 3300);
+            $(this).attr("data-price", 4300);
             spps02 = $(this).attr("data-price");
             /* Lサイズ */
             //attrだ文字列になっちゃうからparseIntに入れる
             $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
         } else if (ttt >= 30001 && ttt <= 40000) {
-            $(this).attr("data-price", 4750);
+            $(this).attr("data-price", 5750);
             spps02 = $(this).attr("data-price");
             /* ブログヘッダー */
             //attrだ文字列になっちゃうからparseIntに入れる

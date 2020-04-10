@@ -21,7 +21,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 
 li {
@@ -139,7 +139,7 @@ textarea {
 }
 
 html {
-  font-size: 120%;
+  font-size: 118.8%;
 }
 
 body {
@@ -748,27 +748,28 @@ h3 {
 }
 
 .cards {
-  padding: 1.0rem 0;
+  padding: 1.6rem 0;
 }
 
 .cards p {
   margin: auto;
-  width: 24%;
+  width: 17%;
 }
 
 #site__footer {
   background-color: #f2f2f2;
   margin-bottom: 90px;
-  padding: .8rem 0;
+  padding: 0 0 1.2rem;
 }
 
 #site__footer .footer__logo {
-  margin: .38rem auto .8rem;
-  width: 7%;
+  margin: auto;
+  padding: 1.6rem 0;
+  width: 5.5%;
 }
 
 #site__footer .footer__nav {
-  margin-bottom: .8rem;
+  margin-bottom: .2rem;
   text-align: center;
 }
 
@@ -780,6 +781,7 @@ h3 {
 
 #site__footer .footer__nav li a {
   color: #454545;
+  letter-spacing: 0;
 }
 
 #site__footer .copy {
@@ -1081,13 +1083,15 @@ LIVE　チャット位置設定
 */
 .infinite__banner__area {
   background-color: #282828;
-  padding: 2.5rem 0;
+  padding: 3.7rem 0;
 }
 
 .infinite__banner__area .section__inner h2 {
   color: #fff;
-  font-size: 1.4rem;
-  margin-bottom: 2.2rem;
+  font-size: 2.1052631578947rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 3.7rem;
   text-align: center;
 }
 
@@ -1291,6 +1295,71 @@ LIVE　チャット位置設定
   }
 }
 
+.campaign {
+  -webkit-transition: ease-in .2s;
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: ease-in .2s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 9999;
+}
+
+.campaign .campaign__bg {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100%;
+}
+
+.campaign .campaign__box {
+  -webkit-transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 530px;
+  left: 50%;
+  padding: 1.75rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+}
+
+@media (max-width: 767px) {
+  .campaign .campaign__box {
+    height: 96vw;
+    min-height: 340px;
+    width: 90%;
+  }
+}
+
+.campaign .campaign__box .campaign__box__inner .campaign__box__banner {
+  margin-bottom: .62rem;
+}
+
+.campaign .campaign__box .campaign__box__inner .campaign__box__close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.campaign .campaign__box .campaign__box__inner .campaign__box__close .campaign__close__batu {
+  font-size: 1.4rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.campaign.is-close {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.campaign.is-view {
+  opacity: 1;
+  visibility: inherit;
+}
+
 /*
 基本
 -----------------*/
@@ -1403,6 +1472,7 @@ textarea {
 /*初めは非表示*/
 .hidden__filed {
   height: 0;
+  padding-bottom: 0;
   visibility: hidden;
 }
 
@@ -1451,13 +1521,14 @@ textarea {
   color: #fff;
   font-size: .98rem;
   letter-spacing: 0.05em;
-  margin-right: .7rem;
+  margin-right: .2rem;
   padding: 8px 10px 7px;
 }
 
 .step__wrap .step__tit {
   color: #454545;
   font-size: 1.9rem;
+  letter-spacing: 0.05em;
   padding: 0;
 }
 
@@ -1557,9 +1628,10 @@ textarea {
 .purchase__form h1 {
   background-color: #2d417f;
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 2.1052631578947rem;
   font-weight: 600;
-  padding: 1.6rem 0;
+  line-height: 1;
+  padding: 1.7315789473684rem 0;
   text-align: center;
 }
 
@@ -1604,10 +1676,11 @@ textarea {
 
 .purchase__form .form__area__out:nth-of-type(1)::before {
   border: none;
+  display: none;
 }
 
 .purchase__form .form__area__out:nth-of-type(1) dl {
-  padding: 3.0rem 0;
+  padding: 3.8rem 0 2.0rem;
 }
 
 .purchase__form .form__inner dl {
@@ -1649,7 +1722,7 @@ textarea {
   font-size: .88rem;
   font-weight: 600;
   height: 136px;
-  margin: 0 0 1.6rem;
+  margin: 0 0 2rem;
   position: relative;
   text-align: left;
   width: 48%;
@@ -1712,6 +1785,18 @@ textarea {
   display: block;
   font-size: .86rem;
   margin-top: .38rem;
+}
+
+.purchase__form .form__inner dl .select__zone label .line-through {
+  display: inline-block;
+  font-size: .65rem;
+  margin-right: .7rem;
+  text-decoration: line-through;
+}
+
+.purchase__form .form__inner dl .select__zone label .campaign__price {
+  color: #fb6464;
+  font-size: .97rem;
 }
 
 .purchase__form .form__inner dl .select__zone label .price__text.red {
@@ -1787,7 +1872,7 @@ textarea {
   background-color: #fff;
 }
 
-.purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label span {
+.purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label span, .purchase__form .form__inner dl .select__zone input[type="radio"]:checked + label em {
   color: #fff !important;
 }
 
@@ -4239,7 +4324,7 @@ textarea {
 }
 
 .output__list .section__inner .output__content dl {
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: .7rem;
   height: 54px;
@@ -4299,12 +4384,36 @@ textarea {
 }
 
 .output__list.js-fixed {
+  -webkit-animation-duration: .5s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-name: slide-in;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-name: slide-in;
   background-color: rgba(98, 98, 98, 0.8);
   bottom: 0;
   left: 0;
   position: fixed;
   width: 100%;
   z-index: 9997;
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    bottom: -87px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    bottom: -87px;
+  }
+  100% {
+    bottom: 0;
+  }
 }
 
 @media (max-width: 767px) {

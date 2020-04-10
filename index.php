@@ -1,4 +1,12 @@
 <?php get_header();?>
+
+
+
+
+
+
+
+
 <div class="key__visual">
   <div class="content flex al-cent">
     <div class="key__visual__left">
@@ -50,9 +58,6 @@
       <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); usces_the_item("banner"); ?>
       <?php usces_have_skus();?>
-      <!--  <div class="error_message">
-        <?php usces_singleitem_error_message($post->ID, usces_the_itemSku('return')); ?>
-      </div> -->
 
       <!--form__area__start-->
       <div class="form__area__out" id="form__area01">
@@ -336,3 +341,23 @@
 <?php else: ?>
 <?php endif; ?>
 <?php get_footer(); ?>
+<!-- 5月12日までのキャンペーンバナー -->
+<div class="campaign">
+<div class="campaign__bg js-campaign--close">
+</div>
+<!-- ./campaign__bg -->
+
+<div class="campaign__box">
+  <div class="campaign__box__inner">
+      <div class="campaign__box__banner">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/top/campaign.jpg" alt="テレワーク応援">
+      </div>
+      <!-- ./campaign__box__banner -->
+      <p class="campaign__box__close js-campaign--close"><span class="campaign__close__batu">×</span>閉じる</p>
+  </div>
+  <!-- ./campaign__box__inner -->
+</div>
+<!-- ./campaign__box -->
+</div>
+<!-- ./campaign -->
+<!-- キャンペーンバナー END -->
