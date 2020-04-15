@@ -12,37 +12,52 @@ dataで各要素に値段を登録
 
 $(function () {
 
+    /* サイズ選択 */
 
     //Sサイズ
-    $("#banner1").attr("data-price", "2600");
+    $("#size__select .radio1").attr("data-price", "2600");
     //Mサイズ
-    $("#banner2").attr("data-price", "4700");
+    $("#size__select .radio2").attr("data-price", "4700");
     //Lサイズ
-    $("#banner3").attr("data-price", "7600");
+    $("#size__select .radio3").attr("data-price", "7600");
     //SNSブログヘッダー
-    $("#banner4").attr("data-price", "10500");
+    $("#size__select .radio4").attr("data-price", "10500");
     //リサイズ依頼
-    $("#banner5").attr("data-price", "0");
+    $("#size__select .radio5").attr("data-price", "0");
     //特殊サイズ
-    $("#banner6").attr("data-price", "0");
+    $("#size__select .radio6").attr("data-price", "2600");
+    //動画サイト用サムネイル
+    $("#size__select .radio7").attr("data-price", "0");
 
-    //バナータイプ
+    /* バナータイプ */
+
     //シンプル
-    $("#banner7").attr("data-price", "0");
+    $("#format .radio1").attr("data-price", "0");
     //リッチ
-    $("#banner8").attr("data-price", "2000");
+    $("#format .radio2").attr("data-price", "2000");
 
-    //納期
-    $("#banner9").attr("data-price", "2000");
-    $("#banner10").attr("data-price", "1000");
-    $("#banner11").attr("data-price", "0");
+    /*  納期 */
 
-    //データ納品
-    $("#banner12").attr("data-price", "0");
-    $("#banner13").attr("data-price", "1500");
-    //公開
-    $("#banner14").attr("data-price", "0");
-    $("#banner15").attr("data-price", "-500");
+    //1営業日
+    $("#limit .radio1").attr("data-price", "2000");
+    //2営業日
+    $("#limit .radio2").attr("data-price", "1000");
+    //3営業日
+    $("#limit .radio3").attr("data-price", "0");
+
+    /*  データ納品 */
+
+    //いらない
+    $("#data .radio1").attr("data-price", "0");
+    //データいる
+    $("#data .radio2").attr("data-price", "1500");
+
+    /*  公開 */
+
+    //公開NG
+    $("#publish .radio1").attr("data-price", "0");
+    //公開OK
+    $("#publish .radio2").attr("data-price", "-500");
 
     //特殊サイズ
     $("#option1").attr("data-price", "0");
@@ -83,27 +98,11 @@ $(function () {
     spps02 = 0;
     checkprice = 0;
 
-    $("input[name*='%E3%82%B5%E3%82%A4%E3%82%BA%E6%8C%87%E5%AE%9A']").change(function () {
-        $(this).data('price');
-        /*  $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").attr("data-price", 0);
-         spps01 = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").data('price');
-         console.log(spps01); */
-        radioprice01 = $(this).data('price');
-        $("#select1").prop("selectedIndex", 0);
-        //リサイズ依頼に数値が入力されてたら
-        $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05);
-    });
-
-    //バナータイプ
-    $("input[name*='%E3%83%90%E3%83%8A%E3%83%BC%E5%BD%A2%E5%BC%8F']").on("change", function () {
-        $(this).data('price');
-        radioprice02 = $(this).data('price');
-
-        var sel = $("#select1 option:selected").val();
+    function ass() {
+        var sel = $("#select1 option:selected").text();
         spps01 = $("#select1 option:selected").data('price');
         //管理番号の値取得
         var contnum = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").val();
-        //リサイズ依頼、特殊サイズ以外が選択されていたら
         if (sel === "この中から選択してください" && contnum === "") {
             $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
         }
@@ -122,87 +121,45 @@ $(function () {
             $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01)
 
         }
+    }
+    //サイズ選択
+    $("input[name*='%E3%82%B5%E3%82%A4%E3%82%BA%E6%8C%87%E5%AE%9A']").change(function () {
+        $(this).data('price');
+        /*  $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").attr("data-price", 0);
+         spps01 = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").data('price');
+         console.log(spps01); */
+        radioprice01 = $(this).data('price');
+        $("#select1").prop("selectedIndex", 0);
+        //リサイズ依頼に数値が入力されてたら
+        $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05);
+    });
+
+    //バナータイプ
+    $("input[name*='%E3%83%90%E3%83%8A%E3%83%BC%E5%BD%A2%E5%BC%8F']").on("change", function () {
+        $(this).data('price');
+        radioprice02 = $(this).data('price');
+
+        ass();
     });
 
     //納期
     $("input[name*='%E7%B4%8D%E6%9C%9F%E3%81%AE%E9%81%B8%E6%8A%9E']").change(function () {
         $(this).data('price');
         radioprice03 = $(this).data('price');
-        var sel = $("#select1 option:selected").val();
-        spps01 = $("#select1 option:selected").data('price');
-        //管理番号の値取得
-        var contnum = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").val();
-
-        if (sel === "この中から選択してください" && contnum === "") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
-        }
-        else if (sel === "この中から選択してください") {
-
-            if (contnum == "") {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
-            }
-            else {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02))
-            }
-        }
-
-        else if (sel != "この中から選択してください") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01)
-
-        }
+        ass();
     });
     //データ納品
     $("input[name*='%E3%83%87%E3%83%BC%E3%82%BF%E3%81%94%E7%B4%8D%E5%93%81']").change(function () {
         $(this).data('price');
         radioprice04 = $(this).data('price');
-        var sel = $("#select1 option:selected").val();
-        spps01 = $("#select1 option:selected").data('price');
-        var contnum = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").val();
-
-        if (sel === "この中から選択してください" && contnum === "") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
-        }
-        else if (sel === "この中から選択してください") {
-
-            if (contnum == "") {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
-            }
-            else {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02))
-            }
-        }
-
-        else if (sel != "この中から選択してください") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01)
-
-        }
+        ass();
     });
 
     //公開
     $("input[name*='%E5%AE%9F%E7%B8%BE%E3%81%A8%E3%81%97%E3%81%A6%E5%85%AC%E9%96%8B']").change(function () {
         $(this).data('price');
         radioprice05 = $(this).data('price');
-        var sel = $("#select1 option:selected").val();
-        spps01 = $("#select1 option:selected").data('price');
-        var contnum = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").val();
-
-        if (sel === "この中から選択してください" && contnum === "") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
-        }
-        else if (sel === "この中から選択してください") {
-
-            if (contnum == "") {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
-            }
-            else {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02))
-            }
-        }
-
-        else if (sel != "この中から選択してください") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01)
-
-        }
+        ass();
     });
 
 
