@@ -29,7 +29,7 @@
 
 
 <?php if (is_home() || is_front_page()) : ?>
-<script src="<?php echo get_template_directory_uri(); ?>/js/price.js?var=1.3"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/price.js?var=1.3.1"></script>
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/top.js?var=1.2"></script>
 

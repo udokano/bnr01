@@ -107,9 +107,9 @@ $(function () {
         var contnum = $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").val();
         //管理番号未入力でかつ特殊サイズも未選択
         if (sel === "この中から選択してください" && contnum === "") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05);
+            $('#output__price').text(addFigure(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05));
             if ($("#banner6").prop('checked')) {
-                $('#output__price').text(radioprice01 + radioprice03 + radioprice04 + radioprice05)
+                $('#output__price').text(addFigure(radioprice01 + radioprice03 + radioprice04 + radioprice05))
             }
             else {
                 //瞬間的な加算防ぐ
@@ -132,16 +132,16 @@ $(function () {
         else if (sel === "この中から選択してください") {
             //管理番号未入力の場合は管理番号の値をたさない
             if (contnum == "") {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05)
+                $('#output__price').text(addFigure(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05))
             }
             //管理番号入力済みの場合は管理番号の値カウント
             else {
-                $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02))
+                $('#output__price').text(addFigure(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02)))
             }
         }
         //特殊サイズが選択されていたら、特殊サイズの金額をカウント
         else if (sel != "この中から選択してください") {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01)
+            $('#output__price').text(addFigure(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01))
 
         }
     }
@@ -149,12 +149,12 @@ $(function () {
     /* バナータイプ選択されていないのに加算されるのを防ぐ */
     function total__stop() {
         if ($rich.prop('checked')) {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05);
+            $('#output__price').text(addFigure(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05));
             console.log("rich");
         }
 
         else {
-            $('#output__price').text(radioprice01 + radioprice03 + radioprice04 + radioprice05);
+            $('#output__price').text(addFigure(radioprice01 + radioprice03 + radioprice04 + radioprice05));
             console.log("simple");
         }
     }
@@ -162,11 +162,11 @@ $(function () {
     function total__stop02() {
         if ($rich.prop('checked')) {
             //attrだと文字列になっちゃうからparseIntに入れる
-            $('#output__price').text(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
+            $('#output__price').text(addFigure(radioprice02 + radioprice03 + radioprice04 + radioprice05 + parseInt(spps02)));
         }
         else {
             //attrだと文字列になっちゃうからparseIntに入れる
-            $('#output__price').text(radioprice03 + radioprice04 + radioprice05 + parseInt(spps02));
+            $('#output__price').text(addFigure(radioprice03 + radioprice04 + radioprice05 + parseInt(spps02)));
         }
     }
 
@@ -182,11 +182,11 @@ $(function () {
         $("#select1").prop("selectedIndex", 0);
         //動画サムネイルを選択したら
         if ($("#banner6").prop('checked')) {
-            $('#output__price').text(radioprice01 + radioprice03 + radioprice04 + radioprice05);
+            $('#output__price').text(addFigure(radioprice01 + radioprice03 + radioprice04 + radioprice05));
         }
 
         else {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05);
+            $('#output__price').text(addFigure(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05));
 
         }
         total__stop();
@@ -227,10 +227,10 @@ $(function () {
         $("#select1 option:selected").data('price');
         spps01 = $("#select1 option:selected").data('price');
         if ($rich.prop('checked')) {
-            $('#output__price').text(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01);
+            $('#output__price').text(addFigure(radioprice01 + radioprice02 + radioprice03 + radioprice04 + radioprice05 + spps01));
         }
         else {
-            $('#output__price').text(radioprice01 + radioprice03 + radioprice04 + radioprice05 + spps01);
+            $('#output__price').text(addFigure(radioprice01 + radioprice03 + radioprice04 + radioprice05 + spps01));
         }
     });
 
@@ -269,6 +269,19 @@ $(function () {
             total__stop02();
         }//以降は特殊サイズ
     });
+    /*-------------------------------
+        カンマ処理
+        -------------------------------*/
+    function addFigure(str) {
+        var num = new String(str).replace(/,/g, "");
+        while (num != (num = num.replace(/^(-?\d+)(\d{3})/, "$1,$2")));
+        return num;
+    }
 
+    function removeFigure(str) {
+        var num = new String(str).replace(/,/g, "");
+        num = Number(num);
+        return num;
+    }
 
 });
