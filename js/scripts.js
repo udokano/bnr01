@@ -72,17 +72,45 @@ jQuery(function ($) {
   });
 
 
-  //スムーススクロール
-  $("a[href='#']")//^を*に換え、hrefのどこかに#を持つ場合に実行
-    .not("[data-lity]")
-    .click(function () {
-      if (location.pathname.replace(/^\//, '') !== this.pathname.replace(/^\//, '') || location.hostname !== this.hostname) return;//リンク先が別のページの場合は終了
+  if (window.matchMedia("(max-width: 768px)").matches) {
+
+
+    $('a[href^="#"]').click(function () {
+      // 移動先を0px調整する。0を30にすると30px下にずらすことができる。
+      var adjust = 54;
+      // スクロールの速度（ミリ秒）
+      var speed = 400;
+      // アンカーの値取得 リンク先（href）を取得して、hrefという変数に代入
       var href = $(this).attr("href");
-      var target = $(href == "#" || href == "" ? "html" : href);
-      var position = target.offset().top - headerHight;
-      $("html, body").animate({ scrollTop: position }, 550, "swing");
+      // 移動先を取得 リンク先(href）のidがある要素を探して、targetに代入
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      // 移動先を調整 idの要素の位置をoffset()で取得して、positionに代入
+      var position = target.offset().top + adjust;
+      // スムーススクロール linear（等速） or swing（変速）
+      $('body,html').animate({ scrollTop: position }, speed, 'swing');
       return false;
     });
+
+
+  } else {
+
+    //スムーススクロール
+    $("a[href='#']")//^を*に換え、hrefのどこかに#を持つ場合に実行
+      .not("[data-lity]")
+      .click(function () {
+        if (location.pathname.replace(/^\//, '') !== this.pathname.replace(/^\//, '') || location.hostname !== this.hostname) return;//リンク先が別のページの場合は終了
+        var href = $(this).attr("href");
+        var target = $(href == "#" || href == "" ? "html" : href);
+        var position = target.offset().top - headerHight;
+        $("html, body").animate({ scrollTop: position }, 550, "swing");
+        return false;
+      });
+
+
+  }
+
+
+
 
   //スライダー
 

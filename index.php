@@ -106,12 +106,12 @@
 
             <div class="hidden__box control__num" id="control__num">
               <p class="tc">管理番号を入力してください</p>
-              <div><?php echo usces_the_itemOption("管理番号");?></div>
+              <div id="control__num__input"><?php echo usces_the_itemOption("管理番号");?></div>
             </div>
             <!--./control__num-->
             <div class="hidden__box special__size" id="special__size">
               <p class="tc">サイズを選択してください</p>
-              <div class="special__size-box"> <?php echo usces_the_itemOption("特殊サイズ");?> </div>
+              <div class="special__size-box" id="special__size-box"> <?php echo usces_the_itemOption("特殊サイズ");?> </div>
               <!-- ./special__size-box -->
             </div>
             <!--./special__size-->
@@ -128,7 +128,7 @@
         <div class="section__inner form__inner">
           <dl class="">
             <dt>
-              <div class="step__wrap"> <span>ステップ2</span>
+              <div class="step__wrap"> <span class="step__num">ステップ2</span>
                 <div class="step__tit">形式を選択</div>
                 <!-- ./step__tit -->
               </div>
@@ -142,13 +142,14 @@
       <!--./form__area__out -->
 
       <!--form__area__start-->
-      <div class="form__area__out" id="form__area03">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step3.png" alt="step03"> </div>
+      <div class="form__area__out js-bg-change__gray" id="form__area03">
+        <div class="step__img step__img__off"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step3.png" alt="step03"> </div>
+         <div class="step__img step__img__on"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step2.png" alt="step02"> </div>
         <!-- ./step__img -->
         <div class="section__inner form__inner">
           <dl class="">
             <dt>
-              <div class="step__wrap"> <span>ステップ3</span>
+              <div class="step__wrap"> <span class="step__num step__num__toggle__off">ステップ3</span><span class="step__num step__num__toggle__on">ステップ2</span>
                 <div class="step__tit">納期を選択</div>
                 <!-- ./step__tit -->
               </div>
@@ -167,13 +168,14 @@
 
 
       <!--form__area__start-->
-      <div class="form__area__out" id="form__area05">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step4.png" alt="step04"> </div>
+      <div class="form__area__out js-bg-change__white" id="form__area04">
+        <div class="step__img step__img__off"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step4.png" alt="step04"> </div>
+         <div class="step__img step__img__on"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step3.png" alt="step03"> </div>
         <!-- ./step__img -->
         <div class="section__inner form__inner">
           <dl class="select__btns">
             <dt>
-              <div class="step__wrap"> <span>ステップ4</span>
+              <div class="step__wrap"> <span class="step__num step__num__toggle__off">ステップ4</span><span class="step__num step__num__toggle__on">ステップ3</span>
                 <div class="step__tit">元データ(PSD)のご提供</div>
                 <!-- ./step__tit -->
               </div>
@@ -189,13 +191,15 @@
       <!--./form__area__out -->
 
       <!--form__area__start-->
-      <div class="form__area__out" id="form__area06">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step5.png" alt="step05"> </div>
+      <div class="form__area__out js-bg-change__gray" id="form__area05">
+        <div class="step__img step__img__off"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step5.png" alt="step05"> </div>
+        <div class="step__img step__img__on"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step4.png" alt="step04"> </div>
+
         <!-- ./step__img -->
         <div class="section__inner form__inner">
           <dl class="select__public select__btns">
             <dt>
-              <div class="step__wrap"> <span>ステップ5</span>
+              <div class="step__wrap"> <span class="step__num step__num__toggle__off">ステップ5</span><span class="step__num step__num__toggle__on">ステップ4</span>
                 <div class="step__tit">弊社実績として公開可否</div>
                 <!-- ./step__tit -->
               </div>
@@ -209,8 +213,9 @@
         <!--./section__inner-->
       </div>
       <!--./form__area__out -->
-      <div class="form__area__out" id="form__area07">
-        <div class="step__img"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step6.png" alt="step06"> </div>
+      <div class="form__area__out js-bg-change__white" id="form__area06">
+        <div class="step__img step__img__off"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step6.png" alt="step06"> </div>
+           <div class="step__img step__img__on"> <img src="<?php echo get_template_directory_uri(); ?>/img/top/step5.png" alt="step05"> </div>
         <!-- ./step__img -->
         <div class="section__inner form__inner">
           <div class="cart__in">

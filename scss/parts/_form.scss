@@ -12,7 +12,7 @@ select {
     background-color: #f8f8f8;
     height: 53px;
     padding: 8px;
-    font-size: .58rem;
+    font-size: .94rem;
 }
 
 input[type="submit"] {
@@ -135,6 +135,10 @@ textarea {
         color: #454545;
         letter-spacing: 0.05em;
     }
+
+    .step__num__toggle__on {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -212,6 +216,13 @@ textarea {
 /*フォームエリア記載
 -------------------------*/
 .purchase__form {
+    #label__type__b3 {
+        visibility: hidden;
+        padding: 0;
+        margin: 0;
+        height: 0;
+    }
+
     h1 {
         text-align: center;
         color: #fff;
@@ -225,6 +236,11 @@ textarea {
     .form__area__out {
         position: relative;
 
+        &:not(:first-of-type) {
+            visibility: hidden;
+            height: 0;
+        }
+
         &:last-of-type {
             padding-bottom: 2.5rem;
         }
@@ -235,6 +251,10 @@ textarea {
             top: 50%;
             transform: translateY(-50%);
             width: 7%;
+        }
+
+        .step__img__on {
+            display: none;
         }
 
         &::before {
@@ -270,6 +290,51 @@ textarea {
                 padding: 3.8rem 0 2.0rem;
             }
         }
+
+        &.viv {
+            visibility: visible;
+            height: auto;
+        }
+
+        &.is-bg__change__white {
+            background-color: #fff;
+
+            &::before {
+                border-color: #f3f3f3  transparent transparent transparent;
+            }
+        }
+
+        &.is-bg__change__gray {
+            background-color: #f3f3f3;
+
+            &::before {
+                border-color: #fff  transparent transparent transparent;
+            }
+        }
+
+        &.is-bg__change__gray, &.is-bg__change__white {
+            .step__wrap {
+                .step__num__toggle__on {
+                    display: inline-block;
+                }
+
+                .step__num__toggle__off {
+                    display: none;
+                }
+            }
+
+            .step__img__off {
+                @media (min-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .step__img__on {
+                @media (min-width: 768px) {
+                    display: block;
+                }
+            }
+        }
     }
 
     .form__inner {
@@ -303,6 +368,7 @@ textarea {
                     z-index: 10;
                     background-color: #fff;
                     border: 1px solid #bbb;
+                    cursor: pointer;
 
                     //border-bottom: none;
 
@@ -343,16 +409,17 @@ textarea {
                             content: "";
                             position: absolute;
                             bottom: -4px;
-                            left: 0;
+                            left: 50%;
                             width: 100%;
                             display: block;
                             height: 5px;
                             z-index: 9;
+                            transform: translateX(-50%);
 
                             //background-color: #919191;
                             //clip-path: polygon(0 0, 100% 0, 98% 45%, 2% 45%);
                             //border-radius: 10% 10% 9% 9% / 0% 0% 100% 100%;
-                            background: url(../img/top/bg_btn_bottom.png) no-repeat 0% 100% / 100% 100%;
+                            background: url(../img/top/bg_btn_bottom.png) no-repeat 50% 50% / 99.98% 100%;
                         }
                     }
 
@@ -425,7 +492,7 @@ textarea {
                         height: 16px;
                     }
 
-                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
+                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
                         background: #fff no-repeat 17% 34% / 17% auto;
                     }
 
@@ -451,6 +518,10 @@ textarea {
                     }
 
                     &:nth-of-type(6) {
+                        background-image: url(../img/icons/radio_icon07.jpg);
+                    }
+
+                    &:nth-of-type(7) {
                         background-image: url(../img/icons/radio_icon06.jpg);
                     }
                 }
@@ -584,7 +655,7 @@ textarea {
 
                     select {
                         width: 100%;
-                        font-size: 1.0rem;
+                        font-size: 1.4rem;
                     }
                 }
             }

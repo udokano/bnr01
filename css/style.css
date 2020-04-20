@@ -1101,6 +1101,12 @@ LIVE　チャット位置設定
   width: 100%;
 }
 
+.infinite__banner__area .section__inner .banners::after {
+  content: "";
+  display: block;
+  width: 300px;
+}
+
 .infinite__banner__area .section__inner .banners li {
   margin-bottom: 2.4rem;
   width: 300px;
@@ -1140,6 +1146,9 @@ LIVE　チャット位置設定
     -webkit-box-pack: justify;
     justify-content: space-between;
     width: 100%;
+  }
+  .infinite__banner__area .section__inner .banners::after {
+    width: 48%;
   }
   .infinite__banner__area .section__inner .banners li {
     margin-bottom: .8rem;
@@ -1371,7 +1380,7 @@ input {
 
 select {
   background-color: #f8f8f8;
-  font-size: .58rem;
+  font-size: .94rem;
   height: 53px;
   padding: 8px;
 }
@@ -1532,6 +1541,10 @@ textarea {
   padding: 0;
 }
 
+.step__wrap .step__num__toggle__on {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .step__wrap .step__tit {
     display: block;
@@ -1625,6 +1638,13 @@ textarea {
 
 /*フォームエリア記載
 -------------------------*/
+.purchase__form #label__type__b3 {
+  height: 0;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+}
+
 .purchase__form h1 {
   background-color: #2d417f;
   color: #fff;
@@ -1639,6 +1659,11 @@ textarea {
   position: relative;
 }
 
+.purchase__form .form__area__out:not(:first-of-type) {
+  height: 0;
+  visibility: hidden;
+}
+
 .purchase__form .form__area__out:last-of-type {
   padding-bottom: 2.5rem;
 }
@@ -1650,6 +1675,10 @@ textarea {
   top: 50%;
   transform: translateY(-50%);
   width: 7%;
+}
+
+.purchase__form .form__area__out .step__img__on {
+  display: none;
 }
 
 .purchase__form .form__area__out::before {
@@ -1681,6 +1710,47 @@ textarea {
 
 .purchase__form .form__area__out:nth-of-type(1) dl {
   padding: 3.8rem 0 2.0rem;
+}
+
+.purchase__form .form__area__out.viv {
+  height: auto;
+  visibility: visible;
+}
+
+.purchase__form .form__area__out.is-bg__change__white {
+  background-color: #fff;
+}
+
+.purchase__form .form__area__out.is-bg__change__white::before {
+  border-color: #f3f3f3  transparent transparent transparent;
+}
+
+.purchase__form .form__area__out.is-bg__change__gray {
+  background-color: #f3f3f3;
+}
+
+.purchase__form .form__area__out.is-bg__change__gray::before {
+  border-color: #fff  transparent transparent transparent;
+}
+
+.purchase__form .form__area__out.is-bg__change__gray .step__wrap .step__num__toggle__on, .purchase__form .form__area__out.is-bg__change__white .step__wrap .step__num__toggle__on {
+  display: inline-block;
+}
+
+.purchase__form .form__area__out.is-bg__change__gray .step__wrap .step__num__toggle__off, .purchase__form .form__area__out.is-bg__change__white .step__wrap .step__num__toggle__off {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .purchase__form .form__area__out.is-bg__change__gray .step__img__off, .purchase__form .form__area__out.is-bg__change__white .step__img__off {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .purchase__form .form__area__out.is-bg__change__gray .step__img__on, .purchase__form .form__area__out.is-bg__change__white .step__img__on {
+    display: block;
+  }
 }
 
 .purchase__form .form__inner dl {
@@ -1718,6 +1788,7 @@ textarea {
   border: 1px solid #bbb;
   border-radius: 5px;
   color: #6594ac;
+  cursor: pointer;
   display: inline-block;
   font-size: .88rem;
   font-weight: 600;
@@ -1752,13 +1823,15 @@ textarea {
 }
 
 .purchase__form .form__inner dl .select__zone label .inner__label::after {
-  background: url(../img/top/bg_btn_bottom.png) no-repeat 0% 100%/100% 100%;
+  -webkit-transform: translateX(-50%);
+  background: url(../img/top/bg_btn_bottom.png) no-repeat 50% 50%/99.98% 100%;
   bottom: -4px;
   content: "";
   display: block;
   height: 5px;
-  left: 0;
+  left: 50%;
   position: absolute;
+  transform: translateX(-50%);
   width: 100%;
   z-index: 9;
 }
@@ -1831,7 +1904,7 @@ textarea {
   z-index: 1000;
 }
 
-.purchase__form .form__inner dl .select__zone label:nth-of-type(1), .purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6) {
+.purchase__form .form__inner dl .select__zone label:nth-of-type(1), .purchase__form .form__inner dl .select__zone label:nth-of-type(2), .purchase__form .form__inner dl .select__zone label:nth-of-type(3), .purchase__form .form__inner dl .select__zone label:nth-of-type(4), .purchase__form .form__inner dl .select__zone label:nth-of-type(5), .purchase__form .form__inner dl .select__zone label:nth-of-type(6), .purchase__form .form__inner dl .select__zone label:nth-of-type(7) {
   background: #fff no-repeat 17% 34% / 17% auto;
 }
 
@@ -1856,6 +1929,10 @@ textarea {
 }
 
 .purchase__form .form__inner dl .select__zone label:nth-of-type(6) {
+  background-image: url(../img/icons/radio_icon07.jpg);
+}
+
+.purchase__form .form__inner dl .select__zone label:nth-of-type(7) {
   background-image: url(../img/icons/radio_icon06.jpg);
 }
 
@@ -1965,7 +2042,7 @@ textarea {
 }
 
 .purchase__form .form__inner .special__size dd .special__size-box select {
-  font-size: 1.0rem;
+  font-size: 1.4rem;
   width: 100%;
 }
 
@@ -4344,7 +4421,7 @@ textarea {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 90%;
 }
 
 .output__list .section__inner .output__content dl dt .col__cent.bla, .output__list .section__inner .output__content dl dd .col__cent.bla {
