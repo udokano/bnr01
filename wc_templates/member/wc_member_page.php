@@ -56,6 +56,8 @@ jQuery(function(){
 
 </script>
 
+<div id="aa"></div>
+
 <?php if (have_posts()) : usces_remove_filter(); ?>
 
 	<div class="post" id="wc_<?php usces_page_name(); ?>">
@@ -189,6 +191,11 @@ $('#delete1').click(function(){
 const c__names = $.cookie("form");
 
 console.log(c__names);
+
+const c__names01 = $.cookie();
+
+console.log(c__names01);
+$("#aa").text(c__names01);
 
 
 jQuery(".direction__links a").each(function(i) {

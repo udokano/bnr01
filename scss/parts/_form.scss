@@ -251,6 +251,10 @@ textarea {
             top: 50%;
             transform: translateY(-50%);
             width: 7%;
+
+            @media (max-width: 1200px) {
+                display: none !important;
+            }
         }
 
         .step__img__on {

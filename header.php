@@ -49,30 +49,7 @@
 
 
 
-<script>
 
-    /*
-  キャンペーンバナー
-  --------------------------------------------*/
-$(function(){
-  var cookie = $.cookie('campaign');
-  if (cookie) {
-    $('.campaign').addClass('is-close');
-  }
-
-  else {
-    $('.campaign').addClass('is-view');
-  }
-
-  $('.js-campaign--close').on('click', function () {
-    $('.campaign').removeClass('is-view');
-    $('.campaign').addClass('is-close');
-    $.cookie('campaign', 'close');
-  });
-
-});
-
-</script>
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/garlic.js"></script>
 
@@ -172,7 +149,7 @@ jQuery(".wpcf7-form").validationEngine('attach', {
 <?php if (is_page('usces-member')): ?>
 
 /* 新規会員入会ページ */
-jQuery(document).ready(function(){
+/* jQuery(document).ready(function(){
 jQuery("#mailaddress1").addClass("validate[required]");
 jQuery("#mailaddress2").addClass("validate[required,equals[mailaddress1]]");
       jQuery("#password1").addClass("validate[required]");
@@ -183,7 +160,7 @@ jQuery("#tel").addClass("validate[required]");
 jQuery("#new__member__form").validationEngine('attach', {
     　promptPosition:"topLeft"
   　});
-});
+}); */
 <?php endif; ?>
 
 <?php if (is_home() || is_front_page()) : ?>

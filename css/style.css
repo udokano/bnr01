@@ -1677,6 +1677,12 @@ textarea {
   width: 7%;
 }
 
+@media (max-width: 1200px) {
+  .purchase__form .form__area__out .step__img {
+    display: none !important;
+  }
+}
+
 .purchase__form .form__area__out .step__img__on {
   display: none;
 }

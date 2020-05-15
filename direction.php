@@ -67,7 +67,7 @@ if ( $('.mw_wp_form .error')[0] ) {
 </script>
 <script>
 
-jQuery("#text__area").attr('placeholder', 'こちらにデザイン指示を入力 \r\n 例：明るい感じでロゴは右下に配置');
+jQuery("#text__area").attr("placeholder", "こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置");
 
 jQuery("#text__area02").attr('placeholder', '「どうデザインを指示していいか分からないのでプロにお任せしたい」という方向けです。バナーに最低限必要な文章を入力し送信してください。');
 
@@ -95,7 +95,6 @@ $(function(){
 	var c__name = "form";
 	console.log(num);
 		$("#form__colse").click(function(){
-
  			 $.cookie("form", num, {expires: 7, path: "/"});
 		});
 

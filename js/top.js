@@ -59,15 +59,13 @@ const $publish__labels = $("#publish > label");
 /* 実績ラジオグループ */
 const $publish__radios = $("#publish > input");
 
-
 /* 特殊サイズプルダウン */
 const $special__size__select = $("#special__size-box > select");
 
 /* 特殊サイズプルダウン各メニュー */
 const $special__size__options = $("#special__size-box > select > option");
 
-/* 管理番号入力エリア */
-
+/* 管理番号入力インプット */
 const $control__num__input = $("#control__num__input > input");
 
 /*
@@ -266,17 +264,17 @@ jQuery("#label__type__e1").append('<span class="sub__text">-500円</span>'); */
 /*
 料金追加
 ----------------------------------------*/
-jQuery("#label__type__a1 .item__text").after('<span class="price__text"><span class="line-through">3600円</span><em class="campaign__price red">2600円</em></span>');
+jQuery("#label__type__a1 .item__text").after('<span class="price__text">3600円</span>');
 
-jQuery("#label__type__a2 .item__text").after('<span class="price__text"><span class="line-through">5700円</span><em class="campaign__price red">4700円</em></span>');
+jQuery("#label__type__a2 .item__text").after('<span class="price__text">5700円</span>');
 
-jQuery("#label__type__a3 .item__text").after('<span class="price__text"><span class="line-through">8600円</span><em class="campaign__price red">7600円</em></span>');
+jQuery("#label__type__a3 .item__text").after('<span class="price__text">8600円</span>');
 
-jQuery("#label__type__a4 .item__text").after('<span class="price__text"><span class="line-through">11500円</span><em class="campaign__price red">10500円</em></span>');
+jQuery("#label__type__a4 .item__text").after('<span class="price__text">11500円</span>');
 
 //jQuery("#label__type__a5 .item__text").after('<span class="price__text">50%OFF</span>');
 
-jQuery("#label__type__a6 .item__text").after('<span class="price__text"><span class="line-through">3600円</span><em class="campaign__price red">2600円</em></span>');
+jQuery("#label__type__a6 .item__text").after('<span class="price__text">3600円</span>');
 
 jQuery("#label__type__b1 .item__text").append('<span class="price__text">料金変動無し</span>');
 

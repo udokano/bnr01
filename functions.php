@@ -298,6 +298,116 @@ if (!current_user_can('administrator')) { // 管理者以外を対象
 
 ------------------------------------------------*/
 
+/* ラジオボタンの中身カスタマイズ */
+
+
+add_filter( 'usces_filter_the_itemOption', 'my_filter_the_itemOption', 10, 6 );
+function my_filter_the_itemOption( $html, $opts, $name, $label, $post_id, $sku ) {
+    //処理
+
+global $post, $usces;
+	$post_id = $post->ID;
+
+	if($label == '#default#')
+		$label = $name;
+
+	$opts = usces_get_opts($post_id, 'name');
+	if(!$opts)
+		return false;
+
+
+	$opt = $opts[$name];
+	$opt['value'] = usces_change_line_break( $opt['value'] );
+	$means = (int)$opt['means'];
+	$essential = (int)$opt['essential'];
+
+	$html = '';
+	$sku = esc_attr(urlencode($usces->itemsku['code']));
+	$optcode = esc_attr(urlencode($name));
+	$name = esc_attr($name);
+	$label = esc_attr($label);
+	$session_value = isset( $_SESSION['usces_singleitem']['itemOption'][$post_id][$sku][$optcode] ) ? $_SESSION['usces_singleitem']['itemOption'][$post_id][$sku][$optcode] : NULL;
+	$html .= "\n<label for='itemOption[{$post_id}][{$sku}][{$optcode}]' class='iopt_label'>{$label}</label>\n";
+switch($means) {
+	case 0://Single-select
+	case 1://Multi-select
+		$selects = explode("\n", $opt['value']);
+		$multiple = ($means === 0) ? '' : ' multiple';
+		$multiple_array = ($means == 0) ? '' : '[]';
+		$html .= "\n<select name='itemOption[{$post_id}][{$sku}][{$optcode}]{$multiple_array}' id='itemOption[{$post_id}][{$sku}][{$optcode}]' class='iopt_select'{$multiple} onKeyDown=\"if (event.keyCode == 13) {return false;}\">\n";
+		if($essential == 1){
+			if(  '#NONE#' == $session_value || NULL == $session_value )
+				$selected = ' selected="selected"';
+			else
+				$selected = '';
+			$html .= "\t<option value='#NONE#'{$selected}>" . __('Choose','usces') . "</option>\n";
+		}
+		$i=0;
+		foreach((array)$selects as $v) {
+			$v = trim($v);
+			if( ($i == 0 && $essential == 0 && NULL == $session_value) || esc_attr($v) == $session_value )
+				$selected = ' selected="selected"';
+			else
+				$selected = '';
+			$html .= "\t<option value='" . esc_attr($v) . "'{$selected}>" . esc_attr($v) . "</option>\n";
+			$i++;
+		}
+		$html .= "</select>\n";
+		break;
+	case 2://Text
+		$html .= "\n<input name='itemOption[{$post_id}][{$sku}][{$optcode}]' type='text' id='itemOption[{$post_id}][{$sku}][{$optcode}]' class='iopt_text' onKeyDown=\"if (event.keyCode == 13) {return false;}\" value=\"" . esc_attr($session_value) . "\" />\n";
+        break;
+
+        /* ===========
+
+        ここからカスタマイズ
+
+        ================*/
+	case 3://Radio-button
+		$selects = explode("\n", $opt['value']);
+
+		$i=0;
+		foreach((array)$selects as $v) {
+			$v = trim($v);
+			if( $v == $session_value )
+				$checked = ' checked="checked"';
+			else
+				$checked = '';
+			$html .= "<input name='itemOption[{$post_id}][{$sku}][{$optcode}]' id='' class='iopt_radio' type='radio' value='" . urlencode($v) . "'{$checked}>\t<label for='' class='iopt_radio_label'><span class='item__text'>" . esc_html($v) . "</span></label>\n";
+			$i++;
+		}
+        break;
+        /* ===============
+
+        カスタマイズ終了
+
+        =================*/
+	case 4://Check-box
+		$selects = explode("\n", $opt['value']);
+
+		$i=0;
+		foreach((array)$selects as $v) {
+			$v = trim($v);
+			if( $v == $session_value )
+				$checked = ' checked="checked"';
+			else
+				$checked = '';
+			$html .= "\t<label for='itemOption[{$post_id}][{$sku}][{$optcode}]{$i}' class='iopt_checkbox_label'><input name='itemOption[{$post_id}][{$sku}][{$optcode}][]' id='itemOption[{$post_id}][{$sku}][{$optcode}]{$i}' class='iopt_checkbox' type='checkbox' value='" . urlencode($v) . "'{$checked}>" . esc_html($v) . "</label><br />\n";
+			$i++;
+		}
+		break;
+	case 5://Text-area
+		$html .= "\n<textarea name='itemOption[{$post_id}][{$sku}][{$optcode}]' id='itemOption[{$post_id}][{$sku}][{$optcode}]' class='iopt_textarea'>" . esc_attr($session_value) . "</textarea>\n";
+		break;
+	}
+
+if( $out == 'return' ){
+		return $html;
+	}else{
+		echo $html;
+	}
+}
+
 
 //カートの表をカスタマイズ
 
@@ -354,67 +464,157 @@ add_filter('usces_filter_addressform_confirm', 'usces_filter_apply_addressform_c
 //郵便番号・住所は不要なので削除
 
 add_filter('usces_filter_customer_check', 'my_filter_customer_check', 10, 3);
-    function my_filter_customer_check($mes)
-    {
-        do_action('my_filter_customer_check');
+   function my_filter_customer_check() {
+		do_action( 'my_filter_customer_check' );
+		$mes = '';
+		if ( !is_email($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress2']) || trim($_POST['customer']['mailaddress1']) != trim($_POST['customer']['mailaddress2']) ){
+			$mes .= __('e-mail address is not correct', 'usces') . "<br />";
+		}
+		if ( WCUtils::is_blank($_POST["customer"]["name1"]) ){
+			$mes .= __('Name is not correct', 'usces') . "<br />";
+		}
 
-        $mes = '';
-        if (!is_email($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress2']) || trim($_POST['customer']['mailaddress1']) != trim($_POST['customer']['mailaddress2'])) {
-            $mes .= __('e-mail address is not correct', 'usces') . "<br />";
-        }
-        if (WCUtils::is_blank($_POST["customer"]["name1"])) {
-            $mes .= __('Name is not correct', 'usces') . "<br />";
-        }
+		if ( WCUtils::is_blank($_POST["customer"]["tel"]) && usces_is_required_field('tel') ){
+			$mes .= __('enter phone numbers', 'usces') . "<br />";
+		}
+		if( !WCUtils::is_blank($_POST['customer']["tel"]) && preg_match("/[^\d\-+]/", trim($_POST["customer"]["tel"])) && usces_is_required_field('tel') ){
+			$mes .= __('Please input a phone number with a half size number.', 'usces') . "<br />";
+		}
+		return $mes;
+	}
 
-        if (WCUtils::is_blank($_POST["customer"]["tel"]) && usces_is_required_field('tel')) {
-            $mes .= __('enter phone numbers', 'usces') . "<br />";
-        }
-        if (!WCUtils::is_blank($_POST['customer']["tel"]) && preg_match("/[^\d\-+]/", trim($_POST["customer"]["tel"])) && usces_is_required_field('tel')) {
-            $mes .= __('Please input a phone number with a half size number.', 'usces') . "<br />";
-        }
+/* ======
 
-        return $mes;
-    }
+会員登録入力画面バリデーション解除
+
+==========*/
+
+add_filter('usces_filter_member_check', 'my_filter_member_check', 10, 3);
+
+function my_filter_member_check() {
+
+		do_action( 'my_filter_member_check' );
+
+		$mes = '';
+		$usces_member_old = $_SESSION['usces_member'];
+		foreach ( $_POST['member'] as $key => $vlue ) {
+			if( 'password1' !== $key && 'password2' !== $key ){
+				$_SESSION['usces_member'][$key] = trim($vlue);
+			}
+		}
+
+		if ( !WCUtils::is_blank($_POST['member']['password1']) || !WCUtils::is_blank($_POST['member']['password2']) ){
+			if( !empty( $member_pass_rule_max ) ){
+				if( $member_pass_rule_min > strlen( trim($_POST['member']['password1']) ) || strlen( trim($_POST['member']['password1']) ) > $member_pass_rule_max ){
+					$mes .= sprintf(__('Please enter %2$s characters a minimum of %1$s characters and a maximum password.', 'usces'), $member_pass_rule_min, $member_pass_rule_max ) . "<br />";
+				}
+			}else{
+				if( $member_pass_rule_min > strlen( trim($_POST['member']['password1']) ) ){
+					$mes .= sprintf(__('Please enter at least %s characters password.', 'usces'), $member_pass_rule_min) . "<br />";
+				}
+			}
+		}
+		if ( $_POST['member_regmode'] == 'editmemberform' ) {
+			if ( (!WCUtils::is_blank($_POST['member']['password1']) || !WCUtils::is_blank($_POST['member']['password2']) ) && trim($_POST['member']['password1']) != trim($_POST['member']['password2']) ) {
+				$mes .= __('Password is not correct.', 'usces') . "<br />";
+			}
+			if ( !is_email($_POST['member']['mailaddress1']) || WCUtils::is_blank($_POST['member']['mailaddress1']) ) {
+				$mes .= __('e-mail address is not correct', 'usces') . "<br />";
+			} else {
+				$this->get_current_member();
+				$mem_id = $this->current_member['id'];
+				$id = $this->check_member_email( $_POST['member']['mailaddress1'] );
+				if( !empty( $id ) && $id != $mem_id ) {
+					$mes .= __( 'This e-mail address can not be registered.', 'usces' ) . "<br />";
+				}
+			}
+		} else if ( $_POST['member_regmode'] == 'newmemberform' ){
+			if ( WCUtils::is_blank($_POST['member']['password1']) || WCUtils::is_blank($_POST['member']['password2']) || trim($_POST['member']['password1']) != trim($_POST['member']['password2']) ) {
+				$mes .= __('Password is not correct.', 'usces') . "<br />";
+			}
+			if ( !is_email($_POST['member']['mailaddress1']) || WCUtils::is_blank($_POST['member']['mailaddress1']) || WCUtils::is_blank($_POST['member']['mailaddress2']) || trim($_POST['member']['mailaddress1']) != trim($_POST['member']['mailaddress2']) ) {
+				$mes .= __('e-mail address is not correct', 'usces') . "<br />";
+			} else {
+
+				if( !empty( $id ) ) {
+					$mes .= __( 'This e-mail address can not be registered.', 'usces' ) . "<br />";
+				}
+			}
+		}else{
+			$mes .= __('ERROR: I was not able to complete collective operation', 'usces') . "<br />";
+		}
+		if ( WCUtils::is_blank($_POST["member"]["name1"]) ){
+			$mes .= __('Name is not correct', 'usces') . "<br />";
+		}
+		/* if ( WCUtils::is_blank($_POST["member"]["zipcode"]) && usces_is_required_field('zipcode') ){
+			$mes .= __('postal code is not correct', 'usces') . "<br />";
+		}
+		if ( $_POST["member"]["pref"] == __('-- Select --', 'usces_dual') && usces_is_required_field('states') ){
+			$mes .= __('enter the prefecture', 'usces') . "<br />";
+		}
+		if ( WCUtils::is_blank($_POST["member"]["address1"]) && usces_is_required_field('address1') ){
+			$mes .= __('enter the city name', 'usces') . "<br />";
+		}
+		if ( WCUtils::is_blank($_POST["member"]["address2"]) && usces_is_required_field('address2') ){
+			$mes .= __('enter house numbers', 'usces') . "<br />";
+		} */
+		if ( WCUtils::is_blank($_POST["member"]["tel"]) && usces_is_required_field('tel') ){
+			$mes .= __('enter phone numbers', 'usces') . "<br />";
+		}
+		if( !WCUtils::is_blank($_POST['member']["tel"]) && preg_match("/[^\d\-+]/", trim($_POST["member"]["tel"])) && usces_is_required_field('tel') ){
+			$mes .= __('Please input a phone number with a half size number.', 'usces') . "<br />";
+		}
+
+		/* if( $_POST['member_regmode'] !== 'editmemberform' && isset( $this->options['agree_member']) && 'activate' === $this->options['agree_member'] ){
+			if( !isset($_POST['agree_member_check']) ){
+				$mes .= __('Please accept the membership agreement.', 'usces') . "<br />";
+			}
+		}
+ */
+
+		if ( $_POST['member_regmode'] == 'editmemberform' && '' != $mes ) {
+			$_SESSION['usces_member'] = $usces_member_old;
+		}
+
+		return $mes;
+	}
+
+
 
 
     /* 会員登録画面　住所、郵便番号のバリデーション削除 */
 
 add_filter('usces_filter_member_check_fromcart', 'my_filter_customer_check02', 10, 3);
-    function my_filter_customer_check02($mes)
-    {
-        do_action('my_filter_customer_check02');
-        $mes = '';
-        if (!WCUtils::is_blank($_POST['customer']['password1']) || !WCUtils::is_blank($_POST['customer']['password2'])) {
-            if (!empty($member_pass_rule_max)) {
-                if ($member_pass_rule_min > strlen(trim($_POST['customer']['password1'])) || strlen(trim($_POST['customer']['password1'])) > $member_pass_rule_max) {
-                    $mes .= sprintf(__('Please enter %2$s characters a minimum of %1$s characters and a maximum password.', 'usces'), $member_pass_rule_min, $member_pass_rule_max) . "<br />";
-                }
-            } else {
-                if ($member_pass_rule_min > strlen(trim($_POST['customer']['password1']))) {
-                    $mes .= sprintf(__('Please enter at least %s characters password.', 'usces'), $member_pass_rule_min) . "<br />";
-                }
-            }
-        }
-        if (WCUtils::is_blank($_POST['customer']['password1']) || WCUtils::is_blank($_POST['customer']['password2']) || trim($_POST['customer']['password1']) != trim($_POST['customer']['password2'])) {
-            $mes .= __('Password is not correct.', 'usces') . "<br />";
-        }
+   function my_filter_customer_check02() {
+        do_action( 'my_filter_customer_check02' );
+		$mes = '';
+		if ( !WCUtils::is_blank($_POST['customer']['password1']) || !WCUtils::is_blank($_POST['customer']['password2']) ){
+			if( !empty( $member_pass_rule_max ) ){
+				if( $member_pass_rule_min > strlen( trim($_POST['customer']['password1']) ) || strlen( trim($_POST['customer']['password1']) ) > $member_pass_rule_max )
+					$mes .= sprintf(__('Please enter %2$s characters a minimum of %1$s characters and a maximum password.', 'usces'), $member_pass_rule_min, $member_pass_rule_max ) . "<br />";
+			}else{
+				if( $member_pass_rule_min > strlen( trim($_POST['customer']['password1']) ) )
+					$mes .= sprintf(__('Please enter at least %s characters password.', 'usces'), $member_pass_rule_min) . "<br />";
+			}
+		}
+		if ( WCUtils::is_blank($_POST['customer']['password1']) || WCUtils::is_blank($_POST['customer']['password2']) || trim($_POST['customer']['password1']) != trim($_POST['customer']['password2']) ){
+			$mes .= __('Password is not correct.', 'usces') . "<br />";
+		}
+		if ( !is_email($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress2']) || trim($_POST['customer']['mailaddress1']) != trim($_POST['customer']['mailaddress2']) ){
+			$mes .= __('e-mail address is not correct', 'usces') . "<br />";
+		}
+		if ( WCUtils::is_blank($_POST["customer"]["name1"]) ){
+			$mes .= __('Name is not correct', 'usces') . "<br />";
+		}
 
-        if (!is_email($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress1']) || WCUtils::is_blank($_POST['customer']['mailaddress2']) || trim($_POST['customer']['mailaddress1']) != trim($_POST['customer']['mailaddress2'])) {
-            $mes .= __('e-mail address is not correct', 'usces') . "<br />";
-        }
-        if (WCUtils::is_blank($_POST["customer"]["name1"])) {
-            $mes .= __('Name is not correct', 'usces') . "<br />";
-        }
-
-        if (WCUtils::is_blank($_POST["customer"]["tel"]) && usces_is_required_field('tel')) {
-            $mes .= __('enter phone numbers', 'usces') . "<br />";
-        }
-        if (!WCUtils::is_blank($_POST['customer']["tel"]) && preg_match("/[^\d\-+]/", trim($_POST["customer"]["tel"])) && usces_is_required_field('tel')) {
-            $mes .= __('Please input a phone number with a half size number.', 'usces') . "<br />";
-        }
-
-        return $mes;
-    }
+		if ( WCUtils::is_blank($_POST["customer"]["tel"]) && usces_is_required_field('tel') ){
+			$mes .= __('enter phone numbers', 'usces') . "<br />";
+		}
+		if( !WCUtils::is_blank($_POST['customer']["tel"]) && preg_match("/[^\d\-+]/", trim($_POST["customer"]["tel"])) && usces_is_required_field('tel') ){
+			$mes .= __('Please input a phone number with a half size number.', 'usces') . "<br />";
+		}
+		return $mes;
+	}
 
 
 //お客さま情報入力画面不要な項目削除
@@ -759,6 +959,101 @@ function my_send_regmembermail_message()
     $message .= $mail_data['footer']['membercomp'];
 
     return $message;
+}
+
+
+/* 購入後の返信メールから不要な項目を消す */
+add_filter('usces_filter_apply_mail_addressform', 'my_filter_apply_mail_addressform', 10, 2);
+
+function my_filter_apply_mail_addressform(){
+
+	$formtag = '';
+
+	switch ($applyform){
+	case 'JP':
+		$formtag .= usces_mail_custom_field_info( $mode, 'name_pre', $order_id );
+		if( $type == 'order_mail_customer' or $type == 'admin_mail_customer' ){
+			$usces_order_table = $wpdb->prefix . "usces_order";
+			$order_data = $wpdb->get_results( $wpdb->prepare("SELECT mem_id,order_email FROM $usces_order_table WHERE ID = %d LIMIT 1", $order_id ) );
+			$mem_id = $order_data[0]->mem_id;
+			$order_email = $order_data[0]->order_email;
+
+			$formtag .= ( !empty( $mem_id ) ) ? __( 'membership number', 'usces' ) . " : " . $mem_id . "\r\n" : '';
+			$formtag .= ( !empty( $order_email ) ) ? __( 'e-mail adress', 'usces' ) . " : " . $order_email . "\r\n" : '';
+		}
+		$formtag .= $name_label . " : " . sprintf(_x('%s', 'honorific', 'usces'), ($values['name1'] . ' ' . $values['name2'])) . "\r\n";
+		if( !empty($values['name3']) || !empty($values['name4']) ) {
+			$formtag .= __('furigana','usces') . " : " . $values['name3'] . ' ' . $values['name4'] . "\r\n";
+		}
+		$formtag .= usces_mail_custom_field_info( $mode, 'name_after', $order_id );
+		if( 1 < $target_market_count ){
+			$formtag .= __('Country','usces') . " : " . $usces_settings['country'][$values['country']] . "\r\n";
+		}
+		//$formtag .= __('Zip/Postal Code','usces') . " : " . $values['zipcode'] . "\r\n";
+		//$formtag .= __('Address','usces') . " : " . $pref . $values['address1'] . $values['address2'] . " " . $values['address3'] . "\r\n";
+		$formtag .= __('Phone number','usces') . " : " . $values['tel'] . "\r\n";
+		//$formtag .= __('FAX number','usces') . " : " . $values['fax'] . "\r\n";
+		$formtag .= usces_mail_custom_field_info( $mode, 'fax_after', $order_id );
+		break;
+
+	case 'CN':
+		$formtag .= usces_mail_custom_field_info( $mode, 'name_pre', $order_id );
+		if( $type == 'order_mail_customer' or $type == 'admin_mail_customer' ){
+			$usces_order_table = $wpdb->prefix . "usces_order";
+			$order_data = $wpdb->get_results( $wpdb->prepare("SELECT mem_id,order_email FROM $usces_order_table WHERE ID = %d LIMIT 1", $order_id ) );
+			$mem_id = $order_data[0]->mem_id;
+			$order_email = $order_data[0]->order_email;
+
+			$formtag .= ( !empty( $mem_id ) ) ? __( 'membership number', 'usces' ) . " : " . $mem_id . "\r\n" : '';
+			$formtag .= ( !empty( $order_email ) ) ? __( 'e-mail adress', 'usces' ) . " : " . $order_email . "\r\n" : '';
+		}
+		$formtag .= $name_label . " : " . sprintf(_x('%s', 'honorific', 'usces'), ($values['name1'] . ' ' . $values['name2'])) . "\r\n";
+		$formtag .= usces_mail_custom_field_info( $mode, 'name_after', $order_id );
+		if( 1 < $target_market_count ){
+			$formtag .= __('Country','usces') . " : " . $usces_settings['country'][$values['country']] . "\r\n";
+		}
+		$formtag .= __('State','usces') . " : " . $pref . "\r\n";
+		$formtag .= __('City','usces') . " : " . $values['address1'] . "\r\n";
+		$formtag .= __('Address','usces') . " : " . $values['address2'] . " " . $values['address3'] . "\r\n";
+		$formtag .= __('Zip/Postal Code','usces') . " : " . $values['zipcode'] . "\r\n";
+		$formtag .= __('Phone number','usces') . " : " . $values['tel'] . "\r\n";
+		$formtag .= __('FAX number','usces') . " : " . $values['fax'] . "\r\n";
+		$formtag .= usces_mail_custom_field_info( $mode, 'fax_after', $order_id );
+		break;
+
+	case 'US':
+	default:
+		$formtag .= usces_mail_custom_field_info( $mode, 'name_pre', $order_id );
+		if( $type == 'order_mail_customer' or $type == 'admin_mail_customer' ){
+			$usces_order_table = $wpdb->prefix . "usces_order";
+			$order_data = $wpdb->get_results( $wpdb->prepare("SELECT mem_id,order_email FROM $usces_order_table WHERE ID = %d LIMIT 1", $order_id ) );
+			$mem_id = $order_data[0]->mem_id;
+			$order_email = $order_data[0]->order_email;
+
+			$formtag .= ( !empty( $mem_id ) ) ? __( 'membership number', 'usces' ) . " : " . $mem_id . "\r\n" : '';
+			$formtag .= ( !empty( $order_email ) ) ? __( 'e-mail adress', 'usces' ) . " : " . $order_email . "\r\n" : '';
+		}
+		$formtag .= $name_label . " : " . sprintf(_x('%s', 'honorific', 'usces'), ($values['name2'] . ' ' . $values['name1'])) . "\r\n";
+		$formtag .= usces_mail_custom_field_info( $mode, 'name_after', $order_id );
+		$formtag .= __('Address','usces') . " : " . $values['address2'] . " " . $values['address3'] . "\r\n";
+		$formtag .= __('City','usces') . " : " . $values['address1'] . "\r\n";
+		$formtag .= __('State','usces') . " : " . $pref . "\r\n";
+		if( 1 < $target_market_count ){
+			$formtag .= __('Country','usces') . " : " . $usces_settings['country'][$values['country']] . "\r\n";
+		}
+		$formtag .= __('Zip/Postal Code','usces') . " : " . $values['zipcode'] . "\r\n";
+		$formtag .= __('Phone number','usces') . " : " . $values['tel'] . "\r\n";
+		$formtag .= __('FAX number','usces') . " : " . $values['fax'] . "\r\n";
+		$formtag .= usces_mail_custom_field_info( $mode, 'fax_after', $order_id );
+		break;
+	}
+
+
+	if($out == 'return') {
+		return $res;
+	} else {
+		echo $res;
+	}
 }
 
 
