@@ -29,8 +29,8 @@ input[type="text"], input[type="email"] {
 textarea {
     background-color: #fff;
     padding: 1.2em;
-    margin-bottom: 1.2rem;
-    height: 221px;
+    //margin-bottom: 1.2rem;
+    //height: 221px;
     border-radius: 11px;
     width: 100%;
     line-height: 1.75;
@@ -213,6 +213,13 @@ textarea {
     }
 }
 
+.hhhhh {
+    //position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 /*フォームエリア記載
 -------------------------*/
 .purchase__form {
@@ -236,10 +243,10 @@ textarea {
     .form__area__out {
         position: relative;
 
-        &:not(:first-of-type) {
+       /*  &:not(:first-of-type) {
             visibility: hidden;
             height: 0;
-        }
+        } */
 
         &:last-of-type {
             padding-bottom: 2.5rem;
@@ -1178,7 +1185,7 @@ textarea {
             &:hover {
                 //bottom: -5px;
                 // border-bottom-width: 2px;
-           
+
             }
         }
 

@@ -154,17 +154,21 @@ get_header();
 		<tr>
 			<th><?php _e('payment method', 'usces'); ?></th><td><?php echo esc_html($usces_entries['order']['payment_name'] . usces_payment_detail($usces_entries)); ?></td>
 		</tr>
-<?php usces_custom_field_info($usces_entries, 'order', ''); ?>
+
+				<?php usces_custom_field_info($usces_entries, 'order', ''); ?>
+
 		<tr>
 			<th><?php _e('Notes', 'usces'); ?></th><td><?php echo nl2br(esc_html($usces_entries['order']['note'])); ?></td>
 		</tr>
 	</table>
+			<div class="cart-btn-wrap">
+				<?php usces_purchase_button(); ?>
+			</div>
 
-<?php usces_purchase_button(); ?>
-
-	<div class="footer_explanation">
-<?php do_action('usces_action_confirm_page_footer'); ?>
-	</div><!-- end of footer_explanation -->
+	<!-- <div class="footer_explanation">
+		<?php do_action('usces_action_confirm_page_footer'); ?>
+	</div> -->
+	<!-- end of footer_explanation -->
 
 </div><!-- end of info-confirm -->
 

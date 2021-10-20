@@ -56,7 +56,7 @@ jQuery(function(){
 
 </script>
 
-<div id="aa"></div>
+
 
 <?php if (have_posts()) : usces_remove_filter(); ?>
 
@@ -84,6 +84,31 @@ jQuery(function(){
 
 				<div class="whitebox">
 					<div id="memberinfo">
+
+					<table id="member__info__table">
+                  <tr>
+                         <th class="member__num"><?php _e('Strated date', 'usces'); ?></th>
+                      <td class="member__num"><?php usces_memberinfo('registered'); ?></td>
+                  </tr>
+                    <tr>
+                      <th scope="row"><?php _e('member number', 'usces'); ?></th>
+                      <td class="num"><?php usces_memberinfo('ID'); ?></td>
+                      <!-- 	<td rowspan="3">&nbsp;</td> -->
+
+                    </tr>
+                    <tr>
+                      <th scope="row">ご担当者お名前</th>
+                      <td><?php esc_html_e(sprintf(_x('%s', 'honorific', 'usces'), usces_localized_name(usces_memberinfo('name1', 'return'), usces_memberinfo('name2', 'return'), 'return'))); ?></td>
+
+                    </tr>
+
+                    <tr>
+                      <th scope="row"><?php _e('e-mail adress', 'usces'); ?></th>
+                      <td><?php usces_memberinfo('mailaddress1'); ?></td>
+
+                      <?php echo apply_filters('usces_filter_memberinfo_page_reserve', $html_reserve, usces_memberinfo('ID', 'return')); ?>
+                       </tr>
+                  </table>
 
 					<ul class="member_submenu">
 						<li class="edit_member"><a href="#edit"><?php _e('To member information editing', 'usces'); ?></a></li>
@@ -157,65 +182,3 @@ jQuery(function(){
 
 
 <?php get_footer(); ?>
-
-<script>
-//クッキーテスト
-
-
-
-
-
-$(function() {
-//$.cookie("form", "none");
-
-//テスト記述
-var kk = $("#kk").val();
-
-$('#keep1').click(function(){
-    $.cookie("cookie1", "kk", {expires: 7, path: "/"});
-	alert(kk + "を保存しました");
-});
-
-$('#kk').val($.cookie('cookie1'));
-
-$('#delete1').click(function(){
-
-    $.removeCookie("form");
-
-
-});
-
-
-//ボタン非活性テスト
-
-const c__names = $.cookie("form");
-
-console.log(c__names);
-
-const c__names01 = $.cookie();
-
-console.log(c__names01);
-$("#aa").text(c__names01);
-
-
-jQuery(".direction__links a").each(function(i) {
-        var c__names = $.cookie("form");
-		console.log(c__names);
-        var obj = jQuery(this);
-		var href = obj.attr("href");
-		console.log(href);
-		if(href.indexOf(c__names) > -1) {
-			obj.css("background-color","#666");
-			obj.text("送信済み");//文字列を変更する。
-			obj.attr("href","");//リンク先を消す。
-		}
-
-
-        //obj.attr("data-num",order__number );
-    });
-
-
-});
-
-
-</script>

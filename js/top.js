@@ -16,11 +16,7 @@ $("#js-anchor").on("click", function () {
 });
 
 
-/*
-いらないラベル削除
-*/
 
-$(".iopt_label").remove();
 
 /*
 
@@ -457,6 +453,12 @@ const $publish__ng = $("#banner__publish1");
 //欲しい
 const $publish__ok = $("#banner__publish2");
 
+
+
+/* テスト */
+
+
+$("#modal666666").appendTo("#label__type__a1");
 
 $(function () {
     /*

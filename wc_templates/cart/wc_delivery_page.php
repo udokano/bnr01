@@ -77,12 +77,15 @@ get_header();
 						<td colspan="2"><textarea name="offer[note]" id="note" class="notes"><?php echo esc_html($entry_order_note); ?></textarea></td>
 					</tr>
 				</table>
-
-				<div class="send"><input name="offer[cus_id]" type="hidden" value="" />
-				<input name="backCustomer" type="submit" class="back_to_customer_button" value="<?php _e('Back', 'usces'); ?>"<?php echo apply_filters('usces_filter_deliveryinfo_prebutton', null); ?> />
-				<input name="confirm" type="submit" class="to_confirm_button" value="<?php _e(' Next ', 'usces'); ?>"<?php echo apply_filters('usces_filter_deliveryinfo_nextbutton', null); ?> /></div>
-				<?php do_action('usces_action_delivery_page_inform'); ?>
-				</form>
+				<div class="cart-btn-wrap">
+						<div class="send">
+							<input name="offer[cus_id]" type="hidden" value="" />
+							<input name="backCustomer" type="submit" class="back_to_customer_button" value="<?php _e('Back', 'usces'); ?>"<?php echo apply_filters('usces_filter_deliveryinfo_prebutton', null); ?> />
+							<input name="confirm" type="submit" class="to_confirm_button" value="<?php _e(' Next ', 'usces'); ?>"<?php echo apply_filters('usces_filter_deliveryinfo_nextbutton', null); ?> />
+						</div>
+						<?php do_action('usces_action_delivery_page_inform'); ?>
+					</form>
+				</div>
 
 				<div class="footer_explanation">
 			<?php do_action('usces_action_delivery_page_footer'); ?>
