@@ -117,7 +117,7 @@ get_header();
 
 <script>
 //ボタンの文字列変更
-	$(".to_deliveryinfo_button").val("会員登録して進む");
-	$(".to_reganddeliveryinfo_button").val("会員登録せずに進む");
+	$(".to_deliveryinfo_button").val("会員登録せずに進む");
+	$(".to_reganddeliveryinfo_button").val("会員登録して進む");
 
 </script>

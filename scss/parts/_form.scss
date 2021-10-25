@@ -12,7 +12,7 @@ select {
     background-color: #f8f8f8;
     height: 53px;
     padding: 8px;
-    font-size: .58rem;
+    font-size: .94rem;
 }
 
 input[type="submit"] {
@@ -29,8 +29,8 @@ input[type="text"], input[type="email"] {
 textarea {
     background-color: #fff;
     padding: 1.2em;
-    margin-bottom: 1.2rem;
-    height: 221px;
+    //margin-bottom: 1.2rem;
+    //height: 221px;
     border-radius: 11px;
     width: 100%;
     line-height: 1.75;
@@ -40,7 +40,7 @@ textarea {
 .note {
     color: #454545;
     text-align: center;
-    line-height: 1.85;
+    line-height: 1.43;
     font-size: .74rem;
     margin-top: 2.5rem;
 }
@@ -74,6 +74,7 @@ textarea {
 .hidden__filed {
     visibility: hidden;
     height: 0;
+    padding-bottom: 0;
 
     //position: absolute !important;
 }
@@ -125,13 +126,18 @@ textarea {
         border-radius: 5px;
         font-size: .98rem;
         letter-spacing: 0.05em;
-        margin-right: .7rem;
+        margin-right: .2rem;
     }
 
     .step__tit {
         font-size: 1.9rem;
         padding: 0;
         color: #454545;
+        letter-spacing: 0.05em;
+    }
+
+    .step__num__toggle__on {
+        display: none;
     }
 }
 
@@ -207,20 +213,40 @@ textarea {
     }
 }
 
+.hhhhh {
+    //position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 /*フォームエリア記載
 -------------------------*/
 .purchase__form {
+    #label__type__b3 {
+        visibility: hidden;
+        padding: 0;
+        margin: 0;
+        height: 0;
+    }
+
     h1 {
         text-align: center;
         color: #fff;
         font-weight: 600;
-        padding: 1.6rem 0;
-        font-size: 1.8rem;
+        padding: 1.7315789473684rem 0;
+        font-size: 2.1052631578947rem;
         background-color: #2d417f;
+        line-height: 1;
     }
 
     .form__area__out {
         position: relative;
+
+       /*  &:not(:first-of-type) {
+            visibility: hidden;
+            height: 0;
+        } */
 
         &:last-of-type {
             padding-bottom: 2.5rem;
@@ -232,6 +258,14 @@ textarea {
             top: 50%;
             transform: translateY(-50%);
             width: 7%;
+
+            @media (max-width: 1200px) {
+                display: none !important;
+            }
+        }
+
+        .step__img__on {
+            display: none;
         }
 
         &::before {
@@ -260,10 +294,56 @@ textarea {
         &:nth-of-type(1) {
             &::before {
                 border: none;
+                display: none;
             }
 
             dl {
-                padding: 3.0rem 0;
+                padding: 3.8rem 0 2.0rem;
+            }
+        }
+
+        &.viv {
+            visibility: visible;
+            height: auto;
+        }
+
+        &.is-bg__change__white {
+            background-color: #fff;
+
+            &::before {
+                border-color: #f3f3f3  transparent transparent transparent;
+            }
+        }
+
+        &.is-bg__change__gray {
+            background-color: #f3f3f3;
+
+            &::before {
+                border-color: #fff  transparent transparent transparent;
+            }
+        }
+
+        &.is-bg__change__gray, &.is-bg__change__white {
+            .step__wrap {
+                .step__num__toggle__on {
+                    display: inline-block;
+                }
+
+                .step__num__toggle__off {
+                    display: none;
+                }
+            }
+
+            .step__img__off {
+                @media (min-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .step__img__on {
+                @media (min-width: 768px) {
+                    display: block;
+                }
             }
         }
     }
@@ -299,6 +379,7 @@ textarea {
                     z-index: 10;
                     background-color: #fff;
                     border: 1px solid #bbb;
+                    cursor: pointer;
 
                     //border-bottom: none;
 
@@ -308,7 +389,7 @@ textarea {
                     //box-shadow: 0px 6px 0px 0px #bbbbbb;
 
                     height: 136px;
-                    margin: 0 0 1.6rem;
+                    margin: 0 0 2rem;
                     color: $blue;
                     font-weight: 600;
                     font-size: .88rem;
@@ -339,16 +420,17 @@ textarea {
                             content: "";
                             position: absolute;
                             bottom: -4px;
-                            left: 0;
+                            left: 50%;
                             width: 100%;
                             display: block;
                             height: 5px;
                             z-index: 9;
+                            transform: translateX(-50%);
 
                             //background-color: #919191;
                             //clip-path: polygon(0 0, 100% 0, 98% 45%, 2% 45%);
                             //border-radius: 10% 10% 9% 9% / 0% 0% 100% 100%;
-                            background: url(../img/top/bg_btn_bottom.png) no-repeat 0% 100% / 100% 100%;
+                            background: url(../img/top/bg_btn_bottom.png) no-repeat 50% 50% / 99.98% 100%;
                         }
                     }
 
@@ -364,7 +446,7 @@ textarea {
                         display: inline-block;
                         position: absolute;
                         left: 78px;
-                        bottom: 19px;
+                        bottom: 23px;
 
                         //transform: translateX(-50%);
                         font-size: .72rem;
@@ -377,6 +459,18 @@ textarea {
                         margin-top: .38rem;
                         color: $green;
                         font-size: .86rem;
+                    }
+
+                    .line-through {
+                        text-decoration: line-through;
+                        font-size: .65rem;
+                        display: inline-block;
+                        margin-right: .7rem;
+                    }
+
+                    .campaign__price {
+                        color: #fb6464;
+                        font-size: .97rem;
                     }
 
                     .price__text.red {
@@ -394,22 +488,22 @@ textarea {
                         left: 22px;
                         width: 34px;
                         height: 34px;
-                        border-radius: 3px;
+                        border-radius: 5px;
                         background-color: #e0e0e0;
                     }
 
                     &::before {
-                        top: 46%;
-                        left: 29px;
-                        border-left: 6px solid #bbb;
-                        border-bottom: 6px solid #bbb;
-                        transform: translateY(-50%) rotate(-52deg);
+                        top: 47%;
+                        left: 26px;
+                        border-left: 7px solid #bbb;
+                        border-bottom: 7px solid #bbb;
+                        transform: translateY(-50%) rotate(-46deg);
                         z-index: 1000;
-                        width: 29px;
-                        height: 15px;
+                        width: 30px;
+                        height: 16px;
                     }
 
-                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6) {
+                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7) {
                         background: #fff no-repeat 17% 34% / 17% auto;
                     }
 
@@ -435,6 +529,10 @@ textarea {
                     }
 
                     &:nth-of-type(6) {
+                        background-image: url(../img/icons/radio_icon07.jpg);
+                    }
+
+                    &:nth-of-type(7) {
                         background-image: url(../img/icons/radio_icon06.jpg);
                     }
                 }
@@ -449,10 +547,14 @@ textarea {
                     background-color: #299cc5;
 
                     &::before {
-                        border-color: $green;
+                        border-color: #1db22b;
                     }
 
-                    span {
+                    &::after {
+                        background-color: #fff;
+                    }
+
+                    span, em {
                         color: #fff !important;
                     }
 
@@ -500,28 +602,7 @@ textarea {
             }
         }
 
-        .select__zone.limit {
-            justify-content: center;
-
-            label {
-                background-image: none !important;
-                color: #454545;
-                width: 28.3888%;
-                margin: 0 .5rem .6rem;
-
-                .inner__label {
-                    padding: 30px 10px 10px 80px;
-                }
-            }
-
-            p.note {
-                width: 50%;
-                margin: 30px auto 0;
-                line-height: 1.43;
-            }
-        }
-
-        .select__zone.select__data, .select__zone.public__btn {
+        .select__zone.select__data, .select__zone.public__btn, .select__zone.limit {
             justify-content: center;
 
             label {
@@ -585,7 +666,7 @@ textarea {
 
                     select {
                         width: 100%;
-                        font-size: 1.0rem;
+                        font-size: 1.4rem;
                     }
                 }
             }
@@ -1104,7 +1185,7 @@ textarea {
             &:hover {
                 //bottom: -5px;
                 // border-bottom-width: 2px;
-           
+
             }
         }
 

@@ -15,7 +15,7 @@
 }
 
 .cart__area {
-    margin-top: 30px;
+    margin: 3.725rem 0;
 
     /* カートページ */
     #cart {
@@ -160,7 +160,7 @@
 
         input {
             @media (max-width: 767px) {
-                margin-bottom: 1.0rem;
+                //margin-bottom: 1.0rem;
             }
         }
 
@@ -233,7 +233,7 @@
 
 @media (max-width: 767px) {
     .cart__area {
-        margin-top: 116px;
+        margin-top: 2.2rem;
 
         .section__inner {
             width: 96%;
@@ -333,6 +333,7 @@
 
     div.loginbox {
         margin-top: 0;
+        margin: 0 auto;
         max-width: 465px;
         width: 100%;
         padding: 1.42rem 1.68rem;
@@ -358,12 +359,17 @@
 
         label {
             width: 100%;
+            margin-bottom: 1.22rem;
 
             span {
                 display: block;
                 margin-bottom: .35rem;
                 font-weight: 600;
             }
+        }
+
+        .submit {
+            margin-bottom: 1.77rem;
         }
 
         a {

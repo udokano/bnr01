@@ -1,0 +1,79 @@
+.l-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9998;
+    visibility: hidden;
+    overflow-y: scroll;
+
+    &.is-modal-open {
+        visibility: visible;
+    }
+
+    &__bg {
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba($color: #000000, $alpha: 0.54);
+        width: 100%;
+        height: 100vh;
+    }
+
+    &__content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: #fff;
+        border-radius: rem(10);
+        transform: translate(-50%, -50%);
+        padding: 2.55rem;
+        max-width: 90%;
+
+        @media (max-width: 767px) {
+            padding: 1.55rem 1.1rem;
+            width: 90%;
+        }
+
+        // z-index: 9999;
+   
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 9999;
+    }
+
+    &__ttl {
+        text-align: center;
+        font-weight: 600;
+        font-size: 2.34rem;
+        margin-bottom: 1.88rem;
+
+        @media (max-width: 767px) {
+            font-size: 1.45rem;
+        }
+    }
+
+    &__btn {
+        background-color: $blue02;
+        text-align: center;
+        padding: 0.77rem 1.22rem;
+        color: #fff;
+        width: 52%;
+        max-width: 270px;
+        margin: 1.88rem auto 0;
+        font-size: 1.32rem;
+        border-radius: rem(4);
+        cursor: pointer;
+
+        @media (max-width: 767px) {
+            width: 72%;
+        }
+    }
+}
+
+.is-hidden {
+    overflow: hidden;
+}

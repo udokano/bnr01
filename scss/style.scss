@@ -2,6 +2,11 @@
 @import "setting/variable.scss";
 @import "setting/mixin.scss";
 @import "setting/base.scss";
+@import "utility/**";
+@import "plugin/**";
 @import "common/**";
+@import "layout/**";
 @import "parts/**";
 @import "pages/**";
+@import "component/**";
+@import "project/**";

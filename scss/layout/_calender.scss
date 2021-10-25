@@ -1,0 +1,158 @@
+.l-cal {
+    display: flex;
+
+    //justify-content: space-between;
+    justify-content: center;
+
+    //flex-wrap: wrap;
+    @media (max-width: 767px) {
+        //display: block;
+        margin-bottom: 2.55rem;
+        justify-content: space-between;
+    }
+
+    &__list {
+        margin: 0 .89rem;
+
+        @media (max-width: 767px) {
+            width: 48.2%;
+            margin: 0;
+        }
+    }
+
+    &__table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    &__top {
+        text-align: center;
+        font-size: rem(20);
+        font-weight: 600;
+        padding: rem(12) 0;
+
+        @media (max-width: 767px) {
+            padding: rem(6) 0;
+            font-size: .97rem;
+        }
+    }
+
+    &__week {
+        background-color: #f8f8f8;
+        border-top: 1px solid #b8b8b8;
+        border-bottom: 1px solid #b8b8b8;
+        padding: rem(8) 0;
+        font-weight: 600;
+
+        &--sun {
+            color: #cc0000;
+        }
+
+        &--sat {
+            color: #0000cc;
+        }
+
+        &:first-of-type {
+            border-left: 1px solid #b8b8b8;
+        }
+
+        &:last-of-type {
+            border-right: 1px solid #b8b8b8;
+        }
+
+        @media (max-width: 767px) {
+            padding: rem(4) 0;
+        }
+    }
+
+    &__date {
+        text-align: center;
+        vertical-align: middle;
+        padding: rem(13) rem(17);
+        border: 1px solid #b8b8b8;
+
+        @media (max-width: 767px) {
+            padding: 1.4%;
+            width: 10.2857142857%;
+            font-size: .9rem;
+        }
+    }
+
+    &__btm {
+        &-guide {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.23rem;
+            line-height: 1;
+
+            @media (max-width: 767px) {
+                font-size: 1.02rem;
+            }
+        }
+
+        &-sq {
+            background-color: $green;
+            display: inline-block;
+            width: rem(20);
+            height: rem(20);
+            margin-right: .32rem;
+            vertical-align: middle;
+        }
+
+        &-main {
+            vertical-align: middle;
+        }
+    }
+}
+
+table.cal {
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #555;
+    width: 100%;
+}
+
+.cal th, .cal td {
+    text-align: center;
+    padding: 10px 0 10px 6px;
+}
+
+.cal th {
+    background-color: #f5f5f5;
+    border-top: 1px solid #aaa;
+}
+
+.cal td {
+    border-top: 1px solid #aaa;
+}
+
+.sun {}
+
+.sat {}
+
+.is-limit {
+    background-color: red;
+    color: #fff;
+}
+
+.is-off-day {
+    background-color: #fa506f;
+    color: #fff;
+}
+
+.is-past-day {
+    background-color: #b8b8b8;
+    color: #fff;
+}
+
+.is-now {
+    background-color: #fff;
+    font-weight: 600;
+    color: #0000ff;
+}
+
+.is-limit-day {
+    background-color: $green;
+    font-weight: 600;
+    color: #fff;
+}

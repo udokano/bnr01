@@ -1,0 +1,310 @@
+.u-tl {
+    text-align: left !important;
+}
+
+.u-tr {
+    text-align: right;
+}
+
+.u-tc {
+    text-align: center;
+}
+
+.u-sp-tc {
+    @media (max-width: 767px) {
+        text-align: center !important;
+    }
+}
+
+.tc {
+    text-align: center;
+}
+
+.u-trx {
+    transform: translateX(-50%);
+}
+
+.u-try {
+    transform: translateY(-50%);
+}
+
+.u-fw600 {
+    font-weight: 600;
+}
+
+.u-f-ryu {
+    font-family: a-otf-ryumin-pr6n, serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2.1rem;
+    letter-spacing: 2px;
+}
+
+.u-f-maru {
+    font-family: a-otf-ud-shin-maru-go-pr6n, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.u-din-pro-mid {
+    font-family: "DINPro Medium";
+}
+
+.u-f-futura {
+    font-family: "FuturaPTBook";
+}
+
+.u-f-black-sword {
+    font-family: "Blacksword";
+}
+
+.u-f-a-otf-gosic {
+    font-family: a-otf-ud-shin-go-pr6n, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.u-border-bottom-none {
+    border-bottom: none !important;
+}
+
+.u-cw {
+    color: #fff;
+}
+
+.u-c_pink {
+    color: $pink;
+}
+
+.u-gosic {
+    font-family: $gosic;
+}
+
+.u-jc-cent {
+    justify-content: center !important;
+}
+
+.u-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.u-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.u-pc-al-center {
+    @media (min-width: 768px) {
+        align-items: center !important;
+    }
+}
+
+.u-cursor-pointer {
+    cursor: pointer;
+}
+
+.u-pl0 {
+    padding-left: 0 !important;
+}
+
+.u-fw {
+    flex-wrap: wrap;
+}
+
+.u-ff-colum {
+    flex-flow: column;
+}
+
+.u-ff-row-reverse {
+    flex-flow: row-reverse;
+}
+
+.u-box-size {
+    box-sizing: border-box;
+}
+
+.u-vt {
+    vertical-align: top !important;
+}
+
+.u-al-cent {
+    align-items: center !important;
+}
+
+.u-al-top {
+    align-items: flex-start !important;
+}
+
+.u-al-bottom {
+    align-items: flex-end !important;
+}
+
+.u-sp-ff-reverse {
+    @media (max-width: 767px) {
+        display: flex !important;
+        flex-flow: column-reverse !important;
+    }
+}
+
+.u-text-under-line {
+    text-decoration: underline;
+}
+
+.u-ju-st {
+    justify-content: flex-start !important;
+}
+
+.u-mt0 {
+    margin-top: 0 !important;
+}
+
+.u-mt10 {
+    margin-top: .87rem;
+}
+
+.u-pt-4_5rem {
+    padding-top: 4.5rem !important;
+}
+
+.u-mb0 {
+    margin-bottom: 0 !important;
+}
+
+.u-sp-mb0 {
+    @media (max-width: 767px) {
+        margin-bottom: 0 !important;
+    }
+}
+
+.u-mb10 {
+    margin-bottom: 10px !important;
+}
+
+.u-mb15 {
+    margin-bottom: 15px;
+}
+
+.u-mb1-5rem {
+    margin-bottom: 1.5rem !important;
+}
+
+.u-mt05 {
+    margin-top: 5px !important;
+}
+
+.u-mt20 {
+    margin-top: 1.220rem;
+}
+
+.u-mt20-i {
+    margin-top: 1.220rem !important;
+}
+
+.u-mb50 {
+    margin-bottom: 50px !important;
+}
+
+.u-po_rel {
+    position: relative;
+}
+
+.u-sp-flex-al-cent {
+    @media (max-width: 767px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.25;
+    }
+}
+
+.u-bg-gray {
+    background-color: #f9f9f9;
+}
+
+.u-fz-sm {
+    font-size: .88rem;
+}
+
+.u-fz-large {
+    font-size: 1.45rem;
+}
+
+.max-width-auto {
+    max-width: none !important;
+}
+
+.height-auto {
+    height: auto !important;
+}
+
+.cf::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+/* font family */
+
+.u-font-futura {
+    font-family: "Futura-Bk-Book";
+}
+
+.u-font-avenir-next {
+    font-family: "AvenirNext";
+}
+
+.u-bg-cover {
+    background: no-repeat 50% 50% / cover;
+}
+
+.u-bdb-none {
+    border-bottom: none !important;
+}
+
+.u-sp-display {
+    display: none !important;
+}
+
+.u-sp {
+    display: none;
+}
+
+.u-sp-display-inline-block {
+    display: none !important;
+}
+
+.u-viv-hidden {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.u-all-hidden {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .u-pc {
+        display: none;
+    }
+
+    .u-pc-display {
+        display: none !important;
+    }
+
+    .u-sp {
+        display: block;
+    }
+
+    .u-sp-display {
+        display: block !important;
+    }
+
+    .u-sp-display-inline-block {
+        display: inline-block !important;
+    }
+}

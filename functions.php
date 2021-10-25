@@ -1,15 +1,16 @@
 <?php
 
 
-/*
-エディタ内にURL記入用ショートコード
---------------------------------------*/
+add_theme_support('post-thumbnails');
+    /*
+    エディタ内にURL記入用ショートコード
+    --------------------------------------*/
 
 add_shortcode('url', 'shortcode_url');
 function shortcode_url()
-{
-    return get_template_directory_uri();
-}
+    {
+        return get_template_directory_uri();
+    }
 
 
 add_shortcode('param', 'shortcode_param');
@@ -222,14 +223,14 @@ function my_scripts()
     );
     wp_enqueue_script(
         'jquery.validationEngine.js',
-        get_template_directory_uri() . '/js/jquery.validationEngine.js',
+        get_template_directory_uri() . '/js/lib/jquery.validationEngine.js',
         array('jquery'),
         '2.6.2',
         true
     );
     wp_enqueue_script(
         'jquery.validationEngine-ja.js',
-        get_template_directory_uri() . '/js/jquery.validationEngine-ja.js',
+        get_template_directory_uri() . '/js/lib/jquery.validationEngine-ja.js',
         array('jquery'),
         '2.0',
         true
@@ -238,26 +239,133 @@ function my_scripts()
 
 
 //サムネイル画像有効
-add_theme_support('post-thumbnails', array( 'post' ));
+//サムネイル画像有効
+add_theme_support('post-thumbnails', array( 'post','bnr__works' ));
 
 //投稿サムネイルサイズ指定
 add_image_size('thumb300', 300, 220, true);
 add_image_size('thum', 600, 450, true);
 
 
-//ラジオカスタマイズ
+/**
+ * 制作実績の投稿一覧ページにアイキャッチ画像用の列を追加
+ */
+add_filter( 'manage_posts_columns', 'add_custom_post_columns');    //投稿 & カスタム投稿
+add_filter( 'manage_pages_columns', 'add_custom_post_columns' );   //固定ページ
+if ( !function_exists( 'add_custom_post_columns' ) ) {
+    function add_custom_post_columns( $columns ) {
+        global $post_type;
+        if( in_array( $post_type, array('bnr__works') ) ) {
+            $columns['thumbnail'] = '制作実績のバナー';    //カラム表示名
+        }
+        return $columns;
+    }
+}
+/**
+ * サムネイル画像を表示
+ */
+add_action( 'manage_posts_custom_column', 'output_custom_post_columns', 10, 2 );  //投稿 & カスタム投稿(階層構造が無効)
+add_action( 'manage_pages_custom_column', 'output_custom_post_columns', 10, 2 );  //固定ページ & カスタム投稿(階層構造が有効)
+if ( !function_exists( 'output_custom_post_columns' ) ) {
+    function output_custom_post_columns( $column_name, $post_id ) {
+        if ( 'thumbnail' === $column_name ) {
+            $thumb_id  = get_post_thumbnail_id( $post_id );
+            if ( $thumb_id ) {
+                $thumb_img = wp_get_attachment_image_src( $thumb_id, 'medium' );  //サイズはご自由に
+                echo '<img src="',$thumb_img[0],'" width="160px">';
+            } else {
+                echo 'アイキャッチ画像が設定されていません';
+            }
+        }
+    }
+}
+
+/*
+『バナー管理』にタクソノミーの列を追加
+------------------------*/
+
+
+function my_manage_posts_columns_bnr_type($columns) {
+  $columns['bnr_type'] = "バナータイプ";
+  return $columns;
+}
+function my_add_column_bnr_type($column_name, $post_id) {
+  if( $column_name == 'bnr_type' ) {
+    $tax = wp_get_object_terms($post_id, 'bnr_type');
+    $stitle = $tax[0]->name;
+  }
+
+  if ( isset($stitle) && $stitle ) {
+    echo esc_attr($stitle);
+  }
+}
+function my_add_post_taxonomy_restrict_filter() {
+  global $post_type;
+  if ( 'bnr__works' == $post_type ) {
+?>
+    <select name="bnr_type">
+      <option value="">カテゴリー指定なし</option>
+<?php
+      $terms = get_terms('bnr_type');
+      foreach ($terms as $term) { ?>
+        <option value="<?php echo $term->slug; ?>" <?php if ( $_GET['bnr_type'] == $term->slug ) { print 'selected'; } ?>><?php echo $term->name; ?></option>
+<?php
+      }
+?>
+    </select>
+<?php
+  }
+}
+add_filter( 'manage_edit-bnr__works_columns', 'my_manage_posts_columns_bnr_type' );
+add_action( 'manage_bnr__works_posts_custom_column', 'my_add_column_bnr_type', 10, 2 );
+add_action( 'restrict_manage_posts', 'my_add_post_taxonomy_restrict_filter' );
+
+function my_manage_posts_columns_industry($columns) {
+  $columns['industry'] = "業種";
+  return $columns;
+}
+function my_add_column_industry($column_name, $post_id) {
+  if( $column_name == 'industry' ) {
+    $tax = wp_get_object_terms($post_id, 'industry');
+    $stitle = $tax[0]->name;
+  }
+
+  if ( isset($stitle) && $stitle ) {
+    echo esc_attr($stitle);
+  }
+}
+function my_add_post_taxonomy_restrict_filter02() {
+  global $post_type;
+  if ( 'bnr__works' == $post_type ) {
+?>
+    <select name="industry">
+      <option value="">カテゴリー指定なし</option>
+<?php
+      $terms = get_terms('industry');
+      foreach ($terms as $term) { ?>
+        <option value="<?php echo $term->slug; ?>" <?php if ( $_GET['industry'] == $term->slug ) { print 'selected'; } ?>><?php echo $term->name; ?></option>
+<?php
+      }
+?>
+    </select>
+<?php
+  }
+}
+add_filter( 'manage_edit-bnr__works_columns', 'my_manage_posts_columns_industry' );
+add_action( 'manage_bnr__works_posts_custom_column', 'my_add_column_industry', 10, 2 );
+add_action( 'restrict_manage_posts', 'my_add_post_taxonomy_restrict_filter02' );
 
 
 
 /*メニューに制作実績管理追加*/
 
-function add_page_to_admin_menu()
+/* function add_page_to_admin_menu()
 {
     add_menu_page('制作実績', '制作実績', 'edit_posts', 'post.php?post=102&action=edit', '', 'dashicons-format-gallery
 ', 3);
 }
 add_action('admin_menu', 'add_page_to_admin_menu');
-
+ */
 /* 指示書管理を追加 */
 function add_page_to_admin_menu02()
 {
@@ -297,6 +405,123 @@ if (!current_user_can('administrator')) { // 管理者以外を対象
  Well CART 関連
 
 ------------------------------------------------*/
+
+
+
+/* フォームオプション内容カスタマイズ */
+
+
+add_filter( 'usces_filter_the_itemOption', 'my_filter_the_itemOption', 10, 6 );
+function my_filter_the_itemOption( $html, $opts, $name, $label, $post_id, $sku ) {
+    //処理
+
+global $post, $usces;
+	$post_id = $post->ID;
+
+	if($label == '#default#')
+		$label = $name;
+
+	$opts = usces_get_opts($post_id, 'name');
+	if(!$opts)
+		return false;
+
+
+	$opt = $opts[$name];
+	$opt['value'] = usces_change_line_break( $opt['value'] );
+	$means = (int)$opt['means'];
+	$essential = (int)$opt['essential'];
+
+	$html = '';
+	$sku = esc_attr(urlencode($usces->itemsku['code']));
+	$optcode = esc_attr(urlencode($name));
+	$name = esc_attr($name);
+	$label = esc_attr($label);
+	$session_value = isset( $_SESSION['usces_singleitem']['itemOption'][$post_id][$sku][$optcode] ) ? $_SESSION['usces_singleitem']['itemOption'][$post_id][$sku][$optcode] : NULL;
+	$html .= "\n<label for='itemOption[{$post_id}][{$sku}][{$optcode}]' class='iopt_label'>{$label}</label>\n";
+switch($means) {
+	case 0://Single-select
+	case 1://Multi-select
+		$selects = explode("\n", $opt['value']);
+		$multiple = ($means === 0) ? '' : ' multiple';
+		$multiple_array = ($means == 0) ? '' : '[]';
+		$html .= "\n<select name='itemOption[{$post_id}][{$sku}][{$optcode}]{$multiple_array}' id='itemOption[{$post_id}][{$sku}][{$optcode}]' class='iopt_select'{$multiple} onKeyDown=\"if (event.keyCode == 13) {return false;}\">\n";
+		if($essential == 1){
+			if(  '#NONE#' == $session_value || NULL == $session_value )
+				$selected = ' selected="selected"';
+			else
+				$selected = '';
+			$html .= "\t<option value='#NONE#'{$selected}>" . __('Choose','usces') . "</option>\n";
+		}
+		$i=0;
+		foreach((array)$selects as $v) {
+			$v = trim($v);
+			if( ($i == 0 && $essential == 0 && NULL == $session_value) || esc_attr($v) == $session_value )
+				$selected = ' selected="selected"';
+			else
+				$selected = '';
+			$html .= "\t<option value='" . esc_attr($v) . "'{$selected}>" . esc_attr($v) . "</option>\n";
+			$i++;
+		}
+		$html .= "</select>\n";
+		break;
+	case 2://Text
+		$html .= "\n<input name='itemOption[{$post_id}][{$sku}][{$optcode}]' type='text' id='' class='iopt_text' onKeyDown=\"if (event.keyCode == 13) {return false;}\" value=\"" . esc_attr($session_value) . "\" />\n";
+        break;
+
+        /* ===========
+
+        ここからカスタマイズ
+
+        ================*/
+	case 3://Radio-button
+		$selects = explode("\n", $opt['value']);
+
+		$i=0;
+		foreach((array)$selects as $v) {
+			$v = trim($v);
+			if( $v == $session_value )
+				$checked = ' checked="checked"';
+			else
+				$checked = '';
+            $html .= "<input name='itemOption[{$post_id}][{$sku}][{$optcode}]' id='' class='c-labels__input' type='radio' value='" . urlencode($v) . "'{$checked}>\t<label for='' class='c-labels__label'> <span class='c-labels__circle'><i class='c-labels__mark'></i></span>
+            <div class='c-labels__left js-size-text'>
+                <p class='c-labels__text'>" . esc_html($v) . "</p>
+                <p class='js-size-price c-labels__price'></p>
+            </div>
+            </label>\n";
+			$i++;
+		}
+        break;
+        /* ===============
+
+        カスタマイズ終了
+
+        =================*/
+	case 4://Check-box
+		$selects = explode("\n", $opt['value']);
+
+		$i=0;
+		foreach((array)$selects as $v) {
+			$v = trim($v);
+			if( $v == $session_value )
+				$checked = ' checked="checked"';
+			else
+				$checked = '';
+			$html .= "<input name='itemOption[{$post_id}][{$sku}][{$optcode}][]' id='' class='c-check__input' type='checkbox' value='" . urlencode($v) . "'{$checked}>\t<label for='' class='c-check__label'><span class='c-labels__circle c-check__circle'><i class='c-labels__mark c-check__mark'></i></span><span class='c-check__text js-check-text'>" . esc_html($v) . "</span></label>\n";
+			$i++;
+		}
+		break;
+	case 5://Text-area
+		$html .= "\n<textarea name='itemOption[{$post_id}][{$sku}][{$optcode}]' id='' class='iopt_textarea'>" . esc_attr($session_value) . "</textarea>\n";
+		break;
+	}
+
+if( $out == 'return' ){
+		return $html;
+	}else{
+		echo $html;
+	}
+}
 
 
 //カートの表をカスタマイズ
@@ -613,6 +838,9 @@ function my_filter_member_history($out = '')
 
             /*  $history_member_head .= '<tr class="direction"><th colspan="4" class="direction__links">'. '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書作成フォーム' . '</a>' .'</th></tr>'; */
 
+            /*
+<th class="direction__th">指示書</th> */
+
             $html .= apply_filters('usces_filter_history_member_head', $history_member_head, $umhs);
             $html .= apply_filters('usces_filter_member_history_header', null, $umhs);
             $html .= '</tbody></table>
@@ -623,8 +851,7 @@ function my_filter_member_history($out = '')
             $history_cart_head = '<thead><tr>
 					<th scope="row" class="cartrownum">No.</th>
 
-					<th class="productname">' . __('Items', 'usces') . '</th>
-<th class="direction__th">指示書</th>
+                    <th class="productname">' . __('Items', 'usces') . '</th>
 
 					<th class="subtotal">' . __('Amount', 'usces') . '</th>
 					</tr></thead><tbody>';
@@ -674,12 +901,14 @@ function my_filter_member_history($out = '')
                 /* サムネイル画像 削除 */
                 /* 指示書作成欄　追加 */
 
+                /*   <td class="direction__td direction__links">'.  '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書を<br>作成' . '</a>'   .'</td> */
+
                 $history_cart_row = '<tr>
                     <td class="cartrownum">' . ($i + 1) . '</td>
 
                     <td class="aleft productname">' . $cart_item_name . '</td>
 
-                    <td class="direction__td direction__links">'.  '<a href="' . home_url("/") . 'direction?注文番号='. usces_get_deco_order_id($umhs['ID']) . '" target="_blank">' . '指示書を<br>作成' . '</a>'   .'</td>
+
 
 
 					<td class="ssubtotal">' . usces_crform($skuPrice * $cart_row['quantity'], true, false, 'return') . '</td>

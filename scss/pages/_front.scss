@@ -1,5 +1,5 @@
 .key__visual {
-    background: url(../img/top/key_visual_bg.jpg) no-repeat 50% (50% / auto) 100%;
+    background: #efefef url(../img/top/key_visual_bg.jpg) no-repeat 50% (50% / auto) 100%;
     width: 100%;
     height: 405px;
     padding: 4.6rem 0;
@@ -27,6 +27,10 @@
             margin-left: 2%;
             padding: 35px 0 88px;
             background: url(../img/top/key_visual_bubble.png) no-repeat 50% (50% / auto) 100%;
+
+            @media (min-width: 768px) {
+                margin-top: -1%;
+            }
 
             p {
                 color: #fff;
@@ -96,7 +100,7 @@
             dl {
                 height: 54px;
                 width: 23.5%;
-                border-radius: 3px;
+                border-radius: 5px;
                 font-size: .7rem;
                 text-align: center;
                 overflow: hidden;
@@ -111,7 +115,7 @@
                         left: 50%;
                         transform: translate(-50%, -50%);
                         display: block;
-                        width: 100%;
+                        width: 90%;
                     }
 
                     .col__cent.bla {
@@ -173,6 +177,19 @@
     width: 100%;
     z-index: 9997;
     background-color: rgba($color: #626262, $alpha: 0.8);
+    animation-name: slide-in;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-in {
+    0% {
+        bottom: -87px;
+    }
+
+    100% {
+        bottom: 0;
+    }
 }
 
 @media (max-width: 767px) {

@@ -1,0 +1,88 @@
+.l-item-kind {
+    background-color: #334668;
+
+    &__list {
+        @include inner;
+
+        font-size: 0;
+        text-align: center;
+
+        @media (max-width: 767px) {
+            display: flex;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        width: 25%;
+        font-size: rem(17.31);
+        font-weight: 600;
+        border-left: 2px solid #fff;
+        color: #fff;
+        position: relative;
+        padding: rem(26) 0;
+        cursor: pointer;
+        background-color: #334668;
+        transition: ease-out .2s;
+
+        @media (max-width: 767px) {
+            padding: 1.37rem .25rem;
+
+            @include flex-all-center;
+
+            font-size: .9rem;
+        }
+
+        &:hover {
+            background-color: #273754;
+        }
+
+        &.is-item-current {
+            background-color: #1bb8df;
+
+            &::after {
+                @include trx;
+
+                content: "";
+                bottom: rem(-8);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 11px 17px 0 17px;
+                border-color: #1bb8df transparent transparent transparent;
+            }
+        }
+
+        &:last-of-type {
+            border-right: 2px solid #fff;
+        }
+    }
+}
+
+.l-buy-area {
+    position: relative;
+}
+
+.l-buy {
+    &__item {
+        //display: none;
+
+        &.is-item-show {
+            //display: block;
+        }
+    }
+}
+
+/* 商品の読み込みのローディング */
+
+.is-item-loading {
+    margin: 100px auto;
+    font-size: 25px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    animation: load5 1.1s infinite ease;
+    transform: translateZ(0);
+}

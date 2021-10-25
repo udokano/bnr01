@@ -20,7 +20,7 @@ get_header(2);
 			<h1 class="tc"><?php _e('It has been sent succesfully.', 'usces'); ?></h1>
 				<div class="header_explanation">
 				<p class="tc mb15"><?php _e('Thank you for shopping.', 'usces'); ?><br /><?php _e("If you have any questions, please contact us by 'Contact'.", 'usces'); ?></p>
-				<p class="tc">デザインのご指示は<a href="<?php home_url("/");?>usces-member" target="_blank">こちらから</a>行ってください。</p>
+				<!-- <p class="tc">デザインのご指示は<a href="<?php home_url("/");?>usces-member" target="_blank">こちらから</a>行ってください。</p> -->
 				<?php do_action('usces_action_cartcompletion_page_header', $usces_entries, $usces_carts); ?>
 				</div><!-- header_explanation -->
 

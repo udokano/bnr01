@@ -1,0 +1,121 @@
+.l-gNav {
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+
+    @media (max-width: 767px) {
+        position: absolute;
+        transform: translateY(-400%);
+        transition: .65s ease;
+        background-color: rgba($color: #000000, $alpha: 0.78);
+        width: 100%;
+        border: none;
+        z-index: 9998;
+
+        &.is-nav-show {
+            transform: translateY(0);
+        }
+    }
+
+    &__list {
+        @include inner;
+
+        text-align: center;
+        font-size: 0;
+
+        @media (max-width: 767px) {
+            padding: .58rem 0;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+
+        @media (max-width: 767px) {
+            width: 50%;
+            padding: .58rem 0;
+
+            // border-bottom: 1px solid #fff;
+        }
+
+        &--pc-hidden {
+            display: none;
+
+            @media (max-width: 767px) {
+                display: inline-block;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        color: #333;
+        font-size: rem(14);
+        padding: rem(12) rem(19);
+        position: relative;
+
+        @media (max-width: 767px) {
+            color: #fff;
+        }
+
+        &::after {
+            @media (min-width: 768px) {
+                content: "";
+
+                @include trx;
+
+                height: 3px;
+                width: 53px;
+                background-color: #1dace8;
+                opacity: 0;
+                bottom: -1px;
+                transition: ease-in-out .32s;
+            }
+        }
+
+        &:hover {
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__sp-actions {
+        font-size: 0;
+        text-align: center;
+        padding-bottom: 1.16rem;
+
+        @include inner;
+
+        @media (max-width: 767px) {
+            @include flex;
+
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__sp-item {
+        width: 48%;
+        margin-bottom: .98rem;
+        background-color: #fff;
+        padding: .79rem 0;
+        border-radius: rem(5);
+        color: #666;
+
+        &--wide {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &--contact {
+            background-color: #ff7a32;
+            color: #ffffff;
+        }
+    }
+
+    &__sp-btn {
+        display: block;
+        font-size: 1.08rem;
+        color: inherit;
+    }
+}

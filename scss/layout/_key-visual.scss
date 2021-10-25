@@ -1,0 +1,48 @@
+.l-visual {
+    @include bg-h;
+
+    background-image: url(../img/top/bg_fv.jpg);
+
+    @media (max-width: 767px) {
+        background-image: url(../img/top/bg_fv_sp.jpg);
+        background-size: 100% auto;
+    }
+
+    &__inner {
+        @include inner;
+        @media (max-width: 767px) {
+            position: relative;
+        }
+    }
+
+    &__contents {
+        padding: rem(45) 0 rem(57);
+        margin-left: 320px;
+        @media (max-width: 767px) {
+            margin: 0;
+            padding: 13.88rem 0 19.55rem;
+        }
+    }
+
+    &__ttl {
+        width: 100%;
+        max-width: 651px;
+        margin: 0 auto rem(46);
+        @media (max-width: 767px) {
+            margin: 1.22rem auto 0;
+        }
+    }
+
+    &__btn {
+        display: block;
+        width: 80%;
+        max-width: 400px;
+        margin: 0 auto;
+
+        @media (max-width: 767px) {
+            position: absolute;
+            @include trx;
+            bottom: 4.55%;
+        }
+    }
+}

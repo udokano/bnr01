@@ -1,5 +1,5 @@
  <div class="term__text__box">
-<h3>バナー作成サービスご利用規約</h3>
+<h3>バナー作成サービス<br class="sp">ご利用規約</h3>
 
                   <dl>
                     <dt><span>第1条</span>(本契約の適用)</dt>

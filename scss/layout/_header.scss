@@ -1,0 +1,113 @@
+.l-header {
+    padding: rem(14) 0;
+    position: relative;
+
+    @media (max-width: 767px) {
+        padding: rem(22) 0;
+    }
+
+    &__inner {
+        @include inner;
+
+        @media (max-width: 767px) {
+            //position: relative;
+        }
+    }
+
+    &__logo {
+        max-width: 360px;
+        width: 49%;
+    }
+
+    &__nav {
+        @include try;
+
+        display: flex;
+        align-items: center;
+        right: 3.25478%;
+
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &__nav-cart {
+        position: relative;
+        margin-right: rem(37);
+        padding-right: rem(35);
+    }
+
+    &__nav-icon {
+        display: block;
+        width: 46px;
+    }
+
+    &__nav-balloon {
+        background-color: #ff3d00;
+        color: #fff;
+        text-align: center;
+        width: 29px;
+        height: 29px;
+        border-radius: 50%;
+
+        @include try;
+
+        right: 0;
+    }
+
+    &__nav-count {
+        font-size: rem(14.83);
+        line-height: .9;
+        position: relative;
+        height: 100%;
+
+        @include flex-all-center;
+
+        &::after {
+            content: "";
+
+            @include try;
+
+            left: -6px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 11px 4px 0;
+            border-color: transparent #ff3c00 transparent transparent;
+        }
+    }
+
+    &__nav-item {
+        width: 167px;
+        height: 47px;
+
+        &:nth-of-type(3) {
+            margin: 0 rem(22);
+        }
+    }
+
+    &__nav-btn {
+        display: block;
+        height: 100%;
+
+        @include flex-all-center;
+
+        /* box-shadow */
+        box-shadow: 3px 3px 3px 0px rgba(75, 160, 202, 0.14), -3px -3px 3px 0px rgba(75, 160, 202, 0.14);
+        border-radius: rem(5);
+        font-size: rem(15);
+        color: #757575;
+
+        &--contact {
+            background-color: #ff7a32;
+            color: #ffffff;
+        }
+    }
+
+    &__switch {
+        @include try;
+
+        top: 45%;
+        right: 5%;
+    }
+}

@@ -19,17 +19,56 @@ $("#js-anchor").on("click", function () {
 
 
 /*
-いらないラベル削除
-*/
 
-$(".iopt_label").remove();
+ラジオボタン
+のグループ変数化
 
+--------------------------------*/
+
+/* サイズ・用途選択ラベルグループ */
+const $size__select__labels = $("#size__select > label");
+
+/* サイズ・用途選択ラジオグループ */
+const $size__select__radios = $("#size__select > input[type='radio']");
+
+/* バナータイプラベルグループ */
+const $format__labels = $("#format > label");
+
+/* バナータイプラジオグループ */
+const $format__radios = $("#format > input");
+
+/* 納期ラベルグループ */
+const $limit__labels = $("#limit > label");
+
+/* 納期ラジオグループ */
+const $limit__radios = $("#limit > input");
+
+/* データラベルグループ */
+const $data__labels = $("#data > label");
+
+/* データラジオグループ */
+const $data__radios = $("#data > input");
+
+/* 実績ラベルグループ */
+const $publish__labels = $("#publish > label");
+
+/* 実績ラジオグループ */
+const $publish__radios = $("#publish > input");
+
+/* 特殊サイズプルダウン */
+const $special__size__select = $("#special__size-box > select");
+
+/* 特殊サイズプルダウン各メニュー */
+const $special__size__options = $("#special__size-box > select > option");
+
+/* 管理番号入力インプット */
+const $control__num__input = $("#control__num__input > input");
 
 /*
 スタイリングおよびJSのトリガーにするためのクラス、ID付与
 ----------------------------------------------*/
 /*管理番号入力 TEXT*/
-jQuery("#control__num div input").each(function (i) {
+$control__num__input.each(function (i) {
     jQuery(this).attr('id', 'txt' + (i + 1));
 
 });
@@ -41,45 +80,105 @@ jQuery("#url__input input").each(function (i) {
 });
 
 //LABEL要素にfor追加ナンバリング
-jQuery("label").each(function (i) {
+/* jQuery("label").each(function (i) {
     jQuery(this).attr('for', 'banner' + (i + 1));
 
+}); */
+
+/*
+
+各エリアのラジオボタンにIDナンバリング
+ラベルにもID紐付け
+
+*/
+
+
+//バナーサイズ用途
+
+$size__select__labels.each(function (i) {
+    jQuery(this).attr('for', 'banner' + (i + 1));
 });
 
-//ラジオボックスID追加ナンバリング
-jQuery("input[type='radio']").each(function (i) {
+$size__select__radios.each(function (i) {
     jQuery(this).attr('id', 'banner' + (i + 1));
+});
 
+//バナータイプ
+$format__labels.each(function (i) {
+    jQuery(this).attr('for', 'banner__type' + (i + 1));
+});
+
+$format__radios.each(function (i) {
+    jQuery(this).attr('id', 'banner__type' + (i + 1));
+});
+
+//納期
+$limit__labels.each(function (i) {
+    jQuery(this).attr('for', 'banner__limit' + (i + 1));
+});
+
+$limit__radios.each(function (i) {
+    jQuery(this).attr('id', 'banner__limit' + (i + 1));
+});
+
+//データ
+
+$data__labels.each(function (i) {
+    jQuery(this).attr('for', 'banner__data' + (i + 1));
+});
+
+$data__radios.each(function (i) {
+    jQuery(this).attr('id', 'banner__data' + (i + 1));
+});
+
+//実績を公開
+$publish__labels.each(function (i) {
+    jQuery(this).attr('for', 'banner__publish' + (i + 1));
+});
+
+$publish__radios.each(function (i) {
+    jQuery(this).attr('id', 'banner__publish' + (i + 1));
 });
 
 //SELECT　ID付与
-jQuery("select").each(function (i) {
+$special__size__select.each(function (i) {
     jQuery(this).attr('id', 'select' + (i + 1));
 
 });
 
 //OPTION ID追加ナンバリング
-jQuery("select > option").each(function (i) {
+$special__size__options.each(function (i) {
     jQuery(this).attr('id', 'option' + (i + 1));
 
 });
 
-//テキストボックスクラス追加ナンバリング
-jQuery("#info__customer  .iopt_text").each(function (i) {
-    jQuery(this).attr('class', 'text' + (i + 1));
-    jQuery(this).addClass("texts");
-
-});
 
 //ラジオボタンクラス追加ナンバリング
-jQuery("#size__select > .iopt_radio").each(function (i) {
+$size__select__radios.each(function (i) {
     jQuery(this).attr('class', 'radio' + (i + 1));
     jQuery(this).addClass("radios");
-
 });
 
 //ラジオボタンクラス追加ナンバリング
-jQuery("#size__select > .iopt_radio").each(function (i) {
+$format__radios.each(function (i) {
+    jQuery(this).attr('class', 'radio' + (i + 1));
+    jQuery(this).addClass("radios");
+});
+
+//ラジオボタンクラス追加ナンバリング
+$limit__radios.each(function (i) {
+    jQuery(this).attr('class', 'radio' + (i + 1));
+    jQuery(this).addClass("radios");
+});
+
+//ラジオボタンクラス追加ナンバリング
+$data__radios.each(function (i) {
+    jQuery(this).attr('class', 'radio' + (i + 1));
+    jQuery(this).addClass("radios");
+});
+
+//ラジオボタンクラス追加ナンバリング
+$publish__radios.each(function (i) {
     jQuery(this).attr('class', 'radio' + (i + 1));
     jQuery(this).addClass("radios");
 });
@@ -90,40 +189,35 @@ jQuery(".iopt_radio_label").each(function (i) {
     jQuery(this).addClass("labels");
 });
 
-//テキストボックスにID付与
-jQuery("#instruction .iopt_textarea").each(function (i) {
-    jQuery(this).attr('id', 'textarea' + (i + 1));
-});
-
 //管理番号
-jQuery("#control__num .iopt_text").each(function (i) {
+$control__num__input.each(function (i) {
     jQuery(this).attr('class', 'text__input' + (i + 1));
 });
 
 /*ラベルにID振り分け*/
 
 //サイズ選択エリア
-jQuery("#size__select > label").each(function (i) {
+$size__select__labels.each(function (i) {
     jQuery(this).attr('id', 'label__type__a' + (i + 1));
 });
 
 //バナー形式エリア
-jQuery("#format > label").each(function (i) {
+$format__labels.each(function (i) {
     jQuery(this).attr('id', 'label__type__b' + (i + 1));
 });
 
 //納期選択エリア
-jQuery("#limit > label").each(function (i) {
+$limit__labels.each(function (i) {
     jQuery(this).attr('id', 'label__type__c' + (i + 1));
 });
 
 //データ納品エリア
-jQuery("#data > label").each(function (i) {
+$data__labels.each(function (i) {
     jQuery(this).attr('id', 'label__type__d' + (i + 1));
 });
 
 //公開エリア
-jQuery("#publish > label").each(function (i) {
+$publish__labels.each(function (i) {
     jQuery(this).attr('id', 'label__type__e' + (i + 1));
 });
 
@@ -135,9 +229,6 @@ jQuery("#publish > label").each(function (i) {
 jQuery("#label__type__a1").after('<div class="img__mark animation__ballon js-modal-open" id="mark01" data-target="sample01"></div>');
 
 jQuery("#label__type__a2").after('<div class="img__mark animation__ballon js-modal-open" id="mark02" data-target="sample02"></div>');
-
-
-
 
 
 /*
@@ -154,7 +245,9 @@ jQuery("#label__type__a3").append('<span class="sub__text">長辺と短編の合
 
 jQuery("#label__type__a5").append('<span class="sub__text">上記価格の50%OFFの金額</span>');
 
-jQuery("#label__type__a6").append('<span class="sub__text">特殊サイズのバナーです。サイズをご指定ください</span>');
+jQuery("#label__type__a6").append('<span class="sub__text">youtubeなどの動画サイト用のサムネイル</span>');
+
+jQuery("#label__type__a7").append('<span class="sub__text">特殊サイズのバナーです。サイズをご指定ください</span>');
 
 /* jQuery("#label__type__c1").append('<span class="sub__text">＋2000円</span>');
 
@@ -177,7 +270,7 @@ jQuery("#label__type__a4 .item__text").after('<span class="price__text">11500円
 
 //jQuery("#label__type__a5 .item__text").after('<span class="price__text">50%OFF</span>');
 
-//jQuery("#label__type__a6 .item__text").after('<span class="price__text">特殊サイズのバナーです。サイズをご指定ください</span>');
+jQuery("#label__type__a6 .item__text").after('<span class="price__text">3600円</span>');
 
 jQuery("#label__type__b1 .item__text").append('<span class="price__text">料金変動無し</span>');
 
@@ -206,20 +299,16 @@ $(".labels").wrapInner('<div class="inner__label"></div>');
 プレースポルダー追加
 ---------------------------------------*/
 
-jQuery("#control__num > div > .text__input1").attr('placeholder', '例：00000000000000');
+$control__num__input.attr('placeholder', '例：00000000000000');
 
 jQuery("#textarea1").attr('placeholder', 'こちらにデザイン指示を入力\r\n例：明るい感じでロゴは右下に配置');
-
-
 
 
 /*料金出力バー,スクロールしたらページ下部に固定*/
 
 $(window).on("scroll", function () {
-
     const toggle_point = $("#form__head").offset().top;
     const now_point = $(window).scrollTop();
-
     if (now_point > toggle_point) {
         $("#js-fixed-bottom").addClass("js-fixed");
     } else {
@@ -228,117 +317,208 @@ $(window).on("scroll", function () {
 
 });
 
-
-
-
 /*
 ラジオボタンクリックorイベント
 ------------------------------------------*/
+
+/* 各フォームエリアを変数に入れる */
+
+//サイズ・用途選択
+const $form__area01 = $("#form__area01");
+//形式（バナータイプ）選択
+const $form__area02 = $("#form__area02");
+//納期を選択
+const $form__area03 = $("#form__area03");
+//データ提供
+const $form__area04 = $("#form__area04");
+//実績を公開
+const $form__area05 = $("#form__area05");
+//カートへ入れるボタン
+const $form__area06 = $("#form__area06");
+//管理番号、入力エリア
+const $control__num = $("#control__num");
+//管理番号、インプット
+const $text__input = $("#txt1");
+//特殊サイズ、入力エリア
+const $special__size = $("#special__size");
 
 
 /*
 位置を取得してから非表示にしたいので読み込み後に非表示
 -----------------------------------------*/
 
-/* $(window).on('load', function () {
 
-     $("#form__area02").addClass("hidden__filed");
-     $("#form__area03").addClass("hidden__filed");
-     $("#form__area04").addClass("hidden__filed");
-     $("#form__area05").addClass("hidden__filed");
-     $("#form__area06").addClass("hidden__filed");
-     $("#form__area07").addClass("hidden__filed");
-
-}); */
-
-
-/* 各フォームエリアを変数に入れる */
-const $form__area01 = $("#form__area01");
-const $form__area02 = $("#form__area02");
-const $form__area03 = $("#form__area03");
-const $form__area04 = $("#form__area04");
-const $form__area05 = $("#form__area05");
-const $form__area06 = $("#form__area06");
-const $form__area07 = $("#form__area07");
-
-//特殊サイズ、管理番号の要素取得
-
-const $control__num = $("#control__num");
-const $special__size = $("#special__size");
-
-const $text__input = $("#txt1");
-
-
-$(function () {
+/* $(function () {
     setTimeout(function () {
         $form__area02.addClass("hidden__filed");
         $form__area03.addClass("hidden__filed");
-
         $form__area05.addClass("hidden__filed");
         $form__area06.addClass("hidden__filed");
         $form__area07.addClass("hidden__filed");
     }, 500);
-});
+}); */
 
-$(function () {
-
-    /*
+/*
     各要素を非表示にする前に本来の位置を取得
     ------------------------------*/
 
-    var pos = $form__area01.offset().top;
+/* フォームエリアスクロールポジション取得 */
 
-    var pos01 = $form__area02.offset().top;
+//サイズ・用途選択
+var pos01 = $form__area01.offset().top;
+//形式（バナータイプ）選択
+var pos02 = $form__area02.offset().top;
+//管理番号
+var pos02_01 = $control__num.offset().top;
+//特殊サイズ
+var pos02_02 = $special__size.offset().top;
+//納期を選択
+var pos03 = $form__area03.offset().top;
+//データ提供
+var pos04 = $form__area04.offset().top;
+//実績を公開
+var pos05 = $form__area05.offset().top;
+//カートへ入れるボタン
+var pos06 = $form__area06.offset().top;
 
-    var pos02 = $control__num.offset().top;
 
-    var pos03 = $special__size.offset().top;
+/* バナー形式
+の各選択肢変数化 */
 
-    var pos04 = $form__area03.offset().top;
+//Sサイズ
+const $sizeS = $("#banner1");
+//Mサイズ
+const $sizeM = $("#banner2");
+//Lサイズ
+const $sizeL = $("#banner3");
+//SNS・ブログヘッダー
+const $sns = $("#banner4");
+//リザイズ依頼・その他
+const sp__banner__type = $('#banner5,#banner7');
+//リザイズ依頼
+const $resize__banner = $("#banner5");
+//動画サムネイル
+const $movie__banner = $("#banner6");
+//その他
+const $special__banner = $("#banner7");
 
-    /* var pos05 = jQuery("#form__area04").offset().top; */
+/*
 
-    var pos06 = $form__area05.offset().top;
+形式を選択の
+各選択肢を変数化
 
-    var pos07 = $form__area06.offset().top;
+*/
 
-    var pos08 = $form__area07.offset().top;
+//シンプルバナー
+const $simple = $("#banner__type1");
+//リッチバナー
+const $rich = $("#banner__type2");
+//ダミー
+const $asd = $("#banner__type3");
+/*
+
+納期を選択の
+各選択肢を変数化
+
+*/
+
+//シンプルバナー
+const $1day = $("#banner__limit1");
+//リッチバナー
+const $2day = $("#banner__limit2");
+//リッチバナー
+const $3day = $("#banner__limit3");
+
+/*
+
+データのご提供選択の
+各選択肢を変数化
+
+*/
+
+//いらない
+const $not = $("#banner__data1");
+//欲しい
+const $need = $("#banner__data2");
+
+/*
+
+実勢を公開の選択の
+各選択肢を変数化
+
+*/
+
+//いらない
+const $publish__ng = $("#banner__publish1");
+//欲しい
+const $publish__ok = $("#banner__publish2");
 
 
 
+/* テスト */
+
+
+$("#modal666666").appendTo("#label__type__a1");
+
+$(function () {
     /*
     追従ナビクリックスクロール設定
     ----------------------------------------------*/
 
     $("#out__list01").on("click", function () {
-        jQuery("html,body").animate({ scrollTop: pos }, '500');
+        jQuery("html,body").animate({ scrollTop: pos01 }, '500');
     });
 
+    /* 動画サイト用のサムネイルがチェックされているかで表示項目を変える */
+
     $("#out__list02").on("click", function () {
-        $form__area02.addClass("viv");
-        $form__area03.addClass("viv");
-        jQuery("html,body").animate({ scrollTop: pos04 }, '500');
+        if ($movie__banner.prop('checked')) {
+            $form__area03.addClass("viv");
+            pos03 = $form__area03.offset().top;
+            jQuery("html,body").animate({ scrollTop: pos03 }, '500');
+        } else {
+            $form__area02.addClass("viv");
+            $form__area03.addClass("viv");
+            pos03 = $form__area03.offset().top;
+            jQuery("html,body").animate({ scrollTop: pos03 }, '500');
+        }
+
     });
 
     $("#out__list03").on("click", function () {
-        $form__area02.addClass("viv");
-        $form__area03.addClass("viv");
-        $form__area04.addClass("viv");
-        $form__area05.addClass("viv");
-        $form__area06.addClass("viv");
-        jQuery("html,body").animate({ scrollTop: pos07 }, '500');
+        if ($movie__banner.prop('checked')) {
+            $form__area03.addClass("viv");
+            $form__area04.addClass("viv");
+            $form__area05.addClass("viv");
+            $form__area06.addClass("viv");
+            pos05 = $form__area05.offset().top;
+            jQuery("html,body").animate({ scrollTop: pos05 }, '500');
+        } else {
+            $form__area02.addClass("viv");
+            $form__area03.addClass("viv");
+            $form__area04.addClass("viv");
+            $form__area05.addClass("viv");
+            $form__area06.addClass("viv");
+            pos05 = $form__area05.offset().top;
+            jQuery("html,body").animate({ scrollTop: pos05 }, '500');
+        }
     });
 
     /*
     各フォームの要素をクリックして次の要素表示からのスクロール
     --------------------------------------------*/
 
-    jQuery("#size__select > input").change(function () {
-        const sp__banner__type = $('#banner5,#banner6');
-        const $resize__banner = $("#banner5");
-        const $special__banner = $("#banner6");
+
+    /* サイズ選択 */
+
+    $size__select__radios.change(function () {
+        $format__radios.prop("disabled", false);
+        $format__radios.addClass("validate[required]");
         $text__input.removeClass("validate[required]");//管理番号バリデーション外す
         $("#select1").removeClass("validate[required]");//特殊サイズバリデーション外す
+        $(".js-bg-change__white").removeClass("is-bg__change__white");
+        $(".js-bg-change__gray").removeClass("is-bg__change__gray");
+
 
         //リサイズ依頼、特殊サイズ以外を選択
         if (!sp__banner__type.prop('checked')) {
@@ -346,73 +526,82 @@ $(function () {
             $control__num.removeClass("viv");
             $special__size.removeClass("viv");
             $text__input.val("");//管理番号は空にする!!
-            jQuery("html,body").animate({ scrollTop: pos01 }, '500');
+            pos02 = $form__area02.offset().top;
+            jQuery("html,body").animate({ scrollTop: pos02 }, '500');
         }
-
 
 
         //リサイズ依頼を選択
         if ($resize__banner.prop('checked')) {
             $control__num.addClass("viv");
+            $form__area02.addClass("viv");
             $text__input.addClass("validate[required]");//管理番号を入力してほしいからバリデーションをつける
             $special__size.removeClass("viv");
-            jQuery("html,body").animate({ scrollTop: pos02 }, '500');
+            pos02_01 = $control__num.offset().top;
+            jQuery("html,body").animate({ scrollTop: pos02_01 }, '500');
         }
 
         //特殊サイズを選択
-        if ($special__banner.prop('checked')) {
+        else if ($special__banner.prop('checked')) {
             $special__size.addClass("viv");
             $control__num.removeClass("viv");
+            //$form__area02.removeClass("viv");
             $text__input.val("");//管理番号は空にする!!
             $("#select1").addClass("validate[required]");//特殊サイズを選択して欲しいから、バリデーションつける
-            jQuery("html,body").animate({ scrollTop: pos03 }, '500');
+            pos02_02 = $special__size.offset().top;
+            jQuery("html,body").animate({ scrollTop: pos02_02 }, '500');
             jQuery("#select1 option:first-child").val("");//『選択してください』は無効にする
         }
 
+        //動画バナーを選択
+        else if ($movie__banner.prop('checked')) {
+
+            $form__area02.removeClass("viv");
+            $format__radios.removeClass("validate[required]");
+            $(".js-bg-change__white").addClass("is-bg__change__white");
+            $(".js-bg-change__gray").addClass("is-bg__change__gray");
+            $form__area03.addClass("viv");
+            $simple.prop("checked", false).change();
+            $format__radios.prop("checked", false);
+
+        }
+
     });
-
-    $("#special__size select").change(function () {
-        jQuery('#form__area02').addClass("viv");
-        jQuery("html,body").animate({ scrollTop: pos03 + 80 }, '500');
+    /* 特殊サイズの処理 */
+    $special__size__select.change(function () {
+        $form__area02.addClass("viv");
+        pos02 = $form__area02.offset().top;
+        jQuery("html,body").animate({ scrollTop: pos02 }, '500');
     });
-
-    $("#control__num input").change(function () {
-        jQuery('#form__area02').addClass("viv");
-        jQuery("html,body").animate({ scrollTop: pos03 + 80 }, '500');
-
-
+    /* 管理番号を入力した後の処理 */
+    $control__num__input.change(function () {
+        $form__area02.addClass("viv");
+        pos02 = $form__area02.offset().top;
+        jQuery("html,body").animate({ scrollTop: pos02 }, '500');
     });
-
-    $("#format > input").change(function () {
-        jQuery('#form__area03').addClass("viv");
+    /* バナータイプ */
+    $format__radios.change(function () {
+        $form__area03.addClass("viv");
+        pos03 = $form__area03.offset().top;
+        jQuery("html,body").animate({ scrollTop: pos03 }, '500');
+    });
+    /* 納期 */
+    $limit__radios.change(function () {
+        $form__area04.addClass("viv");
+        pos04 = $form__area04.offset().top;
         jQuery("html,body").animate({ scrollTop: pos04 }, '500');
     });
-
-    $("#limit > input").change(function () {
-        jQuery('#form__area04').addClass("viv");
-        jQuery('#form__area05').addClass("viv");
-
-        jQuery("html,body").animate({ scrollTop: pos06 }, '500');
+    /* データ納品 */
+    $data__radios.change(function () {
+        $form__area05.addClass("viv");
+        pos05 = $form__area05.offset().top;
+        $("html,body").animate({ scrollTop: pos05 }, '500');
     });
-
-    /* $("#instruction textarea").change(function () {
-        $('#form__area05').addClass("viv");
+    /* 実績を公開 */
+    $publish__radios.change(function () {
+        $form__area06.addClass("viv");
+        pos06 = $form__area06.offset().top;
         $("html,body").animate({ scrollTop: pos06 }, '500');
-    });
-
-    $("input[type='file']").change(function () {
-        $('#form__area05').addClass("viv");
-        $("html,body").animate({ scrollTop: pos06 }, '500');
-    }); */
-
-    $("#data input").change(function () {
-        $('#form__area06').addClass("viv");
-        $("html,body").animate({ scrollTop: pos07 }, '500');
-    });
-
-    $("#publish input").change(function () {
-        $('#form__area07').addClass("viv");
-        $("html,body").animate({ scrollTop: pos08 }, '500');
     });
 
 
@@ -426,63 +615,59 @@ $(function () {
 jQuery(function () {
 
     //バナータイプのラベルテキスト取得からTABLEへ出力
-    jQuery("#size__select > input").change(function () {
+    $size__select__radios.change(function () {
         var size01out = jQuery("#output__type");
+        size01out.text("");
         size01out.addClass("bla");
         //リサイズ依頼を選択
-        if (jQuery('[value="S%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
-            size01out.text("");
+        if ($sizeS.prop('checked')) {
             size01out.text("Sサイズ");
         }
 
         //特殊サイズを選択
-        if (jQuery('[value="M%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
-            size01out.text("");
+        if ($sizeM.prop('checked')) {
             size01out.text("Mサイズ");
         }
         //リサイズ依頼を選択
-        if (jQuery('[value="L%E3%82%B5%E3%82%A4%E3%82%BA"]').prop('checked')) {
-            size01out.text("");
+        if ($sizeL.prop('checked')) {
             size01out.text("Lサイズ");
         }
 
         //特殊サイズを選択
-        if (jQuery('[value="SNS%E7%94%A8%E3%83%BB%E3%83%96%E3%83%AD%E3%82%B0%E7%94%A8%E3%83%98%E3%83%83%E3%83%80%E3%83%BC"]').prop('checked')) {
-            size01out.text("");
-            size01out.text("SNS用・ブログ用ヘッダー");
+        if ($sns.prop('checked')) {
+            size01out.html("SNS用・ブログ用<br>ヘッダー");
         }
         //リサイズ依頼を選択
-        if (jQuery('[value="%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E4%BE%9D%E9%A0%BC"]').prop('checked')) {
-            size01out.text("");
+        if ($resize__banner.prop('checked')) {
             size01out.text("リサイズ依頼");
         }
 
         //特殊サイズを選択
-        if (jQuery('[value="%E3%81%9D%E3%81%AE%E4%BB%96"]').prop('checked')) {
-            size01out.text("");
+        if ($movie__banner.prop('checked')) {
+            size01out.html("動画サイト用<br>サムネイル");
+        }
+
+        //特殊サイズを選択
+        if ($special__banner.prop('checked')) {
             size01out.text("特殊サイズ");
         }
     });
     //オプション選択のラベルテキスト取得TABLEへ出力
 
-    jQuery('#limit > input').change(function () {
+    $limit__radios.change(function () {
         var size01out = jQuery("#output__option");
+        size01out.text("");
         size01out.addClass("bla");
 
-
-        if (jQuery('[value="1%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
-            size01out.text("");
+        if ($1day.prop('checked')) {
             size01out.text("1営業日");
         }
 
-
-        if (jQuery('[value="2%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
-            size01out.text("");
+        if ($2day.prop('checked')) {
             size01out.text("2営業日");
         }
 
-        if (jQuery('[value="3%E6%97%A5%E5%96%B6%E6%A5%AD%E6%97%A5"]').prop('checked')) {
-            size01out.text("");
+        if ($3day.prop('checked')) {
             size01out.text("3営業日");
         }
 
@@ -490,18 +675,14 @@ jQuery(function () {
 
     //オプション選択のラベルテキスト取得TABLEへ出力
 
-    jQuery('#publish > input').change(function () {
+    $publish__radios.change(function () {
         var size01out = jQuery("#output__publish");
+        size01out.text("");
         size01out.addClass("bla");
-
-        if (jQuery('[value="%E5%85%AC%E9%96%8BOK"]').prop('checked')) {
-            size01out.text("");
+        if ($publish__ok.prop('checked')) {
             size01out.text("公開OK");
         }
-
-
-        if (jQuery('[value="%E5%85%AC%E9%96%8BNG"]').prop('checked')) {
-            size01out.text("");
+        if ($publish__ng.prop('checked')) {
             size01out.text("公開NG");
         }
     });
@@ -547,27 +728,27 @@ jQuery(function () {
     btn.on("click", function () {
         //クリックしたボタンのVALを取得
         var value = jQuery(this).val();
-        //スクロールポイント取得
-        var pos = jQuery("#banner6").offset().top;
         //すでに特殊サイズのオプションが選択されていたら選択を一番上にする、料金加算を防ぐ
         var size01out = jQuery("#output__type");
         size01out.text("リサイズ依頼");
         size01out.addClass("bla");
         jQuery('#select1 #option1').prop('selected', 'true');
         //特殊サイズが開いていたら閉じる
-        jQuery('#special__size').removeClass("viv");
+        $special__size.removeClass("viv");
         //管理番号をチェック
-        jQuery('#size__select > .radio5').prop('checked', 'true');
+        $special__banner.prop('checked', 'true');
         //管理番号入力エリア表示
-        jQuery("#control__num").addClass("viv");
+        $control__num.addClass("viv");
         //次の要素も開く
-        jQuery("#form__area02").addClass("viv");
+        $form__area02.addClass("viv");
+        //スクロールポイント取得
+        pos02_01 = $control__num.offset().top;
         //スクロールする
-        jQuery("html,body").animate({ scrollTop: pos }, '1000');
+        jQuery("html,body").animate({ scrollTop: pos02_01 }, '1000');
         //テキストフォーカスさせる
-        $("input[name*='%E7%AE%A1%E7%90%86%E7%95%AA%E5%8F%B7']").focus();
+        $text__input.focus();
         //クリックしたボタンの管理番号を入力、そしてテキストに値が入った瞬間にkeyupイベントを発生させる
-        jQuery("#control__num > div > .text__input1").val(value).keyup();
+        $text__input.val(value).keyup();
         return false;
 
     });
