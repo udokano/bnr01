@@ -16,7 +16,7 @@ $(document).ready(function() {
 	var host = location.hostname;
 	//$(".ajax-file-upload-container").appendTo("#js-upload-container");
 	$("#fileuploader").uploadFile({
-		url: "<?php echo esc_url( home_url( '/' ) ); ?>/fileup/upload02.php",
+		url: "<?php echo esc_url( home_url( '/' ) ); ?>fileup/upload02.php",
 		fileName: "myfile",
 		showDelete: true,
 		maxFileCount: 3,

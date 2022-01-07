@@ -40,7 +40,7 @@
 </script>
 <!-- <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/price.js?var=1.3.2"></script> -->
 <script
-	src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/lib/jquery-file-upload.js?<?php echo filemtime( get_stylesheet_directory() . '/lib/js/jquery-file-upload.js' ); ?>">
+	src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/lib/jquery-file-upload.js?<?php echo filemtime( get_stylesheet_directory() . '/js/lib/jquery-file-upload.js' ); ?>">
 </script>
 <?php endif; ?>
 

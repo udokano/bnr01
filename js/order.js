@@ -263,7 +263,7 @@ $("input[name='依頼方法']").on("change", function () {
         }
         //URLにサブディレクトリが存在する（本番環境）の場合
         else {
-            var changeUrl = urlArray[0] + "//" + urlArray[2] + urlArray[3] + "?item=item-leave#js-item-area";
+            var changeUrl = urlArray[0] + "//" + urlArray[2] + '/' + urlArray[3] + "?item=item-leave#js-item-area";
         }
         window.open(changeUrl, "_blank");
     }
