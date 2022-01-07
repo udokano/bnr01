@@ -27,26 +27,32 @@ Template Name: 制作実績
 <!-- 絞り込み検索のチェックフィールド -->
 
  <input type="checkbox" id="search" class="u-all-hidden p-search-check">
-  <label for="search" class="p-search-ttl">制作実績の絞り込み</label>
+  <label for="search" class="p-search-ttl">制作実績を絞り込む</label>
 
 <div class="p-search-area">
+	 <form action="<?php echo esc_url( home_url( '/' ) ); ?>works" method="get">
 	   <div class="p-bnr-type-out">
 	<!-- バナータイプで絞り込み -->
 		  <h3 class="p-search-out__ttl">バナータイプを選択</h3>
 		  <ul class="p-bnr-type">
-		  <?php $bnr = $_POST['sort_bnr_type']; ?>
+		  <?php
+			$bnr = $_REQUEST['sort_bnr_type'];
+			?>
+
 		  <?php
 			$bnr_types = get_terms(
 				'bnr_type',
 				array(
-					'hide_empty' => false,
+					'hide_empty' => true,
 					'orderby'    => 'slug',
 				)
 			);
 			foreach ( $bnr_types as $bnr_type ) :
 				$checked = '';
-				if ( $bnr_type->slug === $bnr ) {
-					$checked = 'checked';
+				if ( ! empty( $bnr ) ) {
+					if ( in_array( $bnr_type->slug, $bnr, true ) ) {
+						$checked = 'checked';
+					}
 				}
 				?>
 			<li class="p-bnr-type__item">
@@ -62,9 +68,10 @@ Template Name: 制作実績
 
 	<!-- 業界で絞り込み!! -->
 	<div class="p-search-out">
+
 			<h3 class="p-search-out__ttl">業界を選択</h3>
 			<ul class="p-bnr-industry">
-			  <?php $industry = $_POST['sort_industry']; ?>
+			  <?php $industry = $_REQUEST['sort_industry']; ?>
 			  <?php
 				$bnr_industrys = get_terms(
 					'industry',
@@ -75,8 +82,10 @@ Template Name: 制作実績
 				);
 				foreach ( $bnr_industrys as $bnr_industry ) :
 					$checked = '';
-					if ( $bnr_industry->slug === $bnr ) {
-						$checked = 'checked';
+					if ( ! empty( $industry ) ) {
+						if ( in_array( $bnr_industry->slug, $industry, true ) ) {
+							$checked = 'checked';
+						}
 					}
 					?>
 				  <li class="p-bnr-industry__item">
@@ -92,11 +101,14 @@ Template Name: 制作実績
 				<?php endforeach; ?>
 			</ul>
 			<!-- ./業界で絞り込み -->
+
+			<button type="submit" class="p-submit-search">絞り込む</button>
 	  </div>
 	  <!-- ./out -->
+
   </div>
   <!-- ./area -->
-
+ </form>
 </div>
 
 
@@ -105,11 +117,18 @@ Template Name: 制作実績
 
 
 		<p id="out" class="u-all-hidden"></p>
-		  <ul class="p-works js-add-works">
+		  <div class="p-works js-add-works are-images-unloaded">
 			<!-- 記事を読み込みするファイル -->
+			 <div class="grid__col-sizer"></div>
+  <div class="grid__gutter-sizer"></div>
 			<?php get_template_part( 'inc/ajax-list' ); ?>
-		  </ul>
+
+
+
+		  </div>
+
 		<div class="p-loading js-loading"></div>
+
 
 
 
@@ -152,116 +171,53 @@ Template Name: 制作実績
 
 </section>
 
-
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js"></script>
+
 <script>
 
-$(function () {
- /*  var $demo1 = $('.js-add-works');   //コンテナとなる要素を指定
+//-------------------------------------//
+// init Masonry
 
-
-	//Masonryの関数↓
-	$('.js-add-works').masonry({              //オプション指定箇所
-	  itemSelector: '.js-banner-item',   //コンテンツを指定
-	  //columnWidth: 205,           //カラム幅を設定
-	  fitWidth: true,             //コンテンツ数に合わせ親の幅を自動調整
-	});
-
-	 jQuery(window).on("scroll",".js-banner-item" ,function() {
-		  //Masonryの関数↓
-	  $demo1.masonry({              //オプション指定箇所
-	  itemSelector: '.js-banner-item',   //コンテンツを指定
-	  //columnWidth: 205,           //カラム幅を設定
-	  fitWidth: true,             //コンテンツ数に合わせ親の幅を自動調整
-	});
-
-	  }); */
-
-
-		/* var min_width = 480;
-			//画面幅による分岐と imagesLoaded, Masonry のイニシャライズを関数化
-			function masonry_update() {
-
-			  if ( $('html').width() < min_width ) {
-				$container.masonry('destroy');
-			  } else {
-
-				  $container.masonry({
-					itemSelector: '.js-banner-item',　
-					isFitWidth: true,　
-					columnWidth: 180
-				  });
-
-			  }
-			}
- var $container = $('.js-add-works');
-  $container.masonry({
-					itemSelector: '.js-banner-item',　
-					isFitWidth: true,　
-					columnWidth: 180
-				  });
-
-
-			  jQuery(window).on("scroll", function() {
-				 $container.masonry('reloadItems');
-
-			  }); */
- /* $('.js-add-works').masonry({              //オプション指定箇所
-	  itemSelector: '.js-banner-item',   //コンテンツを指定
-	  //columnWidth: 205,           //カラム幅を設定
-	  //fitWidth: true,             //コンテンツ数に合わせ親の幅を自動調整
-	});
-			  // 画像の親要素を取得・変数定義（この場合クラスを利用）
-var target = document.getElementsByClassName('js-add-works');
-
-// DOM操作時の動き
-function yaritaiKoto() {
-  //ここにやりたい処理
-	 setTimeout(function(){
-	  $('.js-add-works').masonry('reloadItems');
-	  $('.js-add-works').masonry({              //オプション指定箇所
-		  itemSelector: '.js-banner-item',   //コンテンツを指定
-		  //columnWidth: 205,           //カラム幅を設定
-		  //fitWidth: true,             //コンテンツ数に合わせ親の幅を自動調整
+function yaritaiKoto(){
+	var $container = $('.js-add-works');
+	$container.imagesLoaded(function(){
+		$container.masonry({
+			itemSelector: '.js-banner-item',
+			isFitWidth: false,
+			isAnimated: true,
+			isResizable: true
 		});
-	  //$('.js-add-works').masonry('destroy');
-		 },1000);
-}
-
-// MutationObserver登録・処理
-var mo = new MutationObserver(yaritaiKoto);
-
- //だいたいの場合でtargetは複数あって、配列になるのでeachで処理
-$(target).each( function(i){
-  mo.observe(target[i], {childList: true}); // 子要素が登録されたら
-});
-
-$("input[type='checkbox']").on("change",function(){
-  $('.js-add-works').masonry('destroy');
-		$('.js-add-works').masonry({              //オプション指定箇所
-	  itemSelector: '.js-banner-item',   //コンテンツを指定
-	  //columnWidth: 205,           //カラム幅を設定
-	  //fitWidth: true,             //コンテンツ数に合わせ親の幅を自動調整
 	});
-});
- */
+	$container.infinitescroll({
+		navSelector  : '.pagination',
+		nextSelector : '.pagination a.next',
+		itemSelector : '.js-banner-item',
+		loading: {
+			finishedMsg: '',
+			img: null,
+			msgText: "読み込み中"
+		}
+	},
+	function( newElements ) {
+		var $newElems = $( newElements );
+		$newElems.imagesLoaded(function(){
+			$container.masonry( 'appended', $newElems, true );
+		});
+	});
+};
 
-  });
+
+yaritaiKoto();
 
 
 
-</script>
-
-
-
-
-<script>
 
 
 jQuery(function() {
-  let documentHeight = jQuery(document).height();
-  let windowsHeight = jQuery(window).height();
+
   let url = "<?php echo esc_url( get_template_directory_uri() ); ?>/inc/ajax-list.php"; /* ご自身のURL */
   let postNumNow = 6; /* 最初に表示されている記事数 */
   let postNumAdd = 3; /* 追加する記事数 */
@@ -273,10 +229,11 @@ jQuery(function() {
   var vals01 = "";
   var vals02 = "";
 
-  console.log(documentHeight);
-  console.log(windowsHeight);
 
 
+/*
+
+一旦非表示
   $(".js-sort").on("change",function(){
 	 vals01 = []; // 配列を定義
 	checkedSIze = $(".js-bnr-type:checked").each(function() {
@@ -289,7 +246,7 @@ jQuery(function() {
 		postNumNow = 0;
 		  console.log(vals01);
 		jQuery.ajax({
-		  type: "POST",
+		  type: "GET",
 		  url: url,
 		  data: {
 			//post_num_now: false,
@@ -298,54 +255,15 @@ jQuery(function() {
 			sort_industry: vals02,
 		  },
 		  success: function(response) {
+
+
 			jQuery(".js-add-works").html(response);
-			documentHeight = jQuery(document).height();
-			postNumNow = postNumNow + 6;
-			console.log(postNumNow);
+			setTimeout( yaritaiKoto(), 2000);
+
 		  }
 		});
-  });
+  }); */
 
-
-  jQuery(window).on("scroll", function() {
-	$("#out").text($(".js-banner-item").length);
-	var itemLength = $(".js-banner-item").length;
-	var showPostCount = $("#out").text(itemLength);
-	var totalPostCount = $(".js-post-count").val();
-	 //console.log($("#out").text());
-	 showPostCount =  $("#out").text();
-	//console.log(totalPostCount);
-	let scrollPosition = windowsHeight + jQuery(window).scrollTop();
-	 //console.log(scrollPosition);
-	if (((documentHeight - scrollPosition) / documentHeight <= 0.05)) {
-	  if (!flag) {
-		 if(showPostCount != totalPostCount){
-		  jQuery(".js-loading").addClass("is-show");
-		flag = true;
-		jQuery.ajax({
-		  type: "POST",
-		  url: url,
-		  data: {
-			post_num_now: postNumNow,
-			post_num_add: postNumAdd,
-			sort_bnr_type:  vals01,
-			sort_industry: vals02,
-		  },
-		  success: function(response) {
-
-			jQuery(".js-add-works").append(response);
-			documentHeight = jQuery(document).height();
-			jQuery(".js-loading").removeClass("is-show");
-			postNumNow = postNumNow + 3;
-			//console.log(!showPostCount === totalPostCount);
-			flag = false;
-		  }
-
-		 });
-		}
-	  }
-	}
-  });
 });
 
 
