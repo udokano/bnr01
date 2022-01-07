@@ -326,12 +326,14 @@ $optionSizeDetail.find("input").on("change", function () {
     if ($("#js-size-1").prop("checked") === true) {
         if (total > 600) {
             alert("縦幅と横幅がSサイズの規定外です!!\n現在の合計サイズ：" + total + "px");
+            $("#js-size-input1, #js-size-input2").val("");
         }
     }
 
     if ($("#js-size-2").prop("checked") === true) {
         if (total < 601 || total > 1000) {
             alert("縦幅と横幅がMサイズの規定外です!!\n現在の合計サイズ：" + total + "px");
+            $("#js-size-input1, #js-size-input2").val("");
         }
 
     }
@@ -339,6 +341,7 @@ $optionSizeDetail.find("input").on("change", function () {
     if ($("#js-size-3").prop("checked") === true) {
         if (total < 1001 || total > 1500) {
             alert("縦幅と横幅がLサイズの規定外です!!\n現在の合計サイズ：" + total + "px");
+            $("#js-size-input1, #js-size-input2").val("");
         }
 
     }
@@ -348,12 +351,14 @@ $optionSizeDetail.find("input").on("change", function () {
         if (selectValue === "Sサイズ") {
             if (total > 600) {
                 alert("縦幅と横幅がSサイズの規定外です!!\n現在の合計サイズ：" + total + "px");
+                $("#js-size-input1, #js-size-input2").val("");
             }
         }
 
         if (selectValue === "Mサイズ") {
             if (total < 601 || total > 1000) {
                 alert("縦幅と横幅がMサイズの規定外です!!\n現在の合計サイズ：" + total + "px");
+                $("#js-size-input1, #js-size-input2").val("");
             }
 
         }
@@ -361,6 +366,7 @@ $optionSizeDetail.find("input").on("change", function () {
         if (selectValue === "Lサイズ") {
             if (total < 1001 || total > 1500) {
                 alert("縦幅と横幅がLサイズの規定外です!!\n現在の合計サイズ：" + total + "px");
+                $("#js-size-input1, #js-size-input2").val("");
             }
 
         }
@@ -402,7 +408,7 @@ window.addEventListener("scroll", function () {
     // スクロール量の取得
     let scrollValue = window.pageYOffset;
 
-    console.log("現在のスクロール" + scrollValue);
+    //console.log("現在のスクロール" + scrollValue);
 
     // 要素の取得
     let scrollEle = document.getElementById("js-scroll-fixed");
@@ -433,28 +439,51 @@ window.addEventListener("scroll", function () {
 
     let documentHeight = document.documentElement.clientHeight;
 
+    var doch = $(document).innerHeight();
+
     let bottomPos = documentHeight + windowHeight;
 
-    console.log("終わらせたい要素のtop値" + bottomPos);
+    let botsstom = doch - windowHeight;
+
+    //console.log("終わらせたい要素のtop値" + bottomPos);
 
     //console.log("画面の高さを取得" +windowHeight);
 
     //console.log(scrollValue - windowHeight);
     //console.log(eldEleHight);
+    //console.log(scrollValue);
+    //console.log(botsstom);
 
-
+    //startEle.style.marginTop = scrollEle.clientHeight + 'px';
     // 条件設定
-    if (scrollValue + windowHeight > scrollTop) {
+    if (scrollValue > 400) {
         scrollEle.classList.add("is-fixed");
+        startEle.style.marginTop = 0;
 
-        if (bottomPos === scrollValue) {
-            scrollEle.classList.remove("is-fixed");
+        if (scrollValue > 1100) {
+            startEle.style.marginTop = scrollEle.clientHeight + 'px';
+        }
+
+
+
+
+        if (botsstom <= scrollValue + 180) {
+            if (scrollEle.classList.contains("is-fixed")) {
+                scrollEle.classList.remove("is-fixed");
+                startEle.style.marginTop = 0;
+            }
         }
     }
 
+
+
     else {
         scrollEle.classList.remove("is-fixed");
+        startEle.style.marginTop = 0;
     }
+
+
+
 
 });
 

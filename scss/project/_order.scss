@@ -376,6 +376,7 @@
     border: 1px solid #e1e1e1;
     height: rem(77);
     background-color: #fff;
+    transition: .555s ease-in-out;
 
     @include flex;
 

@@ -24,7 +24,7 @@ $(function () {
     });
 
     //console.log(dateArray);
-    console.log(offDayArray);
+    //console.log(offDayArray);
 
     var $i = -1;
     var $j = 0;
@@ -48,7 +48,7 @@ $(function () {
     var nowDay = ("0" + dateObj.getDate()).slice(-2);
     //console.log(fullYear + "-" + month + "-" + nowDay);
     var nowFulDate = fullYear + "-" + month + "-" + nowDay;
-    console.log(nowFulDate);
+    //console.log(nowFulDate);
 
     //納期日(2日後)を取得
 
@@ -62,7 +62,7 @@ $(function () {
     var limitDate = ("0" + limitDayObj.getDate()).slice(-2);
 
     var limitFulDate = "";
-    console.log(limitFulDate);
+    //console.log(limitFulDate);
 
     var tf = "";
 
@@ -92,7 +92,7 @@ $(function () {
 
         limitDate = ("0" + limitDayObj.getDate()).slice(-2);
         limitFulDate = limitDayFullYear + "-" + limitDayMonth + "-" + limitDate;
-        console.log("条件分岐の前" + limitFulDate);
+        //console.log("条件分岐の前" + limitFulDate);
 
         //$i++;
 
@@ -178,7 +178,7 @@ $(function () {
         if ($.inArray(limitFulDate, offDayArray) != -1) {
             //console.log("OFFDAY");
             //console.log(sampleDay);
-            console.log("祝日：" + limitFulDate);
+            //console.log("祝日：" + limitFulDate);
             $j++;
             $i++;
         }
@@ -186,15 +186,15 @@ $(function () {
 
         //二日後の日付が営業日になったら
         else if ($.inArray(limitFulDate, dateArray) != -1) {
-            console.log("TEST");
+            //console.log("TEST");
             $j++;
             //$j = $j + 1;
-            console.log("J:" + $j);
+            //console.log("J:" + $j);
             $d++;
             $i++;
             $i = $i + $d;
 
-            console.log("I:" + $i);
+            //console.log("I:" + $i);
         }
 
         else {
